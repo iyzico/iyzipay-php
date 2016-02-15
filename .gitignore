@@ -1,0 +1,32 @@
+# VI generated files
+.*.sw[a-z]
+*.un~
+Session.vim
+.DS_Store
+
+# IntelliJ Idea generated files
+*.ipr
+*.iws
+.idea
+*.iml
+*plugin.xml
+
+# Eclipse generated files
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*~.nib
+.classpath
+.settings/
+.loadpath
+.git/
+build/
+.buildpath
+
+# Composer specific files
+composer.lock
+#composer.phar // TODO: Remove after release
+vendor/*
