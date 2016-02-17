@@ -2,9 +2,11 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class ConnectThreeDSSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_auth_threeds();
         $this->should_initialize_threeds_with_card();
         $this->should_initialize_threeds_with_card_token();
@@ -47,7 +49,8 @@ class ConnectThreeDSSample
         print_r($response);
     }
 
-    public function should_initialize_threeds_with_card_token() {
+    public function should_initialize_threeds_with_card_token()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -79,7 +82,8 @@ class ConnectThreeDSSample
         print_r($response);
     }
 
-    public function should_auth_threeds() {
+    public function should_auth_threeds()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

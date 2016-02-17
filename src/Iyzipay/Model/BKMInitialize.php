@@ -13,7 +13,8 @@ class BKMInitialize extends IyzipayResource
 {
     private $htmlContent;
 
-    public static function create(CreateBKMInitializeRequest $request, Options $options) {
+    public static function create(CreateBKMInitializeRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/bkm/initialize/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return BKMInitializeMapper::create()->map(new BKMInitialize(), JsonBuilder::jsonDecode($rawResult));
     }

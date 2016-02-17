@@ -3,13 +3,17 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
-class BootstrapApprovalSample {
-    function run() {
+
+class BootstrapApprovalSample
+{
+    function run()
+    {
         $this->should_approve_payment_item();
         $this->should_disapprove_payment_item();
     }
 
-    public function should_approve_payment_item() {
+    public function should_approve_payment_item()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -29,7 +33,8 @@ class BootstrapApprovalSample {
         print_r($approval);
     }
 
-    public function should_disapprove_payment_item() {
+    public function should_disapprove_payment_item()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

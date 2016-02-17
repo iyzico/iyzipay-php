@@ -15,7 +15,7 @@ class InstallmentInfoMapper extends IyzipayResourceMapper
     {
         parent::map($installment, $jsonResult);
 
-        if(isset($jsonResult->installmentDetails)) {
+        if (isset($jsonResult->installmentDetails)) {
             $installment->setInstallmentDetails($jsonResult->installmentDetails);
         }
         return $installment;

@@ -16,7 +16,8 @@ class CheckoutFormInitialize extends IyzipayResource
     private $tokenExpireTime;
     private $paymentPageUrl;
 
-    public static function create(CreateCheckoutFormInitializeRequest $request, Options $options) {
+    public static function create(CreateCheckoutFormInitializeRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/initialize/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return CheckoutFormInitializeMapper::create()->map(new CheckoutFormInitialize(), JsonBuilder::jsonDecode($rawResult));
     }

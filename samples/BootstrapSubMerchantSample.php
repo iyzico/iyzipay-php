@@ -2,9 +2,11 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class BootstrapSubMerchantSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_create_limited_company_sub_merchant();
         $this->should_create_personal_sub_merchant();
         $this->should_create_private_sub_merchant();
@@ -14,7 +16,8 @@ class BootstrapSubMerchantSample
         $this->should_update_private_sub_merchant();
     }
 
-    public function should_create_personal_sub_merchant() {
+    public function should_create_personal_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -43,7 +46,8 @@ class BootstrapSubMerchantSample
         print_r($response);
     }
 
-    public function should_create_private_sub_merchant() {
+    public function should_create_private_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -72,7 +76,8 @@ class BootstrapSubMerchantSample
         print_r($response);
     }
 
-    public function should_create_limited_company_sub_merchant() {
+    public function should_create_limited_company_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -102,7 +107,8 @@ class BootstrapSubMerchantSample
         print_r($response);
     }
 
-    public function should_update_personal_sub_merchant() {
+    public function should_update_personal_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -130,7 +136,8 @@ class BootstrapSubMerchantSample
         print_r($response);
     }
 
-    public function should_update_private_sub_merchant() {
+    public function should_update_private_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -158,7 +165,8 @@ class BootstrapSubMerchantSample
         print_r($response);
     }
 
-    public function should_update_limited_company_sub_merchant() {
+    public function should_update_limited_company_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -186,7 +194,8 @@ class BootstrapSubMerchantSample
         print_r($response);
     }
 
-    public function should_retrieve_sub_merchant() {
+    public function should_retrieve_sub_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

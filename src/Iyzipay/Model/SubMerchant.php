@@ -13,20 +13,20 @@ use Iyzipay\Request\UpdateSubMerchantRequest;
 
 class SubMerchant extends IyzipayResource
 {
-    private  $name;
-    private  $email;
-    private  $gsmNumber;
-    private  $address;
-    private  $iban;
-    private  $taxOffice;
-    private  $contactName;
-    private  $contactSurname;
-    private  $legalCompanyTitle;
-    private  $subMerchantExternalId;
-    private  $identityNumber;
-    private  $taxNumber;
-    private  $subMerchantType;
-    private  $subMerchantKey;
+    private $name;
+    private $email;
+    private $gsmNumber;
+    private $address;
+    private $iban;
+    private $taxOffice;
+    private $contactName;
+    private $contactSurname;
+    private $legalCompanyTitle;
+    private $subMerchantExternalId;
+    private $identityNumber;
+    private $taxNumber;
+    private $subMerchantType;
+    private $subMerchantKey;
 
     public static function create(CreateSubMerchantRequest $request, Options $options)
     {

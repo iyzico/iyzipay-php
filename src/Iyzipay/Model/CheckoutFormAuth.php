@@ -13,7 +13,8 @@ class CheckoutFormAuth extends Payment
     private $token;
     private $callbackUrl;
 
-    public static function retrieve(RetrieveCheckoutFormAuthRequest $request, Options $options) {
+    public static function retrieve(RetrieveCheckoutFormAuthRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/auth/ecom/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return CheckoutFormAuthMapper::create()->map(new CheckoutFormAuth(), JsonBuilder::jsonDecode($rawResult));
     }

@@ -14,7 +14,8 @@ class ConnectBKMAuth extends ConnectPayment
     private $callbackUrl;
     private $paymentStatus;
 
-    public static function retrieve(RetrieveBKMAuthRequest $request, Options $options) {
+    public static function retrieve(RetrieveBKMAuthRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/bkm/auth/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return ConnectBKMAuthMapper::create()->map(new ConnectBKMAuth(), JsonBuilder::jsonDecode($rawResult));
     }

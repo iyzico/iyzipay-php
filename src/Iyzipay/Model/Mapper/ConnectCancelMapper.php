@@ -15,13 +15,13 @@ class ConnectCancelMapper extends IyzipayResourceMapper
     {
         parent::map($connect, $jsonResult);
 
-        if(isset($jsonResult->paymentId)) {
+        if (isset($jsonResult->paymentId)) {
             $connect->setPaymentId($jsonResult->paymentId);
         }
-        if(isset($jsonResult->price)) {
+        if (isset($jsonResult->price)) {
             $connect->setPrice($jsonResult->price);
         }
-        if(isset($jsonResult->convertorName)) {
+        if (isset($jsonResult->convertorName)) {
             $connect->setConnnectorName($jsonResult->convertorName);
         }
         return $connect;

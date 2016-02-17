@@ -11,13 +11,14 @@ class CancelMapper extends IyzipayResourceMapper
         return new BinNumberMapper();
     }
 
-    public function map(Cancel $cancel, $jsonResult) {
+    public function map(Cancel $cancel, $jsonResult)
+    {
         parent::map($cancel, $jsonResult);
 
-        if(isset($jsonResult->paymentId)) {
+        if (isset($jsonResult->paymentId)) {
             $cancel->setPaymentId($jsonResult->paymentId);
         }
-        if(isset($jsonResult->price)) {
+        if (isset($jsonResult->price)) {
             $cancel->setPrice($jsonResult->price);
         }
         return $cancel;

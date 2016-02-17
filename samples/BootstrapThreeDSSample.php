@@ -2,14 +2,18 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class BootstrapThreeDSSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_auth_threeds();
         $this->should_create_market_place_physical_and_virtual_product_with_three_ds_payment();
         $this->should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment();
     }
-    public function should_create_market_place_physical_and_virtual_product_with_three_ds_payment() {
+
+    public function should_create_market_place_physical_and_virtual_product_with_three_ds_payment()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -112,7 +116,8 @@ class BootstrapThreeDSSample
         print_r($response);
     }
 
-    public function should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment() {
+    public function should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -209,7 +214,8 @@ class BootstrapThreeDSSample
         print_r($response);
     }
 
-    public function should_auth_threeds() {
+    public function should_auth_threeds()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

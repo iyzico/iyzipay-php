@@ -2,9 +2,11 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class BootstrapRetrieveTransactionsSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_retrieve_bounced_bank_transfers();
         $this->should_retrieve_payout_completed_transactions();
     }

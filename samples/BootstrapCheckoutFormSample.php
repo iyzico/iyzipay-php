@@ -2,13 +2,17 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class CheckoutFormSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_initialize_checkout_form();
         $this->should_retrieve_checkout_form_auth();
     }
-    public function should_initialize_checkout_form() {
+
+    public function should_initialize_checkout_form()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -36,7 +40,8 @@ class CheckoutFormSample
         print_r($response);
     }
 
-    public function should_retrieve_checkout_form_auth() {
+    public function should_retrieve_checkout_form_auth()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

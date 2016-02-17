@@ -11,38 +11,39 @@ class CardMapper extends IyzipayResourceMapper
         return new CardMapper();
     }
 
-    public function map(Card $card, $jsonResult) {
-        if(isset($jsonResult->externalId)) {
+    public function map(Card $card, $jsonResult)
+    {
+        if (isset($jsonResult->externalId)) {
             $card->setExternalId($jsonResult->externalId);
         }
-        if(isset($jsonResult->email)) {
+        if (isset($jsonResult->email)) {
             $card->setEmail($jsonResult->email);
         }
-        if(isset($jsonResult->cardUserKey)) {
+        if (isset($jsonResult->cardUserKey)) {
             $card->setCardUserKey($jsonResult->cardUserKey);
         }
-        if(isset($jsonResult->cardToken)) {
+        if (isset($jsonResult->cardToken)) {
             $card->setCardToken($jsonResult->cardToken);
         }
-        if(isset($jsonResult->cardAlias)) {
+        if (isset($jsonResult->cardAlias)) {
             $card->setCardAlias($jsonResult->cardAlias);
         }
-        if(isset($jsonResult->binNumber)) {
+        if (isset($jsonResult->binNumber)) {
             $card->setBinNumber($jsonResult->binNumber);
         }
-        if(isset($jsonResult->cardType)) {
+        if (isset($jsonResult->cardType)) {
             $card->setCardType($jsonResult->cardType);
         }
-        if(isset($jsonResult->cardAssociation)) {
+        if (isset($jsonResult->cardAssociation)) {
             $card->setCardAssociation($jsonResult->cardAssociation);
         }
-        if(isset($jsonResult->cardFamily)) {
+        if (isset($jsonResult->cardFamily)) {
             $card->setCardFamily($jsonResult->cardFamily);
         }
-        if(isset($jsonResult->cardBankCode)) {
+        if (isset($jsonResult->cardBankCode)) {
             $card->setCardBankCode($jsonResult->cardBankCode);
         }
-        if(isset($jsonResult->cardBankName)) {
+        if (isset($jsonResult->cardBankName)) {
             $card->setCardBankName($jsonResult->cardBankName);
         }
         return $card;

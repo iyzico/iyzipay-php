@@ -11,11 +11,12 @@ class CardListMapper extends IyzipayResourceMapper
         return new CardListMapper();
     }
 
-    public function map(CardList $cardList, $jsonResult) {
-        if(isset($jsonResult->cardUserKey)) {
+    public function map(CardList $cardList, $jsonResult)
+    {
+        if (isset($jsonResult->cardUserKey)) {
             $cardList->setCardUserKey($jsonResult->cardUserKey);
         }
-        if(isset($jsonResult->cardDetails)) {
+        if (isset($jsonResult->cardDetails)) {
             $cardList->setCardDetails($jsonResult->cardDetails);
         }
         return $cardList;

@@ -4,7 +4,7 @@ namespace Iyzipay\Model;
 
 class PaymentChannel
 {
-    const MOBILE= "mobile";
+    const MOBILE = "mobile";
     const WEB = "web";
     const MOBILE_WEB = "mobile_web";
     const MOBILE_IOS = "mobile_ios";

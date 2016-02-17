@@ -15,10 +15,10 @@ class PaymentPostAuthMapper extends IyzipayResourceMapper
     {
         parent::map($auth, $jsonResult);
 
-        if(isset($jsonResult->paymentId)) {
+        if (isset($jsonResult->paymentId)) {
             $auth->setPaymentId($jsonResult->paymentId);
         }
-        if(isset($jsonResult->price)) {
+        if (isset($jsonResult->price)) {
             $auth->setPrice($jsonResult->price);
         }
 

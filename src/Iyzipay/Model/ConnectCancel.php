@@ -15,7 +15,8 @@ class ConnectCancel extends IyzipayResource
     private $price;
     private $connnectorName;
 
-    public static function create(CreateCancelRequest $request, Options $options) {
+    public static function create(CreateCancelRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/cancel", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return ConnectCancelMapper::create()->map(new ConnectCancel(), JsonBuilder::jsonDecode($rawResult));
     }

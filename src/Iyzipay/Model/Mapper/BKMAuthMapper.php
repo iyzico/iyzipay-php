@@ -16,10 +16,10 @@ class BKMAuthMapper extends IyzipayResourceMapper
     {
         parent::map($BKMAuth, $jsonResult);
 
-        if(isset($jsonResult->token)) {
+        if (isset($jsonResult->token)) {
             $BKMAuth->setToken($jsonResult->token);
         }
-        if(isset($jsonResult->callbackUrl)) {
+        if (isset($jsonResult->callbackUrl)) {
             $BKMAuth->setCallbackUrl($jsonResult->callbackUrl);
         }
         return $BKMAuth;

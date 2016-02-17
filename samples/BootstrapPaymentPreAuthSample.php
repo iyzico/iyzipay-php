@@ -2,14 +2,17 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class BootstrapPaymentPreAuthSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_create_market_place_non_threeds_physical_and_virtual_product_payment();
         $this->should_create_physical_and_virtual_listing_or_subscription_payment();
     }
 
-    public function should_create_market_place_non_threeds_physical_and_virtual_product_payment() {
+    public function should_create_market_place_non_threeds_physical_and_virtual_product_payment()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -111,7 +114,8 @@ class BootstrapPaymentPreAuthSample
         print_r($response);
     }
 
-    public function should_create_physical_and_virtual_listing_or_subscription_payment() {
+    public function should_create_physical_and_virtual_listing_or_subscription_payment()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

@@ -1,14 +1,17 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
-class BootstrapBKMSample {
-    public function run() {
-        $this->should_initialize_bkm_express();
-        $this->should_retrieve_bkm_auth();
-    }
 
-    public function should_initialize_bkm_express() {
+$sample = new BootstrapBKMSample();
+$sample->should_initialize_bkm_express();
+$sample->should_retrieve_bkm_auth();
+
+class BootstrapBKMSample
+{
+    public function should_initialize_bkm_express()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -35,7 +38,8 @@ class BootstrapBKMSample {
         print_r($response);
     }
 
-    public function should_retrieve_bkm_auth() {
+    public function should_retrieve_bkm_auth()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

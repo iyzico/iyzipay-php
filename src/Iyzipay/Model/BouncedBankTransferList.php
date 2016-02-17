@@ -13,7 +13,8 @@ class BouncedBankTransferList extends IyzipayResource
 {
     private $bankTransfers;
 
-    public static function retrieve(RetrieveTransactionsRequest $request, Options $options) {
+    public static function retrieve(RetrieveTransactionsRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/reporting/settlement/bounced", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return BouncedBankTransferListMapper::create()->map(new BinNumber(), JsonBuilder::jsonDecode($rawResult));
     }

@@ -2,14 +2,17 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class ConnectPaymentAuthSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_pay_with_card();
         $this->should_pay_with_card_token();
     }
 
-    public function should_pay_with_card() {
+    public function should_pay_with_card()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -36,7 +39,8 @@ class ConnectPaymentAuthSample
         print_r($response);
     }
 
-    public function should_pay_with_card_token() {
+    public function should_pay_with_card_token()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

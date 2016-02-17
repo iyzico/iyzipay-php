@@ -12,7 +12,8 @@ class ConnectBKMInitialize extends IyzipayResource
 {
     private $htmlContent;
 
-    public static function create(CreateConnectBKMInitializeRequest $request, Options $options) {
+    public static function create(CreateConnectBKMInitializeRequest $request, Options $options)
+    {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/bkm/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return ConnectBKMInitializeMapper::create()->map(new ConnectBKMInitialize(), JsonBuilder::jsonDecode($rawResult));
     }

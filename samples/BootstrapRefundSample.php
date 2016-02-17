@@ -2,14 +2,17 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class BootstrapRefundSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_refund();
         $this->should_refund_charged_from_merchant();
     }
 
-    public function should_refund() {
+    public function should_refund()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -31,7 +34,8 @@ class BootstrapRefundSample
         print_r($response);
     }
 
-    public function should_refund_charged_from_merchant() {
+    public function should_refund_charged_from_merchant()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

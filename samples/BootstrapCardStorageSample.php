@@ -2,16 +2,19 @@
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
+
 class BootstrapCardStorageSample
 {
-    public function run() {
+    public function run()
+    {
         $this->should_create_card();
         $this->should_create_user_and_create_card();
         $this->should_delete_card();
         $this->should_retrieve_cards();
     }
 
-    public function should_create_user_and_create_card() {
+    public function should_create_user_and_create_card()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -33,7 +36,8 @@ class BootstrapCardStorageSample
         print_r($response);
     }
 
-    public function should_create_card() {
+    public function should_create_card()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -54,7 +58,8 @@ class BootstrapCardStorageSample
         print_r($response);
     }
 
-    public function should_delete_card() {
+    public function should_delete_card()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
@@ -75,7 +80,8 @@ class BootstrapCardStorageSample
         print_r($response);
     }
 
-    public function should_retrieve_cards() {
+    public function should_retrieve_cards()
+    {
         # create client configuration class
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");

@@ -19,7 +19,8 @@ class CreateConnectPaymentRequest extends Request
     private $paymentCard;
     private $connectorName;
 
-    public function CreateConnectPaymentRequest() {
+    public function CreateConnectPaymentRequest()
+    {
         $this->setInstallment(CreateConnectPaymentRequest::$SINGLE_INSTALLMENT);
     }
 
