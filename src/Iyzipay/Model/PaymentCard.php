@@ -125,7 +125,7 @@ class PaymentCard extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("cardHolderName", $this->getCardHolderName())
             ->append("cardNumber", $this->getCardNumber())
             ->append("expireYear", $this->getExpireYear())

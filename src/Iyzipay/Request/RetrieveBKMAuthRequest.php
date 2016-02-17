@@ -29,7 +29,7 @@ class RetrieveBKMAuthRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("token", $this->getToken())
             ->getRequestString();

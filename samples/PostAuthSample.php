@@ -9,7 +9,8 @@ $sample->should_post_auth();
 
 class PostAuthSample extends Sample
 {
-    public function should_post_auth() {
+    public function should_post_auth()
+    {
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentPostAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);

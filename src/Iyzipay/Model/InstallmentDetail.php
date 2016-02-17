@@ -124,7 +124,7 @@ class InstallmentDetail
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("binNumber", $this->getBinNumber())
             ->appendPrice("price", $this->getPrice())
             ->append("cardType", $this->getCardType())

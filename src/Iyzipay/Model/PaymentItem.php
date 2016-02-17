@@ -232,7 +232,7 @@ class PaymentItem
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("itemId", $this->getItemId())
             ->append("paymentTransactionId", $this->getPaymentTransactionId())
             ->append("transactionStatus", $this->getTransactionStatus())

@@ -53,7 +53,7 @@ class CreateCrossBookingRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("subMerchantKey", $this->getSubMerchantKey())
             ->appendPrice("price", $this->getPrice())

@@ -3,8 +3,8 @@
 namespace Iyzipay\Request;
 
 use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
 use Iyzipay\Request;
+use Iyzipay\RequestStringBuilder;
 
 class RetrieveBinNumberRequest extends Request
 {
@@ -29,7 +29,7 @@ class RetrieveBinNumberRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("binNumber", $this->getBinNumber())
             ->getRequestString();

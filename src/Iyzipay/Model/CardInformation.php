@@ -77,7 +77,7 @@ class CardInformation extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("cardAlias", $this->getCardAlias())
             ->append("cardNumber", $this->getCardNumber())
             ->append("expireYear", $this->getExpireYear())

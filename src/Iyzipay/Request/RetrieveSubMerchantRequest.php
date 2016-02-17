@@ -29,7 +29,7 @@ class RetrieveSubMerchantRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("subMerchantExternalId", $this->getSubMerchantExternalId())
             ->getRequestString();

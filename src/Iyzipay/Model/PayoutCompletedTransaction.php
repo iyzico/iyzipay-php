@@ -64,7 +64,7 @@ class PayoutCompletedTransaction
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("paymentTransactionId", $this->getPaymentTransactionId())
             ->append("payoutAmount", $this->getPayoutAmount())
             ->append("payoutType", $this->getPayoutType())

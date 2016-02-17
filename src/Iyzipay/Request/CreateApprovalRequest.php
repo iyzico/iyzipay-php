@@ -29,7 +29,7 @@ class CreateApprovalRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("paymentTransactionId", $this->getPaymentTransactionId())
             ->getRequestString();
