@@ -4,7 +4,7 @@ namespace Iyzipay\Model;
 
 class PaymentGroup
 {
-    const PRODUCT = "product";
-    const LISTING = "listing";
-    const SUBSCRIPTION = "subscription";
+    const PRODUCT = "PRODUCT";
+    const LISTING = "LISTING";
+    const SUBSCRIPTION = "SUBSCRIPTION";
 }

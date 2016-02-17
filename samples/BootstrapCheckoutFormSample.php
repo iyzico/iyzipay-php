@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class CheckoutFormSample
-{
-    public function run()
-    {
-        $this->should_initialize_checkout_form();
-        $this->should_retrieve_checkout_form_auth();
-    }
+$sample = new CheckoutFormSample();
+$sample->should_initialize_checkout_form();
+$sample->should_retrieve_checkout_form_auth();
 
+class CheckoutFormSample extends Sample
+{
     public function should_initialize_checkout_form()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateCheckoutFormInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -34,7 +26,7 @@ class CheckoutFormSample
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         # make request
-        $response = Iyzipay\Model\CheckoutFormInitialize::create($request, $options);
+        $response = Iyzipay\Model\CheckoutFormInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -42,12 +34,6 @@ class CheckoutFormSample
 
     public function should_retrieve_checkout_form_auth()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\RetrieveCheckoutFormAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -55,7 +41,7 @@ class CheckoutFormSample
         $request->setToken("myToken");
 
         # make request
-        $response = Iyzipay\Model\CheckoutFormAuth::retrieve($request, $options);
+        $response = Iyzipay\Model\CheckoutFormAuth::retrieve($request, parent::options());
 
         # print response
         print_r($response);

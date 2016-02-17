@@ -16,7 +16,7 @@ class BKMAuth extends Payment
     public static function retrieve(RetrieveBKMAuthRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/bkm/auth/ecom/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BKMAuthMapper::create()->map(new BinNumber(), JsonBuilder::jsonDecode($rawResult));
+        return BKMAuthMapper::create()->map(new BKMAuth(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getToken()

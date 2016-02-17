@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapConnectBKMSample
-{
-    public function run()
-    {
-        $this->should_initialize_bkm_express();
-        $this->should_retrieve_bkm_auth();
-    }
+$sample = new ConnectBKMSample();
+$sample->should_initialize_bkm_express();
+$sample->should_retrieve_bkm_auth();
 
+class ConnectBKMSample extends Sample
+{
     public function should_initialize_bkm_express()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateConnectBKMInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -32,7 +24,7 @@ class BootstrapConnectBKMSample
         $request->setInstallmentDetails($this->prepareInstallmentdetails());
 
         # make request
-        $response = Iyzipay\Model\ConnectBKMInitialize::create($request, $options);
+        $response = Iyzipay\Model\ConnectBKMInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -40,12 +32,6 @@ class BootstrapConnectBKMSample
 
     public function should_retrieve_bkm_auth()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\RetrieveBKMAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -53,7 +39,7 @@ class BootstrapConnectBKMSample
         $request->setToken("mockToken1453392332672");
 
         # make request
-        $response = Iyzipay\Model\ConnectBKMAuth::retrieve($request, $options);
+        $response = Iyzipay\Model\ConnectBKMAuth::retrieve($request, parent::options());
 
         # print response
         print_r($response);

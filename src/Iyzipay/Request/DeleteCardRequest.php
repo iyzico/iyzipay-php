@@ -42,6 +42,7 @@ class DeleteCardRequest extends Request
     public function toPKIRequestString()
     {
         return RequestStringBuilder::newInstance()
+            ->appendSuper(parent::toPKIRequestString())
             ->append("cardUserKey", $this->getCardUserKey())
             ->append("cardToken", $this->getCardToken())
             ->getRequestString();

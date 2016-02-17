@@ -2,10 +2,11 @@
 
 namespace Iyzipay\Model;
 
+use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
 
-class PaymentCard
+class PaymentCard extends BaseModel
 {
     private $cardHolderName;
     private $cardNumber;

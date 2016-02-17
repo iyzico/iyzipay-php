@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapRefundSample
-{
-    public function run()
-    {
-        $this->should_refund();
-        $this->should_refund_charged_from_merchant();
-    }
+$sample = new RefundSample();
+$sample->should_refund();
+$sample->should_refund_charged_from_merchant();
 
+class RefundSample extends Sample
+{
     public function should_refund()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateRefundRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -28,7 +20,7 @@ class BootstrapRefundSample
         $request->setIp("127.0.0.1");
 
         # make request
-        $response = Iyzipay\Model\Refund::create($request, $options);
+        $response = Iyzipay\Model\Refund::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -36,12 +28,6 @@ class BootstrapRefundSample
 
     public function should_refund_charged_from_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateRefundRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -51,7 +37,7 @@ class BootstrapRefundSample
         $request->setIp("127.0.0.1");
 
         # make request
-        $response = Iyzipay\Model\RefundChargedFromMerchant::create($request, $options);
+        $response = Iyzipay\Model\RefundChargedFromMerchant::create($request, parent::options());
 
         # print response
         print_r($response);

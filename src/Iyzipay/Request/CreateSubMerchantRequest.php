@@ -174,6 +174,7 @@ class CreateSubMerchantRequest extends Request
     public function toPKIRequestString()
     {
         return RequestStringBuilder::newInstance()
+            ->appendSuper(parent::toPKIRequestString())
             ->append("name", $this->getName())
             ->append("email", $this->getEmail())
             ->append("gsmNumber", $this->getGsmNumber())

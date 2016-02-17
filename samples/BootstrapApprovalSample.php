@@ -4,22 +4,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapApprovalSample
-{
-    function run()
-    {
-        $this->should_approve_payment_item();
-        $this->should_disapprove_payment_item();
-    }
+$sample = new ApprovalSample();
+$sample->should_approve_payment_item();
+$sample->should_disapprove_payment_item();
 
+class ApprovalSample extends Sample
+{
     public function should_approve_payment_item()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateApprovalRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -27,20 +19,14 @@ class BootstrapApprovalSample
         $request->setPaymentTransactionId("2");
 
         # make request
-        $approval = \Iyzipay\Model\Approval::create($request, $options);
+        $response = \Iyzipay\Model\Approval::create($request, parent::options());
 
         # print result
-        print_r($approval);
+        print_r($response);
     }
 
     public function should_disapprove_payment_item()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateApprovalRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -48,9 +34,9 @@ class BootstrapApprovalSample
         $request->setPaymentTransactionId("2");
 
         # make request
-        $disapproval = \Iyzipay\Model\Disapproval::create($request, $options);
+        $response = \Iyzipay\Model\Disapproval::create($request, parent::options());
 
         # print result
-        print_r($disapproval);
+        print_r($response);
     }
 }

@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapPaymentPreAuthSample
-{
-    public function run()
-    {
-        $this->should_create_market_place_non_threeds_physical_and_virtual_product_payment();
-        $this->should_create_physical_and_virtual_listing_or_subscription_payment();
-    }
+$sample = new PaymentPreAuthSample();
+$sample->should_create_market_place_non_threeds_physical_and_virtual_product_payment();
+$sample->should_create_physical_and_virtual_listing_or_subscription_payment();
 
+class PaymentPreAuthSample extends Sample
+{
     public function should_create_market_place_non_threeds_physical_and_virtual_product_payment()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -108,7 +100,7 @@ class BootstrapPaymentPreAuthSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\PaymentPreAuth::create($request, $options);
+        $response = Iyzipay\Model\PaymentPreAuth::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -116,12 +108,6 @@ class BootstrapPaymentPreAuthSample
 
     public function should_create_physical_and_virtual_listing_or_subscription_payment()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -206,7 +192,7 @@ class BootstrapPaymentPreAuthSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\PaymentPreAuth::create($request, $options);
+        $response = Iyzipay\Model\PaymentPreAuth::create($request, parent::options());
 
         # print response
         print_r($response);

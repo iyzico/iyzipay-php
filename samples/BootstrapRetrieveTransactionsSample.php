@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapRetrieveTransactionsSample
-{
-    public function run()
-    {
-        $this->should_retrieve_bounced_bank_transfers();
-        $this->should_retrieve_payout_completed_transactions();
-    }
+$sample = new RetrieveTransactionsSample();
+$sample->should_retrieve_payout_completed_transactions();
+$sample->should_retrieve_bounced_bank_transfers();
 
+class RetrieveTransactionsSample extends Sample
+{
     public function should_retrieve_payout_completed_transactions()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\RetrieveTransactionsRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -26,7 +18,7 @@ class BootstrapRetrieveTransactionsSample
         $request->setDate("2016-01-22 19:13:00");
 
         # make request
-        $response = Iyzipay\Model\PayoutCompletedTransactionList::create($request, $options);
+        $response = Iyzipay\Model\PayoutCompletedTransactionList::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -34,12 +26,6 @@ class BootstrapRetrieveTransactionsSample
 
     public function should_retrieve_bounced_bank_transfers()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\RetrieveTransactionsRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -47,7 +33,7 @@ class BootstrapRetrieveTransactionsSample
         $request->setDate("2016-01-22 19:13:00");
 
         # make request
-        $response = Iyzipay\Model\BouncedBankTransferList::retrieve($request, $options);
+        $response = Iyzipay\Model\BouncedBankTransferList::retrieve($request, parent::options());
 
         # print response
         print_r($response);

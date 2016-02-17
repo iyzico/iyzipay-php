@@ -13,6 +13,8 @@ class CardMapper extends IyzipayResourceMapper
 
     public function map(Card $card, $jsonResult)
     {
+        parent::map($card, $jsonResult);
+
         if (isset($jsonResult->externalId)) {
             $card->setExternalId($jsonResult->externalId);
         }

@@ -6,14 +6,17 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-# create client configuration class
-$options = new \Iyzipay\Options();
-$options->setApiKey("api key");
-$options->setSecretKey("secret key");
-$options->setBaseUrl("https://stg.iyzipay.com");
+$sample = new ApiTestSample();
+$sample->should_test_api();
 
-# create request class
-$response = ApiTest::retrieve($options);
+class ApiTestSample extends Sample
+{
+    public function should_test_api()
+    {
+        # create request class
+        $response = ApiTest::retrieve(parent::options());
 
-#print response
-print_r($response);
+        #print response
+        print_r($response);
+    }
+}
