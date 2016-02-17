@@ -233,7 +233,7 @@ class Payment extends IyzipayResource
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendPrice("price", $this->getPrice())
             ->appendPrice("paidPrice", $this->getPaidPrice())
             ->append("installment", $this->getInstallment())

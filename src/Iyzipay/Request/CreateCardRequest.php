@@ -65,7 +65,7 @@ class CreateCardRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("externalId", $this->getExternalId())
             ->append("email", $this->getEmail())

@@ -8,7 +8,8 @@ $sample->should_retrieve_installment_info();
 
 class InstallmentSample extends Sample
 {
-    public function should_retrieve_installment_info() {
+    public function should_retrieve_installment_info()
+    {
         # create request class
         $request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);

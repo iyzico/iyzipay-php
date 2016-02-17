@@ -41,7 +41,7 @@ class BKMInstallment extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("bankId", $this->getBankId())
             ->appendArray("installmentPrices", $this->getInstallmentPrices())
             ->getRequestString();

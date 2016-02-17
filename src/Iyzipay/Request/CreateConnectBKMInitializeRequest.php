@@ -113,7 +113,7 @@ class CreateConnectBKMInitializeRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("connectorName", $this->getConnectorName())
             ->appendPrice("price", $this->getPrice())

@@ -41,7 +41,7 @@ class CreateCancelRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("paymentId", $this->getPaymentId())
             ->append("ip", $this->getIp())

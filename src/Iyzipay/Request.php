@@ -37,7 +37,7 @@ class Request extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("locale", $this->getLocale())
             ->append("conversationId", $this->getConversationId())
             ->getRequestString();

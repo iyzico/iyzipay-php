@@ -2,7 +2,6 @@
 
 namespace Iyzipay\Model;
 
-
 use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
@@ -78,7 +77,7 @@ class Address extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("address", $this->getAddress())
             ->append("zipCode", $this->getZipCode())
             ->append("contactName", $this->getContactName())

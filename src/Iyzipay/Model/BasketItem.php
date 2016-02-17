@@ -113,7 +113,7 @@ class BasketItem extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("id", $this->getId())
             ->appendPrice("price", $this->getPrice())
             ->append("name", $this->getName())

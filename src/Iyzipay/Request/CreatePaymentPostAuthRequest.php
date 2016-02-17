@@ -41,7 +41,7 @@ class CreatePaymentPostAuthRequest extends Request
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("paymentId", $this->getPaymentId())
             ->appendPrice("ip", $this->getIp())

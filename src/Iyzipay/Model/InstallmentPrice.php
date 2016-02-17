@@ -52,7 +52,7 @@ class InstallmentPrice
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendPrice("installmentPrice", $this->getInstallmentPrice())
             ->appendPrice("totalPrice", $this->getTotalPrice())
             ->append("installmentNumber", $this->getInstallmentNumber())

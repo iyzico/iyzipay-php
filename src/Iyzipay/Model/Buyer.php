@@ -173,7 +173,7 @@ class Buyer extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("id", $this->getId())
             ->append("name", $this->getName())
             ->append("surname", $this->getSurname())

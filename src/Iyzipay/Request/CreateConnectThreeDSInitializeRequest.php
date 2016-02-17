@@ -29,7 +29,7 @@ class CreateConnectThreeDSInitializeRequest extends CreateConnectPaymentRequest
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("callbackUrl", $this->getCallbackUrl())
             ->getRequestString();

@@ -11,7 +11,7 @@ class RequestStringBuilder
         $this->requestString = $requestString;
     }
 
-    public static function newInstance()
+    public static function create()
     {
         return new RequestStringBuilder("");
     }

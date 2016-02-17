@@ -41,7 +41,7 @@ class BKMInstallmentPrice extends BaseModel
 
     public function toPKIRequestString()
     {
-        return RequestStringBuilder::newInstance()
+        return RequestStringBuilder::create()
             ->append("installmentNumber", $this->getInstallmentNumber())
             ->appendPrice("totalPrice", $this->getTotalPrice())
             ->getRequestString();
