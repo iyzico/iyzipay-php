@@ -30,6 +30,7 @@ class RetrieveCheckoutFormAuthRequest extends Request
     public function toPKIRequestString()
     {
         return RequestStringBuilder::newInstance()
+            ->appendSuper(parent::toPKIRequestString())
             ->append("token", $this->getToken())
             ->getRequestString();
     }

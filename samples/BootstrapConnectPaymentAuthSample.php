@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class ConnectPaymentAuthSample
-{
-    public function run()
-    {
-        $this->should_pay_with_card();
-        $this->should_pay_with_card_token();
-    }
+$sample = new ConnectPaymentAuthSample();
+$sample->should_pay_with_card_token();
+$sample->should_pay_with_card();
 
+class ConnectPaymentAuthSample extends Sample
+{
     public function should_pay_with_card()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateConnectPaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -33,7 +25,7 @@ class ConnectPaymentAuthSample
         $request->setPaymentCard($this->newPaymentCard());
 
         # make request
-        $response = Iyzipay\Model\ConnectPaymentAuth::create($request, $options);
+        $response = Iyzipay\Model\ConnectPaymentAuth::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -41,12 +33,6 @@ class ConnectPaymentAuthSample
 
     public function should_pay_with_card_token()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateConnectPaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -65,7 +51,7 @@ class ConnectPaymentAuthSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $response = Iyzipay\Model\ConnectPaymentAuth::create($request, $options);
+        $response = Iyzipay\Model\ConnectPaymentAuth::create($request, parent::options());
 
         # print response
         print_r($response);

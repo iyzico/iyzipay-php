@@ -4,7 +4,7 @@ namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\Model\ConnectBKMAuth;
 
-class ConnectBKMAuthMapper
+class ConnectBKMAuthMapper extends ConnectPaymentMapper
 {
     public static function create()
     {
@@ -13,6 +13,8 @@ class ConnectBKMAuthMapper
 
     public function map(ConnectBKMAuth $initialize, $jsonResult)
     {
+        parent::map($initialize, $jsonResult);
+
         if (isset($jsonResult->token)) {
             $initialize->setToken($jsonResult->token);
         }

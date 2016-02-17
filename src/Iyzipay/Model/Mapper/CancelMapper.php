@@ -8,7 +8,7 @@ class CancelMapper extends IyzipayResourceMapper
 {
     public static function create()
     {
-        return new BinNumberMapper();
+        return new CancelMapper();
     }
 
     public function map(Cancel $cancel, $jsonResult)

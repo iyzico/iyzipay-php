@@ -3,27 +3,19 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapSubMerchantSample
-{
-    public function run()
-    {
-        $this->should_create_limited_company_sub_merchant();
-        $this->should_create_personal_sub_merchant();
-        $this->should_create_private_sub_merchant();
-        $this->should_retrieve_sub_merchant();
-        $this->should_update_limited_company_sub_merchant();
-        $this->should_update_personal_sub_merchant();
-        $this->should_update_private_sub_merchant();
-    }
+$sample = new SubMerchantSample;
+$sample->should_create_personal_sub_merchant();
+$sample->should_create_private_sub_merchant();
+$sample->should_create_limited_company_sub_merchant();
+$sample->should_update_personal_sub_merchant();
+$sample->should_update_private_sub_merchant();
+$sample->should_update_limited_company_sub_merchant();
+$sample->should_retrieve_sub_merchant();
 
+class SubMerchantSample extends Sample
+{
     public function should_create_personal_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -40,7 +32,7 @@ class BootstrapSubMerchantSample
         $request->setIdentityNumber("1234567890");
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::create($request, $options);
+        $response = Iyzipay\Model\SubMerchant::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -48,12 +40,6 @@ class BootstrapSubMerchantSample
 
     public function should_create_private_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -70,7 +56,7 @@ class BootstrapSubMerchantSample
         $request->setIdentityNumber("1234567890");
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::create($request, $options);
+        $response = Iyzipay\Model\SubMerchant::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -78,12 +64,6 @@ class BootstrapSubMerchantSample
 
     public function should_create_limited_company_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -101,7 +81,7 @@ class BootstrapSubMerchantSample
 
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::create($request, $options);
+        $response = Iyzipay\Model\SubMerchant::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -109,17 +89,11 @@ class BootstrapSubMerchantSample
 
     public function should_update_personal_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\UpdateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantKey("y3XZJBW9Sx2h2UZXgL6VMJbPCZY=");
+        $request->setSubMerchantKey("subMerchantKey");
         $request->setIban("TR630006200027700006678204");
         $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         $request->setContactName("Hakan");
@@ -130,7 +104,7 @@ class BootstrapSubMerchantSample
         $request->setIdentityNumber("31300864726");
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::update($request, $options);
+        $response = Iyzipay\Model\SubMerchant::update($request, parent::options());
 
         # print response
         print_r($response);
@@ -138,17 +112,11 @@ class BootstrapSubMerchantSample
 
     public function should_update_private_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\UpdateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantKey("sub merchant key");
+        $request->setSubMerchantKey("subMerchantKey");
         $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         $request->setTaxOffice("Kadıköy V.D.");
         $request->setLegalCompanyTitle("Hakan Erdoğan Bilişim Hizmetleri");
@@ -159,7 +127,7 @@ class BootstrapSubMerchantSample
         $request->setIdentityNumber("31300864726");
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::update($request, $options);
+        $response = Iyzipay\Model\SubMerchant::update($request, parent::options());
 
         # print response
         print_r($response);
@@ -167,17 +135,11 @@ class BootstrapSubMerchantSample
 
     public function should_update_limited_company_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\UpdateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantKey("B7PfwgaGY/pdNVZBRrfArqxHjUQ=");
+        $request->setSubMerchantKey("subMerchantKey");
         $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
         $request->setTaxOffice("Kadıköy V.D.");
         $request->setTaxNumber("9261877");
@@ -188,7 +150,7 @@ class BootstrapSubMerchantSample
         $request->setIban("TR180006200119000006672315");
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::update($request, $options);
+        $response = Iyzipay\Model\SubMerchant::update($request, parent::options());
 
         # print response
         print_r($response);
@@ -196,12 +158,6 @@ class BootstrapSubMerchantSample
 
     public function should_retrieve_sub_merchant()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\RetrieveSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -209,7 +165,7 @@ class BootstrapSubMerchantSample
         $request->setSubMerchantExternalId("AS49224");
 
         # make request
-        $response = Iyzipay\Model\SubMerchant::retrieve($request, $options);
+        $response = Iyzipay\Model\SubMerchant::retrieve($request, parent::options());
 
         # print response
         print_r($response);

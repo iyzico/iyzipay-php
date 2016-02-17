@@ -2,10 +2,11 @@
 
 namespace Iyzipay\Model;
 
+use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
 
-class BasketItem
+class BasketItem extends BaseModel
 {
     private $id;
     private $price;

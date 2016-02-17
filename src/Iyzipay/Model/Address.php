@@ -3,7 +3,11 @@
 namespace Iyzipay\Model;
 
 
-class Address
+use Iyzipay\BaseModel;
+use Iyzipay\JsonBuilder;
+use Iyzipay\RequestStringBuilder;
+
+class Address extends BaseModel
 {
     private $address;
     private $zipCode;
@@ -59,5 +63,27 @@ class Address
     public function setCountry($country)
     {
         $this->country = $country;
+    }
+
+    public function getJsonObject()
+    {
+        return JsonBuilder::create()
+            ->add("address", $this->getAddress())
+            ->add("zipCode", $this->getZipCode())
+            ->add("contactName", $this->getContactName())
+            ->add("city", $this->getCity())
+            ->add("country", $this->getCountry())
+            ->getObject();
+    }
+
+    public function toPKIRequestString()
+    {
+        return RequestStringBuilder::newInstance()
+            ->append("address", $this->getAddress())
+            ->append("zipCode", $this->getZipCode())
+            ->append("contactName", $this->getContactName())
+            ->append("city", $this->getCity())
+            ->append("country", $this->getCountry())
+            ->getRequestString();
     }
 }

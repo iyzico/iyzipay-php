@@ -3,22 +3,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapPaymentAuthSample
-{
-    public function run()
-    {
-        $this->should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription();
-        $this->should_create_payment_with_virtual_product_for_market_place();
-    }
+$sample = new PaymentAuthSample();
+$sample->should_create_payment_with_virtual_product_for_market_place();
+$sample->should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription();
 
+class PaymentAuthSample extends Sample
+{
     public function should_create_payment_with_virtual_product_for_market_place()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -36,7 +28,7 @@ class BootstrapPaymentAuthSample
         $request->setBasketItems($this->newBasketItems());
 
         # make request
-        $response = \Iyzipay\Model\PaymentAuth::create($request, $options);
+        $response = \Iyzipay\Model\PaymentAuth::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -44,12 +36,6 @@ class BootstrapPaymentAuthSample
 
     public function should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -134,7 +120,7 @@ class BootstrapPaymentAuthSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\PaymentAuth::create($request, $options);
+        $response = Iyzipay\Model\PaymentAuth::create($request, parent::options());
 
         # print response
         print_r($response);

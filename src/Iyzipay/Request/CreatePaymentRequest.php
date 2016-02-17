@@ -151,10 +151,10 @@ class CreatePaymentRequest extends Request
             ->add("basketId", $this->getBasketId())
             ->add("paymentGroup", $this->getPaymentGroup())
             ->add("paymentSource", $this->getPaymentSource())
-            ->addArray("paymentCard", $this->getPaymentCard())
-            ->addArray("buyer", $this->getBuyer())
-            ->addArray("shippingAddress", $this->getShippingAddress())
-            ->addArray("billingAddress", $this->getBillingAddress())
+            ->add("paymentCard", $this->getPaymentCard())
+            ->add("buyer", $this->getBuyer())
+            ->add("shippingAddress", $this->getShippingAddress())
+            ->add("billingAddress", $this->getBillingAddress())
             ->addArray("basketItems", $this->getBasketItems())
             ->getObject();
     }
@@ -170,10 +170,10 @@ class CreatePaymentRequest extends Request
             ->append("basketId", $this->getBasketId())
             ->append("paymentGroup", $this->getPaymentGroup())
             ->append("paymentSource", $this->getPaymentSource())
-            ->appendArray("paymentCard", $this->getPaymentCard())
-            ->appendArray("buyer", $this->getBuyer())
-            ->appendArray("shippingAddress", $this->getShippingAddress())
-            ->appendArray("billingAddress", $this->getBillingAddress())
+            ->append("paymentCard", $this->getPaymentCard())
+            ->append("buyer", $this->getBuyer())
+            ->append("shippingAddress", $this->getShippingAddress())
+            ->append("billingAddress", $this->getBillingAddress())
             ->appendArray("basketItems", $this->getBasketItems())
             ->getRequestString();
     }

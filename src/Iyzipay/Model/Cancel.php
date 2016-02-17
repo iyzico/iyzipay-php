@@ -17,7 +17,7 @@ class Cancel extends IyzipayResource
     public static function create(CreateCancelRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/cancel", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CancelMapper::create()->map(new CardList(), JsonBuilder::jsonDecode($rawResult));
+        return CancelMapper::create()->map(new Cancel(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getPaymentId()

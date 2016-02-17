@@ -3,23 +3,15 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class BootstrapThreeDSSample
-{
-    public function run()
-    {
-        $this->should_auth_threeds();
-        $this->should_create_market_place_physical_and_virtual_product_with_three_ds_payment();
-        $this->should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment();
-    }
+$sample = new ThreeDSSample();
+$sample->should_create_market_place_physical_and_virtual_product_with_three_ds_payment();
+$sample->should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment();
+$sample->should_auth_threeds();
 
+class ThreeDSSample extends Sample
+{
     public function should_create_market_place_physical_and_virtual_product_with_three_ds_payment()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateThreeDSInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -110,7 +102,7 @@ class BootstrapThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\ThreeDSInitialize::create($request, $options);
+        $response = Iyzipay\Model\ThreeDSInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -118,12 +110,6 @@ class BootstrapThreeDSSample
 
     public function should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateThreeDSInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -208,7 +194,7 @@ class BootstrapThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\ThreeDSInitialize::create($request, $options);
+        $response = Iyzipay\Model\ThreeDSInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -216,12 +202,6 @@ class BootstrapThreeDSSample
 
     public function should_auth_threeds()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateThreeDSAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -230,7 +210,7 @@ class BootstrapThreeDSSample
         $request->setConversationData("conversation data");
 
         # make request
-        $response = Iyzipay\Model\ThreeDSAuth::create($request, $options);
+        $response = Iyzipay\Model\ThreeDSAuth::create($request, parent::options());
 
         # print response
         print_r($response);

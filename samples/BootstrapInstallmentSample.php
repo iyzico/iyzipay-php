@@ -3,21 +3,23 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-# create client configuration class
-$options = new \Iyzipay\Options();
-$options->setApiKey("api key");
-$options->setSecretKey("secret key");
-$options->setBaseUrl("https://stg.iyzipay.com");
+$sample = new InstallmentSample();
+$sample->should_retrieve_installment_info();
 
-# create request class
-$request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
-$request->setLocale(\Iyzipay\Model\Locale::TR);
-$request->setConversationId("123456789");
-$request->setBinNumber("554960");
-$request->setPrice("1");
+class InstallmentSample extends Sample
+{
+    public function should_retrieve_installment_info() {
+        # create request class
+        $request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
+        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setBinNumber("554960");
+        $request->setPrice("1");
 
-# make request
-$response = Iyzipay\Model\InstallmentInfo::create($request, $options);
+        # make request
+        $response = Iyzipay\Model\InstallmentInfo::create($request, parent::options());
 
-# print response
-print_r($response);
+        # print response
+        print_r($response);
+    }
+}

@@ -2,10 +2,11 @@
 
 namespace Iyzipay\Model;
 
+use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
 
-class BKMInstallment
+class BKMInstallment extends BaseModel
 {
     private $bankId;
     private $installmentPrices;
@@ -34,7 +35,7 @@ class BKMInstallment
     {
         return JsonBuilder::create()
             ->add("bankId", $this->getBankId())
-            ->add("installmentPrices", $this->getInstallmentPrices())
+            ->addArray("installmentPrices", $this->getInstallmentPrices())
             ->getObject();
     }
 
@@ -42,7 +43,7 @@ class BKMInstallment
     {
         return RequestStringBuilder::newInstance()
             ->append("bankId", $this->getBankId())
-            ->append("installmentPrices", $this->getInstallmentPrices())
+            ->appendArray("installmentPrices", $this->getInstallmentPrices())
             ->getRequestString();
     }
 }

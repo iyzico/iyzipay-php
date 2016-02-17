@@ -4,20 +4,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-$sample = new BootstrapBKMSample();
+$sample = new BKMSample();
 $sample->should_initialize_bkm_express();
 $sample->should_retrieve_bkm_auth();
 
-class BootstrapBKMSample
+class BKMSample extends Sample
 {
     public function should_initialize_bkm_express()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateBKMInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -32,7 +26,7 @@ class BootstrapBKMSample
         $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
 
         # make request
-        $response = \Iyzipay\Model\BKMInitialize::create($request, $options);
+        $response = \Iyzipay\Model\BKMInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -40,19 +34,13 @@ class BootstrapBKMSample
 
     public function should_retrieve_bkm_auth()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\RetrieveBKMAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setToken("mockToken1453382198111");
 
-        $result = Iyzipay\Model\BKMAuth::retrieve($request, $options);
+        $result = Iyzipay\Model\BKMAuth::retrieve($request, parent::options());
 
         print_r($result);
     }

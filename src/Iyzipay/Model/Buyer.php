@@ -2,10 +2,11 @@
 
 namespace Iyzipay\Model;
 
+use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
 
-class Buyer
+class Buyer extends BaseModel
 {
     private $id;
     private $name;

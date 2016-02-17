@@ -1,25 +1,18 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class ConnectThreeDSSample
-{
-    public function run()
-    {
-        $this->should_auth_threeds();
-        $this->should_initialize_threeds_with_card();
-        $this->should_initialize_threeds_with_card_token();
-    }
+$sample = new ConnectThreeDSSample();
+$sample->should_initialize_threeds_with_card();
+$sample->should_initialize_threeds_with_card_token();
+$sample->should_auth_threeds();
 
+class ConnectThreeDSSample extends Sample
+{
     public function should_initialize_threeds_with_card()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateConnectThreeDSInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -43,7 +36,7 @@ class ConnectThreeDSSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $response = Iyzipay\Model\ConnectThreeDSInitialize::create($request, $options);
+        $response = Iyzipay\Model\ConnectThreeDSInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -51,12 +44,6 @@ class ConnectThreeDSSample
 
     public function should_initialize_threeds_with_card_token()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateConnectThreeDSInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -76,7 +63,7 @@ class ConnectThreeDSSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $response = Iyzipay\Model\ConnectThreeDSInitialize::create($request, $options);
+        $response = Iyzipay\Model\ConnectThreeDSInitialize::create($request, parent::options());
 
         # print response
         print_r($response);
@@ -84,12 +71,6 @@ class ConnectThreeDSSample
 
     public function should_auth_threeds()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateConnectThreeDSAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
@@ -97,7 +78,7 @@ class ConnectThreeDSSample
         $request->setPaymentId("12345");
 
         # make request
-        $response = Iyzipay\Model\ConnectThreeDsAuth::create($request, $options);
+        $response = \Iyzipay\Model\ConnectThreeDSAuth::create($request, parent::options());
 
         # print response
         print_r($response);
