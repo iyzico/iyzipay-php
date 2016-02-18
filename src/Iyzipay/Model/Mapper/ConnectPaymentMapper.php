@@ -57,6 +57,9 @@ class ConnectPaymentMapper extends IyzipayResourceMapper
         if (isset($jsonResult->paymentTransactionId)) {
             $payment->setPaymentTransactionId($jsonResult->paymentTransactionId);
         }
+        if (isset($jsonResult->connectorName)) {
+            $payment->setConnectorName($jsonResult->connectorName);
+        }
         return $payment;
     }
 }
