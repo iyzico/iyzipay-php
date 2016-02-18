@@ -14,7 +14,6 @@ class ThreeDSAuthMapper extends PaymentMapper
     public function map(ThreeDSAuth $auth, $jsonResult)
     {
         parent::map($auth, $jsonResult);
-
         return $auth;
     }
 }

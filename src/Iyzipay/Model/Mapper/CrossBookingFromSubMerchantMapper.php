@@ -14,7 +14,6 @@ class CrossBookingFromSubMerchantMapper extends IyzipayResourceMapper
     public function map(CrossBookingFromSubMerchant $booking, $jsonResult)
     {
         parent::map($booking, $jsonResult);
-
         return $booking;
     }
 }

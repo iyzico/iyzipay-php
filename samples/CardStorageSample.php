@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -28,10 +29,10 @@ class CardStorageSample extends Sample
         $request->setCard($this->newCard());
 
         # make request
-        $response = \Iyzipay\Model\Card::create($request, parent::options());
-        print $request->toPKIRequestString();
-        # print response
-        print_r($response);
+        $card = \Iyzipay\Model\Card::create($request, parent::options());
+
+        # print result
+        print_r($card);
     }
 
     public function should_create_card()
@@ -44,11 +45,10 @@ class CardStorageSample extends Sample
         $request->setCard($this->newCard());
 
         # make request
-        $response = \Iyzipay\Model\Card::create($request, parent::options());
+        $card = \Iyzipay\Model\Card::create($request, parent::options());
 
-        # print response
-        print $request->toPKIRequestString();
-        print_r($response);
+        # print result
+        print_r($card);
     }
 
     public function should_delete_card()
@@ -61,11 +61,10 @@ class CardStorageSample extends Sample
         $request->setCardUserKey("myCardUserkey");
 
         # make request
-        $response = \Iyzipay\Model\Card::delete($request, parent::options());
+        $card = \Iyzipay\Model\Card::delete($request, parent::options());
 
-        # print response
-        print $request->toPKIRequestString();
-        print_r($response);
+        # print result
+        print_r($card);
     }
 
     public function should_retrieve_cards()
@@ -76,10 +75,10 @@ class CardStorageSample extends Sample
         $request->setCardUserKey("myCardUserKey");
 
         # make request
-        $response = \Iyzipay\Model\CardList::retrieve($request, parent::options());
+        $cardList = \Iyzipay\Model\CardList::retrieve($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($cardList);
     }
 
     private function newCard()

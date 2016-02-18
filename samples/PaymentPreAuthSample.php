@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -63,7 +64,7 @@ class PaymentPreAuthSample extends Sample
         $billingAddress->setZipCode("34742");
         $request->setbillingAddress($billingAddress);
 
-        $basketItems[] = null;
+        $basketItems = array();
         $firstBasketItem = new Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");
@@ -100,10 +101,10 @@ class PaymentPreAuthSample extends Sample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\PaymentPreAuth::create($request, parent::options());
+        $paymentPreAuth = Iyzipay\Model\PaymentPreAuth::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($paymentPreAuth);
     }
 
     public function should_create_physical_and_virtual_listing_or_subscription_payment()
@@ -160,7 +161,7 @@ class PaymentPreAuthSample extends Sample
         $billingAddress->setZipCode("34742");
         $request->setbillingAddress($billingAddress);
 
-        $basketItems[] = null;
+        $basketItems = array();
         $firstBasketItem = new Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Dükkan aboneliği ve katalog");
@@ -192,9 +193,9 @@ class PaymentPreAuthSample extends Sample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\PaymentPreAuth::create($request, parent::options());
+        $paymentPreAuth = Iyzipay\Model\PaymentPreAuth::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($paymentPreAuth);
     }
 }

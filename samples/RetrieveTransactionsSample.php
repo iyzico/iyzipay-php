@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -18,10 +19,10 @@ class RetrieveTransactionsSample extends Sample
         $request->setDate("2016-01-22 19:13:00");
 
         # make request
-        $response = Iyzipay\Model\PayoutCompletedTransactionList::create($request, parent::options());
+        $payoutCompletedTransactionList = Iyzipay\Model\PayoutCompletedTransactionList::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($payoutCompletedTransactionList);
     }
 
     public function should_retrieve_bounced_bank_transfers()
@@ -33,9 +34,9 @@ class RetrieveTransactionsSample extends Sample
         $request->setDate("2016-01-22 19:13:00");
 
         # make request
-        $response = Iyzipay\Model\BouncedBankTransferList::retrieve($request, parent::options());
+        $bouncedBankTransferList = Iyzipay\Model\BouncedBankTransferList::retrieve($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($bouncedBankTransferList);
     }
 }

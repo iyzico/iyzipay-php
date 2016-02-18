@@ -11,10 +11,9 @@ class PaymentPreAuthMapper extends PaymentMapper
         return new PaymentPreAuthMapper();
     }
 
-    public function map(PaymentPreAuth $auth, $jsonResult)
+    public function map(PaymentPreAuth $preAuth, $jsonResult)
     {
-        parent::map($auth, $jsonResult);
-
-        return $auth;
+        parent::map($preAuth, $jsonResult);
+        return $preAuth;
     }
 }

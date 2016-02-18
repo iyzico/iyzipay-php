@@ -20,7 +20,7 @@ class BinNumberSample extends Sample
         # make request
         $binNumber = \Iyzipay\Model\BinNumber::retrieve($request, parent::options());
 
-        # print response
+        # print result
         print_r($binNumber);
     }
 }

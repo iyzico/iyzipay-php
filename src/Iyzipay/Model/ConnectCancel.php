@@ -13,7 +13,7 @@ class ConnectCancel extends IyzipayResource
 {
     private $paymentId;
     private $price;
-    private $connnectorName;
+    private $connectorName;
 
     public static function create(CreateCancelRequest $request, Options $options)
     {
@@ -41,13 +41,13 @@ class ConnectCancel extends IyzipayResource
         $this->price = $price;
     }
 
-    public function getConnnectorName()
+    public function getConnectorName()
     {
-        return $this->connnectorName;
+        return $this->connectorName;
     }
 
-    public function setConnnectorName($connnectorName)
+    public function setConnectorName($connectorName)
     {
-        $this->connnectorName = $connnectorName;
+        $this->connectorName = $connectorName;
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Iyzipay\Model\Mapper;
 
-
 use Iyzipay\Model\BKMAuth;
 
 class BKMAuthMapper extends IyzipayResourceMapper
@@ -12,16 +11,16 @@ class BKMAuthMapper extends IyzipayResourceMapper
         return new BKMAuthMapper();
     }
 
-    public function map(BKMAuth $BKMAuth, $jsonResult)
+    public function map(BKMAuth $auth, $jsonResult)
     {
-        parent::map($BKMAuth, $jsonResult);
+        parent::map($auth, $jsonResult);
 
         if (isset($jsonResult->token)) {
-            $BKMAuth->setToken($jsonResult->token);
+            $auth->setToken($jsonResult->token);
         }
         if (isset($jsonResult->callbackUrl)) {
-            $BKMAuth->setCallbackUrl($jsonResult->callbackUrl);
+            $auth->setCallbackUrl($jsonResult->callbackUrl);
         }
-        return $BKMAuth;
+        return $auth;
     }
 }

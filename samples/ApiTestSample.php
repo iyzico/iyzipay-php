@@ -14,9 +14,9 @@ class ApiTestSample extends Sample
     public function should_test_api()
     {
         # create request class
-        $response = ApiTest::retrieve(parent::options());
+        $iyzipayResource = ApiTest::retrieve(parent::options());
 
-        #print response
-        print_r($response);
+        #print result
+        print_r($iyzipayResource);
     }
 }

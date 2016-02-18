@@ -11,19 +11,19 @@ class ConnectCancelMapper extends IyzipayResourceMapper
         return new ConnectCancelMapper();
     }
 
-    public function map(ConnectCancel $connect, $jsonResult)
+    public function map(ConnectCancel $cancel, $jsonResult)
     {
-        parent::map($connect, $jsonResult);
+        parent::map($cancel, $jsonResult);
 
         if (isset($jsonResult->paymentId)) {
-            $connect->setPaymentId($jsonResult->paymentId);
+            $cancel->setPaymentId($jsonResult->paymentId);
         }
         if (isset($jsonResult->price)) {
-            $connect->setPrice($jsonResult->price);
+            $cancel->setPrice($jsonResult->price);
         }
-        if (isset($jsonResult->convertorName)) {
-            $connect->setConnnectorName($jsonResult->convertorName);
+        if (isset($jsonResult->connectorName)) {
+            $cancel->setConnectorName($jsonResult->connectorName);
         }
-        return $connect;
+        return $cancel;
     }
 }

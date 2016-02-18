@@ -14,6 +14,7 @@ class BKMInitializeMapper extends IyzipayResourceMapper
     public function map(BKMInitialize $initialize, $jsonResult)
     {
         parent::map($initialize, $jsonResult);
+
         if (isset($jsonResult->htmlContent)) {
             $initialize->setHtmlContent(base64_decode($jsonResult->htmlContent));
         }

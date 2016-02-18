@@ -26,10 +26,10 @@ class BKMSample extends Sample
         $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
 
         # make request
-        $response = \Iyzipay\Model\BKMInitialize::create($request, parent::options());
+        $bkmInitialize = \Iyzipay\Model\BKMInitialize::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($bkmInitialize);
     }
 
     public function should_retrieve_bkm_auth()
@@ -40,9 +40,11 @@ class BKMSample extends Sample
         $request->setConversationId("123456789");
         $request->setToken("mockToken1453382198111");
 
-        $result = Iyzipay\Model\BKMAuth::retrieve($request, parent::options());
+        # make request
+        $bkmAuth = Iyzipay\Model\BKMAuth::retrieve($request, parent::options());
 
-        print_r($result);
+        # print result
+        print_r($bkmAuth);
     }
 
     private function newBuyer()

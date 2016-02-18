@@ -4,12 +4,12 @@ namespace Iyzipay\Model;
 
 class PaymentChannel
 {
-    const MOBILE = "mobile";
-    const WEB = "web";
-    const MOBILE_WEB = "mobile_web";
-    const MOBILE_IOS = "mobile_ios";
-    const MOBILE_ANDROID = "mobile_android";
-    const MOBILE_WINDOWS = "mobile_windows";
-    const MOBILE_TABLET = "mobile_tablet";
-    const MOBILE_PHONE = "mobile_phone";
+    const MOBILE = "MOBILE";
+    const WEB = "WEB";
+    const MOBILE_WEB = "MOBILE_WEB";
+    const MOBILE_IOS = "MOBILE_IOS";
+    const MOBILE_ANDROID = "MOBILE_ANDROID";
+    const MOBILE_WINDOWS = "MOBILE_WINDOWS";
+    const MOBILE_TABLET = "MOBILE_TABLET";
+    const MOBILE_PHONE = "MOBILE_PHONE";
 }

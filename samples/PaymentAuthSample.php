@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -28,10 +29,10 @@ class PaymentAuthSample extends Sample
         $request->setBasketItems($this->newBasketItems());
 
         # make request
-        $response = \Iyzipay\Model\PaymentAuth::create($request, parent::options());
+        $paymentAuth = \Iyzipay\Model\PaymentAuth::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($paymentAuth);
     }
 
     public function should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription()
@@ -88,7 +89,7 @@ class PaymentAuthSample extends Sample
         $billingAddress->setZipCode("34742");
         $request->setbillingAddress($billingAddress);
 
-        $basketItems[] = null;
+        $basketItems = array();
         $firstBasketItem = new Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Dükkan aboneliği ve katalog");
@@ -120,10 +121,10 @@ class PaymentAuthSample extends Sample
         $request->setBasketItems($basketItems);
 
         # make request
-        $response = Iyzipay\Model\PaymentAuth::create($request, parent::options());
+        $paymentAuth = Iyzipay\Model\PaymentAuth::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($paymentAuth);
     }
 
     private function newPaymentCard()
@@ -181,7 +182,7 @@ class PaymentAuthSample extends Sample
 
     private function newBasketItems()
     {
-        $basketItems[] = null;
+        $basketItems = array();
         $firstBasketItem = new Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");

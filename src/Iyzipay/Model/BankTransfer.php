@@ -2,7 +2,6 @@
 
 namespace Iyzipay\Model\Mapper;
 
-
 class BankTransfer
 {
     private $subMerchantKey;
