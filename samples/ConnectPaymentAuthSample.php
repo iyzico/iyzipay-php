@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new ConnectPaymentAuthSample();
 $sample->should_pay_with_card_token();
 $sample->should_pay_with_card();
 
-class ConnectPaymentAuthSample extends Sample
+class ConnectPaymentAuthSample
 {
     public function should_pay_with_card()
     {
@@ -26,7 +27,7 @@ class ConnectPaymentAuthSample extends Sample
         $request->setPaymentCard($this->newPaymentCard());
 
         # make request
-        $connectPaymentAuth = Iyzipay\Model\ConnectPaymentAuth::create($request, parent::options());
+        $connectPaymentAuth = Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
 
         # print result
         print_r($connectPaymentAuth);
@@ -52,7 +53,7 @@ class ConnectPaymentAuthSample extends Sample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectPaymentAuth = Iyzipay\Model\ConnectPaymentAuth::create($request, parent::options());
+        $connectPaymentAuth = Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
 
         # print result
         print_r($connectPaymentAuth);

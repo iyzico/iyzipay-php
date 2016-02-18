@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -9,7 +10,7 @@ $sample->should_create_market_place_physical_and_virtual_product_with_three_ds_p
 $sample->should_create_physical_and_virtual_listing_or_subscription_with_threeds_payment();
 $sample->should_auth_threeds();
 
-class ThreeDSSample extends Sample
+class ThreeDSSample
 {
     public function should_create_market_place_physical_and_virtual_product_with_three_ds_payment()
     {
@@ -103,7 +104,7 @@ class ThreeDSSample extends Sample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = Iyzipay\Model\ThreeDSInitialize::create($request, parent::options());
+        $threeDSInitialize = Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -195,7 +196,7 @@ class ThreeDSSample extends Sample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = Iyzipay\Model\ThreeDSInitialize::create($request, parent::options());
+        $threeDSInitialize = Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -211,7 +212,7 @@ class ThreeDSSample extends Sample
         $request->setConversationData("conversation data");
 
         # make request
-        $threeDSAuth = Iyzipay\Model\ThreeDSAuth::create($request, parent::options());
+        $threeDSAuth = Iyzipay\Model\ThreeDSAuth::create($request, Sample::options());
 
         # print result
         print_r($threeDSAuth);

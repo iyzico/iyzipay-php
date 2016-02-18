@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new RefundSample();
 $sample->should_refund();
 $sample->should_refund_charged_from_merchant();
 
-class RefundSample extends Sample
+class RefundSample
 {
     public function should_refund()
     {
@@ -21,7 +22,7 @@ class RefundSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $refund = Iyzipay\Model\Refund::create($request, parent::options());
+        $refund = Iyzipay\Model\Refund::create($request, Sample::options());
 
         # print result
         print_r($refund);
@@ -38,7 +39,7 @@ class RefundSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $refundChargedFromMerchant = Iyzipay\Model\RefundChargedFromMerchant::create($request, parent::options());
+        $refundChargedFromMerchant = Iyzipay\Model\RefundChargedFromMerchant::create($request, Sample::options());
 
         # print result
         print_r($refundChargedFromMerchant);

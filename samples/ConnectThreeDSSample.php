@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -9,7 +10,7 @@ $sample->should_initialize_threeds_with_card();
 $sample->should_initialize_threeds_with_card_token();
 $sample->should_auth_threeds();
 
-class ConnectThreeDSSample extends Sample
+class ConnectThreeDSSample
 {
     public function should_initialize_threeds_with_card()
     {
@@ -36,7 +37,7 @@ class ConnectThreeDSSample extends Sample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitialize = Iyzipay\Model\ConnectThreeDSInitialize::create($request, parent::options());
+        $connectThreeDSInitialize = Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($connectThreeDSInitialize);
@@ -63,7 +64,7 @@ class ConnectThreeDSSample extends Sample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitialize = Iyzipay\Model\ConnectThreeDSInitialize::create($request, parent::options());
+        $connectThreeDSInitialize = Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($connectThreeDSInitialize);
@@ -78,7 +79,7 @@ class ConnectThreeDSSample extends Sample
         $request->setPaymentId("12345");
 
         # make request
-        $connectThreeDSAuth = \Iyzipay\Model\ConnectThreeDSAuth::create($request, parent::options());
+        $connectThreeDSAuth = \Iyzipay\Model\ConnectThreeDSAuth::create($request, Sample::options());
 
         # print result
         print_r($connectThreeDSAuth);

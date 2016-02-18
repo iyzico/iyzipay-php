@@ -1,5 +1,6 @@
 <?php
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -7,7 +8,7 @@ $sample = new ConnectBKMSample();
 $sample->should_initialize_bkm_express();
 $sample->should_retrieve_bkm_auth();
 
-class ConnectBKMSample extends Sample
+class ConnectBKMSample
 {
     public function should_initialize_bkm_express()
     {
@@ -24,7 +25,7 @@ class ConnectBKMSample extends Sample
         $request->setInstallmentDetails($this->prepareInstallmentDetails());
 
         # make request
-        $connectBKMInitialize = Iyzipay\Model\ConnectBKMInitialize::create($request, parent::options());
+        $connectBKMInitialize = Iyzipay\Model\ConnectBKMInitialize::create($request, Sample::options());
 
         # print result
         print_r($connectBKMInitialize);
@@ -39,7 +40,7 @@ class ConnectBKMSample extends Sample
         $request->setToken("mockToken1453392332672");
 
         # make request
-        $connectBKMAuth = Iyzipay\Model\ConnectBKMAuth::retrieve($request, parent::options());
+        $connectBKMAuth = Iyzipay\Model\ConnectBKMAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($connectBKMAuth);

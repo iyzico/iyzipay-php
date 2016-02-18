@@ -1,13 +1,14 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
 $sample = new ConnectCancelSample();
 $sample->should_cancel_payment();
 
-class ConnectCancelSample extends Sample
+class ConnectCancelSample
 {
     public function should_cancel_payment()
     {
@@ -19,7 +20,7 @@ class ConnectCancelSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $connectCancel = Iyzipay\Model\ConnectCancel::create($request, parent::options());
+        $connectCancel = Iyzipay\Model\ConnectCancel::create($request, Sample::options());
 
         # print result
         print_r($connectCancel);

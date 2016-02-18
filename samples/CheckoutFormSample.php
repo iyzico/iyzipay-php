@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new CheckoutFormSample();
 $sample->should_initialize_checkout_form();
 $sample->should_retrieve_checkout_form_auth();
 
-class CheckoutFormSample extends Sample
+class CheckoutFormSample
 {
     public function should_initialize_checkout_form()
     {
@@ -27,7 +28,7 @@ class CheckoutFormSample extends Sample
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         # make request
-        $checkoutFormInitialize = Iyzipay\Model\CheckoutFormInitialize::create($request, parent::options());
+        $checkoutFormInitialize = Iyzipay\Model\CheckoutFormInitialize::create($request, Sample::options());
 
         # print result
         print_r($checkoutFormInitialize);
@@ -42,7 +43,7 @@ class CheckoutFormSample extends Sample
         $request->setToken("myToken");
 
         # make request
-        $checkoutFormAuth = Iyzipay\Model\CheckoutFormAuth::retrieve($request, parent::options());
+        $checkoutFormAuth = Iyzipay\Model\CheckoutFormAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($checkoutFormAuth);
