@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -19,9 +20,9 @@ class ConnectRefundSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $response = Iyzipay\Model\ConnectRefund::create($request, parent::options());
+        $connectRefund = Iyzipay\Model\ConnectRefund::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($connectRefund);
     }
 }

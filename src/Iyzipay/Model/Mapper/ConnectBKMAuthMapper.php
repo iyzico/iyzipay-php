@@ -11,19 +11,19 @@ class ConnectBKMAuthMapper extends ConnectPaymentMapper
         return new ConnectBKMAuthMapper();
     }
 
-    public function map(ConnectBKMAuth $initialize, $jsonResult)
+    public function map(ConnectBKMAuth $auth, $jsonResult)
     {
-        parent::map($initialize, $jsonResult);
+        parent::map($auth, $jsonResult);
 
         if (isset($jsonResult->token)) {
-            $initialize->setToken($jsonResult->token);
+            $auth->setToken($jsonResult->token);
         }
         if (isset($jsonResult->callbackUrl)) {
-            $initialize->setCallbackUrl($jsonResult->callbackUrl);
+            $auth->setCallbackUrl($jsonResult->callbackUrl);
         }
         if (isset($jsonResult->paymentStatus)) {
-            $initialize->setPaymentStatus($jsonResult->paymentStatus);
+            $auth->setPaymentStatus($jsonResult->paymentStatus);
         }
-        return $initialize;
+        return $auth;
     }
 }

@@ -21,13 +21,13 @@ class ConnectBKMSample extends Sample
         $request->setBuyerEmail("email@email.com");
         $request->setBuyerIp("198.168.123.102");
         $request->setConnectorName("ISBANK");
-        $request->setInstallmentDetails($this->prepareInstallmentdetails());
+        $request->setInstallmentDetails($this->prepareInstallmentDetails());
 
         # make request
-        $response = Iyzipay\Model\ConnectBKMInitialize::create($request, parent::options());
+        $connectBKMInitialize = Iyzipay\Model\ConnectBKMInitialize::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($connectBKMInitialize);
     }
 
     public function should_retrieve_bkm_auth()
@@ -39,13 +39,13 @@ class ConnectBKMSample extends Sample
         $request->setToken("mockToken1453392332672");
 
         # make request
-        $response = Iyzipay\Model\ConnectBKMAuth::retrieve($request, parent::options());
+        $connectBKMAuth = Iyzipay\Model\ConnectBKMAuth::retrieve($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($connectBKMAuth);
     }
 
-    private function prepareInstallmentdetails()
+    private function prepareInstallmentDetails()
     {
         $installmentDetails = array();
         $installmentDetails[0] = $this->isbankInstallmentDetails();

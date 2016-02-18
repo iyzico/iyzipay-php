@@ -19,10 +19,10 @@ class ApprovalSample extends Sample
         $request->setPaymentTransactionId("2");
 
         # make request
-        $response = \Iyzipay\Model\Approval::create($request, parent::options());
+        $approval = \Iyzipay\Model\Approval::create($request, parent::options());
 
         # print result
-        print_r($response);
+        print_r($approval);
     }
 
     public function should_disapprove_payment_item()
@@ -34,9 +34,9 @@ class ApprovalSample extends Sample
         $request->setPaymentTransactionId("2");
 
         # make request
-        $response = \Iyzipay\Model\Disapproval::create($request, parent::options());
+        $disapproval = \Iyzipay\Model\Disapproval::create($request, parent::options());
 
         # print result
-        print_r($response);
+        print_r($disapproval);
     }
 }

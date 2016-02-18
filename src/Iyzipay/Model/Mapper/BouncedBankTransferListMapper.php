@@ -18,7 +18,6 @@ class BouncedBankTransferListMapper extends IyzipayResourceMapper
         if (isset($jsonResult->bankTransfers)) {
             $transferList->setBankTransfers($jsonResult->bankTransfers);
         }
-
         return $transferList;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -18,9 +19,9 @@ class InstallmentSample extends Sample
         $request->setPrice("1");
 
         # make request
-        $response = Iyzipay\Model\InstallmentInfo::create($request, parent::options());
+        $installmentInfo = Iyzipay\Model\InstallmentInfo::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($installmentInfo);
     }
 }

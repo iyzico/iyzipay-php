@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -18,9 +19,9 @@ class CancelSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $response = Iyzipay\Model\Cancel::create($request, parent::options());
+        $cancel = Iyzipay\Model\Cancel::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($cancel);
     }
 }

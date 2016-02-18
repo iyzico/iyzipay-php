@@ -1,4 +1,5 @@
 <?php
+
 require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
@@ -26,10 +27,10 @@ class CheckoutFormSample extends Sample
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         # make request
-        $response = Iyzipay\Model\CheckoutFormInitialize::create($request, parent::options());
+        $checkoutFormInitialize = Iyzipay\Model\CheckoutFormInitialize::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($checkoutFormInitialize);
     }
 
     public function should_retrieve_checkout_form_auth()
@@ -41,10 +42,10 @@ class CheckoutFormSample extends Sample
         $request->setToken("myToken");
 
         # make request
-        $response = Iyzipay\Model\CheckoutFormAuth::retrieve($request, parent::options());
+        $checkoutFormAuth = Iyzipay\Model\CheckoutFormAuth::retrieve($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($checkoutFormAuth);
     }
 
     private function newBuyer()
@@ -90,7 +91,7 @@ class CheckoutFormSample extends Sample
 
     private function newBasketItems()
     {
-        $basketItems[] = null;
+        $basketItems = array();
         $firstBasketItem = new Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");

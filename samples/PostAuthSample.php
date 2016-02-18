@@ -19,10 +19,10 @@ class PostAuthSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $response = Iyzipay\Model\PaymentPostAuth::create($request, parent::options());
+        $paymentPostAuth = Iyzipay\Model\PaymentPostAuth::create($request, parent::options());
 
-        # print response
-        print_r($response);
+        # print result
+        print_r($paymentPostAuth);
 
     }
 }

@@ -8,7 +8,8 @@ use Iyzipay\RequestStringBuilder;
 
 class CreateConnectPaymentRequest extends Request
 {
-    public static $SINGLE_INSTALLMENT = 1;
+    const SINGLE_INSTALLMENT = 1;
+
     private $price;
     private $paidPrice;
     private $installment;
@@ -21,7 +22,7 @@ class CreateConnectPaymentRequest extends Request
 
     public function CreateConnectPaymentRequest()
     {
-        $this->setInstallment(CreateConnectPaymentRequest::$SINGLE_INSTALLMENT);
+        $this->setInstallment(CreateConnectPaymentRequest::SINGLE_INSTALLMENT);
     }
 
     public function getPrice()

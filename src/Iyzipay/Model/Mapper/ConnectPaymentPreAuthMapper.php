@@ -11,10 +11,9 @@ class ConnectPaymentPreAuthMapper extends ConnectPaymentMapper
         return new ConnectPaymentPreAuthMapper();
     }
 
-    public function map(ConnectPaymentPreAuth $payment, $jsonResult)
+    public function map(ConnectPaymentPreAuth $preAuth, $jsonResult)
     {
-        parent::map($payment, $jsonResult);
-
-        return $payment;
+        parent::map($preAuth, $jsonResult);
+        return $preAuth;
     }
 }
