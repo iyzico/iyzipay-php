@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new BKMSample();
 $sample->should_initialize_bkm_express();
 $sample->should_retrieve_bkm_auth();
 
-class BKMSample extends Sample
+class BKMSample
 {
     public function should_initialize_bkm_express()
     {
@@ -26,7 +27,7 @@ class BKMSample extends Sample
         $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
 
         # make request
-        $bkmInitialize = \Iyzipay\Model\BKMInitialize::create($request, parent::options());
+        $bkmInitialize = \Iyzipay\Model\BKMInitialize::create($request, Sample::options());
 
         # print result
         print_r($bkmInitialize);
@@ -41,7 +42,7 @@ class BKMSample extends Sample
         $request->setToken("mockToken1453382198111");
 
         # make request
-        $bkmAuth = Iyzipay\Model\BKMAuth::retrieve($request, parent::options());
+        $bkmAuth = Iyzipay\Model\BKMAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($bkmAuth);

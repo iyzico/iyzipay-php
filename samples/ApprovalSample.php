@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new ApprovalSample();
 $sample->should_approve_payment_item();
 $sample->should_disapprove_payment_item();
 
-class ApprovalSample extends Sample
+class ApprovalSample
 {
     public function should_approve_payment_item()
     {
@@ -19,7 +20,7 @@ class ApprovalSample extends Sample
         $request->setPaymentTransactionId("2");
 
         # make request
-        $approval = \Iyzipay\Model\Approval::create($request, parent::options());
+        $approval = \Iyzipay\Model\Approval::create($request, Sample::options());
 
         # print result
         print_r($approval);
@@ -34,7 +35,7 @@ class ApprovalSample extends Sample
         $request->setPaymentTransactionId("2");
 
         # make request
-        $disapproval = \Iyzipay\Model\Disapproval::create($request, parent::options());
+        $disapproval = \Iyzipay\Model\Disapproval::create($request, Sample::options());
 
         # print result
         print_r($disapproval);

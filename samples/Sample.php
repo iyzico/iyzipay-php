@@ -1,8 +1,8 @@
 <?php
 
-abstract class Sample
+class Sample
 {
-    public function options()
+    public static function options()
     {
         # create client configuration class
         $options = new \Iyzipay\Options();

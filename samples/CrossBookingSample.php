@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new CrossBookingSample;
 $sample->should_send_money_to_sub_merchant();
 $sample->should_receive_money_from_sub_merchant();
 
-class CrossBookingSample extends Sample
+class CrossBookingSample
 {
     public function should_send_money_to_sub_merchant()
     {
@@ -21,7 +22,7 @@ class CrossBookingSample extends Sample
         $request->setReason("reason text");
 
         # make request
-        $crossBookingToSubMerchant = Iyzipay\Model\CrossBookingFromSubMerchant::create($request, parent::options());
+        $crossBookingToSubMerchant = Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
 
         # print result
         print_r($crossBookingToSubMerchant);
@@ -38,7 +39,7 @@ class CrossBookingSample extends Sample
         $request->setReason("reason text");
 
         # make request
-        $crossBookingFromSubMerchant = Iyzipay\Model\CrossBookingFromSubMerchant::create($request, parent::options());
+        $crossBookingFromSubMerchant = Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
 
         # print result
         print_r($crossBookingFromSubMerchant);

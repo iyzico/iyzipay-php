@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -10,7 +11,7 @@ $sample->should_create_card();
 $sample->should_delete_card();
 $sample->should_retrieve_cards();
 
-class CardStorageSample extends Sample
+class CardStorageSample
 {
     public function should_create_user_and_add_card()
     {
@@ -29,7 +30,7 @@ class CardStorageSample extends Sample
         $request->setCard($this->newCard());
 
         # make request
-        $card = \Iyzipay\Model\Card::create($request, parent::options());
+        $card = \Iyzipay\Model\Card::create($request, Sample::options());
 
         # print result
         print_r($card);
@@ -45,7 +46,7 @@ class CardStorageSample extends Sample
         $request->setCard($this->newCard());
 
         # make request
-        $card = \Iyzipay\Model\Card::create($request, parent::options());
+        $card = \Iyzipay\Model\Card::create($request, Sample::options());
 
         # print result
         print_r($card);
@@ -61,7 +62,7 @@ class CardStorageSample extends Sample
         $request->setCardUserKey("myCardUserkey");
 
         # make request
-        $card = \Iyzipay\Model\Card::delete($request, parent::options());
+        $card = \Iyzipay\Model\Card::delete($request, Sample::options());
 
         # print result
         print_r($card);
@@ -75,7 +76,7 @@ class CardStorageSample extends Sample
         $request->setCardUserKey("myCardUserKey");
 
         # make request
-        $cardList = \Iyzipay\Model\CardList::retrieve($request, parent::options());
+        $cardList = \Iyzipay\Model\CardList::retrieve($request, Sample::options());
 
         # print result
         print_r($cardList);

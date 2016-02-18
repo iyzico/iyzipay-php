@@ -1,6 +1,7 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
@@ -8,7 +9,7 @@ $sample = new PaymentAuthSample();
 $sample->should_create_payment_with_virtual_product_for_market_place();
 $sample->should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription();
 
-class PaymentAuthSample extends Sample
+class PaymentAuthSample
 {
     public function should_create_payment_with_virtual_product_for_market_place()
     {
@@ -29,7 +30,7 @@ class PaymentAuthSample extends Sample
         $request->setBasketItems($this->newBasketItems());
 
         # make request
-        $paymentAuth = \Iyzipay\Model\PaymentAuth::create($request, parent::options());
+        $paymentAuth = \Iyzipay\Model\PaymentAuth::create($request, Sample::options());
 
         # print result
         print_r($paymentAuth);
@@ -121,7 +122,7 @@ class PaymentAuthSample extends Sample
         $request->setBasketItems($basketItems);
 
         # make request
-        $paymentAuth = Iyzipay\Model\PaymentAuth::create($request, parent::options());
+        $paymentAuth = Iyzipay\Model\PaymentAuth::create($request, Sample::options());
 
         # print result
         print_r($paymentAuth);

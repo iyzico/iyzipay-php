@@ -1,13 +1,14 @@
 <?php
 
 require_once('../IyzipayBootstrap.php');
+require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
 $sample = new PostAuthSample();
 $sample->should_post_auth();
 
-class PostAuthSample extends Sample
+class PostAuthSample
 {
     public function should_post_auth()
     {
@@ -19,7 +20,7 @@ class PostAuthSample extends Sample
         $request->setIp("127.0.0.1");
 
         # make request
-        $paymentPostAuth = Iyzipay\Model\PaymentPostAuth::create($request, parent::options());
+        $paymentPostAuth = Iyzipay\Model\PaymentPostAuth::create($request, Sample::options());
 
         # print result
         print_r($paymentPostAuth);
