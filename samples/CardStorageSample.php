@@ -84,7 +84,7 @@ class CardStorageSample
 
     private function newCard()
     {
-        $cardInformation = new Iyzipay\Model\CardInformation();
+        $cardInformation = new \Iyzipay\Model\CardInformation();
         $cardInformation->setCardAlias("myAlias");
         $cardInformation->setCardHolderName("John Doe");
         $cardInformation->setCardNumber("5528790000000008");

@@ -34,7 +34,7 @@ class SubMerchantSample
         $request->setIdentityNumber("1234567890");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::create($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
 
         # print result
         print_r($subMerchant);
@@ -58,7 +58,7 @@ class SubMerchantSample
         $request->setIdentityNumber("1234567890");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::create($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
 
         # print result
         print_r($subMerchant);
@@ -82,7 +82,7 @@ class SubMerchantSample
         $request->setIban("TR180006200119000006672315");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::create($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
 
         # print result
         print_r($subMerchant);
@@ -105,7 +105,7 @@ class SubMerchantSample
         $request->setIdentityNumber("31300864726");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::update($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::update($request, Sample::options());
 
         # print result
         print_r($subMerchant);
@@ -128,7 +128,7 @@ class SubMerchantSample
         $request->setIdentityNumber("31300864726");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::update($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::update($request, Sample::options());
 
         # print result
         print_r($subMerchant);
@@ -151,7 +151,7 @@ class SubMerchantSample
         $request->setIban("TR180006200119000006672315");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::update($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::update($request, Sample::options());
 
         # print result
         print_r($subMerchant);
@@ -166,7 +166,7 @@ class SubMerchantSample
         $request->setSubMerchantExternalId("AS49224");
 
         # make request
-        $subMerchant = Iyzipay\Model\SubMerchant::retrieve($request, Sample::options());
+        $subMerchant = \Iyzipay\Model\SubMerchant::retrieve($request, Sample::options());
 
         # print result
         print_r($subMerchant);

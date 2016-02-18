@@ -3,8 +3,6 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
 
 class Payment extends IyzipayResource
 {
@@ -205,53 +203,5 @@ class Payment extends IyzipayResource
     public function setPaymentItems($paymentItems)
     {
         $this->paymentItems = $paymentItems;
-    }
-
-    public function getJsonObject()
-    {
-        return JsonBuilder::create()
-            ->addPrice("price", $this->getPrice())
-            ->addPrice("paidPrice", $this->getPaidPrice())
-            ->add("installment", $this->getInstallment())
-            ->add("paymentId", $this->getPaymentId())
-            ->add("paymentStatus", $this->getPaymentStatus())
-            ->add("fraudStatus", $this->getFraudStatus())
-            ->add("merchantCommissionRate", $this->getMerchantCommissionRate())
-            ->add("merchantCommissionRateAmount", $this->getMerchantCommissionRateAmount())
-            ->add("iyziCommissionRateAmount", $this->getIyziCommissionRateAmount())
-            ->add("iyziCommissionFee", $this->getIyziCommissionFee())
-            ->add("cardType", $this->getCardType())
-            ->add("cardAssociation", $this->getCardAssociation())
-            ->add("cardFamily", $this->getCardFamily())
-            ->add("cardToken", $this->getCardToken())
-            ->add("cardUserKey", $this->getCardUserKey())
-            ->add("binNumber", $this->getBinNumber())
-            ->add("basketId", $this->getBasketId())
-            ->addArray("paymentItems", $this->getPaymentItems())
-            ->getObject();
-    }
-
-    public function toPKIRequestString()
-    {
-        return RequestStringBuilder::create()
-            ->appendPrice("price", $this->getPrice())
-            ->appendPrice("paidPrice", $this->getPaidPrice())
-            ->append("installment", $this->getInstallment())
-            ->append("paymentId", $this->getPaymentId())
-            ->append("paymentStatus", $this->getPaymentStatus())
-            ->append("fraudStatus", $this->getFraudStatus())
-            ->append("merchantCommissionRate", $this->getMerchantCommissionRate())
-            ->append("merchantCommissionRateAmount", $this->getMerchantCommissionRateAmount())
-            ->append("iyziCommissionRateAmount", $this->getIyziCommissionRateAmount())
-            ->append("iyziCommissionFee", $this->getIyziCommissionFee())
-            ->append("cardType", $this->getCardType())
-            ->append("cardAssociation", $this->getCardAssociation())
-            ->append("cardFamily", $this->getCardFamily())
-            ->append("cardToken", $this->getCardToken())
-            ->append("cardUserKey", $this->getCardUserKey())
-            ->append("binNumber", $this->getBinNumber())
-            ->append("basketId", $this->getBasketId())
-            ->appendArray("paymentItems", $this->getPaymentItems())
-            ->getRequestString();
     }
 }

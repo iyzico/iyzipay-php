@@ -20,7 +20,7 @@ class ConnectCancelSample
         $request->setIp("127.0.0.1");
 
         # make request
-        $connectCancel = Iyzipay\Model\ConnectCancel::create($request, Sample::options());
+        $connectCancel = \Iyzipay\Model\ConnectCancel::create($request, Sample::options());
 
         # print result
         print_r($connectCancel);

@@ -21,7 +21,7 @@ class ConnectRefundSample
         $request->setIp("127.0.0.1");
 
         # make request
-        $connectRefund = Iyzipay\Model\ConnectRefund::create($request, Sample::options());
+        $connectRefund = \Iyzipay\Model\ConnectRefund::create($request, Sample::options());
 
         # print result
         print_r($connectRefund);

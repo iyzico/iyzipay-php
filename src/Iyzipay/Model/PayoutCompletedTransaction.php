@@ -2,9 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
-
 class PayoutCompletedTransaction
 {
     private $paymentTransactionId;
@@ -50,25 +47,5 @@ class PayoutCompletedTransaction
     public function setSubMerchantKey($subMerchantKey)
     {
         $this->subMerchantKey = $subMerchantKey;
-    }
-
-    public function getJsonObject()
-    {
-        return JsonBuilder::create()
-            ->add("paymentTransactionId", $this->getPaymentTransactionId())
-            ->add("payoutAmount", $this->getPayoutAmount())
-            ->add("payoutType", $this->getPayoutType())
-            ->add("subMerchantKey", $this->getSubMerchantKey())
-            ->getObject();
-    }
-
-    public function toPKIRequestString()
-    {
-        return RequestStringBuilder::create()
-            ->append("paymentTransactionId", $this->getPaymentTransactionId())
-            ->append("payoutAmount", $this->getPayoutAmount())
-            ->append("payoutType", $this->getPayoutType())
-            ->append("subMerchantKey", $this->getSubMerchantKey())
-            ->getRequestString();
     }
 }

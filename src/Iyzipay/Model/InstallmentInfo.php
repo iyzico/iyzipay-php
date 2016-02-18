@@ -11,7 +11,6 @@ use Iyzipay\Request\RetrieveInstallmentInfoRequest;
 
 class InstallmentInfo extends IyzipayResource
 {
-
     private $installmentDetails;
 
     public static function create(RetrieveInstallmentInfoRequest $request, Options $options)

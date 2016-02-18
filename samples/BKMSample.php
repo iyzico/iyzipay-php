@@ -19,7 +19,7 @@ class BKMSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setBasketId("B67832");
-        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentGroup(\\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setBuyer($this->newBuyer());
         $request->setShippingAddress($this->newShippingAddress());
         $request->setBillingAddress($this->newBillingAddress());
@@ -42,7 +42,7 @@ class BKMSample
         $request->setToken("mockToken1453382198111");
 
         # make request
-        $bkmAuth = Iyzipay\Model\BKMAuth::retrieve($request, Sample::options());
+        $bkmAuth = \Iyzipay\Model\BKMAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($bkmAuth);
@@ -50,7 +50,7 @@ class BKMSample
 
     private function newBuyer()
     {
-        $buyer = new Iyzipay\Model\Buyer();
+        $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("100");
         $buyer->setName("Hakan");
         $buyer->setSurname("Erdoğan");
@@ -92,7 +92,7 @@ class BKMSample
     private function newBasketItems()
     {
         $basketItems = array();
-        $firstBasketItem = new Iyzipay\Model\BasketItem();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");
         $firstBasketItem->setCategory1("Giyim");
@@ -102,7 +102,7 @@ class BKMSample
         $firstBasketItem->setSubMerchantKey("subMerchantKey");
         $firstBasketItem->setSubMerchantPrice("0.27");
 
-        $secondBasketItem = new Iyzipay\Model\BasketItem();
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
         $secondBasketItem->setId("BI102");
         $secondBasketItem->setName("XYZ Oyun Kodu");
         $secondBasketItem->setCategory1("Oyun");
@@ -112,7 +112,7 @@ class BKMSample
         $secondBasketItem->setSubMerchantKey("subMerchantKey");
         $secondBasketItem->setSubMerchantPrice("0.42");
 
-        $thirdBasketItem = new Iyzipay\Model\BasketItem();
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
         $thirdBasketItem->setId("BI103");
         $thirdBasketItem->setName("EDC Marka Usb");
         $thirdBasketItem->setCategory1("Elektronik");
@@ -125,7 +125,6 @@ class BKMSample
         $basketItems[0] = $firstBasketItem;
         $basketItems[1] = $secondBasketItem;
         $basketItems[2] = $thirdBasketItem;
-
         return $basketItems;
     }
 }

@@ -3,6 +3,7 @@
 namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\Model\Payment;
+use Iyzipay\Model\PaymentItem;
 
 class PaymentMapper extends IyzipayResourceMapper
 {
@@ -63,9 +64,76 @@ class PaymentMapper extends IyzipayResourceMapper
         if (isset($jsonResult->basketId)) {
             $payment->setBasketId($jsonResult->basketId);
         }
-        if (isset($jsonResult->paymentItems)) {
-            $payment->setPaymentItems($jsonResult->paymentItems);
+        if (isset($jsonResult->itemTransactions)) {
+            $payment->setPaymentItems($this->mapPaymentItems($jsonResult->itemTransactions));
         }
         return $payment;
+    }
+
+    private function mapPaymentItems($itemTransactions)
+    {
+        $paymentItems = array();
+
+        foreach ($itemTransactions as $index => $itemTransaction) {
+            $paymentItem = new PaymentItem();
+
+            if (isset($itemTransaction->itemId)) {
+                $paymentItem->setItemId($itemTransaction->itemId);
+            }
+            if (isset($itemTransaction->paymentTransactionId)) {
+                $paymentItem->setPaymentTransactionId($itemTransaction->paymentTransactionId);
+            }
+            if (isset($itemTransaction->transactionStatus)) {
+                $paymentItem->setTransactionStatus($itemTransaction->transactionStatus);
+            }
+            if (isset($itemTransaction->price)) {
+                $paymentItem->setPrice($itemTransaction->price);
+            }
+            if (isset($itemTransaction->paidPrice)) {
+                $paymentItem->setPaidPrice($itemTransaction->paidPrice);
+            }
+            if (isset($itemTransaction->merchantCommissionRate)) {
+                $paymentItem->setMerchantCommissionRate($itemTransaction->merchantCommissionRate);
+            }
+            if (isset($itemTransaction->merchantCommissionRateAmount)) {
+                $paymentItem->setMerchantCommissionRateAmount($itemTransaction->merchantCommissionRateAmount);
+            }
+            if (isset($itemTransaction->iyziCommissionRateAmount)) {
+                $paymentItem->setIyziCommissionRateAmount($itemTransaction->iyziCommissionRateAmount);
+            }
+            if (isset($itemTransaction->iyziCommissionFee)) {
+                $paymentItem->setIyziCommissionFee($itemTransaction->iyziCommissionFee);
+            }
+            if (isset($itemTransaction->blockageRate)) {
+                $paymentItem->setBlockageRate($itemTransaction->blockageRate);
+            }
+            if (isset($itemTransaction->blockageRateAmountMerchant)) {
+                $paymentItem->setBlockageRateAmountMerchant($itemTransaction->blockageRateAmountMerchant);
+            }
+            if (isset($itemTransaction->blockageRateAmountSubMerchant)) {
+                $paymentItem->setBlockageRateAmountSubMerchant($itemTransaction->blockageRateAmountSubMerchant);
+            }
+            if (isset($itemTransaction->blockageResolvedDate)) {
+                $paymentItem->setBlockageResolvedDate($itemTransaction->blockageResolvedDate);
+            }
+            if (isset($itemTransaction->subMerchantKey)) {
+                $paymentItem->setSubMerchantKey($itemTransaction->subMerchantKey);
+            }
+            if (isset($itemTransaction->subMerchantPrice)) {
+                $paymentItem->setSubMerchantPrice($itemTransaction->subMerchantPrice);
+            }
+            if (isset($itemTransaction->subMerchantPayoutRate)) {
+                $paymentItem->setSubMerchantPayoutRate($itemTransaction->subMerchantPayoutRate);
+            }
+            if (isset($itemTransaction->subMerchantPayoutAmount)) {
+                $paymentItem->setSubMerchantPayoutAmount($itemTransaction->subMerchantPayoutAmount);
+            }
+            if (isset($itemTransaction->merchantPayoutAmount)) {
+                $paymentItem->setMerchantPayoutAmount($itemTransaction->merchantPayoutAmount);
+            }
+            $paymentItems[$index] = $paymentItem;
+        }
+
+        return $paymentItems;
     }
 }

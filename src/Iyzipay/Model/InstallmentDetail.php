@@ -2,9 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
-
 class InstallmentDetail
 {
     private $binNumber;
@@ -105,35 +102,5 @@ class InstallmentDetail
     public function setInstallmentPrices($installmentPrices)
     {
         $this->installmentPrices = $installmentPrices;
-    }
-
-    public function getJsonObject()
-    {
-        return JsonBuilder::create()
-            ->add("binNumber", $this->getBinNumber())
-            ->addPrice("price", $this->getPrice())
-            ->add("cardType", $this->getCardType())
-            ->add("cardAssociation", $this->getCardAssociation())
-            ->add("cardFamilyName", $this->getCardFamilyName())
-            ->add("force3ds", $this->getForce3ds())
-            ->add("bankCode", $this->getBankCode())
-            ->add("bankName", $this->getBankName())
-            ->addArray("installmentPrices", $this->getInstallmentPrices())
-            ->getObject();
-    }
-
-    public function toPKIRequestString()
-    {
-        return RequestStringBuilder::create()
-            ->append("binNumber", $this->getBinNumber())
-            ->appendPrice("price", $this->getPrice())
-            ->append("cardType", $this->getCardType())
-            ->append("cardAssociation", $this->getCardAssociation())
-            ->append("cardFamilyName", $this->getCardFamilyName())
-            ->append("force3ds", $this->getForce3ds())
-            ->append("bankCode", $this->getBankCode())
-            ->append("bankName", $this->getBankName())
-            ->appendArray("installmentPrices", $this->getInstallmentPrices())
-            ->getRequestString();
     }
 }

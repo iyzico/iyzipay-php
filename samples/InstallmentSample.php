@@ -20,7 +20,7 @@ class InstallmentSample
         $request->setPrice("1");
 
         # make request
-        $installmentInfo = Iyzipay\Model\InstallmentInfo::create($request, Sample::options());
+        $installmentInfo = \Iyzipay\Model\InstallmentInfo::create($request, Sample::options());
 
         # print result
         print_r($installmentInfo);

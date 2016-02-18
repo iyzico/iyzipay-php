@@ -20,7 +20,7 @@ class RetrieveTransactionsSample
         $request->setDate("2016-01-22 19:13:00");
 
         # make request
-        $payoutCompletedTransactionList = Iyzipay\Model\PayoutCompletedTransactionList::create($request, Sample::options());
+        $payoutCompletedTransactionList = \Iyzipay\Model\PayoutCompletedTransactionList::create($request, Sample::options());
 
         # print result
         print_r($payoutCompletedTransactionList);
@@ -35,7 +35,7 @@ class RetrieveTransactionsSample
         $request->setDate("2016-01-22 19:13:00");
 
         # make request
-        $bouncedBankTransferList = Iyzipay\Model\BouncedBankTransferList::retrieve($request, Sample::options());
+        $bouncedBankTransferList = \Iyzipay\Model\BouncedBankTransferList::retrieve($request, Sample::options());
 
         # print result
         print_r($bouncedBankTransferList);

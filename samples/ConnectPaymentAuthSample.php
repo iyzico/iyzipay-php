@@ -27,7 +27,7 @@ class ConnectPaymentAuthSample
         $request->setPaymentCard($this->newPaymentCard());
 
         # make request
-        $connectPaymentAuth = Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
+        $connectPaymentAuth = \Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
 
         # print result
         print_r($connectPaymentAuth);
@@ -47,13 +47,13 @@ class ConnectPaymentAuthSample
         $request->setPaidPrice("1.0");
         $request->setPrice("1.0");
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardToken("cardToken");
         $paymentCard->setCardUserKey("cardUserKey");
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectPaymentAuth = Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
+        $connectPaymentAuth = \Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
 
         # print result
         print_r($connectPaymentAuth);
@@ -61,7 +61,7 @@ class ConnectPaymentAuthSample
 
     private function newPaymentCard()
     {
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");

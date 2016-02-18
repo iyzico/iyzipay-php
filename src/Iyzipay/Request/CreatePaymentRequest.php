@@ -14,12 +14,12 @@ class CreatePaymentRequest extends Request
     private $paymentChannel;
     private $basketId;
     private $paymentGroup;
-    private $paymentSource;
     private $paymentCard;
     private $buyer;
     private $shippingAddress;
     private $billingAddress;
     private $basketItems;
+    private $paymentSource;
 
     public function getPrice()
     {
@@ -81,16 +81,6 @@ class CreatePaymentRequest extends Request
         $this->paymentGroup = $paymentGroup;
     }
 
-    public function getPaymentSource()
-    {
-        return $this->paymentSource;
-    }
-
-    public function setPaymentSource($paymentSource)
-    {
-        $this->paymentSource = $paymentSource;
-    }
-
     public function getPaymentCard()
     {
         return $this->paymentCard;
@@ -141,6 +131,16 @@ class CreatePaymentRequest extends Request
         $this->basketItems = $basketItems;
     }
 
+    public function getPaymentSource()
+    {
+        return $this->paymentSource;
+    }
+
+    public function setPaymentSource($paymentSource)
+    {
+        $this->paymentSource = $paymentSource;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -150,12 +150,12 @@ class CreatePaymentRequest extends Request
             ->add("paymentChannel", $this->getPaymentChannel())
             ->add("basketId", $this->getBasketId())
             ->add("paymentGroup", $this->getPaymentGroup())
-            ->add("paymentSource", $this->getPaymentSource())
             ->add("paymentCard", $this->getPaymentCard())
             ->add("buyer", $this->getBuyer())
             ->add("shippingAddress", $this->getShippingAddress())
             ->add("billingAddress", $this->getBillingAddress())
             ->addArray("basketItems", $this->getBasketItems())
+            ->add("paymentSource", $this->getPaymentSource())
             ->getObject();
     }
 
@@ -169,12 +169,12 @@ class CreatePaymentRequest extends Request
             ->append("paymentChannel", $this->getPaymentChannel())
             ->append("basketId", $this->getBasketId())
             ->append("paymentGroup", $this->getPaymentGroup())
-            ->append("paymentSource", $this->getPaymentSource())
             ->append("paymentCard", $this->getPaymentCard())
             ->append("buyer", $this->getBuyer())
             ->append("shippingAddress", $this->getShippingAddress())
             ->append("billingAddress", $this->getBillingAddress())
             ->appendArray("basketItems", $this->getBasketItems())
+            ->append("paymentSource", $this->getPaymentSource())
             ->getRequestString();
     }
 }

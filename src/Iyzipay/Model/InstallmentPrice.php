@@ -2,9 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
-
 class InstallmentPrice
 {
     private $installmentPrice;
@@ -39,23 +36,5 @@ class InstallmentPrice
     public function setInstallmentNumber($installmentNumber)
     {
         $this->installmentNumber = $installmentNumber;
-    }
-
-    public function getJsonObject()
-    {
-        return JsonBuilder::create()
-            ->addPrice("installmentPrice", $this->getInstallmentPrice())
-            ->addPrice("totalPrice", $this->getTotalPrice())
-            ->add("installmentNumber", $this->getInstallmentNumber())
-            ->getObject();
-    }
-
-    public function toPKIRequestString()
-    {
-        return RequestStringBuilder::create()
-            ->appendPrice("installmentPrice", $this->getInstallmentPrice())
-            ->appendPrice("totalPrice", $this->getTotalPrice())
-            ->append("installmentNumber", $this->getInstallmentNumber())
-            ->getRequestString();
     }
 }
