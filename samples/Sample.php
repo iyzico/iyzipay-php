@@ -10,8 +10,8 @@ class Sample
     {
         # create client configuration
         $options = new \Iyzipay\Options();
-        $options->setApiKey("mrI3mIMuNwGiIxanQslyJBRYa8nYrCU5");
-        $options->setSecretKey("9lkVluNHBABPw0LIvyn50oYZcrSJ8oNo");
+        $options->setApiKey("api key");
+        $options->setSecretKey("secret key");
         $options->setBaseUrl("https://stg.iyzipay.com");
         return $options;
     }
