@@ -22,7 +22,7 @@ class CrossBookingSample
         $request->setReason("reason text");
 
         # make request
-        $crossBookingToSubMerchant = Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
+        $crossBookingToSubMerchant = \Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
 
         # print result
         print_r($crossBookingToSubMerchant);
@@ -39,7 +39,7 @@ class CrossBookingSample
         $request->setReason("reason text");
 
         # make request
-        $crossBookingFromSubMerchant = Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
+        $crossBookingFromSubMerchant = \Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
 
         # print result
         print_r($crossBookingFromSubMerchant);

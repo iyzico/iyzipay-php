@@ -27,7 +27,7 @@ class ConnectThreeDSSample
         $request->setPrice("1.0");
         $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
@@ -37,7 +37,7 @@ class ConnectThreeDSSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitialize = Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
+        $connectThreeDSInitialize = \Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($connectThreeDSInitialize);
@@ -58,13 +58,13 @@ class ConnectThreeDSSample
         $request->setPrice("1.0");
         $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardToken("cardToken");
         $paymentCard->setCardUserKey("cardUserKey");
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitialize = Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
+        $connectThreeDSInitialize = \Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($connectThreeDSInitialize);

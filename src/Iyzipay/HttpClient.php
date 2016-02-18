@@ -9,14 +9,13 @@ class HttpClient
         return new HttpClient();
     }
 
-    public function get($url, $header)
+    public function get($url)
     {
         return $this->exchange($url, array(
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
-            CURLOPT_HEADER => false,
-            CURLOPT_HTTPHEADER => $header
+            CURLOPT_HEADER => false
         ));
     }
 

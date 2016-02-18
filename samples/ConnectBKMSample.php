@@ -25,7 +25,7 @@ class ConnectBKMSample
         $request->setInstallmentDetails($this->prepareInstallmentDetails());
 
         # make request
-        $connectBKMInitialize = Iyzipay\Model\ConnectBKMInitialize::create($request, Sample::options());
+        $connectBKMInitialize = \Iyzipay\Model\ConnectBKMInitialize::create($request, Sample::options());
 
         # print result
         print_r($connectBKMInitialize);
@@ -40,7 +40,7 @@ class ConnectBKMSample
         $request->setToken("mockToken1453392332672");
 
         # make request
-        $connectBKMAuth = Iyzipay\Model\ConnectBKMAuth::retrieve($request, Sample::options());
+        $connectBKMAuth = \Iyzipay\Model\ConnectBKMAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($connectBKMAuth);
@@ -60,27 +60,27 @@ class ConnectBKMSample
 
     private function isbankInstallmentDetails()
     {
-        $installmentDetail = new Iyzipay\Model\BKMInstallment();
+        $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
         $installmentPrices = array();
 
-        $singleInstallment = new Iyzipay\Model\BKMInstallmentPrice();
+        $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
         $singleInstallment->setInstallmentNumber(1);
         $singleInstallment->setTotalPrice("1");
 
-        $twoInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $twoInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $twoInstallments->setInstallmentNumber(2);
         $twoInstallments->setTotalPrice("1.1");
 
-        $threeInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $threeInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $threeInstallments->setInstallmentNumber(3);
         $threeInstallments->setTotalPrice("1.1");
 
-        $sixInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $sixInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $sixInstallments->setInstallmentNumber(6);
         $sixInstallments->setTotalPrice("1.2");
 
-        $nineInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $nineInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $nineInstallments->setInstallmentNumber(9);
         $nineInstallments->setTotalPrice("1.4");
 
@@ -96,27 +96,27 @@ class ConnectBKMSample
 
     private function finansbankInstallmentDetails()
     {
-        $installmentDetail = new Iyzipay\Model\BKMInstallment();
+        $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
         $installmentPrices = array();
 
-        $singleInstallment = new Iyzipay\Model\BKMInstallmentPrice();
+        $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
         $singleInstallment->setInstallmentNumber(1);
         $singleInstallment->setTotalPrice("1");
 
-        $twoInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $twoInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $twoInstallments->setInstallmentNumber(2);
         $twoInstallments->setTotalPrice("1.1");
 
-        $threeInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $threeInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $threeInstallments->setInstallmentNumber(3);
         $threeInstallments->setTotalPrice("1.1");
 
-        $sixInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $sixInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $sixInstallments->setInstallmentNumber(6);
         $sixInstallments->setTotalPrice("1.2");
 
-        $nineInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $nineInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $nineInstallments->setInstallmentNumber(9);
         $nineInstallments->setTotalPrice("1.4");
 
@@ -132,27 +132,27 @@ class ConnectBKMSample
 
     private function akbankInstallmentDetails()
     {
-        $installmentDetail = new Iyzipay\Model\BKMInstallment();
+        $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
         $installmentPrices = array();
 
-        $singleInstallment = new Iyzipay\Model\BKMInstallmentPrice();
+        $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
         $singleInstallment->setInstallmentNumber(1);
         $singleInstallment->setTotalPrice("1");
 
-        $twoInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $twoInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $twoInstallments->setInstallmentNumber(2);
         $twoInstallments->setTotalPrice("1.1");
 
-        $threeInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $threeInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $threeInstallments->setInstallmentNumber(3);
         $threeInstallments->setTotalPrice("1.1");
 
-        $sixInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $sixInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $sixInstallments->setInstallmentNumber(6);
         $sixInstallments->setTotalPrice("1.2");
 
-        $nineInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $nineInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $nineInstallments->setInstallmentNumber(9);
         $nineInstallments->setTotalPrice("1.4");
 
@@ -168,27 +168,27 @@ class ConnectBKMSample
 
     private function ykbInstallmentDetails()
     {
-        $installmentDetail = new Iyzipay\Model\BKMInstallment();
+        $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
         $installmentPrices = array();
 
-        $singleInstallment = new Iyzipay\Model\BKMInstallmentPrice();
+        $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
         $singleInstallment->setInstallmentNumber(1);
         $singleInstallment->setTotalPrice("1");
 
-        $twoInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $twoInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $twoInstallments->setInstallmentNumber(2);
         $twoInstallments->setTotalPrice("1.1");
 
-        $threeInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $threeInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $threeInstallments->setInstallmentNumber(3);
         $threeInstallments->setTotalPrice("1.1");
 
-        $sixInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $sixInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $sixInstallments->setInstallmentNumber(6);
         $sixInstallments->setTotalPrice("1.2");
 
-        $nineInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $nineInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $nineInstallments->setInstallmentNumber(9);
         $nineInstallments->setTotalPrice("1.4");
 
@@ -204,27 +204,27 @@ class ConnectBKMSample
 
     private function denizbankInstallmentDetails()
     {
-        $installmentDetail = new Iyzipay\Model\BKMInstallment();
+        $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
         $installmentPrices = array();
 
-        $singleInstallment = new Iyzipay\Model\BKMInstallmentPrice();
+        $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
         $singleInstallment->setInstallmentNumber(1);
         $singleInstallment->setTotalPrice("1");
 
-        $twoInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $twoInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $twoInstallments->setInstallmentNumber(2);
         $twoInstallments->setTotalPrice("1.1");
 
-        $threeInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $threeInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $threeInstallments->setInstallmentNumber(3);
         $threeInstallments->setTotalPrice("1.1");
 
-        $sixInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $sixInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $sixInstallments->setInstallmentNumber(6);
         $sixInstallments->setTotalPrice("1.2");
 
-        $nineInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $nineInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $nineInstallments->setInstallmentNumber(9);
         $nineInstallments->setTotalPrice("1.4");
 
@@ -240,27 +240,27 @@ class ConnectBKMSample
 
     private function halkbankInstallmentDetails()
     {
-        $installmentDetail = new Iyzipay\Model\BKMInstallment();
+        $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
         $installmentPrices = array();
 
-        $singleInstallment = new Iyzipay\Model\BKMInstallmentPrice();
+        $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
         $singleInstallment->setInstallmentNumber(1);
         $singleInstallment->setTotalPrice("1");
 
-        $twoInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $twoInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $twoInstallments->setInstallmentNumber(2);
         $twoInstallments->setTotalPrice("1.1");
 
-        $threeInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $threeInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $threeInstallments->setInstallmentNumber(3);
         $threeInstallments->setTotalPrice("1.1");
 
-        $sixInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $sixInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $sixInstallments->setInstallmentNumber(6);
         $sixInstallments->setTotalPrice("1.2");
 
-        $nineInstallments = new Iyzipay\Model\BKMInstallmentPrice();
+        $nineInstallments = new \Iyzipay\Model\BKMInstallmentPrice();
         $nineInstallments->setInstallmentNumber(9);
         $nineInstallments->setTotalPrice("1.4");
 

@@ -18,7 +18,7 @@ class ConnectPaymentPostAuth extends IyzipayResource
     public static function create(CreatePaymentPostAuthRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/postauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ConnectPaymentPostAuthMapper::create()->map(new Card(), JsonBuilder::jsonDecode($rawResult));
+        return ConnectPaymentPostAuthMapper::create()->map(new ConnectPaymentPostAuth(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getPaymentId()

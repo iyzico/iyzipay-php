@@ -20,7 +20,7 @@ class CheckoutFormSample
         $request->setPrice("1.0");
         $request->setPaidPrice("1.2");
         $request->setBasketId("B67832");
-        $request->setPaymentGroup(Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setBuyer($this->newBuyer());
         $request->setShippingAddress($this->newShippingAddress());
         $request->setBillingAddress($this->newBillingAddress());
@@ -28,7 +28,7 @@ class CheckoutFormSample
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         # make request
-        $checkoutFormInitialize = Iyzipay\Model\CheckoutFormInitialize::create($request, Sample::options());
+        $checkoutFormInitialize = \Iyzipay\Model\CheckoutFormInitialize::create($request, Sample::options());
 
         # print result
         print_r($checkoutFormInitialize);
@@ -43,7 +43,7 @@ class CheckoutFormSample
         $request->setToken("myToken");
 
         # make request
-        $checkoutFormAuth = Iyzipay\Model\CheckoutFormAuth::retrieve($request, Sample::options());
+        $checkoutFormAuth = \Iyzipay\Model\CheckoutFormAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($checkoutFormAuth);
@@ -51,7 +51,7 @@ class CheckoutFormSample
 
     private function newBuyer()
     {
-        $buyer = new Iyzipay\Model\Buyer();
+        $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("100");
         $buyer->setName("Hakan");
         $buyer->setSurname("Erdoğan");
@@ -93,7 +93,7 @@ class CheckoutFormSample
     private function newBasketItems()
     {
         $basketItems = array();
-        $firstBasketItem = new Iyzipay\Model\BasketItem();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");
         $firstBasketItem->setCategory1("Giyim");
@@ -103,7 +103,7 @@ class CheckoutFormSample
         $firstBasketItem->setSubMerchantKey("subMerchantKey");
         $firstBasketItem->setSubMerchantPrice("0.27");
 
-        $secondBasketItem = new Iyzipay\Model\BasketItem();
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
         $secondBasketItem->setId("BI102");
         $secondBasketItem->setName("XYZ Oyun Kodu");
         $secondBasketItem->setCategory1("Oyun");
@@ -113,7 +113,7 @@ class CheckoutFormSample
         $secondBasketItem->setSubMerchantKey("subMerchantKey");
         $secondBasketItem->setSubMerchantPrice("0.42");
 
-        $thirdBasketItem = new Iyzipay\Model\BasketItem();
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
         $thirdBasketItem->setId("BI103");
         $thirdBasketItem->setName("EDC Marka Usb");
         $thirdBasketItem->setCategory1("Elektronik");

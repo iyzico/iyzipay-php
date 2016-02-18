@@ -10,6 +10,7 @@ class IyzipayBootstrap
 
     /**
      * Inits and registers classes.
+     * @param string $includePath
      */
     public static function init($includePath = "src")
     {

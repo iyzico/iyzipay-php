@@ -21,10 +21,10 @@ class PaymentPreAuthSample
         $request->setPaidPrice("1.1");
         $request->setInstallment(1);
         $request->setBasketId("B67832");
-        $request->setPaymentChannel(Iyzipay\Model\PaymentChannel::WEB);
-        $request->setPaymentGroup(Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
+        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
@@ -33,7 +33,7 @@ class PaymentPreAuthSample
         $paymentCard->setRegisterCard(0);
         $request->setPaymentCard($paymentCard);
 
-        $buyer = new Iyzipay\Model\Buyer();
+        $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("BY789");
         $buyer->setName("Sabri Onur");
         $buyer->setSurname("Tüzün");
@@ -66,7 +66,7 @@ class PaymentPreAuthSample
         $request->setbillingAddress($billingAddress);
 
         $basketItems = array();
-        $firstBasketItem = new Iyzipay\Model\BasketItem();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");
         $firstBasketItem->setCategory1("Giyim");
@@ -76,7 +76,7 @@ class PaymentPreAuthSample
         $firstBasketItem->setSubMerchantKey("subMerchantKey");
         $firstBasketItem->setSubMerchantPrice("0.27");
 
-        $secondBasketItem = new Iyzipay\Model\BasketItem();
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
         $secondBasketItem->setId("BI102");
         $secondBasketItem->setName("XYZ Oyun Kodu");
         $secondBasketItem->setCategory1("Oyun");
@@ -86,7 +86,7 @@ class PaymentPreAuthSample
         $secondBasketItem->setSubMerchantKey("subMerchantKey");
         $secondBasketItem->setSubMerchantPrice("0.42");
 
-        $thirdBasketItem = new Iyzipay\Model\BasketItem();
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
         $thirdBasketItem->setId("BI103");
         $thirdBasketItem->setName("EDC Marka Usb");
         $thirdBasketItem->setCategory1("Elektronik");
@@ -102,7 +102,7 @@ class PaymentPreAuthSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $paymentPreAuth = Iyzipay\Model\PaymentPreAuth::create($request, Sample::options());
+        $paymentPreAuth = \Iyzipay\Model\PaymentPreAuth::create($request, Sample::options());
 
         # print result
         print_r($paymentPreAuth);
@@ -118,10 +118,10 @@ class PaymentPreAuthSample
         $request->setPaidPrice("1.1");
         $request->setInstallment(3);
         $request->setBasketId("B67832");
-        $request->setPaymentChannel(Iyzipay\Model\PaymentChannel::WEB);
-        $request->setPaymentGroup(Iyzipay\Model\PaymentGroup::SUBSCRIPTION);
+        $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
+        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::SUBSCRIPTION);
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setRegisterCard(0);
@@ -130,7 +130,7 @@ class PaymentPreAuthSample
         $paymentCard->setCvc("123");
         $request->setPaymentCard($paymentCard);
 
-        $buyer = new Iyzipay\Model\Buyer();
+        $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("100");
         $buyer->setName("Sabri Onur");
         $buyer->setSurname("Tüzün");
@@ -163,7 +163,7 @@ class PaymentPreAuthSample
         $request->setbillingAddress($billingAddress);
 
         $basketItems = array();
-        $firstBasketItem = new Iyzipay\Model\BasketItem();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Dükkan aboneliği ve katalog");
         $firstBasketItem->setCategory1("Abonelik");
@@ -171,7 +171,7 @@ class PaymentPreAuthSample
         $firstBasketItem->setItemType(Iyzipay\Model\BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
 
-        $secondBasketItem = new Iyzipay\Model\BasketItem();
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
         $secondBasketItem->setId("BI102");
         $secondBasketItem->setName("Listeleme aboneliği");
         $secondBasketItem->setCategory1("Abonelik");
@@ -179,7 +179,7 @@ class PaymentPreAuthSample
         $secondBasketItem->setItemType(Iyzipay\Model\BasketItemType::VIRTUAL);
         $secondBasketItem->setPrice("0.5");
 
-        $thirdBasketItem = new Iyzipay\Model\BasketItem();
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
         $thirdBasketItem->setId("BI103");
         $thirdBasketItem->setName("Servis aboneliği");
         $thirdBasketItem->setCategory1("Abonelik");
@@ -194,7 +194,7 @@ class PaymentPreAuthSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $paymentPreAuth = Iyzipay\Model\PaymentPreAuth::create($request, Sample::options());
+        $paymentPreAuth = \Iyzipay\Model\PaymentPreAuth::create($request, Sample::options());
 
         # print result
         print_r($paymentPreAuth);

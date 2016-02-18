@@ -23,10 +23,10 @@ class ThreeDSSample
         $request->setPaidPrice("1.1");
         $request->setInstallment(1);
         $request->setBasketId("B67832");
-        $request->setPaymentChannel(Iyzipay\Model\PaymentChannel::WEB);
-        $request->setPaymentGroup(Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
+        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
@@ -35,7 +35,7 @@ class ThreeDSSample
         $paymentCard->setRegisterCard(0);
         $request->setPaymentCard($paymentCard);
 
-        $buyer = new Iyzipay\Model\Buyer();
+        $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("BY789");
         $buyer->setName("Sabri Onur");
         $buyer->setSurname("Tüzün");
@@ -67,8 +67,8 @@ class ThreeDSSample
         $billingAddress->setZipCode("34742");
         $request->setbillingAddress($billingAddress);
 
-        $basketItems[] = null;
-        $firstBasketItem = new Iyzipay\Model\BasketItem();
+        $basketItems = array();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("ABC Marka Kolye");
         $firstBasketItem->setCategory1("Giyim");
@@ -78,7 +78,7 @@ class ThreeDSSample
         $firstBasketItem->setSubMerchantKey("subMerchantKey");
         $firstBasketItem->setSubMerchantPrice("0.27");
 
-        $secondBasketItem = new Iyzipay\Model\BasketItem();
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
         $secondBasketItem->setId("BI102");
         $secondBasketItem->setName("XYZ Oyun Kodu");
         $secondBasketItem->setCategory1("Oyun");
@@ -88,7 +88,7 @@ class ThreeDSSample
         $secondBasketItem->setSubMerchantKey("subMerchantKey");
         $secondBasketItem->setSubMerchantPrice("0.42");
 
-        $thirdBasketItem = new Iyzipay\Model\BasketItem();
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
         $thirdBasketItem->setId("BI103");
         $thirdBasketItem->setName("EDC Marka Usb");
         $thirdBasketItem->setCategory1("Elektronik");
@@ -104,7 +104,7 @@ class ThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
+        $threeDSInitialize = \Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -121,10 +121,10 @@ class ThreeDSSample
         $request->setPaidPrice("1.1");
         $request->setInstallment(3);
         $request->setBasketId("B67832");
-        $request->setPaymentChannel(Iyzipay\Model\PaymentChannel::WEB);
-        $request->setPaymentGroup(Iyzipay\Model\PaymentGroup::LISTING);
+        $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
+        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::LISTING);
 
-        $paymentCard = new Iyzipay\Model\PaymentCard();
+        $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
@@ -133,7 +133,7 @@ class ThreeDSSample
         $paymentCard->setRegisterCard(0);
         $request->setPaymentCard($paymentCard);
 
-        $buyer = new Iyzipay\Model\Buyer();
+        $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("BY789");
         $buyer->setName("Sabri Onur");
         $buyer->setSurname("Tüzün");
@@ -165,8 +165,8 @@ class ThreeDSSample
         $billingAddress->setZipCode("34742");
         $request->setbillingAddress($billingAddress);
 
-        $basketItems[] = null;
-        $firstBasketItem = new Iyzipay\Model\BasketItem();
+        $basketItems = array();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Dükkan listelemesi ve katalog");
         $firstBasketItem->setCategory1("Listeleme");
@@ -174,7 +174,7 @@ class ThreeDSSample
         $firstBasketItem->setItemType(Iyzipay\Model\BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
 
-        $secondBasketItem = new Iyzipay\Model\BasketItem();
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
         $secondBasketItem->setId("BI102");
         $secondBasketItem->setName("Listeleme hizmeti");
         $secondBasketItem->setCategory1("Listeleme");
@@ -182,7 +182,7 @@ class ThreeDSSample
         $secondBasketItem->setItemType(Iyzipay\Model\BasketItemType::VIRTUAL);
         $secondBasketItem->setPrice("0.5");
 
-        $thirdBasketItem = new Iyzipay\Model\BasketItem();
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
         $thirdBasketItem->setId("BI103");
         $thirdBasketItem->setName("Servis hizmeti");
         $thirdBasketItem->setCategory1("Listeleme");
@@ -196,7 +196,7 @@ class ThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
+        $threeDSInitialize = \Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -212,7 +212,7 @@ class ThreeDSSample
         $request->setConversationData("conversation data");
 
         # make request
-        $threeDSAuth = Iyzipay\Model\ThreeDSAuth::create($request, Sample::options());
+        $threeDSAuth = \Iyzipay\Model\ThreeDSAuth::create($request, Sample::options());
 
         # print result
         print_r($threeDSAuth);

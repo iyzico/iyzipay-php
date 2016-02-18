@@ -11,12 +11,12 @@ class CreateBKMInitializeRequest extends Request
     private $price;
     private $basketId;
     private $paymentGroup;
-    private $paymentSource;
     private $buyer;
     private $shippingAddress;
     private $billingAddress;
     private $basketItems;
     private $callbackUrl;
+    private $paymentSource;
 
     public function getPrice()
     {
@@ -46,16 +46,6 @@ class CreateBKMInitializeRequest extends Request
     public function setPaymentGroup($paymentGroup)
     {
         $this->paymentGroup = $paymentGroup;
-    }
-
-    public function getPaymentSource()
-    {
-        return $this->paymentSource;
-    }
-
-    public function setPaymentSource($paymentSource)
-    {
-        $this->paymentSource = $paymentSource;
     }
 
     public function getBuyer()
@@ -108,18 +98,28 @@ class CreateBKMInitializeRequest extends Request
         $this->callbackUrl = $callbackUrl;
     }
 
+    public function getPaymentSource()
+    {
+        return $this->paymentSource;
+    }
+
+    public function setPaymentSource($paymentSource)
+    {
+        $this->paymentSource = $paymentSource;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->addPrice("price", $this->getPrice())
             ->add("basketId", $this->getBasketId())
             ->add("paymentGroup", $this->getPaymentGroup())
-            ->add("paymentSource", $this->getPaymentSource())
             ->add("buyer", $this->getBuyer())
             ->add("shippingAddress", $this->getShippingAddress())
             ->add("billingAddress", $this->getBillingAddress())
             ->addArray("basketItems", $this->getBasketItems())
             ->add("callbackUrl", $this->getCallbackUrl())
+            ->add("paymentSource", $this->getPaymentSource())
             ->getObject();
     }
 
@@ -130,12 +130,12 @@ class CreateBKMInitializeRequest extends Request
             ->appendPrice("price", $this->getPrice())
             ->append("basketId", $this->getBasketId())
             ->append("paymentGroup", $this->getPaymentGroup())
-            ->append("paymentSource", $this->getPaymentSource())
             ->append("buyer", $this->getBuyer())
             ->append("shippingAddress", $this->getShippingAddress())
             ->append("billingAddress", $this->getBillingAddress())
             ->appendArray("basketItems", $this->getBasketItems())
             ->append("callbackUrl", $this->getCallbackUrl())
+            ->append("paymentSource", $this->getPaymentSource())
             ->getRequestString();
     }
 }

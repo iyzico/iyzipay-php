@@ -2,9 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
-
 class PaymentItem
 {
     private $itemId;
@@ -204,53 +201,5 @@ class PaymentItem
     public function setMerchantPayoutAmount($merchantPayoutAmount)
     {
         $this->merchantPayoutAmount = $merchantPayoutAmount;
-    }
-
-    public function getJsonObject()
-    {
-        return JsonBuilder::create()
-            ->add("itemId", $this->getItemId())
-            ->add("paymentTransactionId", $this->getPaymentTransactionId())
-            ->add("transactionStatus", $this->getTransactionStatus())
-            ->addPrice("price", $this->getPrice())
-            ->addPrice("paidPrice", $this->getPaidPrice())
-            ->add("merchantCommissionRate", $this->getMerchantCommissionRate())
-            ->add("merchantCommissionRateAmount", $this->getMerchantCommissionRateAmount())
-            ->add("iyziCommissionRateAmount", $this->getIyziCommissionRateAmount())
-            ->add("iyziCommissionFee", $this->getIyziCommissionFee())
-            ->add("blockageRate", $this->getBlockageRate())
-            ->add("blockageRateAmountMerchant", $this->getBlockageRateAmountMerchant())
-            ->add("blockageRateAmountSubMerchant", $this->getBlockageRateAmountSubMerchant())
-            ->add("blockageResolvedDate", $this->getBlockageResolvedDate())
-            ->add("subMerchantKey", $this->getSubMerchantKey())
-            ->add("subMerchantPrice", $this->getSubMerchantPrice())
-            ->add("subMerchantPayoutRate", $this->getSubMerchantPayoutRate())
-            ->add("subMerchantPayoutAmount", $this->getSubMerchantPayoutAmount())
-            ->add("merchantPayoutAmount", $this->getMerchantPayoutAmount())
-            ->getObject();
-    }
-
-    public function toPKIRequestString()
-    {
-        return RequestStringBuilder::create()
-            ->append("itemId", $this->getItemId())
-            ->append("paymentTransactionId", $this->getPaymentTransactionId())
-            ->append("transactionStatus", $this->getTransactionStatus())
-            ->appendPrice("price", $this->getPrice())
-            ->appendPrice("paidPrice", $this->getPaidPrice())
-            ->append("merchantCommissionRate", $this->getMerchantCommissionRate())
-            ->append("merchantCommissionRateAmount", $this->getMerchantCommissionRateAmount())
-            ->append("iyziCommissionRateAmount", $this->getIyziCommissionRateAmount())
-            ->append("iyziCommissionFee", $this->getIyziCommissionFee())
-            ->append("blockageRate", $this->getBlockageRate())
-            ->append("blockageRateAmountMerchant", $this->getBlockageRateAmountMerchant())
-            ->append("blockageRateAmountSubMerchant", $this->getBlockageRateAmountSubMerchant())
-            ->append("blockageResolvedDate", $this->getBlockageResolvedDate())
-            ->append("subMerchantKey", $this->getSubMerchantKey())
-            ->append("subMerchantPrice", $this->getSubMerchantPrice())
-            ->append("subMerchantPayoutRate", $this->getSubMerchantPayoutRate())
-            ->append("subMerchantPayoutAmount", $this->getSubMerchantPayoutAmount())
-            ->append("merchantPayoutAmount", $this->getMerchantPayoutAmount())
-            ->getRequestString();
     }
 }

@@ -22,7 +22,7 @@ class RefundSample
         $request->setIp("127.0.0.1");
 
         # make request
-        $refund = Iyzipay\Model\Refund::create($request, Sample::options());
+        $refund = \Iyzipay\Model\Refund::create($request, Sample::options());
 
         # print result
         print_r($refund);
@@ -39,7 +39,7 @@ class RefundSample
         $request->setIp("127.0.0.1");
 
         # make request
-        $refundChargedFromMerchant = Iyzipay\Model\RefundChargedFromMerchant::create($request, Sample::options());
+        $refundChargedFromMerchant = \Iyzipay\Model\RefundChargedFromMerchant::create($request, Sample::options());
 
         # print result
         print_r($refundChargedFromMerchant);
