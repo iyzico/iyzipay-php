@@ -15,12 +15,6 @@ class CardStorageSample
 {
     public function should_create_user_and_add_card()
     {
-        # create client configuration class
-        $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
-
         # create request class
         $request = new \Iyzipay\Request\CreateCardRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
