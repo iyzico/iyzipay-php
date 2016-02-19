@@ -28,7 +28,7 @@ class IyzipayResource
     private static function prepareAuthorizationString(Request $request, Options $options, $randomHeaderValue)
     {
         $hash = HashGenerator::generateHash($options->getApiKey(), $options->getSecretKey(), $randomHeaderValue, $request);
-        return RequestHelper::formatHeaderString(array($options->getApiKey(), $hash));
+        return vsprintf("IYZWS %s:%s", array($options->getApiKey(), $hash));
     }
 
     public function getStatus()
