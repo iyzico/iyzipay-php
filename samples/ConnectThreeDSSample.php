@@ -21,11 +21,11 @@ class ConnectThreeDSSample
         $request->setBuyerEmail("email@email.com");
         $request->setBuyerId("B2323");
         $request->setBuyerIp("127.0.0.1");
-        $request->setConnectorName("ISBANK");
+        $request->setConnectorName("connector name");
         $request->setInstallment(1);
-        $request->setPaidPrice("1.0");
-        $request->setPrice("1.0");
-        $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
+        $request->setPaidPrice("1");
+        $request->setPrice("1");
+        $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -52,15 +52,15 @@ class ConnectThreeDSSample
         $request->setBuyerEmail("email@email.com");
         $request->setBuyerId("B2323");
         $request->setBuyerIp("127.0.0.1");
-        $request->setConnectorName("ISBANK");
+        $request->setConnectorName("connector name");
         $request->setInstallment(1);
-        $request->setPaidPrice("1.0");
-        $request->setPrice("1.0");
-        $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
+        $request->setPaidPrice("1");
+        $request->setPrice("1");
+        $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
-        $paymentCard->setCardToken("cardToken");
-        $paymentCard->setCardUserKey("cardUserKey");
+        $paymentCard->setCardToken("card token");
+        $paymentCard->setCardUserKey("card user key");
         $request->setPaymentCard($paymentCard);
 
         # make request
@@ -76,7 +76,7 @@ class ConnectThreeDSSample
         $request = new \Iyzipay\Request\CreateConnectThreeDSAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setPaymentId("12345");
+        $request->setPaymentId("1");
 
         # make request
         $connectThreeDSAuth = \Iyzipay\Model\ConnectThreeDSAuth::create($request, Sample::options());

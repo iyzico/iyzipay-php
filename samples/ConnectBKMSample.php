@@ -17,11 +17,15 @@ class ConnectBKMSample
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
-        $request->setCallbackUrl("https://www.merchant.com/callbackUrl");
+        $request->setCallbackUrl("https://www.merchant.com/callback");
+
+        # prepare buyer
         $request->setBuyerId("100");
         $request->setBuyerEmail("email@email.com");
         $request->setBuyerIp("198.168.123.102");
-        $request->setConnectorName("ISBANK");
+
+        # prepare default pos
+        $request->setConnectorName("connector name");
         $request->setInstallmentDetails($this->prepareInstallmentDetails());
 
         # make request
@@ -37,7 +41,7 @@ class ConnectBKMSample
         $request = new \Iyzipay\Request\RetrieveBKMAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setToken("mockToken1453392332672");
+        $request->setToken("token");
 
         # make request
         $connectBKMAuth = \Iyzipay\Model\ConnectBKMAuth::retrieve($request, Sample::options());
@@ -62,6 +66,7 @@ class ConnectBKMSample
     {
         $installmentDetail = new \Iyzipay\Model\BKMInstallment();
         $installmentDetail->setBankId(64);
+
         $installmentPrices = array();
 
         $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
@@ -97,7 +102,8 @@ class ConnectBKMSample
     private function finansbankInstallmentDetails()
     {
         $installmentDetail = new \Iyzipay\Model\BKMInstallment();
-        $installmentDetail->setBankId(64);
+        $installmentDetail->setBankId(111);
+
         $installmentPrices = array();
 
         $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
@@ -133,7 +139,8 @@ class ConnectBKMSample
     private function akbankInstallmentDetails()
     {
         $installmentDetail = new \Iyzipay\Model\BKMInstallment();
-        $installmentDetail->setBankId(64);
+        $installmentDetail->setBankId(46);
+
         $installmentPrices = array();
 
         $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
@@ -169,7 +176,8 @@ class ConnectBKMSample
     private function ykbInstallmentDetails()
     {
         $installmentDetail = new \Iyzipay\Model\BKMInstallment();
-        $installmentDetail->setBankId(64);
+        $installmentDetail->setBankId(67);
+
         $installmentPrices = array();
 
         $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
@@ -205,7 +213,8 @@ class ConnectBKMSample
     private function denizbankInstallmentDetails()
     {
         $installmentDetail = new \Iyzipay\Model\BKMInstallment();
-        $installmentDetail->setBankId(64);
+        $installmentDetail->setBankId(134);
+
         $installmentPrices = array();
 
         $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
@@ -241,7 +250,8 @@ class ConnectBKMSample
     private function halkbankInstallmentDetails()
     {
         $installmentDetail = new \Iyzipay\Model\BKMInstallment();
-        $installmentDetail->setBankId(64);
+        $installmentDetail->setBankId(12);
+
         $installmentPrices = array();
 
         $singleInstallment = new \Iyzipay\Model\BKMInstallmentPrice();
