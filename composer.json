@@ -10,23 +10,26 @@
     "iyzipay php",
     "iyzipay api",
     "iyzipay api php client",
-    "iyzipay api php"
+    "iyzipay api php",
+    "payment processing"
   ],
   "license": "MIT",
   "authors": [
     {
-      "name": "Sabri Onur Tuzun",
-      "email": "onur.tuzun@iyzico.com",
-      "homepage": "http://www.iyzico.com"
+      "name": "iyzico and contributors",
+      "homepage": "https://github.com/iyzico/iyzipay-php/contributors"
     }
   ],
-  "require": {},
+  "require": {
+    "php": ">=5.3.3",
+    "ext-curl": "*"
+  },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
   },
   "autoload": {
-    "psr-0": {
-      "Iyzipay": "src/"
+    "psr-4": {
+      "": "src/"
     }
   }
 }
