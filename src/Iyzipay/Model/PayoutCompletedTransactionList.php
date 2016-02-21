@@ -13,7 +13,7 @@ class PayoutCompletedTransactionList extends IyzipayResource
 {
     private $payoutCompletedTransactions;
 
-    public static function create(RetrieveTransactionsRequest $request, Options $options)
+    public static function retrieve(RetrieveTransactionsRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/reporting/settlement/payoutcompleted", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return PayoutCompletedTransactionListMapper::create()->map(new PayoutCompletedTransactionList(), JsonBuilder::jsonDecode($rawResult));
