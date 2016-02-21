@@ -55,6 +55,9 @@ class PaymentMapper extends IyzipayResourceMapper
         if (isset($jsonResult->cardFamily)) {
             $payment->setCardFamily($jsonResult->cardFamily);
         }
+        if (isset($jsonResult->cardUserKey)) {
+            $payment->setCardUserKey($jsonResult->cardUserKey);
+        }
         if (isset($jsonResult->cardToken)) {
             $payment->setCardToken($jsonResult->cardToken);
         }
