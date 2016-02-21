@@ -2,7 +2,12 @@
 
 namespace Iyzipay\Model;
 
+use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
+use Iyzipay\JsonBuilder;
+use Iyzipay\Model\Mapper\PaymentMapper;
+use Iyzipay\Options;
+use Iyzipay\Request\RetrievePaymentRequest;
 
 class Payment extends IyzipayResource
 {
@@ -24,6 +29,12 @@ class Payment extends IyzipayResource
     private $binNumber;
     private $basketId;
     private $paymentItems;
+
+    public static function retrieve(RetrievePaymentRequest $request, Options $options)
+    {
+        $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        return PaymentMapper::create()->map(new Payment(), JsonBuilder::jsonDecode($rawResult));
+    }
 
     public function getPrice()
     {
