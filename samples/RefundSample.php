@@ -17,7 +17,7 @@ class RefundSample
         $request = new \Iyzipay\Request\CreateRefundRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setPaymentTransactionId("50");
+        $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("127.0.0.1");
 
@@ -34,8 +34,8 @@ class RefundSample
         $request = new \Iyzipay\Request\CreateRefundRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setPaymentTransactionId("41");
-        $request->setPrice("0.05");
+        $request->setPaymentTransactionId("1");
+        $request->setPrice("0.1");
         $request->setIp("127.0.0.1");
 
         # make request
