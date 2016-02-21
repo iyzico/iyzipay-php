@@ -5,11 +5,11 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new ConnectPaymentAuthSample();
+$sample = new ConnectPaymentPreAuthSample();
 $sample->should_pay_with_card();
 $sample->should_pay_with_card_token();
 
-class ConnectPaymentAuthSample
+class ConnectPaymentPreAuthSample
 {
     public function should_pay_with_card()
     {
@@ -35,10 +35,10 @@ class ConnectPaymentAuthSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectPaymentAuth = \Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
+        $connectPaymentPreAuth = \Iyzipay\Model\ConnectPaymentPreAuth::create($request, Sample::options());
 
         # print result
-        print_r($connectPaymentAuth);
+        print_r($connectPaymentPreAuth);
     }
 
     public function should_pay_with_card_token()
@@ -61,9 +61,9 @@ class ConnectPaymentAuthSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectPaymentAuth = \Iyzipay\Model\ConnectPaymentAuth::create($request, Sample::options());
+        $connectPaymentPreAuth = \Iyzipay\Model\ConnectPaymentPreAuth::create($request, Sample::options());
 
         # print result
-        print_r($connectPaymentAuth);
+        print_r($connectPaymentPreAuth);
     }
 }

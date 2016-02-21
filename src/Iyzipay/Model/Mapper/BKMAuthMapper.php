@@ -4,7 +4,7 @@ namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\Model\BKMAuth;
 
-class BKMAuthMapper extends IyzipayResourceMapper
+class BKMAuthMapper extends PaymentMapper
 {
     public static function create()
     {
