@@ -17,15 +17,78 @@ class CheckoutFormSample
         $request = new \Iyzipay\Request\CreateCheckoutFormInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setPrice("1.0");
+        $request->setPrice("1");
         $request->setPaidPrice("1.2");
         $request->setBasketId("B67832");
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $request->setBuyer($this->newBuyer());
-        $request->setShippingAddress($this->newShippingAddress());
-        $request->setBillingAddress($this->newBillingAddress());
-        $request->setBasketItems($this->newBasketItems());
         $request->setCallbackUrl("https://www.merchant.com/callback");
+
+        $buyer = new \Iyzipay\Model\Buyer();
+        $buyer->setId("BY789");
+        $buyer->setName("John");
+        $buyer->setSurname("Doe");
+        $buyer->setGsmNumber("+905350000000");
+        $buyer->setEmail("email@email.com");
+        $buyer->setIdentityNumber("74300864791");
+        $buyer->setLastLoginDate("2015-10-05 12:43:35");
+        $buyer->setRegistrationDate("2013-04-21 15:12:09");
+        $buyer->setRegistrationAddress("Address");
+        $buyer->setIp("85.34.78.112");
+        $buyer->setCity("Istanbul");
+        $buyer->setCountry("Turkey");
+        $buyer->setZipCode("34732");
+        $request->setBuyer($buyer);
+
+        $shippingAddress = new \Iyzipay\Model\Address();
+        $shippingAddress->setContactName("Jane Doe");
+        $shippingAddress->setCity("Istanbul");
+        $shippingAddress->setCountry("Turkey");
+        $shippingAddress->setAddress("Address");
+        $shippingAddress->setZipCode("34742");
+        $request->setShippingAddress($shippingAddress);
+
+        $billingAddress = new \Iyzipay\Model\Address();
+        $billingAddress->setContactName("Jane Doe");
+        $billingAddress->setCity("Istanbul");
+        $billingAddress->setCountry("Turkey");
+        $billingAddress->setAddress("Address");
+        $billingAddress->setZipCode("34742");
+        $request->setbillingAddress($billingAddress);
+
+        $basketItems = array();
+        $firstBasketItem = new \Iyzipay\Model\BasketItem();
+        $firstBasketItem->setId("BI101");
+        $firstBasketItem->setName("Binocular");
+        $firstBasketItem->setCategory1("Collectibles");
+        $firstBasketItem->setCategory2("Accessories");
+        $firstBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
+        $firstBasketItem->setPrice("0.3");
+        $firstBasketItem->setSubMerchantKey("sub merchant key");
+        $firstBasketItem->setSubMerchantPrice("0.27");
+        $basketItems[0] = $firstBasketItem;
+
+        $secondBasketItem = new \Iyzipay\Model\BasketItem();
+        $secondBasketItem->setId("BI102");
+        $secondBasketItem->setName("Game code");
+        $secondBasketItem->setCategory1("Game");
+        $secondBasketItem->setCategory2("Online Game Items");
+        $secondBasketItem->setItemType(\Iyzipay\Model\BasketItemType::VIRTUAL);
+        $secondBasketItem->setPrice("0.5");
+        $secondBasketItem->setSubMerchantKey("sub merchant key");
+        $secondBasketItem->setSubMerchantPrice("0.42");
+        $basketItems[1] = $secondBasketItem;
+
+        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
+        $thirdBasketItem->setId("BI103");
+        $thirdBasketItem->setName("Usb");
+        $thirdBasketItem->setCategory1("Electronics");
+        $thirdBasketItem->setCategory2("Usb / Cable");
+        $thirdBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
+        $thirdBasketItem->setPrice("0.2");
+        $thirdBasketItem->setSubMerchantKey("sub merchant key");
+        $thirdBasketItem->setSubMerchantPrice("0.18");
+        $basketItems[2] = $thirdBasketItem;
+        $request->setBasketItems($basketItems);
 
         # make request
         $checkoutFormInitialize = \Iyzipay\Model\CheckoutFormInitialize::create($request, Sample::options());
@@ -40,93 +103,12 @@ class CheckoutFormSample
         $request = new \Iyzipay\Request\RetrieveCheckoutFormAuthRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setToken("myToken");
+        $request->setToken("token");
 
         # make request
         $checkoutFormAuth = \Iyzipay\Model\CheckoutFormAuth::retrieve($request, Sample::options());
 
         # print result
         print_r($checkoutFormAuth);
-    }
-
-    private function newBuyer()
-    {
-        $buyer = new \Iyzipay\Model\Buyer();
-        $buyer->setId("100");
-        $buyer->setName("Hakan");
-        $buyer->setSurname("Erdoğan");
-        $buyer->setIdentityNumber("16045258606");
-        $buyer->setEmail("email@email.com");
-        $buyer->setGsmNumber("05553456789");
-        $buyer->setRegistrationDate("2011-02-17 12:00:00");
-        $buyer->setLastLoginDate("2015-04-20 12:00:00");
-        $buyer->setRegistrationAddress("Maltepe");
-        $buyer->setCity("Istanbul");
-        $buyer->setCountry("Turkiye");
-        $buyer->setZipCode("34840");
-        $buyer->setIp("192.168.123.102");
-        return $buyer;
-    }
-
-    private function newShippingAddress()
-    {
-        $address = new \Iyzipay\Model\Address();
-        $address->setAddress("Malte Plaza No:56");
-        $address->setZipCode("34840");
-        $address->setContactName("Hakan");
-        $address->setCity("Istanbul");
-        $address->setCountry("Turkiye");
-        return $address;
-    }
-
-    private function newBillingAddress()
-    {
-        $address = new \Iyzipay\Model\Address();
-        $address->setAddress("Malte Plaza No:56");
-        $address->setZipCode("34840");
-        $address->setContactName("Hakan");
-        $address->setCity("Istanbul");
-        $address->setCountry("Turkiye");
-        return $address;
-    }
-
-    private function newBasketItems()
-    {
-        $basketItems = array();
-        $firstBasketItem = new \Iyzipay\Model\BasketItem();
-        $firstBasketItem->setId("BI101");
-        $firstBasketItem->setName("ABC Marka Kolye");
-        $firstBasketItem->setCategory1("Giyim");
-        $firstBasketItem->setCategory2("Aksesuar");
-        $firstBasketItem->setItemType(Iyzipay\Model\BasketItemType::PHYSICAL);
-        $firstBasketItem->setPrice("0.3");
-        $firstBasketItem->setSubMerchantKey("subMerchantKey");
-        $firstBasketItem->setSubMerchantPrice("0.27");
-
-        $secondBasketItem = new \Iyzipay\Model\BasketItem();
-        $secondBasketItem->setId("BI102");
-        $secondBasketItem->setName("XYZ Oyun Kodu");
-        $secondBasketItem->setCategory1("Oyun");
-        $secondBasketItem->setCategory2("Online Oyun Kodlari");
-        $secondBasketItem->setItemType(Iyzipay\Model\BasketItemType::VIRTUAL);
-        $secondBasketItem->setPrice("0.5");
-        $secondBasketItem->setSubMerchantKey("subMerchantKey");
-        $secondBasketItem->setSubMerchantPrice("0.42");
-
-        $thirdBasketItem = new \Iyzipay\Model\BasketItem();
-        $thirdBasketItem->setId("BI103");
-        $thirdBasketItem->setName("EDC Marka Usb");
-        $thirdBasketItem->setCategory1("Elektronik");
-        $thirdBasketItem->setCategory2("Usb / Cable");
-        $thirdBasketItem->setItemType(Iyzipay\Model\BasketItemType::PHYSICAL);
-        $thirdBasketItem->setPrice("0.2");
-        $thirdBasketItem->setSubMerchantKey("subMerchantKey");
-        $thirdBasketItem->setSubMerchantPrice("0.18");
-
-        $basketItems[0] = $firstBasketItem;
-        $basketItems[1] = $secondBasketItem;
-        $basketItems[2] = $thirdBasketItem;
-
-        return $basketItems;
     }
 }
