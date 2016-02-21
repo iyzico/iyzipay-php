@@ -12,7 +12,7 @@ class Sample
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
         $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://stg.iyzipay.com");
+        $options->setBaseUrl("base url");
         return $options;
     }
 }
