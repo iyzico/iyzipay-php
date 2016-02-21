@@ -17,12 +17,12 @@ class CrossBookingSample
         $request = new \Iyzipay\Request\CreateCrossBookingRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubmerchantKey("subMerchantKey");
+        $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
 
         # make request
-        $crossBookingToSubMerchant = \Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());
+        $crossBookingToSubMerchant = \Iyzipay\Model\CrossBookingToSubMerchant::create($request, Sample::options());
 
         # print result
         print_r($crossBookingToSubMerchant);
@@ -34,7 +34,7 @@ class CrossBookingSample
         $request = new \Iyzipay\Request\CreateCrossBookingRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubmerchantKey("subMerchantKey");
+        $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
 
