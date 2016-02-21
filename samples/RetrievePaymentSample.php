@@ -5,10 +5,10 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new PaymentSample();
+$sample = new RetrievePaymentSample();
 $sample->should_retrieve_payment();
 
-class PaymentSample
+class RetrievePaymentSample
 {
     public function should_retrieve_payment()
     {
