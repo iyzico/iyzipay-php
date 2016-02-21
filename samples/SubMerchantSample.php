@@ -23,13 +23,13 @@ class SubMerchantSample
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(Iyzipay\Model\SubMerchantType::PERSONAL);
-        $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
-        $request->setContactName("Sabri Onur");
-        $request->setContactSurname("Tüzün");
+        $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
+        $request->setAddress("Address");
+        $request->setContactName("John");
+        $request->setContactSurname("Doe");
         $request->setEmail("email@submerchantemail.com");
         $request->setGsmNumber("+905350000000");
-        $request->setName("Sabri Onur'un mağazası");
+        $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
 
@@ -46,16 +46,16 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(Iyzipay\Model\SubMerchantType::PRIVATE_COMPANY);
-        $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
-        $request->setTaxOffice("Kadıköy V.D.");
-        $request->setLegalCompanyTitle("Sabri Onur Tüzün Bilişim Hizmetleri");
+        $request->setSubMerchantExternalId("S49222");
+        $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PRIVATE_COMPANY);
+        $request->setAddress("Address");
+        $request->setTaxOffice("Tax office");
+        $request->setLegalCompanyTitle("John Doe inc");
         $request->setEmail("email@submerchantemail.com");
         $request->setGsmNumber("+905350000000");
-        $request->setName("Sabri Onur'un mağazası");
+        $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
-        $request->setIdentityNumber("1234567890");
+        $request->setIdentityNumber("31300864726");
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
@@ -70,15 +70,15 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(Iyzipay\Model\SubMerchantType::LIMITED_OR_JOINT_STOCK_COMPANY);
-        $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
-        $request->setTaxOffice("Kadıköy V.D.");
+        $request->setSubMerchantExternalId("AS49224");
+        $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::LIMITED_OR_JOINT_STOCK_COMPANY);
+        $request->setAddress("Address");
+        $request->setTaxOffice("Tax office");
         $request->setTaxNumber("9261877");
-        $request->setLegalCompanyTitle("XYZ Bilişim Hizmetleri A.Ş.");
+        $request->setLegalCompanyTitle("XYZ inc");
         $request->setEmail("email@submerchantemail.com");
         $request->setGsmNumber("+905350000000");
-        $request->setName("Sabri Onur'un mağazası");
+        $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
 
         # make request
@@ -94,14 +94,14 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\UpdateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantKey("subMerchantKey");
+        $request->setSubMerchantKey("sub merchant key");
         $request->setIban("TR630006200027700006678204");
-        $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
-        $request->setContactName("Hakan");
-        $request->setContactSurname("Erdoğan");
+        $request->setAddress("Address");
+        $request->setContactName("Jane");
+        $request->setContactSurname("Doe");
         $request->setEmail("email@submerchantemail.com");
         $request->setGsmNumber("+905350000000");
-        $request->setName("Hakan Erdoğan'ın mağazası");
+        $request->setName("Jane's market");
         $request->setIdentityNumber("31300864726");
 
         # make request
@@ -117,13 +117,13 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\UpdateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantKey("subMerchantKey");
-        $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
-        $request->setTaxOffice("Kadıköy V.D.");
-        $request->setLegalCompanyTitle("Hakan Erdoğan Bilişim Hizmetleri");
+        $request->setSubMerchantKey("sub merchant key");
+        $request->setAddress("Address");
+        $request->setTaxOffice("Tax office");
+        $request->setLegalCompanyTitle("Jane Doe inc");
         $request->setEmail("email@submerchantemail.com");
         $request->setGsmNumber("+905350000000");
-        $request->setName("Hakan Erdoğan'ın mağazası");
+        $request->setName("Jane's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("31300864726");
 
@@ -140,14 +140,14 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\UpdateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantKey("subMerchantKey");
-        $request->setAddress("Nidakule Göztepe İş Merkezi Merdivenköy Mah. Bora Sok. No:1 Kat:19 Bağımsız 70/73 Göztepe Kadıköy 34732");
-        $request->setTaxOffice("Kadıköy V.D.");
+        $request->setSubMerchantKey("sub merchant key");
+        $request->setAddress("Address");
+        $request->setTaxOffice("Tax office");
         $request->setTaxNumber("9261877");
-        $request->setLegalCompanyTitle("ABC Bilişim Hizmetleri A.Ş.");
+        $request->setLegalCompanyTitle("ABC inc");
         $request->setEmail("email@submerchantemail.com");
         $request->setGsmNumber("+905350000000");
-        $request->setName("Hakan Erdoğan'ın mağazası");
+        $request->setName("Jane's market");
         $request->setIban("TR180006200119000006672315");
 
         # make request
