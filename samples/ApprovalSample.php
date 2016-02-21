@@ -17,7 +17,7 @@ class ApprovalSample
         $request = new \Iyzipay\Request\CreateApprovalRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setPaymentTransactionId("2");
+        $request->setPaymentTransactionId("1");
 
         # make request
         $approval = \Iyzipay\Model\Approval::create($request, Sample::options());
@@ -32,7 +32,7 @@ class ApprovalSample
         $request = new \Iyzipay\Request\CreateApprovalRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setPaymentTransactionId("2");
+        $request->setPaymentTransactionId("1");
 
         # make request
         $disapproval = \Iyzipay\Model\Disapproval::create($request, Sample::options());
