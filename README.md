@@ -60,7 +60,7 @@ $paymentCard->setRegisterCard(0);
 $request->setPaymentCard($paymentCard);
 
 $buyer = new \Iyzipay\Model\Buyer();
-$buyer->setId("BY789");
+$buyer->setId("BY7891");
 $buyer->setName("John");
 $buyer->setSurname("Doe");
 $buyer->setGsmNumber("+905350000000");
