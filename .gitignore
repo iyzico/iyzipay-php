@@ -28,5 +28,5 @@ build/
 
 # Composer specific files
 composer.lock
-#composer.phar // TODO: Remove after release
+composer.phar
 vendor/*

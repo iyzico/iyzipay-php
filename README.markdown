@@ -1,1 +1,0 @@
-# iyzipay API PHP Client
