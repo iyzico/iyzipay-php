@@ -31,5 +31,8 @@
     "psr-4": {
       "": "src/"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --colors"
   }
 }
