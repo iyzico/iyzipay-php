@@ -13,6 +13,6 @@ class PaymentPreAuth extends Payment
     public static function create(CreatePaymentRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/preauth/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return PaymentPreAuthMapper::create()->map(new PaymentPreAuth(), JsonBuilder::jsonDecode($rawResult));
+        return PaymentPreAuthMapper::create()->mapPaymentPreAuth(new PaymentPreAuth(), JsonBuilder::jsonDecode($rawResult));
     }
 }

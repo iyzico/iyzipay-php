@@ -33,7 +33,7 @@ class Payment extends IyzipayResource
     public static function retrieve(RetrievePaymentRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return PaymentMapper::create()->map(new Payment(), JsonBuilder::jsonDecode($rawResult));
+        return PaymentMapper::create()->mapPayment(new Payment(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getPrice()

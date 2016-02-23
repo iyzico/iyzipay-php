@@ -11,9 +11,9 @@ class CancelMapper extends IyzipayResourceMapper
         return new CancelMapper();
     }
 
-    public function map(Cancel $cancel, $jsonResult)
+    public function mapCancel(Cancel $cancel, $jsonResult)
     {
-        parent::map($cancel, $jsonResult);
+        parent::mapIyzipayResource($cancel, $jsonResult);
 
         if (isset($jsonResult->paymentId)) {
             $cancel->setPaymentId($jsonResult->paymentId);

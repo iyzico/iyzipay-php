@@ -13,6 +13,6 @@ class ConnectPaymentPreAuth extends ConnectPayment
     public static function create(CreateConnectPaymentRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/preauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ConnectPaymentPreAuthMapper::create()->map(new ConnectPaymentPreAuth(), JsonBuilder::jsonDecode($rawResult));
+        return ConnectPaymentPreAuthMapper::create()->mapConnectPaymentPreAuth(new ConnectPaymentPreAuth(), JsonBuilder::jsonDecode($rawResult));
     }
 }

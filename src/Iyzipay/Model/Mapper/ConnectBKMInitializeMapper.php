@@ -11,9 +11,9 @@ class ConnectBKMInitializeMapper extends IyzipayResourceMapper
         return new ConnectBKMInitializeMapper();
     }
 
-    public function map(ConnectBKMInitialize $initialize, $jsonResult)
+    public function mapConnectBKMInitialize(ConnectBKMInitialize $initialize, $jsonResult)
     {
-        parent::map($initialize, $jsonResult);
+        parent::mapIyzipayResource($initialize, $jsonResult);
 
         if (isset($jsonResult->htmlContent)) {
             $initialize->setHtmlContent(base64_decode($jsonResult->htmlContent));

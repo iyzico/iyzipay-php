@@ -16,7 +16,7 @@ class InstallmentInfo extends IyzipayResource
     public static function retrieve(RetrieveInstallmentInfoRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/installment", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return InstallmentInfoMapper::create()->map(new InstallmentInfo(), JsonBuilder::jsonDecode($rawResult));
+        return InstallmentInfoMapper::create()->mapInstallmentInfo(new InstallmentInfo(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getInstallmentDetails()

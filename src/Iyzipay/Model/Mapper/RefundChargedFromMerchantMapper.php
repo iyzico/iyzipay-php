@@ -11,9 +11,9 @@ class RefundChargedFromMerchantMapper extends IyzipayResourceMapper
         return new RefundChargedFromMerchantMapper();
     }
 
-    public function map(RefundChargedFromMerchant $refund, $jsonResult)
+    public function mapRefundChargedFromMerchant(RefundChargedFromMerchant $refund, $jsonResult)
     {
-        parent::map($refund, $jsonResult);
+        parent::mapIyzipayResource($refund, $jsonResult);
 
         if (isset($jsonResult->paymentId)) {
             $refund->setPaymentId($jsonResult->paymentId);

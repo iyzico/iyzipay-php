@@ -21,7 +21,7 @@ class BinNumber extends IyzipayResource
     public static function retrieve(RetrieveBinNumberRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/bin/check", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BinNumberMapper::create()->map(new BinNumber(), JsonBuilder::jsonDecode($rawResult));
+        return BinNumberMapper::create()->mapBinNumber(new BinNumber(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getBinNumber()

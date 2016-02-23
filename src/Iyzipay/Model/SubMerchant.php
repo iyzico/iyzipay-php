@@ -31,19 +31,19 @@ class SubMerchant extends IyzipayResource
     public static function create(CreateSubMerchantRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/onboarding/submerchant", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return SubMerchantMapper::create()->map(new SubMerchant(), JsonBuilder::jsonDecode($rawResult));
+        return SubMerchantMapper::create()->mapSubMerchant(new SubMerchant(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public static function update(UpdateSubMerchantRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->put($options->getBaseUrl() . "/onboarding/submerchant", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return SubMerchantMapper::create()->map(new SubMerchant(), JsonBuilder::jsonDecode($rawResult));
+        return SubMerchantMapper::create()->mapSubMerchant(new SubMerchant(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public static function retrieve(RetrieveSubMerchantRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/onboarding/submerchant/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return SubMerchantMapper::create()->map(new SubMerchant(), JsonBuilder::jsonDecode($rawResult));
+        return SubMerchantMapper::create()->mapSubMerchant(new SubMerchant(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getName()

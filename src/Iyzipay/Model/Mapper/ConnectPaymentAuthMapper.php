@@ -11,9 +11,9 @@ class ConnectPaymentAuthMapper extends ConnectPaymentMapper
         return new ConnectPaymentAuthMapper();
     }
 
-    public function map(ConnectPaymentAuth $auth, $jsonResult)
+    public function mapConnectPaymentAuth(ConnectPaymentAuth $auth, $jsonResult)
     {
-        parent::map($auth, $jsonResult);
+        parent::mapConnectPayment($auth, $jsonResult);
         return $auth;
     }
 }

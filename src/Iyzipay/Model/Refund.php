@@ -18,7 +18,7 @@ class Refund extends IyzipayResource
     public static function create(CreateRefundRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/refund", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return RefundMapper::create()->map(new Refund(), JsonBuilder::jsonDecode($rawResult));
+        return RefundMapper::create()->mapRefund(new Refund(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getPaymentId()

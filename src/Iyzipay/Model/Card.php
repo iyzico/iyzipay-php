@@ -27,13 +27,13 @@ class Card extends IyzipayResource
     public static function create(CreateCardRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/cardstorage/card", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CardMapper::create()->map(new Card(), JsonBuilder::jsonDecode($rawResult));
+        return CardMapper::create()->mapCard(new Card(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public static function delete(DeleteCardRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->delete($options->getBaseUrl() . "/cardstorage/card", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CardMapper::create()->map(new Card(), JsonBuilder::jsonDecode($rawResult));
+        return CardMapper::create()->mapCard(new Card(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getExternalId()

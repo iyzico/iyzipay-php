@@ -11,9 +11,9 @@ class ConnectBKMAuthMapper extends ConnectPaymentMapper
         return new ConnectBKMAuthMapper();
     }
 
-    public function map(ConnectBKMAuth $auth, $jsonResult)
+    public function mapConnectBKMAuth(ConnectBKMAuth $auth, $jsonResult)
     {
-        parent::map($auth, $jsonResult);
+        parent::mapConnectPayment($auth, $jsonResult);
 
         if (isset($jsonResult->token)) {
             $auth->setToken($jsonResult->token);

@@ -11,9 +11,9 @@ class CheckoutFormAuthMapper extends PaymentMapper
         return new CheckoutFormAuthMapper();
     }
 
-    public function map(CheckoutFormAuth $auth, $jsonResult)
+    public function mapCheckoutFormAuth(CheckoutFormAuth $auth, $jsonResult)
     {
-        parent::map($auth, $jsonResult);
+        parent::mapPayment($auth, $jsonResult);
 
         if (isset($jsonResult->token)) {
             $auth->setToken($jsonResult->token);

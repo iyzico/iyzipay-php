@@ -16,7 +16,7 @@ class ConnectThreeDSInitialize extends IyzipayResource
     public static function create(CreateConnectThreeDSInitializeRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/initialize3ds", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ConnectThreeDSInitializeMapper::create()->map(new ConnectThreeDSInitialize(), JsonBuilder::jsonDecode($rawResult));
+        return ConnectThreeDSInitializeMapper::create()->mapConnectThreeDSInitialize(new ConnectThreeDSInitialize(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getHtmlContent()

@@ -12,9 +12,9 @@ class PaymentMapper extends IyzipayResourceMapper
         return new PaymentMapper();
     }
 
-    public function map(Payment $payment, $jsonResult)
+    public function mapPayment(Payment $payment, $jsonResult)
     {
-        parent::map($payment, $jsonResult);
+        parent::mapIyzipayResource($payment, $jsonResult);
 
         if (isset($jsonResult->price)) {
             $payment->setPrice($jsonResult->price);
