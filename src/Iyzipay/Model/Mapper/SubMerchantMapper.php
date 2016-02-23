@@ -13,7 +13,7 @@ class SubMerchantMapper extends IyzipayResourceMapper
 
     public function mapSubMerchant(SubMerchant $subMerchant, $jsonResult)
     {
-        parent::mapIyzipayResource($subMerchant, $jsonResult);
+        parent::mapResource($subMerchant, $jsonResult);
 
         if (isset($jsonResult->name)) {
             $subMerchant->setName($jsonResult->name);

@@ -13,7 +13,7 @@ class DisapprovalMapper extends IyzipayResourceMapper
 
     public function mapDisapproval(Disapproval $disapproval, $jsonResult)
     {
-        parent::mapIyzipayResource($disapproval, $jsonResult);
+        parent::mapResource($disapproval, $jsonResult);
 
         if (isset($jsonResult->paymentTransactionId)) {
             $disapproval->setPaymentTransactionId($jsonResult->paymentTransactionId);
