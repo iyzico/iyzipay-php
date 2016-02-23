@@ -16,7 +16,7 @@ class BouncedBankTransferList extends IyzipayResource
     public static function retrieve(RetrieveTransactionsRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/reporting/settlement/bounced", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BouncedBankTransferListMapper::create()->map(new BouncedBankTransferList(), JsonBuilder::jsonDecode($rawResult));
+        return BouncedBankTransferListMapper::create()->mapBouncedBankTransferList(new BouncedBankTransferList(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getBankTransfers()

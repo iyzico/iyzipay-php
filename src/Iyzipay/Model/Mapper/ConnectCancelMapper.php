@@ -11,9 +11,9 @@ class ConnectCancelMapper extends IyzipayResourceMapper
         return new ConnectCancelMapper();
     }
 
-    public function map(ConnectCancel $cancel, $jsonResult)
+    public function mapConnectCancel(ConnectCancel $cancel, $jsonResult)
     {
-        parent::map($cancel, $jsonResult);
+        parent::mapIyzipayResource($cancel, $jsonResult);
 
         if (isset($jsonResult->paymentId)) {
             $cancel->setPaymentId($jsonResult->paymentId);

@@ -12,9 +12,9 @@ class CardListMapper extends IyzipayResourceMapper
         return new CardListMapper();
     }
 
-    public function map(CardList $cardList, $jsonResult)
+    public function mapCardList(CardList $cardList, $jsonResult)
     {
-        parent::map($cardList, $jsonResult);
+        parent::mapIyzipayResource($cardList, $jsonResult);
 
         if (isset($jsonResult->cardUserKey)) {
             $cardList->setCardUserKey($jsonResult->cardUserKey);
@@ -30,7 +30,7 @@ class CardListMapper extends IyzipayResourceMapper
         $cards = array();
 
         foreach ($cardDetails as $index => $cardDetail) {
-            $cards[$index] = CardMapper::create()->map(new Card(), $cardDetail);
+            $cards[$index] = CardMapper::create()->mapCard(new Card(), $cardDetail);
         }
         return $cards;
     }

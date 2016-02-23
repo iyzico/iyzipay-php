@@ -11,9 +11,9 @@ class ApprovalMapper extends IyzipayResourceMapper
         return new ApprovalMapper();
     }
 
-    public function map(Approval $approval, $jsonResult)
+    public function mapApproval(Approval $approval, $jsonResult)
     {
-        parent::map($approval, $jsonResult);
+        parent::mapIyzipayResource($approval, $jsonResult);
 
         if (isset($jsonResult->paymentTransactionId)) {
             $approval->setPaymentTransactionId($jsonResult->paymentTransactionId);

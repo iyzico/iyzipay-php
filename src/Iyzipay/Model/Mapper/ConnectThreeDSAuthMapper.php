@@ -11,9 +11,9 @@ class ConnectThreeDSAuthMapper extends ConnectPaymentMapper
         return new ConnectThreeDSAuthMapper();
     }
 
-    public function map(ConnectThreeDSAuth $auth, $jsonResult)
+    public function mapConnectThreeDSAuth(ConnectThreeDSAuth $auth, $jsonResult)
     {
-        parent::map($auth, $jsonResult);
+        parent::mapConnectPayment($auth, $jsonResult);
         return $auth;
     }
 }

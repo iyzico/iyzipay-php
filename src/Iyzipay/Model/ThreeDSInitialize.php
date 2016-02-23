@@ -16,7 +16,7 @@ class ThreeDSInitialize extends IyzipayResource
     public static function create(CreateThreeDSInitializeRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/initialize3ds/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ThreeDSInitializeMapper::create()->map(new ThreeDSInitialize(), JsonBuilder::jsonDecode($rawResult));
+        return ThreeDSInitializeMapper::create()->mapThreeDSInitialize(new ThreeDSInitialize(), JsonBuilder::jsonDecode($rawResult));
     }
 
     public function getHtmlContent()

@@ -11,9 +11,9 @@ class BouncedBankTransferListMapper extends IyzipayResourceMapper
         return new BouncedBankTransferListMapper();
     }
 
-    public function map(BouncedBankTransferList $transferList, $jsonResult)
+    public function mapBouncedBankTransferList(BouncedBankTransferList $transferList, $jsonResult)
     {
-        parent::map($transferList, $jsonResult);
+        parent::mapIyzipayResource($transferList, $jsonResult);
 
         if (isset($jsonResult->bouncedRows)) {
             $transferList->setBankTransfers($this->mapBankTransfers($jsonResult->bouncedRows));

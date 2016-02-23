@@ -11,9 +11,9 @@ class ConnectThreeDSInitializeMapper extends IyzipayResourceMapper
         return new ConnectThreeDSInitializeMapper();
     }
 
-    public function map(ConnectThreeDSInitialize $initialize, $jsonResult)
+    public function mapConnectThreeDSInitialize(ConnectThreeDSInitialize $initialize, $jsonResult)
     {
-        parent::map($initialize, $jsonResult);
+        parent::mapIyzipayResource($initialize, $jsonResult);
 
         if (isset($jsonResult->threeDSHtmlContent)) {
             $initialize->setHtmlContent(base64_decode($jsonResult->threeDSHtmlContent));

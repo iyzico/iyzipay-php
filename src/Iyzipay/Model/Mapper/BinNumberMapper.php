@@ -11,9 +11,9 @@ class BinNumberMapper extends IyzipayResourceMapper
         return new BinNumberMapper();
     }
 
-    public function map(BinNumber $binNumber, $jsonResult)
+    public function mapBinNumber(BinNumber $binNumber, $jsonResult)
     {
-        parent::map($binNumber, $jsonResult);
+        parent::mapIyzipayResource($binNumber, $jsonResult);
 
         if (isset($jsonResult->binNumber)) {
             $binNumber->setBinNumber($jsonResult->binNumber);

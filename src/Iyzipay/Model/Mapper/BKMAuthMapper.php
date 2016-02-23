@@ -11,9 +11,9 @@ class BKMAuthMapper extends PaymentMapper
         return new BKMAuthMapper();
     }
 
-    public function map(BKMAuth $auth, $jsonResult)
+    public function mapBKMAuth(BKMAuth $auth, $jsonResult)
     {
-        parent::map($auth, $jsonResult);
+        parent::mapPayment($auth, $jsonResult);
 
         if (isset($jsonResult->token)) {
             $auth->setToken($jsonResult->token);

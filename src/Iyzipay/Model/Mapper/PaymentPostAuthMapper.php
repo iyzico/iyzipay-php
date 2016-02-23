@@ -11,9 +11,9 @@ class PaymentPostAuthMapper extends IyzipayResourceMapper
         return new PaymentPostAuthMapper();
     }
 
-    public function map(PaymentPostAuth $postAuth, $jsonResult)
+    public function mapPaymentPostAuth(PaymentPostAuth $postAuth, $jsonResult)
     {
-        parent::map($postAuth, $jsonResult);
+        parent::mapIyzipayResource($postAuth, $jsonResult);
 
         if (isset($jsonResult->paymentId)) {
             $postAuth->setPaymentId($jsonResult->paymentId);

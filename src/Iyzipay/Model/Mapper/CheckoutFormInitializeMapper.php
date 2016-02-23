@@ -11,9 +11,9 @@ class CheckoutFormInitializeMapper extends IyzipayResourceMapper
         return new CheckoutFormInitializeMapper();
     }
 
-    public function map(CheckoutFormInitialize $initialize, $jsonResult)
+    public function mapCheckoutFormInitialize(CheckoutFormInitialize $initialize, $jsonResult)
     {
-        parent::map($initialize, $jsonResult);
+        parent::mapIyzipayResource($initialize, $jsonResult);
 
         if (isset($jsonResult->token)) {
             $initialize->setToken($jsonResult->token);
