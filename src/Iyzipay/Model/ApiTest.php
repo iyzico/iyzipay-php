@@ -13,6 +13,6 @@ class ApiTest extends IyzipayResource
     public static function retrieve(Options $options)
     {
         $rawResult = HttpClient::create()->get($options->getBaseUrl() . "/payment/test");
-        return IyzipayResourceMapper::create()->mapIyzipayResource(new IyzipayResource(), JsonBuilder::jsonDecode($rawResult));
+        return IyzipayResourceMapper::create()->mapResource(new IyzipayResource(), JsonBuilder::jsonDecode($rawResult));
     }
 }

@@ -14,7 +14,7 @@ class PayoutCompletedTransactionListMapper extends IyzipayResourceMapper
 
     public function mapPayoutCompletedTransactionList(PayoutCompletedTransactionList $transactionList, $jsonResult)
     {
-        parent::mapIyzipayResource($transactionList, $jsonResult);
+        parent::mapResource($transactionList, $jsonResult);
 
         if (isset($jsonResult->payoutCompletedTransactions)) {
             $transactionList->setPayoutCompletedTransactions($this->mapPayoutCompletedTransactions($jsonResult->payoutCompletedTransactions));

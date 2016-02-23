@@ -14,7 +14,7 @@ class PaymentMapper extends IyzipayResourceMapper
 
     public function mapPayment(Payment $payment, $jsonResult)
     {
-        parent::mapIyzipayResource($payment, $jsonResult);
+        parent::mapResource($payment, $jsonResult);
 
         if (isset($jsonResult->price)) {
             $payment->setPrice($jsonResult->price);

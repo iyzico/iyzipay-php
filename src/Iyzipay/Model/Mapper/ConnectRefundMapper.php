@@ -13,7 +13,7 @@ class ConnectRefundMapper extends IyzipayResourceMapper
 
     public function mapConnectRefund(ConnectRefund $refund, $jsonResult)
     {
-        parent::mapIyzipayResource($refund, $jsonResult);
+        parent::mapResource($refund, $jsonResult);
 
         if (isset($jsonResult->paymentId)) {
             $refund->setPaymentId($jsonResult->paymentId);

@@ -13,7 +13,7 @@ class ConnectPaymentMapper extends IyzipayResourceMapper
 
     public function mapConnectPayment(ConnectPayment $payment, $jsonResult)
     {
-        parent::mapIyzipayResource($payment, $jsonResult);
+        parent::mapResource($payment, $jsonResult);
 
         if (isset($jsonResult->price)) {
             $payment->setPrice($jsonResult->price);

@@ -13,7 +13,7 @@ class ThreeDSInitializeMapper extends IyzipayResourceMapper
 
     public function mapThreeDSInitialize(ThreeDSInitialize $initialize, $jsonResult)
     {
-        parent::mapIyzipayResource($initialize, $jsonResult);
+        parent::mapResource($initialize, $jsonResult);
 
         if (isset($jsonResult->threeDSHtmlContent)) {
             $initialize->setHtmlContent(base64_decode($jsonResult->threeDSHtmlContent));
