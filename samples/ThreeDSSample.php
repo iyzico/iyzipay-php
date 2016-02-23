@@ -9,6 +9,7 @@ $sample = new ThreeDSSample();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription();
 $sample->should_auth_threeds();
+$sample->should_retrieve_payment();
 
 class ThreeDSSample
 {
@@ -214,5 +215,21 @@ class ThreeDSSample
 
         # print result
         print_r($threeDSAuth);
+    }
+
+    public function should_retrieve_payment()
+    {
+        # create request class
+        $request = new \Iyzipay\Request\RetrievePaymentRequest();
+        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setPaymentId("1");
+        $request->setPaymentConversationId("123456789");
+
+        # make request
+        $payment = \Iyzipay\Model\ThreeDSAuth::retrieve($request, Sample::options());
+
+        # print result
+        print_r($payment);
     }
 }
