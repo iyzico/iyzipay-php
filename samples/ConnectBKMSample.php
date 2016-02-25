@@ -22,7 +22,7 @@ class ConnectBKMSample
         # prepare buyer
         $request->setBuyerId("100");
         $request->setBuyerEmail("email@email.com");
-        $request->setBuyerIp("198.168.123.102");
+        $request->setBuyerIp("85.34.78.112");
 
         # prepare default pos
         $request->setConnectorName("connector name");

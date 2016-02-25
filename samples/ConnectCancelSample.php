@@ -17,7 +17,7 @@ class ConnectCancelSample
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
-        $request->setIp("127.0.0.1");
+        $request->setIp("85.34.78.112");
 
         # make request
         $connectCancel = \Iyzipay\Model\ConnectCancel::create($request, Sample::options());

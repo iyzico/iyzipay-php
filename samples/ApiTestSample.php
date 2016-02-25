@@ -12,7 +12,6 @@ class ApiTestSample
 {
     public function should_test_api()
     {
-        # create request class
         $iyzipayResource = \Iyzipay\Model\ApiTest::retrieve(Sample::options());
 
         # print result

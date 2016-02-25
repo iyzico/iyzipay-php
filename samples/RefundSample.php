@@ -19,7 +19,7 @@ class RefundSample
         $request->setConversationId("123456789");
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
-        $request->setIp("127.0.0.1");
+        $request->setIp("85.34.78.112");
 
         # make request
         $refund = \Iyzipay\Model\Refund::create($request, Sample::options());
@@ -36,7 +36,7 @@ class RefundSample
         $request->setConversationId("123456789");
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
-        $request->setIp("127.0.0.1");
+        $request->setIp("85.34.78.112");
 
         # make request
         $refundChargedFromMerchant = \Iyzipay\Model\RefundChargedFromMerchant::create($request, Sample::options());

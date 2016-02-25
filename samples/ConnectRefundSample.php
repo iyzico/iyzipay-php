@@ -18,7 +18,7 @@ class ConnectRefundSample
         $request->setConversationId("123456789");
         $request->setPaymentTransactionId("1");
         $request->setPrice("1");
-        $request->setIp("127.0.0.1");
+        $request->setIp("85.34.78.112");
 
         # make request
         $connectRefund = \Iyzipay\Model\ConnectRefund::create($request, Sample::options());

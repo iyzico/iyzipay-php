@@ -19,7 +19,7 @@ class ConnectPaymentPreAuthSample
         $request->setConversationId("123456789");
         $request->setBuyerEmail("email@email.com");
         $request->setBuyerId("B2323");
-        $request->setBuyerIp("127.0.0.1");
+        $request->setBuyerIp("85.34.78.112");
         $request->setConnectorName("connector name");
         $request->setInstallment(1);
         $request->setPaidPrice("1");
@@ -49,7 +49,7 @@ class ConnectPaymentPreAuthSample
         $request->setConversationId("123456789");
         $request->setBuyerEmail("email@email.com");
         $request->setBuyerId("B2323");
-        $request->setBuyerIp("127.0.0.1");
+        $request->setBuyerIp("85.34.78.112");
         $request->setConnectorName("connector name");
         $request->setInstallment(1);
         $request->setPaidPrice("1");
