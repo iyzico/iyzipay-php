@@ -24,7 +24,7 @@ class SubMerchantSample
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("B49224");
         $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("John");
         $request->setContactSurname("Doe");
         $request->setEmail("email@submerchantemail.com");
@@ -48,7 +48,7 @@ class SubMerchantSample
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("S49222");
         $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PRIVATE_COMPANY);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
         $request->setTaxOffice("Tax office");
         $request->setLegalCompanyTitle("John Doe inc");
         $request->setEmail("email@submerchantemail.com");
@@ -72,7 +72,7 @@ class SubMerchantSample
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("AS49224");
         $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::LIMITED_OR_JOINT_STOCK_COMPANY);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
         $request->setTaxOffice("Tax office");
         $request->setTaxNumber("9261877");
         $request->setLegalCompanyTitle("XYZ inc");
@@ -96,7 +96,7 @@ class SubMerchantSample
         $request->setConversationId("123456789");
         $request->setSubMerchantKey("sub merchant key");
         $request->setIban("TR630006200027700006678204");
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("Jane");
         $request->setContactSurname("Doe");
         $request->setEmail("email@submerchantemail.com");
@@ -118,7 +118,7 @@ class SubMerchantSample
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setSubMerchantKey("sub merchant key");
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
         $request->setTaxOffice("Tax office");
         $request->setLegalCompanyTitle("Jane Doe inc");
         $request->setEmail("email@submerchantemail.com");
@@ -141,7 +141,7 @@ class SubMerchantSample
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setSubMerchantKey("sub merchant key");
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
         $request->setTaxOffice("Tax office");
         $request->setTaxNumber("9261877");
         $request->setLegalCompanyTitle("ABC inc");
