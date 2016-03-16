@@ -32,7 +32,7 @@ class CheckoutFormSample
         $buyer->setIdentityNumber("74300864791");
         $buyer->setLastLoginDate("2015-10-05 12:43:35");
         $buyer->setRegistrationDate("2013-04-21 15:12:09");
-        $buyer->setRegistrationAddress("Address");
+        $buyer->setRegistrationAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $buyer->setIp("85.34.78.112");
         $buyer->setCity("Istanbul");
         $buyer->setCountry("Turkey");
@@ -43,7 +43,7 @@ class CheckoutFormSample
         $shippingAddress->setContactName("Jane Doe");
         $shippingAddress->setCity("Istanbul");
         $shippingAddress->setCountry("Turkey");
-        $shippingAddress->setAddress("Address");
+        $shippingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $shippingAddress->setZipCode("34742");
         $request->setShippingAddress($shippingAddress);
 
@@ -51,7 +51,7 @@ class CheckoutFormSample
         $billingAddress->setContactName("Jane Doe");
         $billingAddress->setCity("Istanbul");
         $billingAddress->setCountry("Turkey");
-        $billingAddress->setAddress("Address");
+        $billingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $billingAddress->setZipCode("34742");
         $request->setbillingAddress($billingAddress);
 
