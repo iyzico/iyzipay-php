@@ -6,21 +6,26 @@ use Iyzipay\Model\BKMAuth;
 
 class BKMAuthMapper extends PaymentMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new BKMAuthMapper();
+        return new BKMAuthMapper($rawResult);
     }
 
-    public function mapBKMAuth(BKMAuth $auth, $jsonResult)
+    public function mapBKMAuthFrom(BKMAuth $auth, $jsonObject)
     {
-        parent::mapPayment($auth, $jsonResult);
+        parent::mapPaymentFrom($auth, $jsonObject);
 
-        if (isset($jsonResult->token)) {
-            $auth->setToken($jsonResult->token);
+        if (isset($jsonObject->token)) {
+            $auth->setToken($jsonObject->token);
         }
-        if (isset($jsonResult->callbackUrl)) {
-            $auth->setCallbackUrl($jsonResult->callbackUrl);
+        if (isset($jsonObject->callbackUrl)) {
+            $auth->setCallbackUrl($jsonObject->callbackUrl);
         }
         return $auth;
+    }
+
+    public function mapBKMAuth(BKMAuth $auth)
+    {
+        return $this->mapBKMAuthFrom($auth, $this->jsonObject);
     }
 }

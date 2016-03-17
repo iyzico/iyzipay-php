@@ -6,18 +6,23 @@ use Iyzipay\Model\ThreeDSInitialize;
 
 class ThreeDSInitializeMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ThreeDSInitializeMapper();
+        return new ThreeDSInitializeMapper($rawResult);
     }
 
-    public function mapThreeDSInitialize(ThreeDSInitialize $initialize, $jsonResult)
+    public function mapThreeDSInitializeFrom(ThreeDSInitialize $initialize, $jsonObject)
     {
-        parent::mapResource($initialize, $jsonResult);
+        parent::mapResourceFrom($initialize, $jsonObject);
 
-        if (isset($jsonResult->threeDSHtmlContent)) {
-            $initialize->setHtmlContent(base64_decode($jsonResult->threeDSHtmlContent));
+        if (isset($jsonObject->threeDSHtmlContent)) {
+            $initialize->setHtmlContent(base64_decode($jsonObject->threeDSHtmlContent));
         }
         return $initialize;
+    }
+
+    public function mapThreeDSInitialize(ThreeDSInitialize $initialize)
+    {
+        return $this->mapThreeDSInitializeFrom($initialize, $this->jsonObject);
     }
 }

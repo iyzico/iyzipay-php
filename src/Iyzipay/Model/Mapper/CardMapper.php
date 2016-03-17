@@ -6,48 +6,53 @@ use Iyzipay\Model\Card;
 
 class CardMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new CardMapper();
+        return new CardMapper($rawResult);
     }
 
-    public function mapCard(Card $card, $jsonResult)
+    public function mapCardFrom(Card $card, $jsonObject)
     {
-        parent::mapResource($card, $jsonResult);
+        parent::mapResourceFrom($card, $jsonObject);
 
-        if (isset($jsonResult->externalId)) {
-            $card->setExternalId($jsonResult->externalId);
+        if (isset($jsonObject->externalId)) {
+            $card->setExternalId($jsonObject->externalId);
         }
-        if (isset($jsonResult->email)) {
-            $card->setEmail($jsonResult->email);
+        if (isset($jsonObject->email)) {
+            $card->setEmail($jsonObject->email);
         }
-        if (isset($jsonResult->cardUserKey)) {
-            $card->setCardUserKey($jsonResult->cardUserKey);
+        if (isset($jsonObject->cardUserKey)) {
+            $card->setCardUserKey($jsonObject->cardUserKey);
         }
-        if (isset($jsonResult->cardToken)) {
-            $card->setCardToken($jsonResult->cardToken);
+        if (isset($jsonObject->cardToken)) {
+            $card->setCardToken($jsonObject->cardToken);
         }
-        if (isset($jsonResult->cardAlias)) {
-            $card->setCardAlias($jsonResult->cardAlias);
+        if (isset($jsonObject->cardAlias)) {
+            $card->setCardAlias($jsonObject->cardAlias);
         }
-        if (isset($jsonResult->binNumber)) {
-            $card->setBinNumber($jsonResult->binNumber);
+        if (isset($jsonObject->binNumber)) {
+            $card->setBinNumber($jsonObject->binNumber);
         }
-        if (isset($jsonResult->cardType)) {
-            $card->setCardType($jsonResult->cardType);
+        if (isset($jsonObject->cardType)) {
+            $card->setCardType($jsonObject->cardType);
         }
-        if (isset($jsonResult->cardAssociation)) {
-            $card->setCardAssociation($jsonResult->cardAssociation);
+        if (isset($jsonObject->cardAssociation)) {
+            $card->setCardAssociation($jsonObject->cardAssociation);
         }
-        if (isset($jsonResult->cardFamily)) {
-            $card->setCardFamily($jsonResult->cardFamily);
+        if (isset($jsonObject->cardFamily)) {
+            $card->setCardFamily($jsonObject->cardFamily);
         }
-        if (isset($jsonResult->cardBankCode)) {
-            $card->setCardBankCode($jsonResult->cardBankCode);
+        if (isset($jsonObject->cardBankCode)) {
+            $card->setCardBankCode($jsonObject->cardBankCode);
         }
-        if (isset($jsonResult->cardBankName)) {
-            $card->setCardBankName($jsonResult->cardBankName);
+        if (isset($jsonObject->cardBankName)) {
+            $card->setCardBankName($jsonObject->cardBankName);
         }
         return $card;
+    }
+
+    public function mapCard(Card $card)
+    {
+        return $this->mapCardFrom($card, $this->jsonObject);
     }
 }

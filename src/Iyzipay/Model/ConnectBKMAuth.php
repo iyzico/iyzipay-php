@@ -3,7 +3,6 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\ConnectBKMAuthMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\RetrieveBKMAuthRequest;
@@ -17,7 +16,7 @@ class ConnectBKMAuth extends ConnectPayment
     public static function retrieve(RetrieveBKMAuthRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/bkm/auth/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ConnectBKMAuthMapper::create()->mapConnectBKMAuth(new ConnectBKMAuth(), JsonBuilder::jsonDecode($rawResult));
+        return ConnectBKMAuthMapper::create($rawResult)->jsonDecode()->mapConnectBKMAuth(new ConnectBKMAuth());
     }
 
     public function getToken()

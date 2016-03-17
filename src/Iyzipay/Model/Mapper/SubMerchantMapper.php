@@ -6,57 +6,62 @@ use Iyzipay\Model\SubMerchant;
 
 class SubMerchantMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new SubMerchantMapper();
+        return new SubMerchantMapper($rawResult);
     }
 
-    public function mapSubMerchant(SubMerchant $subMerchant, $jsonResult)
+    public function mapSubMerchantFrom(SubMerchant $subMerchant, $jsonObject)
     {
-        parent::mapResource($subMerchant, $jsonResult);
+        parent::mapResourceFrom($subMerchant, $jsonObject);
 
-        if (isset($jsonResult->name)) {
-            $subMerchant->setName($jsonResult->name);
+        if (isset($jsonObject->name)) {
+            $subMerchant->setName($jsonObject->name);
         }
-        if (isset($jsonResult->email)) {
-            $subMerchant->setEmail($jsonResult->email);
+        if (isset($jsonObject->email)) {
+            $subMerchant->setEmail($jsonObject->email);
         }
-        if (isset($jsonResult->gsmNumber)) {
-            $subMerchant->setGsmNumber($jsonResult->gsmNumber);
+        if (isset($jsonObject->gsmNumber)) {
+            $subMerchant->setGsmNumber($jsonObject->gsmNumber);
         }
-        if (isset($jsonResult->address)) {
-            $subMerchant->setAddress($jsonResult->address);
+        if (isset($jsonObject->address)) {
+            $subMerchant->setAddress($jsonObject->address);
         }
-        if (isset($jsonResult->iban)) {
-            $subMerchant->setIban($jsonResult->iban);
+        if (isset($jsonObject->iban)) {
+            $subMerchant->setIban($jsonObject->iban);
         }
-        if (isset($jsonResult->taxOffice)) {
-            $subMerchant->setTaxOffice($jsonResult->taxOffice);
+        if (isset($jsonObject->taxOffice)) {
+            $subMerchant->setTaxOffice($jsonObject->taxOffice);
         }
-        if (isset($jsonResult->contactName)) {
-            $subMerchant->setContactName($jsonResult->contactName);
+        if (isset($jsonObject->contactName)) {
+            $subMerchant->setContactName($jsonObject->contactName);
         }
-        if (isset($jsonResult->contactSurname)) {
-            $subMerchant->setContactSurname($jsonResult->contactSurname);
+        if (isset($jsonObject->contactSurname)) {
+            $subMerchant->setContactSurname($jsonObject->contactSurname);
         }
-        if (isset($jsonResult->legalCompanyTitle)) {
-            $subMerchant->setLegalCompanyTitle($jsonResult->legalCompanyTitle);
+        if (isset($jsonObject->legalCompanyTitle)) {
+            $subMerchant->setLegalCompanyTitle($jsonObject->legalCompanyTitle);
         }
-        if (isset($jsonResult->subMerchantExternalId)) {
-            $subMerchant->setSubMerchantExternalId($jsonResult->subMerchantExternalId);
+        if (isset($jsonObject->subMerchantExternalId)) {
+            $subMerchant->setSubMerchantExternalId($jsonObject->subMerchantExternalId);
         }
-        if (isset($jsonResult->identityNumber)) {
-            $subMerchant->setIdentityNumber($jsonResult->identityNumber);
+        if (isset($jsonObject->identityNumber)) {
+            $subMerchant->setIdentityNumber($jsonObject->identityNumber);
         }
-        if (isset($jsonResult->taxNumber)) {
-            $subMerchant->setTaxNumber($jsonResult->taxNumber);
+        if (isset($jsonObject->taxNumber)) {
+            $subMerchant->setTaxNumber($jsonObject->taxNumber);
         }
-        if (isset($jsonResult->subMerchantType)) {
-            $subMerchant->setSubMerchantType($jsonResult->subMerchantType);
+        if (isset($jsonObject->subMerchantType)) {
+            $subMerchant->setSubMerchantType($jsonObject->subMerchantType);
         }
-        if (isset($jsonResult->subMerchantKey)) {
-            $subMerchant->setSubMerchantKey($jsonResult->subMerchantKey);
+        if (isset($jsonObject->subMerchantKey)) {
+            $subMerchant->setSubMerchantKey($jsonObject->subMerchantKey);
         }
         return $subMerchant;
+    }
+
+    public function mapSubMerchant(SubMerchant $subMerchant)
+    {
+        return $this->mapSubMerchantFrom($subMerchant, $this->jsonObject);
     }
 }

@@ -4,7 +4,6 @@ namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\BinNumberMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\RetrieveBinNumberRequest;
@@ -21,7 +20,7 @@ class BinNumber extends IyzipayResource
     public static function retrieve(RetrieveBinNumberRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/bin/check", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BinNumberMapper::create()->mapBinNumber(new BinNumber(), JsonBuilder::jsonDecode($rawResult));
+        return BinNumberMapper::create($rawResult)->jsonDecode()->mapBinNumber(new BinNumber());
     }
 
     public function getBinNumber()

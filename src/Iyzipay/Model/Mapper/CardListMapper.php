@@ -7,30 +7,35 @@ use Iyzipay\Model\CardList;
 
 class CardListMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new CardListMapper();
+        return new CardListMapper($rawResult);
     }
 
-    public function mapCardList(CardList $cardList, $jsonResult)
+    public function mapCardListFrom(CardList $cardList, $jsonObject)
     {
-        parent::mapResource($cardList, $jsonResult);
+        parent::mapResourceFrom($cardList, $jsonObject);
 
-        if (isset($jsonResult->cardUserKey)) {
-            $cardList->setCardUserKey($jsonResult->cardUserKey);
+        if (isset($jsonObject->cardUserKey)) {
+            $cardList->setCardUserKey($jsonObject->cardUserKey);
         }
-        if (isset($jsonResult->cardDetails)) {
-            $cardList->setCardDetails($this->mapCardDetails($jsonResult->cardDetails));
+        if (isset($jsonObject->cardDetails)) {
+            $cardList->setCardDetails($this->mapCardDetails($jsonObject->cardDetails));
         }
         return $cardList;
     }
 
-    public function mapCardDetails($cardDetails)
+    public function mapCardList(CardList $cardList)
+    {
+        return $this->mapCardListFrom($cardList, $this->jsonObject);
+    }
+
+    private function mapCardDetails($cardDetails)
     {
         $cards = array();
 
         foreach ($cardDetails as $index => $cardDetail) {
-            $cards[$index] = CardMapper::create()->mapCard(new Card(), $cardDetail);
+            $cards[$index] = CardMapper::create()->mapCardFrom(new Card(), $cardDetail);
         }
         return $cards;
     }

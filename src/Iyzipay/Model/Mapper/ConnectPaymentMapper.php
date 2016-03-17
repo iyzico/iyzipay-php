@@ -6,60 +6,65 @@ use Iyzipay\Model\ConnectPayment;
 
 class ConnectPaymentMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ConnectPaymentMapper();
+        return new ConnectPaymentMapper($rawResult);
     }
 
-    public function mapConnectPayment(ConnectPayment $payment, $jsonResult)
+    public function mapConnectPaymentFrom(ConnectPayment $payment, $jsonObject)
     {
-        parent::mapResource($payment, $jsonResult);
+        parent::mapResourceFrom($payment, $jsonObject);
 
-        if (isset($jsonResult->price)) {
-            $payment->setPrice($jsonResult->price);
+        if (isset($jsonObject->price)) {
+            $payment->setPrice($jsonObject->price);
         }
-        if (isset($jsonResult->paidPrice)) {
-            $payment->setPaidPrice($jsonResult->paidPrice);
+        if (isset($jsonObject->paidPrice)) {
+            $payment->setPaidPrice($jsonObject->paidPrice);
         }
-        if (isset($jsonResult->installment)) {
-            $payment->setInstallment($jsonResult->installment);
+        if (isset($jsonObject->installment)) {
+            $payment->setInstallment($jsonObject->installment);
         }
-        if (isset($jsonResult->paymentId)) {
-            $payment->setPaymentId($jsonResult->paymentId);
+        if (isset($jsonObject->paymentId)) {
+            $payment->setPaymentId($jsonObject->paymentId);
         }
-        if (isset($jsonResult->merchantCommissionRate)) {
-            $payment->setMerchantCommissionRate($jsonResult->merchantCommissionRate);
+        if (isset($jsonObject->merchantCommissionRate)) {
+            $payment->setMerchantCommissionRate($jsonObject->merchantCommissionRate);
         }
-        if (isset($jsonResult->merchantCommissionRateAmount)) {
-            $payment->setMerchantCommissionRateAmount($jsonResult->merchantCommissionRateAmount);
+        if (isset($jsonObject->merchantCommissionRateAmount)) {
+            $payment->setMerchantCommissionRateAmount($jsonObject->merchantCommissionRateAmount);
         }
-        if (isset($jsonResult->iyziCommissionFee)) {
-            $payment->setIyziCommissionFee($jsonResult->iyziCommissionFee);
+        if (isset($jsonObject->iyziCommissionFee)) {
+            $payment->setIyziCommissionFee($jsonObject->iyziCommissionFee);
         }
-        if (isset($jsonResult->cardType)) {
-            $payment->setCardType($jsonResult->cardType);
+        if (isset($jsonObject->cardType)) {
+            $payment->setCardType($jsonObject->cardType);
         }
-        if (isset($jsonResult->cardAssociation)) {
-            $payment->setCardAssociation($jsonResult->cardAssociation);
+        if (isset($jsonObject->cardAssociation)) {
+            $payment->setCardAssociation($jsonObject->cardAssociation);
         }
-        if (isset($jsonResult->cardFamily)) {
-            $payment->setCardFamily($jsonResult->cardFamily);
+        if (isset($jsonObject->cardFamily)) {
+            $payment->setCardFamily($jsonObject->cardFamily);
         }
-        if (isset($jsonResult->cardToken)) {
-            $payment->setCardToken($jsonResult->cardToken);
+        if (isset($jsonObject->cardToken)) {
+            $payment->setCardToken($jsonObject->cardToken);
         }
-        if (isset($jsonResult->cardUserKey)) {
-            $payment->setCardUserKey($jsonResult->cardUserKey);
+        if (isset($jsonObject->cardUserKey)) {
+            $payment->setCardUserKey($jsonObject->cardUserKey);
         }
-        if (isset($jsonResult->binNumber)) {
-            $payment->setBinNumber($jsonResult->binNumber);
+        if (isset($jsonObject->binNumber)) {
+            $payment->setBinNumber($jsonObject->binNumber);
         }
-        if (isset($jsonResult->paymentTransactionId)) {
-            $payment->setPaymentTransactionId($jsonResult->paymentTransactionId);
+        if (isset($jsonObject->paymentTransactionId)) {
+            $payment->setPaymentTransactionId($jsonObject->paymentTransactionId);
         }
-        if (isset($jsonResult->connectorName)) {
-            $payment->setConnectorName($jsonResult->connectorName);
+        if (isset($jsonObject->connectorName)) {
+            $payment->setConnectorName($jsonObject->connectorName);
         }
         return $payment;
+    }
+
+    public function mapConnectPayment(ConnectPayment $payment)
+    {
+        return $this->mapConnectPaymentFrom($payment, $this->jsonObject);
     }
 }

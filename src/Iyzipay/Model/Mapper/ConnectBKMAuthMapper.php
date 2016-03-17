@@ -6,24 +6,29 @@ use Iyzipay\Model\ConnectBKMAuth;
 
 class ConnectBKMAuthMapper extends ConnectPaymentMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ConnectBKMAuthMapper();
+        return new ConnectBKMAuthMapper($rawResult);
     }
 
-    public function mapConnectBKMAuth(ConnectBKMAuth $auth, $jsonResult)
+    public function mapConnectBKMAuthFrom(ConnectBKMAuth $auth, $jsonObject)
     {
-        parent::mapConnectPayment($auth, $jsonResult);
+        parent::mapConnectPaymentFrom($auth, $jsonObject);
 
-        if (isset($jsonResult->token)) {
-            $auth->setToken($jsonResult->token);
+        if (isset($jsonObject->token)) {
+            $auth->setToken($jsonObject->token);
         }
-        if (isset($jsonResult->callbackUrl)) {
-            $auth->setCallbackUrl($jsonResult->callbackUrl);
+        if (isset($jsonObject->callbackUrl)) {
+            $auth->setCallbackUrl($jsonObject->callbackUrl);
         }
-        if (isset($jsonResult->paymentStatus)) {
-            $auth->setPaymentStatus($jsonResult->paymentStatus);
+        if (isset($jsonObject->paymentStatus)) {
+            $auth->setPaymentStatus($jsonObject->paymentStatus);
         }
         return $auth;
+    }
+
+    public function mapConnectBKMAuth(ConnectBKMAuth $auth)
+    {
+        return $this->mapConnectBKMAuthFrom($auth, $this->jsonObject);
     }
 }

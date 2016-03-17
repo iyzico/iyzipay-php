@@ -6,33 +6,38 @@ use Iyzipay\Model\BinNumber;
 
 class BinNumberMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new BinNumberMapper();
+        return new BinNumberMapper($rawResult);
     }
 
-    public function mapBinNumber(BinNumber $binNumber, $jsonResult)
+    public function mapBinNumberFrom(BinNumber $binNumber, $jsonObject)
     {
-        parent::mapResource($binNumber, $jsonResult);
+        parent::mapResourceFrom($binNumber, $jsonObject);
 
-        if (isset($jsonResult->binNumber)) {
-            $binNumber->setBinNumber($jsonResult->binNumber);
+        if (isset($jsonObject->binNumber)) {
+            $binNumber->setBinNumber($jsonObject->binNumber);
         }
-        if (isset($jsonResult->cardType)) {
-            $binNumber->setCardType($jsonResult->cardType);
+        if (isset($jsonObject->cardType)) {
+            $binNumber->setCardType($jsonObject->cardType);
         }
-        if (isset($jsonResult->cardAssociation)) {
-            $binNumber->setCardAssociation($jsonResult->cardAssociation);
+        if (isset($jsonObject->cardAssociation)) {
+            $binNumber->setCardAssociation($jsonObject->cardAssociation);
         }
-        if (isset($jsonResult->cardFamily)) {
-            $binNumber->setCardFamily($jsonResult->cardFamily);
+        if (isset($jsonObject->cardFamily)) {
+            $binNumber->setCardFamily($jsonObject->cardFamily);
         }
-        if (isset($jsonResult->bankName)) {
-            $binNumber->setBankName($jsonResult->bankName);
+        if (isset($jsonObject->bankName)) {
+            $binNumber->setBankName($jsonObject->bankName);
         }
-        if (isset($jsonResult->bankCode)) {
-            $binNumber->setBankCode($jsonResult->bankCode);
+        if (isset($jsonObject->bankCode)) {
+            $binNumber->setBankCode($jsonObject->bankCode);
         }
         return $binNumber;
+    }
+
+    public function mapBinNumber(BinNumber $binNumber)
+    {
+        return $this->mapBinNumberFrom($binNumber, $this->jsonObject);
     }
 }

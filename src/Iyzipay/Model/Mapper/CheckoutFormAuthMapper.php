@@ -6,21 +6,26 @@ use Iyzipay\Model\CheckoutFormAuth;
 
 class CheckoutFormAuthMapper extends PaymentMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new CheckoutFormAuthMapper();
+        return new CheckoutFormAuthMapper($rawResult);
     }
 
-    public function mapCheckoutFormAuth(CheckoutFormAuth $auth, $jsonResult)
+    public function mapCheckoutFormAuthFrom(CheckoutFormAuth $auth, $jsonObject)
     {
-        parent::mapPayment($auth, $jsonResult);
+        parent::mapPaymentFrom($auth, $jsonObject);
 
-        if (isset($jsonResult->token)) {
-            $auth->setToken($jsonResult->token);
+        if (isset($jsonObject->token)) {
+            $auth->setToken($jsonObject->token);
         }
-        if (isset($jsonResult->callbackUrl)) {
-            $auth->setCallbackUrl($jsonResult->callbackUrl);
+        if (isset($jsonObject->callbackUrl)) {
+            $auth->setCallbackUrl($jsonObject->callbackUrl);
         }
         return $auth;
+    }
+
+    public function mapCheckoutFormAuth(CheckoutFormAuth $auth)
+    {
+        return $this->mapCheckoutFormAuthFrom($auth, $this->jsonObject);
     }
 }

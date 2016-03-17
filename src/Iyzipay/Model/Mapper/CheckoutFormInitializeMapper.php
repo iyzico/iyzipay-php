@@ -6,27 +6,32 @@ use Iyzipay\Model\CheckoutFormInitialize;
 
 class CheckoutFormInitializeMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new CheckoutFormInitializeMapper();
+        return new CheckoutFormInitializeMapper($rawResult);
     }
 
-    public function mapCheckoutFormInitialize(CheckoutFormInitialize $initialize, $jsonResult)
+    public function mapCheckoutFormInitializeFrom(CheckoutFormInitialize $initialize, $jsonObject)
     {
-        parent::mapResource($initialize, $jsonResult);
+        parent::mapResourceFrom($initialize, $jsonObject);
 
-        if (isset($jsonResult->token)) {
-            $initialize->setToken($jsonResult->token);
+        if (isset($jsonObject->token)) {
+            $initialize->setToken($jsonObject->token);
         }
-        if (isset($jsonResult->checkoutFormContent)) {
-            $initialize->setCheckoutFormContent($jsonResult->checkoutFormContent);
+        if (isset($jsonObject->checkoutFormContent)) {
+            $initialize->setCheckoutFormContent($jsonObject->checkoutFormContent);
         }
-        if (isset($jsonResult->tokenExpireTime)) {
-            $initialize->setTokenExpireTime($jsonResult->tokenExpireTime);
+        if (isset($jsonObject->tokenExpireTime)) {
+            $initialize->setTokenExpireTime($jsonObject->tokenExpireTime);
         }
-        if (isset($jsonResult->paymentPageUrl)) {
-            $initialize->setPaymentPageUrl($jsonResult->paymentPageUrl);
+        if (isset($jsonObject->paymentPageUrl)) {
+            $initialize->setPaymentPageUrl($jsonObject->paymentPageUrl);
         }
         return $initialize;
+    }
+
+    public function mapCheckoutFormInitialize(CheckoutFormInitialize $initialize)
+    {
+        return $this->mapCheckoutFormInitializeFrom($initialize, $this->jsonObject);
     }
 }

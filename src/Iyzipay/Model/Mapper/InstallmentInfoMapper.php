@@ -8,19 +8,24 @@ use Iyzipay\Model\InstallmentPrice;
 
 class InstallmentInfoMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new InstallmentInfoMapper();
+        return new InstallmentInfoMapper($rawResult);
     }
 
-    public function mapInstallmentInfo(InstallmentInfo $installment, $jsonResult)
+    public function mapInstallmentInfoFrom(InstallmentInfo $installment, $jsonObject)
     {
-        parent::mapResource($installment, $jsonResult);
+        parent::mapResourceFrom($installment, $jsonObject);
 
-        if (isset($jsonResult->installmentDetails)) {
-            $installment->setInstallmentDetails($this->mapInstallmentDetails($jsonResult->installmentDetails));
+        if (isset($jsonObject->installmentDetails)) {
+            $installment->setInstallmentDetails($this->mapInstallmentDetails($jsonObject->installmentDetails));
         }
         return $installment;
+    }
+
+    public function mapInstallmentInfo(InstallmentInfo $installment)
+    {
+        return $this->mapInstallmentInfoFrom($installment, $this->jsonObject);
     }
 
     private function mapInstallmentDetails($installmentDetails)
@@ -59,7 +64,6 @@ class InstallmentInfoMapper extends IyzipayResourceMapper
             }
             $details[$index] = $detail;
         }
-
         return $details;
     }
 
@@ -81,7 +85,6 @@ class InstallmentInfoMapper extends IyzipayResourceMapper
             }
             $prices[$index] = $price;
         }
-
         return $prices;
     }
 }

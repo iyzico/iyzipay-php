@@ -4,7 +4,6 @@ namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\ConnectThreeDSInitializeMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreateConnectThreeDSInitializeRequest;
@@ -16,7 +15,7 @@ class ConnectThreeDSInitialize extends IyzipayResource
     public static function create(CreateConnectThreeDSInitializeRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyziconnect/initialize3ds", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ConnectThreeDSInitializeMapper::create()->mapConnectThreeDSInitialize(new ConnectThreeDSInitialize(), JsonBuilder::jsonDecode($rawResult));
+        return ConnectThreeDSInitializeMapper::create($rawResult)->jsonDecode()->mapConnectThreeDSInitialize(new ConnectThreeDSInitialize());
     }
 
     public function getHtmlContent()

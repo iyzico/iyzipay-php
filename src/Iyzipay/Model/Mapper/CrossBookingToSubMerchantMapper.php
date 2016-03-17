@@ -6,14 +6,19 @@ use Iyzipay\Model\CrossBookingToSubMerchant;
 
 class CrossBookingToSubMerchantMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new CrossBookingToSubMerchantMapper();
+        return new CrossBookingToSubMerchantMapper($rawResult);
     }
 
-    public function mapCrossBookingToSubMerchant(CrossBookingToSubMerchant $booking, $jsonResult)
+    public function mapCrossBookingToSubMerchantFrom(CrossBookingToSubMerchant $booking, $jsonObject)
     {
-        parent::mapResource($booking, $jsonResult);
+        parent::mapResourceFrom($booking, $jsonObject);
         return $booking;
+    }
+
+    public function mapCrossBookingToSubMerchant(CrossBookingToSubMerchant $booking)
+    {
+        return $this->mapCrossBookingToSubMerchantFrom($booking, $this->jsonObject);
     }
 }

@@ -4,7 +4,6 @@ namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\CheckoutFormInitializeMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreateCheckoutFormInitializeRequest;
@@ -19,7 +18,7 @@ class CheckoutFormInitialize extends IyzipayResource
     public static function create(CreateCheckoutFormInitializeRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/initialize/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CheckoutFormInitializeMapper::create()->mapCheckoutFormInitialize(new CheckoutFormInitialize(), JsonBuilder::jsonDecode($rawResult));
+        return CheckoutFormInitializeMapper::create($rawResult)->jsonDecode()->mapCheckoutFormInitialize(new CheckoutFormInitialize());
     }
 
     public function getToken()

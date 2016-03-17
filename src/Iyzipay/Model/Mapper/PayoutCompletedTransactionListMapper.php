@@ -7,19 +7,24 @@ use Iyzipay\Model\PayoutCompletedTransactionList;
 
 class PayoutCompletedTransactionListMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new PayoutCompletedTransactionListMapper();
+        return new PayoutCompletedTransactionListMapper($rawResult);
     }
 
-    public function mapPayoutCompletedTransactionList(PayoutCompletedTransactionList $transactionList, $jsonResult)
+    public function mapPayoutCompletedTransactionListFrom(PayoutCompletedTransactionList $transactionList, $jsonObject)
     {
-        parent::mapResource($transactionList, $jsonResult);
+        parent::mapResourceFrom($transactionList, $jsonObject);
 
-        if (isset($jsonResult->payoutCompletedTransactions)) {
-            $transactionList->setPayoutCompletedTransactions($this->mapPayoutCompletedTransactions($jsonResult->payoutCompletedTransactions));
+        if (isset($jsonObject->payoutCompletedTransactions)) {
+            $transactionList->setPayoutCompletedTransactions($this->mapPayoutCompletedTransactions($jsonObject->payoutCompletedTransactions));
         }
         return $transactionList;
+    }
+
+    public function mapPayoutCompletedTransactionList(PayoutCompletedTransactionList $transactionList)
+    {
+        return $this->mapPayoutCompletedTransactionListFrom($transactionList, $this->jsonObject);
     }
 
     private function mapPayoutCompletedTransactions($payoutCompletedTransactions)
@@ -43,7 +48,6 @@ class PayoutCompletedTransactionListMapper extends IyzipayResourceMapper
             }
             $transactions[$index] = $transaction;
         }
-
         return $transactions;
     }
 }

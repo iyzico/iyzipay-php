@@ -4,7 +4,6 @@ namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\RefundChargedFromMerchantMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreateRefundRequest;
@@ -18,7 +17,7 @@ class RefundChargedFromMerchant extends IyzipayResource
     public static function create(CreateRefundRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/refund/merchant/charge", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return RefundChargedFromMerchantMapper::create()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant(), JsonBuilder::jsonDecode($rawResult));
+        return RefundChargedFromMerchantMapper::create($rawResult)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
     }
 
     public function getPaymentId()

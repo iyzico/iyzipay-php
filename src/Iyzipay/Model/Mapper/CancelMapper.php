@@ -6,21 +6,26 @@ use Iyzipay\Model\Cancel;
 
 class CancelMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new CancelMapper();
+        return new CancelMapper($rawResult);
     }
 
-    public function mapCancel(Cancel $cancel, $jsonResult)
+    public function mapCancelFrom(Cancel $cancel, $jsonObject)
     {
-        parent::mapResource($cancel, $jsonResult);
+        parent::mapResourceFrom($cancel, $jsonObject);
 
-        if (isset($jsonResult->paymentId)) {
-            $cancel->setPaymentId($jsonResult->paymentId);
+        if (isset($jsonObject->paymentId)) {
+            $cancel->setPaymentId($jsonObject->paymentId);
         }
-        if (isset($jsonResult->price)) {
-            $cancel->setPrice($jsonResult->price);
+        if (isset($jsonObject->price)) {
+            $cancel->setPrice($jsonObject->price);
         }
         return $cancel;
+    }
+
+    public function mapCancel(Cancel $cancel)
+    {
+        return $this->mapCancelFrom($cancel, $this->jsonObject);
     }
 }

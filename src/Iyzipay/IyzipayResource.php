@@ -11,6 +11,7 @@ class IyzipayResource
     private $locale;
     private $systemTime;
     private $conversationId;
+    private $rawResult;
 
     protected static function getHttpHeaders(Request $request, Options $options)
     {
@@ -99,5 +100,15 @@ class IyzipayResource
     public function setConversationId($conversationId)
     {
         $this->conversationId = $conversationId;
+    }
+
+    public function getRawResult()
+    {
+        return $this->rawResult;
+    }
+
+    public function setRawResult($rawResult)
+    {
+        $this->rawResult = $rawResult;
     }
 }

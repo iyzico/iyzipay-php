@@ -6,14 +6,19 @@ use Iyzipay\Model\ConnectPaymentAuth;
 
 class ConnectPaymentAuthMapper extends ConnectPaymentMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ConnectPaymentAuthMapper();
+        return new ConnectPaymentAuthMapper($rawResult);
     }
 
-    public function mapConnectPaymentAuth(ConnectPaymentAuth $auth, $jsonResult)
+    public function mapConnectPaymentAuthFrom(ConnectPaymentAuth $auth, $jsonObject)
     {
-        parent::mapConnectPayment($auth, $jsonResult);
+        parent::mapConnectPaymentFrom($auth, $jsonObject);
         return $auth;
+    }
+
+    public function mapConnectPaymentAuth(ConnectPaymentAuth $auth)
+    {
+        return $this->mapConnectPaymentAuthFrom($auth, $this->jsonObject);
     }
 }

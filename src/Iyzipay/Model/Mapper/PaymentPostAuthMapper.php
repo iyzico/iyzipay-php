@@ -6,21 +6,26 @@ use Iyzipay\Model\PaymentPostAuth;
 
 class PaymentPostAuthMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new PaymentPostAuthMapper();
+        return new PaymentPostAuthMapper($rawResult);
     }
 
-    public function mapPaymentPostAuth(PaymentPostAuth $postAuth, $jsonResult)
+    public function mapPaymentPostAuthFrom(PaymentPostAuth $postAuth, $jsonObject)
     {
-        parent::mapResource($postAuth, $jsonResult);
+        parent::mapResourceFrom($postAuth, $jsonObject);
 
-        if (isset($jsonResult->paymentId)) {
-            $postAuth->setPaymentId($jsonResult->paymentId);
+        if (isset($jsonObject->paymentId)) {
+            $postAuth->setPaymentId($jsonObject->paymentId);
         }
-        if (isset($jsonResult->price)) {
-            $postAuth->setPrice($jsonResult->price);
+        if (isset($jsonObject->price)) {
+            $postAuth->setPrice($jsonObject->price);
         }
         return $postAuth;
+    }
+
+    public function mapPaymentPostAuth(PaymentPostAuth $postAuth)
+    {
+        return $this->mapPaymentPostAuthFrom($postAuth, $this->jsonObject);
     }
 }

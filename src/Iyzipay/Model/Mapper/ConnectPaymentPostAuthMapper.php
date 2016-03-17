@@ -6,24 +6,29 @@ use Iyzipay\Model\ConnectPaymentPostAuth;
 
 class ConnectPaymentPostAuthMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ConnectPaymentPostAuthMapper();
+        return new ConnectPaymentPostAuthMapper($rawResult);
     }
 
-    public function mapConnectPaymentPostAuth(ConnectPaymentPostAuth $postAuth, $jsonResult)
+    public function mapConnectPaymentPostAuthFrom(ConnectPaymentPostAuth $postAuth, $jsonObject)
     {
-        parent::mapResource($postAuth, $jsonResult);
+        parent::mapResourceFrom($postAuth, $jsonObject);
 
-        if (isset($jsonResult->paymentId)) {
-            $postAuth->setPaymentId($jsonResult->paymentId);
+        if (isset($jsonObject->paymentId)) {
+            $postAuth->setPaymentId($jsonObject->paymentId);
         }
-        if (isset($jsonResult->price)) {
-            $postAuth->setPrice($jsonResult->price);
+        if (isset($jsonObject->price)) {
+            $postAuth->setPrice($jsonObject->price);
         }
-        if (isset($jsonResult->connectorName)) {
-            $postAuth->setConnectorName($jsonResult->connectorName);
+        if (isset($jsonObject->connectorName)) {
+            $postAuth->setConnectorName($jsonObject->connectorName);
         }
         return $postAuth;
+    }
+
+    public function mapConnectPaymentPostAuth(ConnectPaymentPostAuth $postAuth)
+    {
+        return $this->mapConnectPaymentPostAuthFrom($postAuth, $this->jsonObject);
     }
 }

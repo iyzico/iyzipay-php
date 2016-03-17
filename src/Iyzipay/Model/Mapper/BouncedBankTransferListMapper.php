@@ -6,19 +6,24 @@ use Iyzipay\Model\BouncedBankTransferList;
 
 class BouncedBankTransferListMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new BouncedBankTransferListMapper();
+        return new BouncedBankTransferListMapper($rawResult);
     }
 
-    public function mapBouncedBankTransferList(BouncedBankTransferList $transferList, $jsonResult)
+    public function mapBouncedBankTransferListFrom(BouncedBankTransferList $transferList, $jsonObject)
     {
-        parent::mapResource($transferList, $jsonResult);
+        parent::mapResourceFrom($transferList, $jsonObject);
 
-        if (isset($jsonResult->bouncedRows)) {
-            $transferList->setBankTransfers($this->mapBankTransfers($jsonResult->bouncedRows));
+        if (isset($jsonObject->bouncedRows)) {
+            $transferList->setBankTransfers($this->mapBankTransfers($jsonObject->bouncedRows));
         }
         return $transferList;
+    }
+
+    public function mapBouncedBankTransferList(BouncedBankTransferList $transferList)
+    {
+        return $this->mapBouncedBankTransferListFrom($transferList, $this->jsonObject);
     }
 
     private function mapBankTransfers($bouncedRows)
@@ -48,7 +53,6 @@ class BouncedBankTransferListMapper extends IyzipayResourceMapper
             }
             $bankTransfers[$index] = $bankTransfer;
         }
-
         return $bankTransfers;
     }
 }

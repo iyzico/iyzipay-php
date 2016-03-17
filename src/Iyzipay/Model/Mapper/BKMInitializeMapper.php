@@ -6,18 +6,23 @@ use Iyzipay\Model\BKMInitialize;
 
 class BKMInitializeMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new BKMInitializeMapper();
+        return new BKMInitializeMapper($rawResult);
     }
 
-    public function mapBKMInitialize(BKMInitialize $initialize, $jsonResult)
+    public function mapBKMInitializeFrom(BKMInitialize $initialize, $jsonObject)
     {
-        parent::mapResource($initialize, $jsonResult);
+        parent::mapResourceFrom($initialize, $jsonObject);
 
-        if (isset($jsonResult->htmlContent)) {
-            $initialize->setHtmlContent(base64_decode($jsonResult->htmlContent));
+        if (isset($jsonObject->htmlContent)) {
+            $initialize->setHtmlContent(base64_decode($jsonObject->htmlContent));
         }
         return $initialize;
+    }
+
+    public function mapBKMInitialize(BKMInitialize $initialize)
+    {
+        return $this->mapBKMInitializeFrom($initialize, $this->jsonObject);
     }
 }

@@ -4,7 +4,6 @@ namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\CancelMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreateCancelRequest;
@@ -17,7 +16,7 @@ class Cancel extends IyzipayResource
     public static function create(CreateCancelRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/cancel", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CancelMapper::create()->mapCancel(new Cancel(), JsonBuilder::jsonDecode($rawResult));
+        return CancelMapper::create($rawResult)->jsonDecode()->mapCancel(new Cancel());
     }
 
     public function getPaymentId()

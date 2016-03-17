@@ -6,18 +6,23 @@ use Iyzipay\Model\Disapproval;
 
 class DisapprovalMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new DisapprovalMapper();
+        return new DisapprovalMapper($rawResult);
     }
 
-    public function mapDisapproval(Disapproval $disapproval, $jsonResult)
+    public function mapDisapprovalFrom(Disapproval $disapproval, $jsonObject)
     {
-        parent::mapResource($disapproval, $jsonResult);
+        parent::mapResourceFrom($disapproval, $jsonObject);
 
-        if (isset($jsonResult->paymentTransactionId)) {
-            $disapproval->setPaymentTransactionId($jsonResult->paymentTransactionId);
+        if (isset($jsonObject->paymentTransactionId)) {
+            $disapproval->setPaymentTransactionId($jsonObject->paymentTransactionId);
         }
         return $disapproval;
+    }
+
+    public function mapDisapproval(Disapproval $disapproval)
+    {
+        return $this->mapDisapprovalFrom($disapproval, $this->jsonObject);
     }
 }

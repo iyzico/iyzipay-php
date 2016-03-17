@@ -6,27 +6,32 @@ use Iyzipay\Model\ConnectRefund;
 
 class ConnectRefundMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ConnectRefundMapper();
+        return new ConnectRefundMapper($rawResult);
     }
 
-    public function mapConnectRefund(ConnectRefund $refund, $jsonResult)
+    public function mapConnectRefundFrom(ConnectRefund $refund, $jsonObject)
     {
-        parent::mapResource($refund, $jsonResult);
+        parent::mapResourceFrom($refund, $jsonObject);
 
-        if (isset($jsonResult->paymentId)) {
-            $refund->setPaymentId($jsonResult->paymentId);
+        if (isset($jsonObject->paymentId)) {
+            $refund->setPaymentId($jsonObject->paymentId);
         }
-        if (isset($jsonResult->paymentTransactionId)) {
-            $refund->setPaymentTransactionId($jsonResult->paymentTransactionId);
+        if (isset($jsonObject->paymentTransactionId)) {
+            $refund->setPaymentTransactionId($jsonObject->paymentTransactionId);
         }
-        if (isset($jsonResult->price)) {
-            $refund->setPrice($jsonResult->price);
+        if (isset($jsonObject->price)) {
+            $refund->setPrice($jsonObject->price);
         }
-        if (isset($jsonResult->connectorName)) {
-            $refund->setConnectorName($jsonResult->connectorName);
+        if (isset($jsonObject->connectorName)) {
+            $refund->setConnectorName($jsonObject->connectorName);
         }
         return $refund;
+    }
+
+    public function mapConnectRefund(ConnectRefund $refund)
+    {
+        return $this->mapConnectRefundFrom($refund, $this->jsonObject);
     }
 }

@@ -3,37 +3,60 @@
 namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\IyzipayResource;
+use Iyzipay\JsonBuilder;
 
 class IyzipayResourceMapper
 {
-    public static function create()
+    protected $rawResult;
+    protected $jsonObject;
+
+    public function __construct($rawResult)
     {
-        return new IyzipayResourceMapper();
+        $this->rawResult = $rawResult;
     }
 
-    public function mapResource(IyzipayResource $resource, $jsonResult)
+    public static function create($rawResult = null)
     {
-        if (isset($jsonResult->status)) {
-            $resource->setStatus($jsonResult->status);
+        return new IyzipayResourceMapper($rawResult);
+    }
+
+    public function jsonDecode()
+    {
+        $this->jsonObject = JsonBuilder::jsonDecode($this->rawResult);
+        return $this;
+    }
+
+    public function mapResourceFrom(IyzipayResource $resource, $jsonObject)
+    {
+        if (isset($jsonObject->status)) {
+            $resource->setStatus($jsonObject->status);
         }
-        if (isset($jsonResult->conversationId)) {
-            $resource->setConversationId($jsonResult->conversationId);
+        if (isset($jsonObject->conversationId)) {
+            $resource->setConversationId($jsonObject->conversationId);
         }
-        if (isset($jsonResult->errorCode)) {
-            $resource->setErrorCode($jsonResult->errorCode);
+        if (isset($jsonObject->errorCode)) {
+            $resource->setErrorCode($jsonObject->errorCode);
         }
-        if (isset($jsonResult->errorMessage)) {
-            $resource->setErrorMessage($jsonResult->errorMessage);
+        if (isset($jsonObject->errorMessage)) {
+            $resource->setErrorMessage($jsonObject->errorMessage);
         }
-        if (isset($jsonResult->errorGroup)) {
-            $resource->setErrorGroup($jsonResult->errorGroup);
+        if (isset($jsonObject->errorGroup)) {
+            $resource->setErrorGroup($jsonObject->errorGroup);
         }
-        if (isset($jsonResult->locale)) {
-            $resource->setLocale($jsonResult->locale);
+        if (isset($jsonObject->locale)) {
+            $resource->setLocale($jsonObject->locale);
         }
-        if (isset($jsonResult->systemTime)) {
-            $resource->setSystemTime($jsonResult->systemTime);
+        if (isset($jsonObject->systemTime)) {
+            $resource->setSystemTime($jsonObject->systemTime);
+        }
+        if (isset($this->rawResult)) {
+            $resource->setRawResult($this->rawResult);
         }
         return $resource;
+    }
+
+    public function mapResource(IyzipayResource $resource)
+    {
+        return $this->mapResourceFrom($resource, $this->jsonObject);
     }
 }

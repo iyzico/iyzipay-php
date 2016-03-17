@@ -6,18 +6,23 @@ use Iyzipay\Model\Approval;
 
 class ApprovalMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ApprovalMapper();
+        return new ApprovalMapper($rawResult);
     }
 
-    public function mapApproval(Approval $approval, $jsonResult)
+    public function mapApprovalFrom(Approval $approval, $jsonObject)
     {
-        parent::mapResource($approval, $jsonResult);
+        parent::mapResourceFrom($approval, $jsonObject);
 
-        if (isset($jsonResult->paymentTransactionId)) {
-            $approval->setPaymentTransactionId($jsonResult->paymentTransactionId);
+        if (isset($jsonObject->paymentTransactionId)) {
+            $approval->setPaymentTransactionId($jsonObject->paymentTransactionId);
         }
         return $approval;
+    }
+
+    public function mapApproval(Approval $approval)
+    {
+        return $this->mapApprovalFrom($approval, $this->jsonObject);
     }
 }

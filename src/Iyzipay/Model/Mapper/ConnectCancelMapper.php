@@ -6,24 +6,29 @@ use Iyzipay\Model\ConnectCancel;
 
 class ConnectCancelMapper extends IyzipayResourceMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new ConnectCancelMapper();
+        return new ConnectCancelMapper($rawResult);
     }
 
-    public function mapConnectCancel(ConnectCancel $cancel, $jsonResult)
+    public function mapConnectCancelFrom(ConnectCancel $cancel, $jsonObject)
     {
-        parent::mapResource($cancel, $jsonResult);
+        parent::mapResourceFrom($cancel, $jsonObject);
 
-        if (isset($jsonResult->paymentId)) {
-            $cancel->setPaymentId($jsonResult->paymentId);
+        if (isset($jsonObject->paymentId)) {
+            $cancel->setPaymentId($jsonObject->paymentId);
         }
-        if (isset($jsonResult->price)) {
-            $cancel->setPrice($jsonResult->price);
+        if (isset($jsonObject->price)) {
+            $cancel->setPrice($jsonObject->price);
         }
-        if (isset($jsonResult->connectorName)) {
-            $cancel->setConnectorName($jsonResult->connectorName);
+        if (isset($jsonObject->connectorName)) {
+            $cancel->setConnectorName($jsonObject->connectorName);
         }
         return $cancel;
+    }
+
+    public function mapConnectCancel(ConnectCancel $cancel)
+    {
+        return $this->mapConnectCancelFrom($cancel, $this->jsonObject);
     }
 }

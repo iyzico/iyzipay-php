@@ -6,14 +6,19 @@ use Iyzipay\Model\PaymentPreAuth;
 
 class PaymentPreAuthMapper extends PaymentMapper
 {
-    public static function create()
+    public static function create($rawResult = null)
     {
-        return new PaymentPreAuthMapper();
+        return new PaymentPreAuthMapper($rawResult);
     }
 
-    public function mapPaymentPreAuth(PaymentPreAuth $preAuth, $jsonResult)
+    public function mapPaymentPreAuthFrom(PaymentPreAuth $preAuth, $jsonObject)
     {
-        parent::mapPayment($preAuth, $jsonResult);
+        parent::mapPaymentFrom($preAuth, $jsonObject);
         return $preAuth;
+    }
+
+    public function mapPaymentPreAuth(PaymentPreAuth $preAuth)
+    {
+        return $this->mapPaymentPreAuthFrom($preAuth, $this->jsonObject);
     }
 }

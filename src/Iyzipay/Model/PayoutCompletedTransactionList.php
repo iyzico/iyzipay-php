@@ -4,7 +4,6 @@ namespace Iyzipay\Model;
 
 use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\PayoutCompletedTransactionListMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\RetrieveTransactionsRequest;
@@ -16,7 +15,7 @@ class PayoutCompletedTransactionList extends IyzipayResource
     public static function retrieve(RetrieveTransactionsRequest $request, Options $options)
     {
         $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/reporting/settlement/payoutcompleted", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return PayoutCompletedTransactionListMapper::create()->mapPayoutCompletedTransactionList(new PayoutCompletedTransactionList(), JsonBuilder::jsonDecode($rawResult));
+        return PayoutCompletedTransactionListMapper::create($rawResult)->jsonDecode()->mapPayoutCompletedTransactionList(new PayoutCompletedTransactionList());
     }
 
     public function getPayoutCompletedTransactions()
