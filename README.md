@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/iyzico/iyzipay-php.svg?branch=master)](https://travis-ci.org/iyzico/iyzipay-php)
 [![Latest Stable Version](https://poser.pugx.org/iyzico/iyzipay-php/version)](https://packagist.org/packages/iyzico/iyzipay-php)
+[![Total Downloads](https://poser.pugx.org/iyzico/iyzipay-php/downloads.svg)](https://packagist.org/packages/iyzico/iyzipay-php)
+[![License](https://poser.pugx.org/iyzico/iyzipay-php/license.svg)](https://packagist.org/packages/iyzico/iyzipay-php)
 
 You can sign up for an iyzico account at https://iyzico.com
 
