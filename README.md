@@ -127,7 +127,7 @@ $thirdBasketItem->setSubMerchantPrice("0.18");
 $basketItems[2] = $thirdBasketItem;
 $request->setBasketItems($basketItems);
 
-$paymentAuth = \Iyzipay\Model\PaymentAuth::create($request, Sample::options());
+$paymentAuth = \Iyzipay\Model\PaymentAuth::create($request, $options);
 ```
 See other samples under samples directory.
 
