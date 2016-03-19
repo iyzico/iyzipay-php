@@ -13,8 +13,8 @@
          verbose="true">
 
     <testsuites>
-        <testsuite name="iyzipay api php client test suite">
-            <directory>./tests/Iyzipay/Tests/</directory>
+        <testsuite name="Unit Tests">
+            <directory>tests/Iyzipay/Tests</directory>
         </testsuite>
     </testsuites>
 
