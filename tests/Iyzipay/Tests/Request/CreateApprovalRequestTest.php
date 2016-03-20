@@ -5,7 +5,7 @@ namespace Iyzipay\Tests;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreateApprovalRequest;
 
-class CreateApprovalRequestTest extends BaseTest
+class CreateApprovalRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {

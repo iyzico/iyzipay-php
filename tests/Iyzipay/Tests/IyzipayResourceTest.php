@@ -4,10 +4,9 @@ namespace Iyzipay\Tests;
 
 use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Locale;
-use Iyzipay\Options;
 use Iyzipay\Request;
 
-class IyzipayResourceTest extends BaseTest
+class IyzipayResourceTest extends TestCase
 {
     public function test_should_get_http_headers()
     {
@@ -15,12 +14,7 @@ class IyzipayResourceTest extends BaseTest
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456");
 
-        $options = new Options();
-        $options->setApiKey("apiKey");
-        $options->setSecretKey("secretKey");
-        $options->setBaseUrl("baseUrl");
-
-        $headers = parent::callMethod(new IyzipayResource(), "getHttpHeaders", array($request, $options));
+        $headers = parent::callMethod(new IyzipayResource(), "getHttpHeaders", array($request, $this->options));
 
         $this->assertNotEmpty($headers);
         $this->assertEquals(4, count($headers));
@@ -36,12 +30,7 @@ class IyzipayResourceTest extends BaseTest
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456");
 
-        $options = new Options();
-        $options->setApiKey("apiKey");
-        $options->setSecretKey("secretKey");
-        $options->setBaseUrl("baseUrl");
-
-        $str = parent::callMethod(new IyzipayResource(), "prepareAuthorizationString", array($request, $options, "rnd"));
+        $str = parent::callMethod(new IyzipayResource(), "prepareAuthorizationString", array($request, $this->options, "rnd"));
 
         $this->assertEquals("IYZWS apiKey:opW0tI3yAVjzROFRTgHjIGsriHw=", $str);
     }

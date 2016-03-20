@@ -2,7 +2,7 @@
 
 namespace Iyzipay;
 
-class IyzipayResource
+class IyzipayResource extends ApiResource
 {
     private $status;
     private $errorCode;
@@ -11,7 +11,6 @@ class IyzipayResource
     private $locale;
     private $systemTime;
     private $conversationId;
-    private $rawResult;
 
     protected static function getHttpHeaders(Request $request, Options $options)
     {
@@ -20,15 +19,15 @@ class IyzipayResource
             "Content-type: application/json",
         );
 
-        $randomHeaderValue = uniqid();
-        array_push($header, "Authorization: " . IyzipayResource::prepareAuthorizationString($request, $options, $randomHeaderValue));
-        array_push($header, "x-iyzi-rnd: " . $randomHeaderValue);
+        $rnd = uniqid();
+        array_push($header, "Authorization: " . self::prepareAuthorizationString($request, $options, $rnd));
+        array_push($header, "x-iyzi-rnd: " . $rnd);
         return $header;
     }
 
-    private static function prepareAuthorizationString(Request $request, Options $options, $randomHeaderValue)
+    protected static function prepareAuthorizationString(Request $request, Options $options, $rnd)
     {
-        $hash = HashGenerator::generateHash($options->getApiKey(), $options->getSecretKey(), $randomHeaderValue, $request);
+        $hash = HashGenerator::generateHash($options->getApiKey(), $options->getSecretKey(), $rnd, $request);
         return vsprintf("IYZWS %s:%s", array($options->getApiKey(), $hash));
     }
 
@@ -100,15 +99,5 @@ class IyzipayResource
     public function setConversationId($conversationId)
     {
         $this->conversationId = $conversationId;
-    }
-
-    public function getRawResult()
-    {
-        return $this->rawResult;
-    }
-
-    public function setRawResult($rawResult)
-    {
-        $this->rawResult = $rawResult;
     }
 }

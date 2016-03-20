@@ -2,7 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Mapper\ThreeDSInitializeMapper;
 use Iyzipay\Options;
@@ -14,7 +13,7 @@ class ThreeDSInitialize extends IyzipayResource
 
     public static function create(CreateThreeDSInitializeRequest $request, Options $options)
     {
-        $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/initialize3ds/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/initialize3ds/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return ThreeDSInitializeMapper::create($rawResult)->jsonDecode()->mapThreeDSInitialize(new ThreeDSInitialize());
     }
 

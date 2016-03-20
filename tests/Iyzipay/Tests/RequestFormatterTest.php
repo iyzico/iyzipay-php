@@ -4,7 +4,7 @@ namespace Iyzipay\Tests;
 
 use Iyzipay\RequestFormatter;
 
-class RequestFormatterTest extends BaseTest
+class RequestFormatterTest extends TestCase
 {
     public function test_should_append_zero_given_integer()
     {
