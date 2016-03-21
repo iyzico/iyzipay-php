@@ -92,7 +92,7 @@ $billingAddress->setCity("Istanbul");
 $billingAddress->setCountry("Turkey");
 $billingAddress->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
 $billingAddress->setZipCode("34742");
-$request->setbillingAddress($billingAddress);
+$request->setBillingAddress($billingAddress);
 
 $basketItems = array();
 $firstBasketItem = new \Iyzipay\Model\BasketItem();
