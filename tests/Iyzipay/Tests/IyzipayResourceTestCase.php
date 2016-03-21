@@ -17,7 +17,7 @@ class IyzipayResourceTestCase extends TestCase
             "errorMessage":null,
             "errorGroup":null,
             "locale":"tr",
-            "systemTime":"1458467793",
+            "systemTime":"1458545234852",
             "conversationId":"123456"
         }';
 
@@ -68,7 +68,7 @@ class IyzipayResourceTestCase extends TestCase
         $this->assertEmpty($resource->getErrorMessage());
         $this->assertEmpty($resource->getErrorGroup());
         $this->assertEquals(Locale::TR, $resource->getLocale());
-        $this->assertEquals("1458467793", $resource->getSystemTime());
+        $this->assertEquals("1458545234852", $resource->getSystemTime());
         $this->assertEquals("123456", $resource->getConversationId());
         $this->assertJson($resource->getRawResult());
         $this->assertJsonStringEqualsJsonString($this->json, $resource->getRawResult());

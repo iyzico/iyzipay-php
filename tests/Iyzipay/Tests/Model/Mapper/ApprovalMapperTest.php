@@ -19,7 +19,7 @@ class ApprovalMapperTest extends TestCase
                 "errorMessage":null,
                 "errorGroup":null,
                 "locale":"tr",
-                "systemTime":"1458467793",
+                "systemTime":"1458545234852",
                 "conversationId":"123456",
                 "paymentTransactionId":"1"
             }';
@@ -32,7 +32,7 @@ class ApprovalMapperTest extends TestCase
         $this->assertEmpty($approval->getErrorMessage());
         $this->assertEmpty($approval->getErrorGroup());
         $this->assertEquals(Locale::TR, $approval->getLocale());
-        $this->assertEquals("1458467793", $approval->getSystemTime());
+        $this->assertEquals("1458545234852", $approval->getSystemTime());
         $this->assertEquals("123456", $approval->getConversationId());
         $this->assertEquals("1", $approval->getPaymentTransactionId());
         $this->assertJson($approval->getRawResult());
@@ -48,7 +48,7 @@ class ApprovalMapperTest extends TestCase
                 "errorMessage":"error",
                 "errorGroup":"error group",
                 "locale":"tr",
-                "systemTime":"1458467793",
+                "systemTime":"1458545234852",
                 "conversationId":"123456",
                 "paymentTransactionId":"1"
             }';
@@ -61,7 +61,7 @@ class ApprovalMapperTest extends TestCase
         $this->assertEquals("error", $approval->getErrorMessage());
         $this->assertEquals("error group", $approval->getErrorGroup());
         $this->assertEquals(Locale::TR, $approval->getLocale());
-        $this->assertEquals("1458467793", $approval->getSystemTime());
+        $this->assertEquals("1458545234852", $approval->getSystemTime());
         $this->assertEquals("123456", $approval->getConversationId());
         $this->assertEquals("1", $approval->getPaymentTransactionId());
         $this->assertJson($approval->getRawResult());
