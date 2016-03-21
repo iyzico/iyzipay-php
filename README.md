@@ -152,5 +152,6 @@ Install dependencies as mentioned above (which will resolve [PHPUnit](http://pac
 Or to run an individual test file:
 
 ```bash
+./vendor/bin/phpunit
 ./vendor/bin/phpunit tests/Iyzipay/Tests/OptionsTest.php
 ```
