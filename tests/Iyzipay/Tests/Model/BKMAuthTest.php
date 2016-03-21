@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\BKMAuth;
 use Iyzipay\Request\RetrieveBKMAuthRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BKMAuthTest extends IyzipayResourceTestCase
 {

@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\Cancel;
 use Iyzipay\Request\CreateCancelRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CancelTest extends IyzipayResourceTestCase
 {

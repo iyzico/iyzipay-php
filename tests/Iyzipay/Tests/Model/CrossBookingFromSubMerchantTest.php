@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\CrossBookingFromSubMerchant;
 use Iyzipay\Request\CreateCrossBookingRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CrossBookingFromSubMerchantTest extends IyzipayResourceTestCase
 {

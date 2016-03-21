@@ -1,8 +1,9 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\ApiTest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class ApiTestTest extends IyzipayResourceTestCase
 {

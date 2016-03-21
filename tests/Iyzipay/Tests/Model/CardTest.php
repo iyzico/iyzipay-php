@@ -1,10 +1,11 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\Card;
 use Iyzipay\Request\CreateCardRequest;
 use Iyzipay\Request\DeleteCardRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CardTest extends IyzipayResourceTestCase
 {

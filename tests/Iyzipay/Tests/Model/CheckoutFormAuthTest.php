@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\CheckoutFormAuth;
 use Iyzipay\Request\RetrieveCheckoutFormAuthRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CheckoutFormAuthTest extends IyzipayResourceTestCase
 {

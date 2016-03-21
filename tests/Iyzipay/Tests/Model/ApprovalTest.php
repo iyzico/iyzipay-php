@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\Approval;
 use Iyzipay\Request\CreateApprovalRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class ApprovalTest extends IyzipayResourceTestCase
 {

@@ -1,10 +1,11 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\PaymentAuth;
 use Iyzipay\Request\CreatePaymentRequest;
 use Iyzipay\Request\RetrievePaymentRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class PaymentAuthTest extends IyzipayResourceTestCase
 {

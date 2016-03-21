@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\CheckoutFormInitialize;
 use Iyzipay\Request\CreateCheckoutFormInitializeRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CheckoutFormInitializeTest extends IyzipayResourceTestCase
 {

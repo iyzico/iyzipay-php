@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\ConnectPaymentPreAuth;
 use Iyzipay\Request\CreateConnectPaymentRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class ConnectPaymentPreAuthTest extends IyzipayResourceTestCase
 {

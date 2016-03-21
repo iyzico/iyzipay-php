@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\BinNumber;
 use Iyzipay\Request\RetrieveBinNumberRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BinNumberTest extends IyzipayResourceTestCase
 {

@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\ConnectBKMInitialize;
 use Iyzipay\Request\CreateConnectBKMInitializeRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class ConnectBKMInitializeTest extends IyzipayResourceTestCase
 {

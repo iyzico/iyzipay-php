@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\Refund;
 use Iyzipay\Request\CreateRefundRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class RefundTest extends IyzipayResourceTestCase
 {

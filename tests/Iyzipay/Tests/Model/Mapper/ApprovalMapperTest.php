@@ -1,8 +1,11 @@
 <?php
 
-namespace Iyzipay\Model;
+namespace Iyzipay\Tests\Model\Mapper;
 
+use Iyzipay\Model\Approval;
+use Iyzipay\Model\Locale;
 use Iyzipay\Model\Mapper\ApprovalMapper;
+use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
 class ApprovalMapperTest extends TestCase

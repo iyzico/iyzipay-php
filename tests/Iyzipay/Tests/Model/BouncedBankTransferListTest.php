@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\BouncedBankTransferList;
 use Iyzipay\Request\RetrieveTransactionsRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BouncedBankTransferListTest extends IyzipayResourceTestCase
 {

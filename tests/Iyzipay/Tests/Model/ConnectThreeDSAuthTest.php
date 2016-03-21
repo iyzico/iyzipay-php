@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\ConnectThreeDSAuth;
 use Iyzipay\Request\CreateConnectThreeDSAuthRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class ConnectThreeDSAuthTest extends IyzipayResourceTestCase
 {

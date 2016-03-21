@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\InstallmentInfo;
 use Iyzipay\Request\RetrieveInstallmentInfoRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class InstallmentInfoTest extends IyzipayResourceTestCase
 {

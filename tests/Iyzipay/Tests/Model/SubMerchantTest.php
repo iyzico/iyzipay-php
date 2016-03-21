@@ -1,11 +1,12 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\SubMerchant;
 use Iyzipay\Request\CreateSubMerchantRequest;
 use Iyzipay\Request\RetrieveSubMerchantRequest;
 use Iyzipay\Request\UpdateSubMerchantRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class SubMerchantTest extends IyzipayResourceTestCase
 {

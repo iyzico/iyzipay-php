@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\CardList;
 use Iyzipay\Request\RetrieveCardListRequest;
+use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CardListTest extends IyzipayResourceTestCase
 {

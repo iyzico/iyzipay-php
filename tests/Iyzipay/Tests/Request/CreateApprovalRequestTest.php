@@ -1,9 +1,10 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreateApprovalRequest;
+use Iyzipay\Tests\TestCase;
 
 class CreateApprovalRequestTest extends TestCase
 {
