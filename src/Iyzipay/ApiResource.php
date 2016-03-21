@@ -7,7 +7,7 @@ class ApiResource
     private static $httpClient;
     private $rawResult;
 
-    public function httpClient()
+    public static function httpClient()
     {
         if (!self::$httpClient) {
             self::$httpClient = HttpClient::create();
