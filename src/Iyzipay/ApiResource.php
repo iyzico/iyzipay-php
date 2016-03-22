@@ -10,7 +10,7 @@ class ApiResource
     public static function httpClient()
     {
         if (!self::$httpClient) {
-            self::$httpClient = HttpClient::create();
+            self::$httpClient = DefaultHttpClient::create();
         }
         return self::$httpClient;
     }
