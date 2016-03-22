@@ -135,12 +135,12 @@ class BKMAuthMapperTest extends TestCase
         $this->assertEquals("B67832", $bkmAuth->getBasketId());
         $this->assertEquals("token", $bkmAuth->getToken());
         $this->assertEquals("https://www.iyzico.com", $bkmAuth->getCallbackUrl());
+
+        $paymentItems = $bkmAuth->getPaymentItems();
         $this->assertNotEmpty($bkmAuth->getPaymentItems());
         $this->assertEquals(3, count($bkmAuth->getPaymentItems()));
 
-        $paymentItems = $bkmAuth->getPaymentItems();
         $paymentItem = $paymentItems[0];
-
         $this->assertEquals("BI101", $paymentItem->getItemId());
         $this->assertEquals("4977", $paymentItem->getPaymentTransactionId());
         $this->assertEquals("2", $paymentItem->getTransactionStatus());
@@ -161,7 +161,6 @@ class BKMAuthMapperTest extends TestCase
         $this->assertEquals("0.19876500", $paymentItem->getMerchantPayoutAmount());
 
         $paymentItem = $paymentItems[1];
-
         $this->assertEquals("BI102", $paymentItem->getItemId());
         $this->assertEquals("4978", $paymentItem->getPaymentTransactionId());
         $this->assertEquals("2", $paymentItem->getTransactionStatus());
@@ -182,7 +181,6 @@ class BKMAuthMapperTest extends TestCase
         $this->assertEquals("0.33127500", $paymentItem->getMerchantPayoutAmount());
 
         $paymentItem = $paymentItems[2];
-
         $this->assertEquals("BI103", $paymentItem->getItemId());
         $this->assertEquals("4979", $paymentItem->getPaymentTransactionId());
         $this->assertEquals("2", $paymentItem->getTransactionStatus());
