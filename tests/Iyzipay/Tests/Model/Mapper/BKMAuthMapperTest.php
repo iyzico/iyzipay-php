@@ -138,7 +138,10 @@ class BKMAuthMapperTest extends TestCase
         $this->assertNotEmpty($bkmAuth->getPaymentItems());
         $this->assertEquals(3, count($bkmAuth->getPaymentItems()));
 
-        $this->assertEquals("BI101", $bkmAuth->getPaymentItems()[0]->getItemId());
+        $x = $bkmAuth->getPaymentItems();
+        $y = $x[0];
+        $z = $y->getItemId();
+        $this->assertEquals("BI101", $z);
         $this->assertEquals("4977", $bkmAuth->getPaymentItems()[0]->getPaymentTransactionId());
         $this->assertEquals("2", $bkmAuth->getPaymentItems()[0]->getTransactionStatus());
         $this->assertEquals("0.3", $bkmAuth->getPaymentItems()[0]->getPrice());
