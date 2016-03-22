@@ -4,7 +4,7 @@ namespace Iyzipay\Tests;
 
 use Iyzipay\Options;
 
-class OptionsTest extends BaseTest
+class OptionsTest extends TestCase
 {
     public function test_should_set_and_retrieve_fields()
     {

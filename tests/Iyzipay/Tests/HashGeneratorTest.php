@@ -6,7 +6,7 @@ use Iyzipay\HashGenerator;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request;
 
-class HashGeneratorTest extends BaseTest
+class HashGeneratorTest extends TestCase
 {
     public function test_should_generate_hash()
     {

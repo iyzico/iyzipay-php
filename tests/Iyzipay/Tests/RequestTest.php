@@ -5,7 +5,7 @@ namespace Iyzipay\Tests;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request;
 
-class RequestTest extends BaseTest
+class RequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
@@ -25,8 +25,7 @@ class RequestTest extends BaseTest
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456");
 
-        $str = "[locale=tr," .
-            "conversationId=123456]";
+        $str = "[locale=tr,conversationId=123456]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }

@@ -1,11 +1,12 @@
 <?php
 
-namespace Iyzipay\Tests;
+namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreateApprovalRequest;
+use Iyzipay\Tests\TestCase;
 
-class CreateApprovalRequestTest extends BaseTest
+class CreateApprovalRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {

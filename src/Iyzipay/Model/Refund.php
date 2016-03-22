@@ -2,7 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\HttpClient;
 use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Mapper\RefundMapper;
 use Iyzipay\Options;
@@ -16,7 +15,7 @@ class Refund extends IyzipayResource
 
     public static function create(CreateRefundRequest $request, Options $options)
     {
-        $rawResult = HttpClient::create()->post($options->getBaseUrl() . "/payment/iyzipos/refund", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/refund", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return RefundMapper::create($rawResult)->jsonDecode()->mapRefund(new Refund());
     }
 

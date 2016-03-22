@@ -1,6 +1,6 @@
 <?php
 
-namespace Iyzipay\Model\Mapper;
+namespace Iyzipay\Model;
 
 class BankTransfer
 {

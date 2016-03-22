@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Model\Mapper;
 
+use Iyzipay\Model\BankTransfer;
 use Iyzipay\Model\BouncedBankTransferList;
 
 class BouncedBankTransferListMapper extends IyzipayResourceMapper

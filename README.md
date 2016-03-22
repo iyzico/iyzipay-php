@@ -92,7 +92,7 @@ $billingAddress->setCity("Istanbul");
 $billingAddress->setCountry("Turkey");
 $billingAddress->setAddress("Nidakule Göztepe Merdivenköy Mah. Bora Sok. No:1");
 $billingAddress->setZipCode("34742");
-$request->setbillingAddress($billingAddress);
+$request->setBillingAddress($billingAddress);
 
 $basketItems = array();
 $firstBasketItem = new \Iyzipay\Model\BasketItem();
@@ -152,5 +152,6 @@ Install dependencies as mentioned above (which will resolve [PHPUnit](http://pac
 Or to run an individual test file:
 
 ```bash
+./vendor/bin/phpunit
 ./vendor/bin/phpunit tests/Iyzipay/Tests/OptionsTest.php
 ```
