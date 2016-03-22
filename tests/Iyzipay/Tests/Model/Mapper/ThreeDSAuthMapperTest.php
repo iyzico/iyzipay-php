@@ -101,7 +101,7 @@ class ThreeDSAuthMapperTest extends TestCase
                 }]
             }';
 
-        $threeDSAuth = ThreeDSAuthMapper::create($json)->jsonDecode()->mapPayment(new ThreeDSAuth());
+        $threeDSAuth = ThreeDSAuthMapper::create($json)->jsonDecode()->mapThreeDSAuth(new ThreeDSAuth());
 
         $this->assertNotEmpty($threeDSAuth);
         $this->assertEquals(Status::FAILURE, $threeDSAuth->getStatus());

@@ -101,7 +101,7 @@ class PaymentAuthMapperTest extends TestCase
                 }]
             }';
 
-        $paymentAuth = PaymentAuthMapper::create($json)->jsonDecode()->mapPayment(new PaymentAuth());
+        $paymentAuth = PaymentAuthMapper::create($json)->jsonDecode()->mapPaymentAuth(new PaymentAuth());
 
         $this->assertNotEmpty($paymentAuth);
         $this->assertEquals(Status::FAILURE, $paymentAuth->getStatus());
