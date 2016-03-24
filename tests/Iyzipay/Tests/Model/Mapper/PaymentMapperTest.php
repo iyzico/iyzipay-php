@@ -115,7 +115,6 @@ class PaymentMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $payment->getRawResult());
         $this->assertEquals("1.0", $payment->getPrice());
         $this->assertEquals("1.1", $payment->getPaidPrice());
-        $this->assertEquals("1", $payment->getPaymentId());
         $this->assertEquals("1", $payment->getInstallment());
         $this->assertEquals("1", $payment->getPaymentId());
         $this->assertEmpty($payment->getPaymentStatus());

@@ -115,7 +115,6 @@ class ThreeDSAuthMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $threeDSAuth->getRawResult());
         $this->assertEquals("1.0", $threeDSAuth->getPrice());
         $this->assertEquals("1.1", $threeDSAuth->getPaidPrice());
-        $this->assertEquals("1", $threeDSAuth->getPaymentId());
         $this->assertEquals("1", $threeDSAuth->getInstallment());
         $this->assertEquals("1", $threeDSAuth->getPaymentId());
         $this->assertEmpty($threeDSAuth->getPaymentStatus());

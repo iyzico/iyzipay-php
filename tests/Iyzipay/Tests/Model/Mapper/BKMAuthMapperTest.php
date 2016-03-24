@@ -25,7 +25,7 @@ class BKMAuthMapperTest extends TestCase
                 "paidPrice": 1.1,
                 "installment": 1,
                 "paymentId": "1",
-                "paymentStatus": null,
+                "paymentStatus": "SUCCESS",
                 "fraudStatus": 1,
                 "merchantCommissionRate": 10.00000000,
                 "merchantCommissionRateAmount": 0.1,
@@ -117,10 +117,9 @@ class BKMAuthMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $bkmAuth->getRawResult());
         $this->assertEquals("1.0", $bkmAuth->getPrice());
         $this->assertEquals("1.1", $bkmAuth->getPaidPrice());
-        $this->assertEquals("1", $bkmAuth->getPaymentId());
         $this->assertEquals("1", $bkmAuth->getInstallment());
         $this->assertEquals("1", $bkmAuth->getPaymentId());
-        $this->assertEmpty($bkmAuth->getPaymentStatus());
+        $this->assertEquals("SUCCESS", $bkmAuth->getPaymentStatus());
         $this->assertEquals("1", $bkmAuth->getFraudStatus());
         $this->assertEquals("10.00000000", $bkmAuth->getMerchantCommissionRate());
         $this->assertEquals("0.1", $bkmAuth->getMerchantCommissionRateAmount());

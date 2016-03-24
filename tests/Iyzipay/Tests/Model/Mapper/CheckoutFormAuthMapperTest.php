@@ -25,7 +25,7 @@ class CheckoutFormAuthMapperTest extends TestCase
                 "paidPrice": 1.1,
                 "installment": 1,
                 "paymentId": "1",
-                "paymentStatus": null,
+                "paymentStatus": "SUCCESS",
                 "fraudStatus": 1,
                 "merchantCommissionRate": 10.00000000,
                 "merchantCommissionRateAmount": 0.1,
@@ -117,10 +117,9 @@ class CheckoutFormAuthMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $checkoutFormAuth->getRawResult());
         $this->assertEquals("1.0", $checkoutFormAuth->getPrice());
         $this->assertEquals("1.1", $checkoutFormAuth->getPaidPrice());
-        $this->assertEquals("1", $checkoutFormAuth->getPaymentId());
         $this->assertEquals("1", $checkoutFormAuth->getInstallment());
         $this->assertEquals("1", $checkoutFormAuth->getPaymentId());
-        $this->assertEmpty($checkoutFormAuth->getPaymentStatus());
+        $this->assertEquals("SUCCESS", $checkoutFormAuth->getPaymentStatus());
         $this->assertEquals("1", $checkoutFormAuth->getFraudStatus());
         $this->assertEquals("10.00000000", $checkoutFormAuth->getMerchantCommissionRate());
         $this->assertEquals("0.1", $checkoutFormAuth->getMerchantCommissionRateAmount());

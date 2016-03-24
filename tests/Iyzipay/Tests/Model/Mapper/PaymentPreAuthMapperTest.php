@@ -115,7 +115,6 @@ class PaymentPreAuthMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $paymentPreAuth->getRawResult());
         $this->assertEquals("1.0", $paymentPreAuth->getPrice());
         $this->assertEquals("1.1", $paymentPreAuth->getPaidPrice());
-        $this->assertEquals("1", $paymentPreAuth->getPaymentId());
         $this->assertEquals("1", $paymentPreAuth->getInstallment());
         $this->assertEquals("1", $paymentPreAuth->getPaymentId());
         $this->assertEmpty($paymentPreAuth->getPaymentStatus());

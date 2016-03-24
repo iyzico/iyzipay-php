@@ -20,6 +20,7 @@ class ConnectPayment extends IyzipayResource
     private $cardUserKey;
     private $binNumber;
     private $paymentTransactionId;
+    private $authCode;
     private $connectorName;
 
     public function getPrice()
@@ -160,6 +161,16 @@ class ConnectPayment extends IyzipayResource
     public function setPaymentTransactionId($paymentTransactionId)
     {
         $this->paymentTransactionId = $paymentTransactionId;
+    }
+
+    public function getAuthCode()
+    {
+        return $this->authCode;
+    }
+
+    public function setAuthCode($authCode)
+    {
+        $this->authCode = $authCode;
     }
 
     public function getConnectorName()
