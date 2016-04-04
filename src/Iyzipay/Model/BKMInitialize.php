@@ -10,6 +10,7 @@ use Iyzipay\Request\CreateBKMInitializeRequest;
 class BKMInitialize extends IyzipayResource
 {
     private $htmlContent;
+    private $token;
 
     public static function create(CreateBKMInitializeRequest $request, Options $options)
     {
@@ -25,5 +26,15 @@ class BKMInitialize extends IyzipayResource
     public function setHtmlContent($htmlContent)
     {
         $this->htmlContent = $htmlContent;
+    }
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    public function setToken($token)
+    {
+        $this->token = $token;
     }
 }

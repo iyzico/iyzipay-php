@@ -18,6 +18,9 @@ class BKMInitializeMapper extends IyzipayResourceMapper
         if (isset($jsonObject->htmlContent)) {
             $initialize->setHtmlContent(base64_decode($jsonObject->htmlContent));
         }
+        if (isset($jsonObject->token)) {
+            $initialize->setToken($jsonObject->token);
+        }
         return $initialize;
     }
 
