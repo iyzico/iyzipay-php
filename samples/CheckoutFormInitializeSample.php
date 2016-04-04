@@ -5,11 +5,10 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new CheckoutFormSample();
+$sample = new CheckoutFormInitializeSample();
 $sample->should_initialize_checkout_form();
-$sample->should_retrieve_checkout_form_auth();
 
-class CheckoutFormSample
+class CheckoutFormInitializeSample
 {
     public function should_initialize_checkout_form()
     {
@@ -95,20 +94,5 @@ class CheckoutFormSample
 
         # print result
         print_r($checkoutFormInitialize);
-    }
-
-    public function should_retrieve_checkout_form_auth()
-    {
-        # create request class
-        $request = new \Iyzipay\Request\RetrieveCheckoutFormAuthRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setToken("token");
-
-        # make request
-        $checkoutFormAuth = \Iyzipay\Model\CheckoutFormAuth::retrieve($request, Sample::options());
-
-        # print result
-        print_r($checkoutFormAuth);
     }
 }
