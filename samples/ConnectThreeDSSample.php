@@ -37,10 +37,10 @@ class ConnectThreeDSSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitializePreAuth = \Iyzipay\Model\ConnectThreeDSInitializePreAuth::create($request, Sample::options());
+        $connectThreeDSInitialize = \Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
 
         # print result
-        print_r($connectThreeDSInitializePreAuth);
+        print_r($connectThreeDSInitialize);
     }
 
     public function should_initialize_threeds_with_card_token()
@@ -64,10 +64,10 @@ class ConnectThreeDSSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitializePreAuth = \Iyzipay\Model\ConnectThreeDSInitializePreAuth::create($request, Sample::options());
+        $connectThreeDSInitialize = \Iyzipay\Model\ConnectThreeDSInitialize::create($request, Sample::options());
 
         # print result
-        print_r($connectThreeDSInitializePreAuth);
+        print_r($connectThreeDSInitialize);
     }
 
     public function should_auth_threeds()
