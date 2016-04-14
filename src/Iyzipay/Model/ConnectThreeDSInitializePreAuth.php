@@ -3,7 +3,7 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\Model\Mapper\ConnectThreeDSInitializeMapper;
+use Iyzipay\Model\Mapper\ConnectThreeDSInitializePreAuthMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreateConnectThreeDSInitializeRequest;
 
@@ -14,7 +14,7 @@ class ConnectThreeDSInitializePreAuth extends IyzipayResource
     public static function create(CreateConnectThreeDSInitializeRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyziconnect/initialize3ds/preauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ConnectThreeDSInitializeMapper::create($rawResult)->jsonDecode()->mapConnectThreeDSInitialize(new ConnectThreeDSInitialize());
+        return ConnectThreeDSInitializePreAuthMapper::create($rawResult)->jsonDecode()->mapConnectThreeDSInitializePreAuth(new ConnectThreeDSInitializePreAuth());
     }
 
     public function getHtmlContent()
