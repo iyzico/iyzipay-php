@@ -29,7 +29,7 @@ class CreatePaymentPostAuthRequest extends Request
 
     public function setPaidPrice($paidPrice)
     {
-        $this->paymentId = $paidPrice;
+        $this->paidPrice = $paidPrice;
     }
 
     public function getIp()
@@ -56,7 +56,7 @@ class CreatePaymentPostAuthRequest extends Request
         return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("paymentId", $this->getPaymentId())
-            ->append("paidPrice", $this->getPgitaidPrice())
+            ->append("paidPrice", $this->getPaidPrice())
             ->appendPrice("ip", $this->getIp())
             ->getRequestString();
     }
