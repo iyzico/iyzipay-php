@@ -21,6 +21,9 @@ class PaymentPostAuthMapper extends IyzipayResourceMapper
         if (isset($jsonObject->price)) {
             $postAuth->setPrice($jsonObject->price);
         }
+        if (isset($jsonObject->price)) {
+            $postAuth->setPaidPrice($jsonObject->paidPrice);
+        }
         return $postAuth;
     }
 
