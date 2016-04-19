@@ -182,48 +182,48 @@ class CreatePaymentRequestTest extends TestCase
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
-        $str = "[locale=tr,".
-            "conversationId=123456789,".
-            "price=1.0,".
-            "paidPrice=1.1,".
-            "installment=1,".
-            "paymentChannel=WEB,".
-            "basketId=B67832,".
-            "paymentGroup=PRODUCT,".
-            "paymentCard=[cardHolderName=John Doe,".
-                "cardNumber=5528790000000008,".
-                "expireYear=2030,".
-                "expireMonth=12,".
-                "cvc=123,".
-                "registerCard=0],".
-            "buyer=[id=BY789,".
-                "name=John,".
-                "surname=Doe,".
-                "identityNumber=74300864791,".
-                "email=email@email.com,".
-                "gsmNumber=+905350000000,".
-                "registrationDate=2013-04-21 15:12:09,".
-                "lastLoginDate=2015-10-05 12:43:35,".
-                "registrationAddress=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1,".
-                "city=Istanbul,".
-                "country=Turkey,".
-                "zipCode=34732,".
-                "ip=85.34.78.112],".
+        $str = "[locale=tr," .
+            "conversationId=123456789," .
+            "price=1.0," .
+            "paidPrice=1.1," .
+            "installment=1," .
+            "paymentChannel=WEB," .
+            "basketId=B67832," .
+            "paymentGroup=PRODUCT," .
+            "paymentCard=[cardHolderName=John Doe," .
+                "cardNumber=5528790000000008," .
+                "expireYear=2030," .
+                "expireMonth=12," .
+                "cvc=123," .
+                "registerCard=0]," .
+            "buyer=[id=BY789," .
+                "name=John," .
+                "surname=Doe," .
+                "identityNumber=74300864791," .
+                "email=email@email.com," .
+                "gsmNumber=+905350000000," .
+                "registrationDate=2013-04-21 15:12:09," .
+                "lastLoginDate=2015-10-05 12:43:35," .
+                "registrationAddress=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1," .
+                "city=Istanbul," .
+                "country=Turkey," .
+                "zipCode=34732," .
+                "ip=85.34.78.112]," .
             "shippingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1,".
-                "zipCode=34742,".
-                "contactName=Jane Doe,".
-                "city=Istanbul,".
-                "country=Turkey],".
+                "zipCode=34742," .
+                "contactName=Jane Doe," .
+                "city=Istanbul," .
+                "country=Turkey]," .
             "billingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1,".
-                "zipCode=34742,".
-                "contactName=Jane Doe,".
-                "city=Istanbul,".
-                "country=Turkey],".
-            "basketItems=[[id=BI101,".
-                "price=0.3,".
-                "name=Binocular,".
-                "category1=Collectibles,".
-                "category2=Accessories,".
+                "zipCode=34742," .
+                "contactName=Jane Doe," .
+                "city=Istanbul," .
+                "country=Turkey]," .
+            "basketItems=[[id=BI101," .
+                "price=0.3," .
+                "name=Binocular," .
+                "category1=Collectibles," .
+                "category2=Accessories," .
                 "itemType=PHYSICAL]]]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
