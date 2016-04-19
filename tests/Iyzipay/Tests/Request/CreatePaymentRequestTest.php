@@ -341,7 +341,8 @@ class CreatePaymentRequestTest extends TestCase
                     "address":"Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
                     "zipCode":"34742",
                     "contactName":"Jane Doe",
-                    "city":"Istanbul","country":"Turkey"
+                    "city":"Istanbul",
+                    "country":"Turkey"
                 },
                 "basketItems":
                 [
