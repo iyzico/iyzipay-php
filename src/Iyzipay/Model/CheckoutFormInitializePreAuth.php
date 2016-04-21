@@ -3,11 +3,11 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\Model\Mapper\CheckoutFormInitializeMapper;
+use Iyzipay\Model\Mapper\CheckoutFormInitializePreAuthMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreateCheckoutFormInitializeRequest;
 
-class CheckoutFormInitialize extends IyzipayResource
+class CheckoutFormInitializePreAuth extends IyzipayResource
 {
     private $token;
     private $checkoutFormContent;
@@ -17,7 +17,7 @@ class CheckoutFormInitialize extends IyzipayResource
     public static function create(CreateCheckoutFormInitializeRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/initialize/auth/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CheckoutFormInitializeMapper::create($rawResult)->jsonDecode()->mapCheckoutFormInitialize(new CheckoutFormInitialize());
+        return CheckoutFormInitializePreAuthMapper::create($rawResult)->jsonDecode()->mapCheckoutFormInitializePreAuth(new CheckoutFormInitializePreAuth());
     }
 
     public function getToken()
