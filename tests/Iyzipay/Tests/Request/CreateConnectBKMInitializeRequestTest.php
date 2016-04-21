@@ -35,7 +35,7 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
         $this->assertEquals("email@email.com", $jsonObject["buyerEmail"]);
         $this->assertEquals("85.34.78.112", $jsonObject["buyerIp"]);
         $this->assertEquals("connector name", $jsonObject["connectorName"]);
-        $this->assertEquals($installmentDetails, $jsonObject["installmentDetails"]);
+        $this->assertEquals(array(), $jsonObject["installmentDetails"]);
     }
 
     public function test_should_convert_to_pki_request_string()
