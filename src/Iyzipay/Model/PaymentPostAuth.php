@@ -13,5 +13,4 @@ class PaymentPostAuth extends Payment
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/postauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return PaymentPostAuthMapper::create($rawResult)->jsonDecode()->mapPaymentPostAuth(new PaymentPostAuth());
     }
-    
 }

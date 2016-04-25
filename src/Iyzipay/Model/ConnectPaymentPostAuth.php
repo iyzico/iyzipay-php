@@ -2,50 +2,15 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Mapper\ConnectPaymentPostAuthMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreatePaymentPostAuthRequest;
 
-class ConnectPaymentPostAuth extends IyzipayResource
+class ConnectPaymentPostAuth extends ConnectPayment
 {
-    private $paymentId;
-    private $price;
-    private $connectorName;
-
     public static function create(CreatePaymentPostAuthRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyziconnect/postauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return ConnectPaymentPostAuthMapper::create($rawResult)->jsonDecode()->mapConnectPaymentPostAuth(new ConnectPaymentPostAuth());
-    }
-
-    public function getPaymentId()
-    {
-        return $this->paymentId;
-    }
-
-    public function setPaymentId($paymentId)
-    {
-        $this->paymentId = $paymentId;
-    }
-
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
-
-    public function getConnectorName()
-    {
-        return $this->connectorName;
-    }
-
-    public function setConnectorName($connectorName)
-    {
-        $this->connectorName = $connectorName;
     }
 }

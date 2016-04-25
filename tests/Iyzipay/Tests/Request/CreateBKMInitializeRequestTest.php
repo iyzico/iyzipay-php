@@ -2,7 +2,12 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Address;
+use Iyzipay\Model\BasketItem;
+use Iyzipay\Model\BasketItemType;
+use Iyzipay\Model\Buyer;
 use Iyzipay\Model\Locale;
+use Iyzipay\Model\PaymentGroup;
 use Iyzipay\Request\CreateBKMInitializeRequest;
 use Iyzipay\Tests\TestCase;
 
@@ -15,10 +20,10 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setBasketId("B67832");
-        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
-        $buyer = new \Iyzipay\Model\Buyer();
+        $buyer = new Buyer();
         $buyer->setId("BY789");
         $buyer->setName("John");
         $buyer->setSurname("Doe");
@@ -34,7 +39,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $buyer->setZipCode("34732");
         $request->setBuyer($buyer);
 
-        $shippingAddress = new \Iyzipay\Model\Address();
+        $shippingAddress = new Address();
         $shippingAddress->setContactName("Jane Doe");
         $shippingAddress->setCity("Istanbul");
         $shippingAddress->setCountry("Turkey");
@@ -42,7 +47,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $shippingAddress->setZipCode("34742");
         $request->setShippingAddress($shippingAddress);
 
-        $billingAddress = new \Iyzipay\Model\Address();
+        $billingAddress = new Address();
         $billingAddress->setContactName("Jane Doe");
         $billingAddress->setCity("Istanbul");
         $billingAddress->setCountry("Turkey");
@@ -51,22 +56,22 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setBillingAddress($billingAddress);
 
         $basketItems = array();
-        $firstBasketItem = new \Iyzipay\Model\BasketItem();
+        $firstBasketItem = new BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Binocular");
         $firstBasketItem->setCategory1("Collectibles");
         $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
+        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
-        
+
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("1", $jsonObject["price"]);
-        $this->assertEquals(\Iyzipay\Model\PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
+        $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
@@ -95,7 +100,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $this->assertEquals("Binocular", $jsonObject["basketItems"][0]["name"]);
         $this->assertEquals("Collectibles", $jsonObject["basketItems"][0]["category1"]);
         $this->assertEquals("Accessories", $jsonObject["basketItems"][0]["category2"]);
-        $this->assertEquals(\Iyzipay\Model\BasketItemType::PHYSICAL, $jsonObject["basketItems"][0]["itemType"]);
+        $this->assertEquals(BasketItemType::PHYSICAL, $jsonObject["basketItems"][0]["itemType"]);
         $this->assertEquals("0.3", $jsonObject["basketItems"][0]["price"]);
     }
 
@@ -106,10 +111,10 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setBasketId("B67832");
-        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
-        $buyer = new \Iyzipay\Model\Buyer();
+        $buyer = new Buyer();
         $buyer->setId("BY789");
         $buyer->setName("John");
         $buyer->setSurname("Doe");
@@ -125,7 +130,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $buyer->setZipCode("34732");
         $request->setBuyer($buyer);
 
-        $shippingAddress = new \Iyzipay\Model\Address();
+        $shippingAddress = new Address();
         $shippingAddress->setContactName("Jane Doe");
         $shippingAddress->setCity("Istanbul");
         $shippingAddress->setCountry("Turkey");
@@ -133,7 +138,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $shippingAddress->setZipCode("34742");
         $request->setShippingAddress($shippingAddress);
 
-        $billingAddress = new \Iyzipay\Model\Address();
+        $billingAddress = new Address();
         $billingAddress->setContactName("Jane Doe");
         $billingAddress->setCity("Istanbul");
         $billingAddress->setCountry("Turkey");
@@ -142,52 +147,52 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setBillingAddress($billingAddress);
 
         $basketItems = array();
-        $firstBasketItem = new \Iyzipay\Model\BasketItem();
+        $firstBasketItem = new BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Binocular");
         $firstBasketItem->setCategory1("Collectibles");
         $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
+        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
-         $str = "[locale=tr," .
+        $str = "[locale=tr," .
             "conversationId=123456789," .
             "price=1.0," .
             "basketId=B67832," .
             "paymentGroup=PRODUCT," .
             "buyer=[id=BY789," .
-                "name=John," .
-                "surname=Doe," .
-                "identityNumber=74300864791," .
-                "email=email@email.com," .
-                "gsmNumber=+905350000000," .
-                "registrationDate=2013-04-21 15:12:09," .
-                "lastLoginDate=2015-10-05 12:43:35," .
-                "registrationAddress=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1,".
-                "city=Istanbul," .
-                "country=Turkey," .
-                "zipCode=34732," .
-                "ip=85.34.78.112]," .
-            "shippingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1,".
-                "zipCode=34742," .
-                "contactName=Jane Doe," .
-                "city=Istanbul," .
-                "country=Turkey]," .
-            "billingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1,".
-                "zipCode=34742," .
-                "contactName=Jane Doe," .
-                "city=Istanbul," .
-                "country=Turkey]," .
+            "name=John," .
+            "surname=Doe," .
+            "identityNumber=74300864791," .
+            "email=email@email.com," .
+            "gsmNumber=+905350000000," .
+            "registrationDate=2013-04-21 15:12:09," .
+            "lastLoginDate=2015-10-05 12:43:35," .
+            "registrationAddress=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1," .
+            "city=Istanbul," .
+            "country=Turkey," .
+            "zipCode=34732," .
+            "ip=85.34.78.112]," .
+            "shippingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1," .
+            "zipCode=34742," .
+            "contactName=Jane Doe," .
+            "city=Istanbul," .
+            "country=Turkey]," .
+            "billingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1," .
+            "zipCode=34742," .
+            "contactName=Jane Doe," .
+            "city=Istanbul," .
+            "country=Turkey]," .
             "basketItems=[[id=BI101," .
-                "price=0.3," .
-                "name=Binocular," .
-                "category1=Collectibles," .
-                "category2=Accessories," .
-                "itemType=PHYSICAL]]," .
-                "callbackUrl=https://www.merchant.com/callback]";
-                
+            "price=0.3," .
+            "name=Binocular," .
+            "category1=Collectibles," .
+            "category2=Accessories," .
+            "itemType=PHYSICAL]]," .
+            "callbackUrl=https://www.merchant.com/callback]";
+
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -199,10 +204,10 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setBasketId("B67832");
-        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
+        $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
-        $buyer = new \Iyzipay\Model\Buyer();
+        $buyer = new Buyer();
         $buyer->setId("BY789");
         $buyer->setName("John");
         $buyer->setSurname("Doe");
@@ -218,7 +223,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $buyer->setZipCode("34732");
         $request->setBuyer($buyer);
 
-        $shippingAddress = new \Iyzipay\Model\Address();
+        $shippingAddress = new Address();
         $shippingAddress->setContactName("Jane Doe");
         $shippingAddress->setCity("Istanbul");
         $shippingAddress->setCountry("Turkey");
@@ -226,7 +231,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $shippingAddress->setZipCode("34742");
         $request->setShippingAddress($shippingAddress);
 
-        $billingAddress = new \Iyzipay\Model\Address();
+        $billingAddress = new Address();
         $billingAddress->setContactName("Jane Doe");
         $billingAddress->setCity("Istanbul");
         $billingAddress->setCountry("Turkey");
@@ -235,17 +240,17 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setBillingAddress($billingAddress);
 
         $basketItems = array();
-        $firstBasketItem = new \Iyzipay\Model\BasketItem();
+        $firstBasketItem = new BasketItem();
         $firstBasketItem->setId("BI101");
         $firstBasketItem->setName("Binocular");
         $firstBasketItem->setCategory1("Collectibles");
         $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
+        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
-         $json = '
+        $json = '
             {
                 "locale":"tr",
                 "conversationId":"123456789",

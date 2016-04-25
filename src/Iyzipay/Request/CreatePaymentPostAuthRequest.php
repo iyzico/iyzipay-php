@@ -46,8 +46,8 @@ class CreatePaymentPostAuthRequest extends Request
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->add("paymentId", $this->getPaymentId())
-            ->add("paidPrice", $this->getPaidPrice())
             ->add("ip", $this->getIp())
+            ->addPrice("paidPrice", $this->getPaidPrice())
             ->getObject();
     }
 
@@ -56,8 +56,8 @@ class CreatePaymentPostAuthRequest extends Request
         return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
             ->append("paymentId", $this->getPaymentId())
-            ->appendPrice("ip", $this->getIp())
-            ->append("paidPrice", $this->getPaidPrice())
+            ->append("ip", $this->getIp())
+            ->appendPrice("paidPrice", $this->getPaidPrice())
             ->getRequestString();
     }
 }
