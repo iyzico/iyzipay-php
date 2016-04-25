@@ -25,6 +25,5 @@ class ConnectPostAuthSample
 
         # print result
         print_r($connectPaymentPostAuth);
-
     }
 }

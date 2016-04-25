@@ -25,6 +25,5 @@ class PostAuthSample
 
         # print result
         print_r($paymentPostAuth);
-
     }
 }
