@@ -58,8 +58,8 @@ class CreatePaymentPostAuthRequestTest extends TestCase
                 "locale":"tr",
                 "conversationId":"123456",
                 "paymentId":"1",
-                "paidPrice":"0.6",
-                "ip":"85.34.78.112"
+                "ip":"85.34.78.112",
+                "paidPrice":"0.6"
             }';
 
         $this->assertJson($request->toJsonString());
