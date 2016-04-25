@@ -9,6 +9,7 @@ use Iyzipay\RequestStringBuilder;
 class CreatePaymentPostAuthRequest extends Request
 {
     private $paymentId;
+    private $paidPrice;
     private $ip;
 
     public function getPaymentId()
@@ -19,6 +20,16 @@ class CreatePaymentPostAuthRequest extends Request
     public function setPaymentId($paymentId)
     {
         $this->paymentId = $paymentId;
+    }
+
+    public function getPaidPrice()
+    {
+        return $this->paidPrice;
+    }
+
+    public function setPaidPrice($paidPrice)
+    {
+        $this->paidPrice = $paidPrice;
     }
 
     public function getIp()
@@ -35,6 +46,7 @@ class CreatePaymentPostAuthRequest extends Request
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->add("paymentId", $this->getPaymentId())
+            ->add("paidPrice", $this->getPaidPrice())
             ->add("ip", $this->getIp())
             ->getObject();
     }
@@ -45,6 +57,7 @@ class CreatePaymentPostAuthRequest extends Request
             ->appendSuper(parent::toPKIRequestString())
             ->append("paymentId", $this->getPaymentId())
             ->appendPrice("ip", $this->getIp())
+            ->append("paidPrice", $this->getPaidPrice())
             ->getRequestString();
     }
 }

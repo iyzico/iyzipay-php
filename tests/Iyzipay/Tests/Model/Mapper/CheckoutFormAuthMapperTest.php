@@ -10,7 +10,7 @@ use Iyzipay\Tests\TestCase;
 
 class CheckoutFormAuthMapperTest extends TestCase
 {
-    public function test_should_map_bkm_auth()
+    public function test_should_map_checkout_form_auth()
     {
         $json = '
             {

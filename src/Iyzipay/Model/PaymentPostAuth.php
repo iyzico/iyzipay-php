@@ -2,39 +2,16 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Mapper\PaymentPostAuthMapper;
 use Iyzipay\Options;
 use Iyzipay\Request\CreatePaymentPostAuthRequest;
 
-class PaymentPostAuth extends IyzipayResource
+class PaymentPostAuth extends Payment
 {
-    private $paymentId;
-    private $price;
-
     public static function create(CreatePaymentPostAuthRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/postauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return PaymentPostAuthMapper::create($rawResult)->jsonDecode()->mapPaymentPostAuth(new PaymentPostAuth());
     }
-
-    public function getPaymentId()
-    {
-        return $this->paymentId;
-    }
-
-    public function setPaymentId($paymentId)
-    {
-        $this->paymentId = $paymentId;
-    }
-
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
+    
 }
