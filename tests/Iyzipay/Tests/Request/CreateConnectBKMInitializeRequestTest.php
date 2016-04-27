@@ -24,6 +24,7 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
         # prepare default pos
         $request->setConnectorName("connector name");
         $request->setInstallmentDetails(array());
+        $request->setPosOrderId("pos order id");
 
         $jsonObject = $request->getJsonObject();
 
@@ -35,6 +36,7 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
         $this->assertEquals("email@email.com", $jsonObject["buyerEmail"]);
         $this->assertEquals("85.34.78.112", $jsonObject["buyerIp"]);
         $this->assertEquals("connector name", $jsonObject["connectorName"]);
+        $this->assertEquals("pos order id", $jsonObject["posOrderId"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -53,6 +55,7 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
         # prepare default pos
         $request->setConnectorName("connector name");
         $request->setInstallmentDetails(array());
+        $request->setPosOrderId("pos order id");
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -62,6 +65,7 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
             "buyerEmail=email@email.com," .
             "buyerId=100," .
             "buyerIp=85.34.78.112," .
+            "posOrderId=pos order id," .
             "installmentDetails=[]]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -83,6 +87,7 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
         # prepare default pos
         $request->setConnectorName("connector name");
         $request->setInstallmentDetails(array());
+        $request->setPosOrderId("pos order id");
 
         $json = '
             {
@@ -93,7 +98,8 @@ class CreateConnectBKMInitializeRequestTest extends TestCase
                 "callbackUrl":"https://www.merchant.com/callback",
                 "buyerEmail":"email@email.com",
                 "buyerId":"100",
-                "buyerIp":"85.34.78.112"
+                "buyerIp":"85.34.78.112",
+                "posOrderId":"pos order id"
             }';
 
         $this->assertJson($request->toJsonString());
