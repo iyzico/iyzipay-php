@@ -14,12 +14,14 @@ class CreateThreeDSAuthRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
+        $request->setConversationData("conversation data");
 
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("1", $jsonObject["paymentId"]);
+        $this->assertEquals("conversation data", $jsonObject["conversationData"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -28,10 +30,12 @@ class CreateThreeDSAuthRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
+        $request->setConversationData("conversation data");
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
-            "paymentId=1]";
+            "paymentId=1," .
+            "conversationData=conversation data]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -42,12 +46,14 @@ class CreateThreeDSAuthRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
+        $request->setConversationData("conversation data");
 
         $json = '
             {
                 "locale":"tr",
                 "conversationId":"123456789",
-                "paymentId":"1"
+                "paymentId":"1",
+                "conversationData":"conversation data"
             }';
 
         $this->assertJson($request->toJsonString());
