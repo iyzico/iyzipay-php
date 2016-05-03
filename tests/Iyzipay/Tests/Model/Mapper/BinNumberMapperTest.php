@@ -48,7 +48,7 @@ class BinNumberMapperTest extends TestCase
         $this->assertEquals("Ziraat Bankası", $binNumber->getBankName());
         $this->assertEquals("10", $binNumber->getBankCode());
     }
-    
+
     public function test_should_map_bin_number_given_bin_not_found_failue_raw_result()
     {
         $json = '
@@ -87,7 +87,7 @@ class BinNumberMapperTest extends TestCase
         $this->assertEmpty($binNumber->getBankName());
         $this->assertEmpty($binNumber->getBankCode());
     }
-    
+
     public function test_should_map_bin_number_given_bin_should_be_six_digit_failure_raw_result()
     {
         $json = '

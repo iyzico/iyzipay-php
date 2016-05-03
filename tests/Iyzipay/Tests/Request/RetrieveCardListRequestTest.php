@@ -11,7 +11,7 @@ class RetrieveCardListRequestTest extends TestCase
     public function test_should_get_json_object()
     {
         $request = new RetrieveCardListRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setCardUserKey("card user key");
 
@@ -25,7 +25,7 @@ class RetrieveCardListRequestTest extends TestCase
     public function test_should_convert_to_pki_request_string()
     {
         $request = new RetrieveCardListRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setCardUserKey("card user key");
 
@@ -39,7 +39,7 @@ class RetrieveCardListRequestTest extends TestCase
     public function test_should_get_json_string()
     {
         $request = new RetrieveCardListRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setCardUserKey("card user key");
 

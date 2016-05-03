@@ -3,6 +3,7 @@
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
+use Iyzipay\Model\SubMerchantType;
 use Iyzipay\Request\CreateSubMerchantRequest;
 use Iyzipay\Tests\TestCase;
 
@@ -14,7 +15,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
+        $request->setSubMerchantType(SubMerchantType::PERSONAL);
         $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("John");
         $request->setContactSurname("Doe");
@@ -46,7 +47,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
+        $request->setSubMerchantType(SubMerchantType::PERSONAL);
         $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("John");
         $request->setContactSurname("Doe");
@@ -78,7 +79,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
+        $request->setSubMerchantType(SubMerchantType::PERSONAL);
         $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("John");
         $request->setContactSurname("Doe");
