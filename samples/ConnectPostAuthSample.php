@@ -5,10 +5,10 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new PostAuthSample();
+$sample = new ConnectPostAuthSample();
 $sample->should_post_auth();
 
-class PostAuthSample
+class ConnectPostAuthSample
 {
     public function should_post_auth()
     {
@@ -21,9 +21,9 @@ class PostAuthSample
         $request->setIp("85.34.78.112");
 
         # make request
-        $paymentPostAuth = \Iyzipay\Model\PaymentPostAuth::create($request, Sample::options());
+        $connectPaymentPostAuth = \Iyzipay\Model\ConnectPaymentPostAuth::create($request, Sample::options());
 
         # print result
-        print_r($paymentPostAuth);
+        print_r($connectPaymentPostAuth);
     }
 }
