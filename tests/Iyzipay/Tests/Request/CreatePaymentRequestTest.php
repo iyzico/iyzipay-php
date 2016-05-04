@@ -26,6 +26,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setPaymentSource("payment source");
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -88,6 +89,7 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("1", $jsonObject["installment"]);
         $this->assertEquals(PaymentChannel::WEB, $jsonObject["paymentChannel"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
+        $this->assertEquals("payment source", $jsonObject["paymentSource"]);
         $this->assertEquals("John Doe", $jsonObject["paymentCard"]["cardHolderName"]);
         $this->assertEquals("5528790000000008", $jsonObject["paymentCard"]["cardNumber"]);
         $this->assertEquals("12", $jsonObject["paymentCard"]["expireMonth"]);
@@ -136,6 +138,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setPaymentSource("payment source");
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -231,7 +234,8 @@ class CreatePaymentRequestTest extends TestCase
             "name=Binocular," .
             "category1=Collectibles," .
             "category2=Accessories," .
-            "itemType=PHYSICAL]]]";
+            "itemType=PHYSICAL]]," .
+            "paymentSource=payment source]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -247,6 +251,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setPaymentSource("payment source");
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -361,7 +366,8 @@ class CreatePaymentRequestTest extends TestCase
                         "category2":"Accessories",
                         "itemType":"PHYSICAL"
                     }
-                ]
+                ],
+                "paymentSource":"payment source"
             }';
 
         $this->assertJson($request->toJsonString());

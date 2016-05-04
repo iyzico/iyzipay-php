@@ -15,6 +15,7 @@ class CreateCardRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setEmail("email@email.com");
+        $request->setCardUserKey("card user key");
         $request->setExternalId("external id");
 
         $cardInformation = new CardInformation();
@@ -31,7 +32,9 @@ class CreateCardRequestTest extends TestCase
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("email@email.com", $jsonObject["email"]);
         $this->assertEquals("external id", $jsonObject["externalId"]);
+        $this->assertEquals("card user key", $jsonObject["cardUserKey"]);
         $this->assertEquals("card alias", $jsonObject["card"]["cardAlias"]);
+        $this->assertEquals("John Doe", $jsonObject["card"]["cardHolderName"]);
         $this->assertEquals("John Doe", $jsonObject["card"]["cardHolderName"]);
         $this->assertEquals("5528790000000008", $jsonObject["card"]["cardNumber"]);
         $this->assertEquals("12", $jsonObject["card"]["expireMonth"]);
@@ -45,6 +48,7 @@ class CreateCardRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setEmail("email@email.com");
+        $request->setCardUserKey("card user key");
         $request->setExternalId("external id");
 
         $cardInformation = new CardInformation();
@@ -59,6 +63,7 @@ class CreateCardRequestTest extends TestCase
             "conversationId=123456789," .
             "externalId=external id," .
             "email=email@email.com," .
+            "cardUserKey=card user key," .
             "card=[cardAlias=card alias," .
             "cardNumber=5528790000000008," .
             "expireYear=2030," .
@@ -74,6 +79,7 @@ class CreateCardRequestTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setEmail("email@email.com");
+        $request->setCardUserKey("card user key");
         $request->setExternalId("external id");
 
         $cardInformation = new CardInformation();
@@ -89,6 +95,7 @@ class CreateCardRequestTest extends TestCase
                 "conversationId":"123456789",
                 "externalId":"external id",
                 "email":"email@email.com",
+                "cardUserKey":"card user key",
                 "card":
                 {
                     "cardAlias":"card alias",

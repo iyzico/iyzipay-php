@@ -21,6 +21,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setPrice("1");
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setPaymentSource("payment source");
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $buyer = new Buyer();
@@ -72,6 +73,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("1", $jsonObject["price"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
+        $this->assertEquals("payment source", $jsonObject["paymentSource"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
@@ -112,6 +114,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setPrice("1");
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setPaymentSource("payment source");
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $buyer = new Buyer();
@@ -191,7 +194,8 @@ class CreateBKMInitializeRequestTest extends TestCase
             "category1=Collectibles," .
             "category2=Accessories," .
             "itemType=PHYSICAL]]," .
-            "callbackUrl=https://www.merchant.com/callback]";
+            "callbackUrl=https://www.merchant.com/callback," .
+            "paymentSource=payment source]";
 
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -205,6 +209,7 @@ class CreateBKMInitializeRequestTest extends TestCase
         $request->setPrice("1");
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setPaymentSource("payment source");
         $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $buyer = new Buyer();
@@ -299,7 +304,8 @@ class CreateBKMInitializeRequestTest extends TestCase
                         "category2":"Accessories",
                         "itemType":"PHYSICAL"
                     }
-                ]
+                ],
+                "paymentSource":"payment source"
             }';
 
         $this->assertJson($request->toJsonString());
