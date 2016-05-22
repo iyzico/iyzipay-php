@@ -2,9 +2,9 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
-use Iyzipay\Model\Refund;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Mapper\RefundMapper;
+use Iyzipay\Model\Refund;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
