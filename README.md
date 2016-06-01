@@ -50,6 +50,7 @@ $request->setInstallment(1);
 $request->setBasketId("B67832");
 $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
 $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
+$request->setCurrency(\Iyzipay\Model\Currency::TL);
 
 $paymentCard = new \Iyzipay\Model\PaymentCard();
 $paymentCard->setCardHolderName("John Doe");
