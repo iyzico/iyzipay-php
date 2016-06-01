@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreateRefundRequest;
 use Iyzipay\Tests\TestCase;
@@ -16,6 +17,7 @@ class CreateRefundRequestTest extends TestCase
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -24,6 +26,7 @@ class CreateRefundRequestTest extends TestCase
         $this->assertEquals("1", $jsonObject["paymentTransactionId"]);
         $this->assertEquals("0.1", $jsonObject["price"]);
         $this->assertEquals("85.34.78.112", $jsonObject["ip"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -34,12 +37,14 @@ class CreateRefundRequestTest extends TestCase
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
             "paymentTransactionId=1," .
             "price=0.1," .
-            "ip=85.34.78.112]";
+            "ip=85.34.78.112," .
+            "currency=TRY]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -52,6 +57,7 @@ class CreateRefundRequestTest extends TestCase
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {
@@ -59,7 +65,8 @@ class CreateRefundRequestTest extends TestCase
                 "conversationId":"123456789",
                 "paymentTransactionId":"1",
                 "price":"0.1",
-                "ip":"85.34.78.112"
+                "ip":"85.34.78.112",
+                "currency":"TRY"
             }';
 
         $this->assertJson($request->toJsonString());

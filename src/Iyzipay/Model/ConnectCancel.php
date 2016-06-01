@@ -11,6 +11,7 @@ class ConnectCancel extends IyzipayResource
 {
     private $paymentId;
     private $price;
+    private $currency;
     private $connectorName;
 
     public static function create(CreateCancelRequest $request, Options $options)
@@ -37,6 +38,16 @@ class ConnectCancel extends IyzipayResource
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     public function getConnectorName()

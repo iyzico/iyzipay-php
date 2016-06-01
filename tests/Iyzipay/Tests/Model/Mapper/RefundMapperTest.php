@@ -22,7 +22,8 @@ class RefundMapperTest extends TestCase
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
                 "paymentTransactionId":"1",
-                "price":"1"
+                "price":"1",
+                "currency":"TRY"
             }';
 
         $refund = RefundMapper::create($json)->jsonDecode()->mapRefund(new Refund());
@@ -39,6 +40,7 @@ class RefundMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $refund->getRawResult());
         $this->assertEquals("1", $refund->getPaymentTransactionId());
         $this->assertEquals("1", $refund->getPrice());
+        $this->assertEquals("TRY", $refund->getCurrency());
     }
 
     public function test_should_map_refund_given_refund_failure_raw_result()
@@ -53,7 +55,8 @@ class RefundMapperTest extends TestCase
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
                 "paymentTransactionId":"1",
-                "price":"1"
+                "price":"1",
+                "currency":"TRY"
             }';
 
         $refund = RefundMapper::create($json)->jsonDecode()->mapRefund(new Refund());
@@ -70,5 +73,7 @@ class RefundMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $refund->getRawResult());
         $this->assertEquals("1", $refund->getPaymentTransactionId());
         $this->assertEquals("1", $refund->getPrice());
+        $this->assertEquals("TRY", $refund->getCurrency());
+
     }
 }

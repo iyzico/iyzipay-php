@@ -6,6 +6,7 @@ use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
 use Iyzipay\Model\Buyer;
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\PaymentCard;
 use Iyzipay\Model\PaymentChannel;
@@ -22,6 +23,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
@@ -86,6 +88,7 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("1", $jsonObject["price"]);
         $this->assertEquals("1.1", $jsonObject["paidPrice"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
         $this->assertEquals("1", $jsonObject["installment"]);
         $this->assertEquals(PaymentChannel::WEB, $jsonObject["paymentChannel"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
@@ -134,6 +137,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
@@ -235,7 +239,8 @@ class CreatePaymentRequestTest extends TestCase
             "category1=Collectibles," .
             "category2=Accessories," .
             "itemType=PHYSICAL]]," .
-            "paymentSource=payment source]";
+            "paymentSource=payment source," .
+            "currency=TRY]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -247,6 +252,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
@@ -311,6 +317,7 @@ class CreatePaymentRequestTest extends TestCase
                 "conversationId":"123456789",
                 "price":"1.0",
                 "paidPrice":"1.1",
+                "currency":"TRY",
                 "installment":1,
                 "paymentChannel":"WEB",
                 "basketId":"B67832",

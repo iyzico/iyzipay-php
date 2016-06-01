@@ -9,6 +9,7 @@ class Payment extends IyzipayResource
     private $price;
     private $paidPrice;
     private $installment;
+    private $currency;
     private $paymentId;
     private $paymentStatus;
     private $fraudStatus;
@@ -53,6 +54,16 @@ class Payment extends IyzipayResource
     public function setInstallment($installment)
     {
         $this->installment = $installment;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     public function getPaymentId()

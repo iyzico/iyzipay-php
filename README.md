@@ -39,7 +39,7 @@ require_once('/path/to/iyzipay-php/IyzipayBootstrap.php');
 $options = new \Iyzipay\Options();
 $options->setApiKey("api key");
 $options->setSecretKey("secret key");
-$options->setBaseUrl("https://stg.iyzipay.com");
+$options->setBaseUrl("https://sandbox-api.iyzipay.com");
         
 $request = new \Iyzipay\Request\CreatePaymentRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);

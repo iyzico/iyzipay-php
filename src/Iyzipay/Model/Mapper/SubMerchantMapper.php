@@ -57,6 +57,12 @@ class SubMerchantMapper extends IyzipayResourceMapper
         if (isset($jsonObject->subMerchantKey)) {
             $subMerchant->setSubMerchantKey($jsonObject->subMerchantKey);
         }
+        if (isset($jsonObject->swiftCode)) {
+            $subMerchant->setSwiftCode($jsonObject->swiftCode);
+        }
+        if (isset($jsonObject->currency)) {
+            $subMerchant->setCurrency($jsonObject->currency);
+        }
         return $subMerchant;
     }
 

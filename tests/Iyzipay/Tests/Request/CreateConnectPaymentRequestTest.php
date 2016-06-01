@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreateConnectPaymentRequest;
 use Iyzipay\Tests\TestCase;
@@ -20,6 +21,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -32,6 +34,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $this->assertEquals("1", $jsonObject["installment"]);
         $this->assertEquals("1", $jsonObject["paidPrice"]);
         $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -46,6 +49,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -55,6 +59,7 @@ class CreateConnectPaymentRequestTest extends TestCase
             "buyerEmail=email@email.com," .
             "buyerId=B2323," .
             "buyerIp=85.34.78.112," .
+            "currency=TRY," .
             "connectorName=connector name]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -72,6 +77,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {
@@ -83,6 +89,7 @@ class CreateConnectPaymentRequestTest extends TestCase
                 "buyerEmail":"email@email.com",
                 "buyerId":"B2323",
                 "buyerIp":"85.34.78.112",
+                "currency":"TRY",
                 "connectorName":"connector name"
             }';
 

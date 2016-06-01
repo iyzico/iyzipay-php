@@ -24,6 +24,9 @@ class ConnectCancelMapper extends IyzipayResourceMapper
         if (isset($jsonObject->connectorName)) {
             $cancel->setConnectorName($jsonObject->connectorName);
         }
+        if (isset($jsonObject->currency)) {
+            $cancel->setCurrency($jsonObject->currency);
+        }
         return $cancel;
     }
 

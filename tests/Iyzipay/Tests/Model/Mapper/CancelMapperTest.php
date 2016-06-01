@@ -22,7 +22,8 @@ class CancelMapperTest extends TestCase
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
                 "paymentId":"1",
-                "price":"1"
+                "price":"1",
+                "currency":"TRY"
             }';
 
         $cancel = CancelMapper::create($json)->jsonDecode()->mapCancel(new Cancel());
@@ -39,6 +40,7 @@ class CancelMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $cancel->getRawResult());
         $this->assertEquals("1", $cancel->getPaymentId());
         $this->assertEquals("1", $cancel->getPrice());
+        $this->assertEquals("TRY", $cancel->getCurrency());
     }
 
     public function test_should_map_cancel_given_cancel_failure_raw_result()
@@ -53,7 +55,8 @@ class CancelMapperTest extends TestCase
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
                 "paymentId":"1",
-                "price":"1"
+                "price":"1",
+                "currency":"TRY"
             }';
 
         $cancel = CancelMapper::create($json)->jsonDecode()->mapCancel(new Cancel());
@@ -70,5 +73,6 @@ class CancelMapperTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $cancel->getRawResult());
         $this->assertEquals("1", $cancel->getPaymentId());
         $this->assertEquals("1", $cancel->getPrice());
+        $this->assertEquals("TRY", $cancel->getCurrency());
     }
 }

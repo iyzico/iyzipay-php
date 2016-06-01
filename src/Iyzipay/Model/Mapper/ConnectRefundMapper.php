@@ -27,6 +27,9 @@ class ConnectRefundMapper extends IyzipayResourceMapper
         if (isset($jsonObject->connectorName)) {
             $refund->setConnectorName($jsonObject->connectorName);
         }
+        if (isset($jsonObject->currency)) {
+            $refund->setCurrency($jsonObject->currency);
+        }
         return $refund;
     }
 

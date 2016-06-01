@@ -21,6 +21,7 @@ class CheckoutFormInitializeSample
         $request->setBasketId("B67832");
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("BY789");

@@ -6,6 +6,7 @@ use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
 use Iyzipay\Model\Buyer;
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\PaymentGroup;
 use Iyzipay\Request\CreateCheckoutFormInitializeRequest;
@@ -23,6 +24,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -76,6 +78,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $this->assertEquals("1.2", $jsonObject["paidPrice"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -117,6 +120,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -197,6 +201,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
             "category2=Accessories," .
             "itemType=PHYSICAL]]," .
             "callbackUrl=https://www.merchant.com/callback," .
+            "currency=TRY," .
             "paidPrice=1.2]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -212,6 +217,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -263,6 +269,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
                 "conversationId":"123456789",
                 "price":"1.0",
                 "paidPrice":"1.2",
+                "currency":"TRY",
                 "basketId":"B67832",
                 "paymentGroup":"PRODUCT",
                 "buyer":

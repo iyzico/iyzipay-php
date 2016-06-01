@@ -36,7 +36,8 @@ class ConnectPaymentMapperTest extends TestCase
                 "binNumber": "554960",
                 "paymentTransactionId": "1",
                 "authCode": "546382",
-                "connectorName": "connectorName"
+                "connectorName": "connectorName",
+                "currency": "TRY"
             }';
 
         $connectPayment = ConnectPaymentMapper::create($json)->jsonDecode()->mapConnectPayment(new ConnectPayment());
@@ -67,5 +68,6 @@ class ConnectPaymentMapperTest extends TestCase
         $this->assertEquals("1", $connectPayment->getPaymentTransactionId());
         $this->assertEquals("546382", $connectPayment->getAuthCode());
         $this->assertEquals("connectorName", $connectPayment->getConnectorName());
+        $this->assertEquals("TRY", $connectPayment->getCurrency());
     }
 }

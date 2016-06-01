@@ -22,6 +22,7 @@ class PaymentItem
     private $subMerchantPayoutRate;
     private $subMerchantPayoutAmount;
     private $merchantPayoutAmount;
+    private $convertedPayout;
 
     public function getItemId()
     {
@@ -201,5 +202,15 @@ class PaymentItem
     public function setMerchantPayoutAmount($merchantPayoutAmount)
     {
         $this->merchantPayoutAmount = $merchantPayoutAmount;
+    }
+
+    public function getConvertedPayout()
+    {
+        return $this->convertedPayout;
+    }
+
+    public function setConvertedPayout($convertedPayout)
+    {
+        $this->convertedPayout = $convertedPayout;
     }
 }

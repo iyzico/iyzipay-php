@@ -19,6 +19,7 @@ class CreatePaymentRequest extends Request
     private $shippingAddress;
     private $billingAddress;
     private $basketItems;
+    private $currency;
     private $paymentSource;
 
     public function getPrice()
@@ -131,6 +132,16 @@ class CreatePaymentRequest extends Request
         $this->basketItems = $basketItems;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function getPaymentSource()
     {
         return $this->paymentSource;
@@ -156,6 +167,7 @@ class CreatePaymentRequest extends Request
             ->add("billingAddress", $this->getBillingAddress())
             ->addArray("basketItems", $this->getBasketItems())
             ->add("paymentSource", $this->getPaymentSource())
+            ->add("currency", $this->getCurrency())
             ->getObject();
     }
 
@@ -175,6 +187,7 @@ class CreatePaymentRequest extends Request
             ->append("billingAddress", $this->getBillingAddress())
             ->appendArray("basketItems", $this->getBasketItems())
             ->append("paymentSource", $this->getPaymentSource())
+            ->append("currency", $this->getCurrency())
             ->getRequestString();
     }
 }
