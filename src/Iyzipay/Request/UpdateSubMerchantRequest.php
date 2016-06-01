@@ -20,6 +20,8 @@ class UpdateSubMerchantRequest extends Request
     private $subMerchantKey;
     private $identityNumber;
     private $taxNumber;
+    private $currency;
+    private $swiftCode;
 
     public function getName()
     {
@@ -141,6 +143,26 @@ class UpdateSubMerchantRequest extends Request
         $this->taxNumber = $taxNumber;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
+    public function getSwiftCode()
+    {
+        return $this->swiftCode;
+    }
+
+    public function setSwiftCode($swiftCode)
+    {
+        $this->swiftCode = $swiftCode;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -153,6 +175,8 @@ class UpdateSubMerchantRequest extends Request
             ->add("contactName", $this->getContactName())
             ->add("contactSurname", $this->getContactSurname())
             ->add("legalCompanyTitle", $this->getLegalCompanyTitle())
+            ->add("swiftCode", $this->getSwiftCode())
+            ->add("currency", $this->getCurrency())
             ->add("subMerchantKey", $this->getSubMerchantKey())
             ->add("identityNumber", $this->getIdentityNumber())
             ->add("taxNumber", $this->getTaxNumber())
@@ -172,6 +196,8 @@ class UpdateSubMerchantRequest extends Request
             ->append("contactName", $this->getContactName())
             ->append("contactSurname", $this->getContactSurname())
             ->append("legalCompanyTitle", $this->getLegalCompanyTitle())
+            ->append("swiftCode", $this->getSwiftCode())
+            ->append("currency", $this->getCurrency())
             ->append("subMerchantKey", $this->getSubMerchantKey())
             ->append("identityNumber", $this->getIdentityNumber())
             ->append("taxNumber", $this->getTaxNumber())

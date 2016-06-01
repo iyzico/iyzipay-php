@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreatePaymentPostAuthRequest;
 use Iyzipay\Tests\TestCase;
@@ -16,6 +17,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $jsonObject = $request->getJsonObject();
 
@@ -24,6 +26,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $this->assertEquals("1", $jsonObject["paymentId"]);
         $this->assertEquals("0.6", $jsonObject["paidPrice"]);
         $this->assertEquals("85.34.78.112", $jsonObject["ip"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -34,12 +37,14 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $str = "[locale=tr," .
             "conversationId=123456," .
             "paymentId=1," .
             "ip=85.34.78.112," .
-            "paidPrice=0.6]";
+            "paidPrice=0.6," .
+            "currency=TRY]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -52,6 +57,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $json = '
             {
@@ -59,7 +65,8 @@ class CreatePaymentPostAuthRequestTest extends TestCase
                 "conversationId":"123456",
                 "paymentId":"1",
                 "ip":"85.34.78.112",
-                "paidPrice":"0.6"
+                "paidPrice":"0.6",
+                "currency":"TRY"
             }';
 
         $this->assertJson($request->toJsonString());

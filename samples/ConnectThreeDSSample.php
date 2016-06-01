@@ -26,6 +26,7 @@ class ConnectThreeDSSample
         $request->setPaidPrice("1");
         $request->setPrice("1");
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -57,6 +58,7 @@ class ConnectThreeDSSample
         $request->setPaidPrice("1");
         $request->setPrice("1");
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardToken("card token");

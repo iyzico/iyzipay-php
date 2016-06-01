@@ -11,6 +11,7 @@ class CreateCrossBookingRequest extends Request
     private $subMerchantKey;
     private $price;
     private $reason;
+    private $currency;
 
     public function getSubMerchantKey()
     {
@@ -42,12 +43,23 @@ class CreateCrossBookingRequest extends Request
         $this->reason = $reason;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->add("subMerchantKey", $this->getSubMerchantKey())
             ->addPrice("price", $this->getPrice())
             ->add("reason", $this->getReason())
+            ->add("currency", $this->getCurrency())
             ->getObject();
     }
 
@@ -58,6 +70,7 @@ class CreateCrossBookingRequest extends Request
             ->append("subMerchantKey", $this->getSubMerchantKey())
             ->appendPrice("price", $this->getPrice())
             ->append("reason", $this->getReason())
+            ->append("currency", $this->getCurrency())
             ->getRequestString();
     }
 }

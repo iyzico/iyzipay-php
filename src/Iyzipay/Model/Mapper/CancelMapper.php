@@ -21,6 +21,9 @@ class CancelMapper extends IyzipayResourceMapper
         if (isset($jsonObject->price)) {
             $cancel->setPrice($jsonObject->price);
         }
+        if (isset($jsonObject->currency)) {
+            $cancel->setCurrency($jsonObject->currency);
+        }
         return $cancel;
     }
 

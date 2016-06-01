@@ -16,6 +16,8 @@ class SubMerchant extends IyzipayResource
     private $gsmNumber;
     private $address;
     private $iban;
+    private $swiftCode;
+    private $currency;
     private $taxOffice;
     private $contactName;
     private $contactSurname;
@@ -92,6 +94,26 @@ class SubMerchant extends IyzipayResource
     public function setIban($iban)
     {
         $this->iban = $iban;
+    }
+
+    public function getSwiftCode()
+    {
+        return $this->swiftCode;
+    }
+
+    public function setSwiftCode($swiftCode)
+    {
+        $this->swiftCode = $swiftCode;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     public function getTaxOffice()

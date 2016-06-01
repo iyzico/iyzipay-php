@@ -18,6 +18,7 @@ class CreateConnectPaymentRequest extends Request
     private $buyerIp;
     private $posOrderId;
     private $paymentCard;
+    private $currency;
     private $connectorName;
 
     public function CreateConnectPaymentRequest()
@@ -105,6 +106,16 @@ class CreateConnectPaymentRequest extends Request
         $this->paymentCard = $paymentCard;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function getConnectorName()
     {
         return $this->connectorName;
@@ -126,6 +137,7 @@ class CreateConnectPaymentRequest extends Request
             ->add("buyerIp", $this->getBuyerIp())
             ->add("posOrderId", $this->getPosOrderId())
             ->add("paymentCard", $this->getPaymentCard())
+            ->add("currency", $this->getCurrency())
             ->add("connectorName", $this->getConnectorName())
             ->getObject();
     }
@@ -142,6 +154,7 @@ class CreateConnectPaymentRequest extends Request
             ->append("buyerIp", $this->getBuyerIp())
             ->append("posOrderId", $this->getPosOrderId())
             ->append("paymentCard", $this->getPaymentCard())
+            ->append("currency", $this->getCurrency())
             ->append("connectorName", $this->getConnectorName())
             ->getRequestString();
     }

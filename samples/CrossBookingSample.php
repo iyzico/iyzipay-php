@@ -20,6 +20,7 @@ class CrossBookingSample
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $crossBookingToSubMerchant = \Iyzipay\Model\CrossBookingToSubMerchant::create($request, Sample::options());
@@ -37,6 +38,7 @@ class CrossBookingSample
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $crossBookingFromSubMerchant = \Iyzipay\Model\CrossBookingFromSubMerchant::create($request, Sample::options());

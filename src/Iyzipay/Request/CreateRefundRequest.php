@@ -11,6 +11,7 @@ class CreateRefundRequest extends Request
     private $paymentTransactionId;
     private $price;
     private $ip;
+    private $currency;
 
     public function getPaymentTransactionId()
     {
@@ -42,12 +43,23 @@ class CreateRefundRequest extends Request
         $this->ip = $ip;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->add("paymentTransactionId", $this->getPaymentTransactionId())
             ->addPrice("price", $this->getPrice())
             ->add("ip", $this->getIp())
+            ->add("currency", $this->getCurrency())
             ->getObject();
     }
 
@@ -58,6 +70,7 @@ class CreateRefundRequest extends Request
             ->append("paymentTransactionId", $this->getPaymentTransactionId())
             ->appendPrice("price", $this->getPrice())
             ->append("ip", $this->getIp())
+            ->append("currency", $this->getCurrency())
             ->getRequestString();
     }
 }

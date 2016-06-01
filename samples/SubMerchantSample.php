@@ -32,6 +32,7 @@ class SubMerchantSample
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
@@ -56,6 +57,7 @@ class SubMerchantSample
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("31300864726");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
@@ -80,6 +82,7 @@ class SubMerchantSample
         $request->setGsmNumber("+905350000000");
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::create($request, Sample::options());
@@ -103,6 +106,7 @@ class SubMerchantSample
         $request->setGsmNumber("+905350000000");
         $request->setName("Jane's market");
         $request->setIdentityNumber("31300864726");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::update($request, Sample::options());
@@ -126,6 +130,7 @@ class SubMerchantSample
         $request->setName("Jane's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("31300864726");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::update($request, Sample::options());
@@ -149,6 +154,7 @@ class SubMerchantSample
         $request->setGsmNumber("+905350000000");
         $request->setName("Jane's market");
         $request->setIban("TR180006200119000006672315");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         # make request
         $subMerchant = \Iyzipay\Model\SubMerchant::update($request, Sample::options());

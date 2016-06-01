@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\CreateCrossBookingRequest;
 use Iyzipay\Tests\TestCase;
@@ -16,6 +17,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $jsonObject = $request->getJsonObject();
 
@@ -24,6 +26,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $this->assertEquals("sub merchant key", $jsonObject["subMerchantKey"]);
         $this->assertEquals("1", $jsonObject["price"]);
         $this->assertEquals("reason text", $jsonObject["reason"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -34,12 +37,14 @@ class CreateCrossBookingRequestTest extends TestCase
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
             "subMerchantKey=sub merchant key," .
             "price=1.0," .
-            "reason=reason text]";
+            "reason=reason text," .
+            "currency=TRY]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -52,6 +57,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $json = '
             {
@@ -59,7 +65,8 @@ class CreateCrossBookingRequestTest extends TestCase
                 "conversationId":"123456789",
                 "subMerchantKey":"sub merchant key",
                 "price":"1.0",
-                "reason":"reason text"
+                "reason":"reason text",
+                "currency":"TRY"
             }';
 
         $this->assertJson($request->toJsonString());

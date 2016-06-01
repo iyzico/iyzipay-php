@@ -67,6 +67,9 @@ class PaymentMapper extends IyzipayResourceMapper
         if (isset($jsonObject->basketId)) {
             $payment->setBasketId($jsonObject->basketId);
         }
+        if (isset($jsonObject->currency)) {
+            $payment->setCurrency($jsonObject->currency);
+        }
         if (isset($jsonObject->itemTransactions)) {
             $payment->setPaymentItems($this->mapPaymentItems($jsonObject->itemTransactions));
         }
@@ -138,6 +141,9 @@ class PaymentMapper extends IyzipayResourceMapper
             }
             if (isset($itemTransaction->merchantPayoutAmount)) {
                 $paymentItem->setMerchantPayoutAmount($itemTransaction->merchantPayoutAmount);
+            }
+            if (isset($itemTransaction->convertedPayout)) {
+                $paymentItem->setConvertedPayout($itemTransaction->convertedPayout);
             }
             $paymentItems[$index] = $paymentItem;
         }

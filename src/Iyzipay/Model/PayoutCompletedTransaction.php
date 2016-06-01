@@ -8,6 +8,7 @@ class PayoutCompletedTransaction
     private $payoutAmount;
     private $payoutType;
     private $subMerchantKey;
+    private $currency;
 
     public function getPaymentTransactionId()
     {
@@ -47,5 +48,15 @@ class PayoutCompletedTransaction
     public function setSubMerchantKey($subMerchantKey)
     {
         $this->subMerchantKey = $subMerchantKey;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 }

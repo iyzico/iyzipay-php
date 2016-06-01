@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\SubMerchantType;
 use Iyzipay\Request\CreateSubMerchantRequest;
@@ -24,6 +25,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $jsonObject = $request->getJsonObject();
 
@@ -39,6 +41,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $this->assertEquals("John's market", $jsonObject["name"]);
         $this->assertEquals("TR180006200119000006672315", $jsonObject["iban"]);
         $this->assertEquals("1234567890", $jsonObject["identityNumber"]);
+        $this->assertEquals("TRY", $jsonObject["currency"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -56,6 +59,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -66,6 +70,7 @@ class CreateSubMerchantRequestTest extends TestCase
             "iban=TR180006200119000006672315," .
             "contactName=John," .
             "contactSurname=Doe," .
+            "currency=TRY," .
             "subMerchantExternalId=B49224," .
             "identityNumber=1234567890," .
             "subMerchantType=PERSONAL]";
@@ -88,6 +93,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
+        $request->setCurrency(Currency::TURKISH_LIRA);
 
         $json = '
             {
@@ -102,7 +108,8 @@ class CreateSubMerchantRequestTest extends TestCase
                 "gsmNumber":"+905350000000",
                 "name":"John\'s market",
                 "iban":"TR180006200119000006672315",
-                "identityNumber":"1234567890"
+                "identityNumber":"1234567890",
+                "currency":"TRY"
             }';
 
         $this->assertJson($request->toJsonString());

@@ -9,6 +9,7 @@ class ConnectPayment extends IyzipayResource
     private $price;
     private $paidPrice;
     private $installment;
+    private $currency;
     private $paymentId;
     private $merchantCommissionRate;
     private $merchantCommissionRateAmount;
@@ -51,6 +52,16 @@ class ConnectPayment extends IyzipayResource
     public function setInstallment($installment)
     {
         $this->installment = $installment;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     public function getPaymentId()

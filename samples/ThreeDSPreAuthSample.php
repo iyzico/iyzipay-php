@@ -27,6 +27,7 @@ class ThreeDSPreAuthSample
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -119,6 +120,7 @@ class ThreeDSPreAuthSample
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -216,6 +218,7 @@ class ThreeDSPreAuthSample
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::LISTING);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");

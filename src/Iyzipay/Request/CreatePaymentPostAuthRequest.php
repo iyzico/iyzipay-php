@@ -11,6 +11,7 @@ class CreatePaymentPostAuthRequest extends Request
     private $paymentId;
     private $paidPrice;
     private $ip;
+    private $currency;
 
     public function getPaymentId()
     {
@@ -42,12 +43,23 @@ class CreatePaymentPostAuthRequest extends Request
         $this->ip = $ip;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->add("paymentId", $this->getPaymentId())
             ->add("ip", $this->getIp())
             ->addPrice("paidPrice", $this->getPaidPrice())
+            ->add("currency", $this->getCurrency())
             ->getObject();
     }
 
@@ -58,6 +70,7 @@ class CreatePaymentPostAuthRequest extends Request
             ->append("paymentId", $this->getPaymentId())
             ->append("ip", $this->getIp())
             ->appendPrice("paidPrice", $this->getPaidPrice())
+            ->append("currency", $this->getCurrency())
             ->getRequestString();
     }
 }
