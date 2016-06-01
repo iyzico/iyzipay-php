@@ -26,6 +26,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
         $request->setCurrency(Currency::TL);
+        $request->setSwiftCode("swift code");
 
         $jsonObject = $request->getJsonObject();
 
@@ -42,6 +43,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $this->assertEquals("TR180006200119000006672315", $jsonObject["iban"]);
         $this->assertEquals("1234567890", $jsonObject["identityNumber"]);
         $this->assertEquals("TRY", $jsonObject["currency"]);
+        $this->assertEquals("swift code", $jsonObject["swiftCode"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -60,6 +62,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
         $request->setCurrency(Currency::TL);
+        $request->setSwiftCode("swift code");
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -70,6 +73,7 @@ class CreateSubMerchantRequestTest extends TestCase
             "iban=TR180006200119000006672315," .
             "contactName=John," .
             "contactSurname=Doe," .
+            "swiftCode=swift code," .
             "currency=TRY," .
             "subMerchantExternalId=B49224," .
             "identityNumber=1234567890," .
@@ -94,6 +98,7 @@ class CreateSubMerchantRequestTest extends TestCase
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
         $request->setCurrency(Currency::TL);
+        $request->setSwiftCode("swift code");
 
         $json = '
             {
@@ -109,7 +114,8 @@ class CreateSubMerchantRequestTest extends TestCase
                 "name":"John\'s market",
                 "iban":"TR180006200119000006672315",
                 "identityNumber":"1234567890",
-                "currency":"TRY"
+                "currency":"TRY",
+                "swiftCode":"swift code"
             }';
 
         $this->assertJson($request->toJsonString());
