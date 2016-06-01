@@ -17,7 +17,7 @@ class CreateRefundRequestTest extends TestCase
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -37,7 +37,7 @@ class CreateRefundRequestTest extends TestCase
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -57,7 +57,7 @@ class CreateRefundRequestTest extends TestCase
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {

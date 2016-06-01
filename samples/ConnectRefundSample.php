@@ -19,7 +19,7 @@ class ConnectRefundSample
         $request->setPaymentTransactionId("1");
         $request->setPrice("1");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         # make request
         $connectRefund = \Iyzipay\Model\ConnectRefund::create($request, Sample::options());

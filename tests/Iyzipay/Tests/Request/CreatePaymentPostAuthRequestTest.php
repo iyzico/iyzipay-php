@@ -17,7 +17,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -37,7 +37,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456," .
@@ -57,7 +57,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {

@@ -23,7 +23,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
@@ -137,7 +137,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);
@@ -252,7 +252,7 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(PaymentChannel::WEB);

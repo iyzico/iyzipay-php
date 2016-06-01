@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Model\Mapper;
 
+use Iyzipay\Model\ConvertedPayout;
 use Iyzipay\Model\Payment;
 use Iyzipay\Model\PaymentItem;
 
@@ -143,10 +144,47 @@ class PaymentMapper extends IyzipayResourceMapper
                 $paymentItem->setMerchantPayoutAmount($itemTransaction->merchantPayoutAmount);
             }
             if (isset($itemTransaction->convertedPayout)) {
-                $paymentItem->setConvertedPayout($itemTransaction->convertedPayout);
+                $paymentItem->setConvertedPayout($this->mapConvertedPayout($itemTransaction->convertedPayout));
             }
             $paymentItems[$index] = $paymentItem;
         }
         return $paymentItems;
+    }
+
+    public function mapConvertedPayout($payout)
+    {
+        $convertedPayout = new ConvertedPayout();
+
+        if (isset($payout->paidPrice)) {
+            $convertedPayout->setPaidPrice($payout->paidPrice);
+        }
+        if (isset($payout->iyziCommissionRateAmount)) {
+            $convertedPayout->setIyziCommissionRateAmount($payout->iyziCommissionRateAmount);
+        }
+        if (isset($payout->iyziCommissionFee)) {
+            $convertedPayout->setIyziCommissionFee($payout->iyziCommissionFee);
+        }
+        if (isset($payout->blockageRateAmountMerchant)) {
+            $convertedPayout->setBlockageRateAmountMerchant($payout->blockageRateAmountMerchant);
+        }
+        if (isset($payout->blockageRateAmountSubMerchant)) {
+            $convertedPayout->setBlockageRateAmountSubMerchant($payout->blockageRateAmountSubMerchant);
+        }
+        if (isset($payout->subMerchantPayoutAmount)) {
+            $convertedPayout->setSubMerchantPayoutAmount($payout->subMerchantPayoutAmount);
+        }
+        if (isset($payout->merchantPayoutAmount)) {
+            $convertedPayout->setMerchantPayoutAmount($payout->merchantPayoutAmount);
+        }
+        if (isset($payout->iyziConversionRate)) {
+            $convertedPayout->setIyziConversionRate($payout->iyziConversionRate);
+        }
+        if (isset($payout->iyziConversionRateAmount)) {
+            $convertedPayout->setIyziConversionRateAmount($payout->iyziConversionRateAmount);
+        }
+        if (isset($payout->currency)) {
+            $convertedPayout->setCurrency($payout->currency);
+        }
+        return $convertedPayout;
     }
 }

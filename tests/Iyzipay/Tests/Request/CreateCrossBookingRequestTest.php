@@ -17,7 +17,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -37,7 +37,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -57,7 +57,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $request->setSubmerchantKey("sub merchant key");
         $request->setPrice("1");
         $request->setReason("reason text");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {

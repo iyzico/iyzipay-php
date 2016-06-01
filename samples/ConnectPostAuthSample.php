@@ -19,7 +19,7 @@ class ConnectPostAuthSample
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         # make request
         $connectPaymentPostAuth = \Iyzipay\Model\ConnectPaymentPostAuth::create($request, Sample::options());

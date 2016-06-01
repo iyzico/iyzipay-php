@@ -23,7 +23,7 @@ class UpdateSubMerchantRequestTest extends TestCase
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -55,7 +55,7 @@ class UpdateSubMerchantRequestTest extends TestCase
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -87,7 +87,7 @@ class UpdateSubMerchantRequestTest extends TestCase
         $request->setName("John's market");
         $request->setIban("TR180006200119000006672315");
         $request->setIdentityNumber("1234567890");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {

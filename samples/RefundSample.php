@@ -20,7 +20,7 @@ class RefundSample
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         # make request
         $refund = \Iyzipay\Model\Refund::create($request, Sample::options());
@@ -38,7 +38,7 @@ class RefundSample
         $request->setPaymentTransactionId("1");
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
-        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         # make request
         $refundChargedFromMerchant = \Iyzipay\Model\RefundChargedFromMerchant::create($request, Sample::options());

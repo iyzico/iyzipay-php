@@ -24,7 +24,7 @@ class ConnectPaymentPreAuthSample
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -55,7 +55,7 @@ class ConnectPaymentPreAuthSample
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCurrency(\Iyzipay\Model\Currency::TURKISH_LIRA);
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardToken("card token");

@@ -24,7 +24,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -120,7 +120,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -217,7 +217,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setBasketId("B67832");
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");

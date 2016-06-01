@@ -21,7 +21,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $jsonObject = $request->getJsonObject();
 
@@ -49,7 +49,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -77,7 +77,7 @@ class CreateConnectPaymentRequestTest extends TestCase
         $request->setInstallment(1);
         $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCurrency(Currency::TURKISH_LIRA);
+        $request->setCurrency(Currency::TL);
 
         $json = '
             {
