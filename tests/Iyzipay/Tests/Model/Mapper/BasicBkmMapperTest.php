@@ -42,7 +42,7 @@ class BasicBkmMapperTest extends TestCase
                 "paymentStatus": "SUCCESS"
             }';
 
-        $connectBKMAuth = BasicBkmMapper::create($json)->jsonDecode()->mapConnectBKMAuth(new BasicBkm());
+        $connectBKMAuth = BasicBkmMapper::create($json)->jsonDecode()->mapBasicBkm(new BasicBkm());
 
         $this->assertNotEmpty($connectBKMAuth);
         $this->assertEquals(Status::SUCCESS, $connectBKMAuth->getStatus());

@@ -12,12 +12,12 @@ class Payment extends PaymentResource
     public static function create(CreatePaymentRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/auth", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return PaymentMapper::create($rawResult)->jsonDecode()->mapPaymentAuth(new Payment());
+        return PaymentMapper::create($rawResult)->jsonDecode()->mapPaymentResource(new Payment());
     }
 
     public static function retrieve(RetrievePaymentRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return PaymentMapper::create($rawResult)->jsonDecode()->mapPaymentAuth(new Payment());
+        return PaymentMapper::create($rawResult)->jsonDecode()->mapPaymentResource(new Payment());
     }
 }

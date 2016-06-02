@@ -11,7 +11,7 @@ class BasicBkmInitializeMapper extends IyzipayResourceMapper
         return new BasicBkmInitializeMapper($rawResult);
     }
 
-    public function mapConnectBKMInitializeFrom(BasicBkmInitialize $initialize, $jsonObject)
+    public function mapBasicBkmInitializeFrom(BasicBkmInitialize $initialize, $jsonObject)
     {
         parent::mapResourceFrom($initialize, $jsonObject);
 
@@ -24,8 +24,8 @@ class BasicBkmInitializeMapper extends IyzipayResourceMapper
         return $initialize;
     }
 
-    public function mapConnectBKMInitialize(BasicBkmInitialize $initialize)
+    public function mapBasicBkmInitialize(BasicBkmInitialize $initialize)
     {
-        return $this->mapConnectBKMInitializeFrom($initialize, $this->jsonObject);
+        return $this->mapBasicBkmInitializeFrom($initialize, $this->jsonObject);
     }
 }

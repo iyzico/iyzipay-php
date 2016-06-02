@@ -39,7 +39,7 @@ class BasicPaymentPreAuthMapperTest extends TestCase
                 "connectorName": "connectorName"
             }';
 
-        $connectPaymentPreAuth = BasicPaymentPreAuthMapper::create($json)->jsonDecode()->mapConnectPaymentPreAuth(new BasicPaymentPreAuth());
+        $connectPaymentPreAuth = BasicPaymentPreAuthMapper::create($json)->jsonDecode()->mapBasicPaymentPreAuth(new BasicPaymentPreAuth());
 
         $this->assertNotEmpty($connectPaymentPreAuth);
         $this->assertEquals(Status::SUCCESS, $connectPaymentPreAuth->getStatus());

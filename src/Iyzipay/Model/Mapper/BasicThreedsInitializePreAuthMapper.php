@@ -11,7 +11,7 @@ class BasicThreedsInitializePreAuthMapper extends IyzipayResourceMapper
         return new BasicThreedsInitializePreAuthMapper($rawResult);
     }
 
-    public function mapConnectThreeDSInitializePreAuthFrom(BasicThreedsInitializePreAuth $initializePreAuth, $jsonObject)
+    public function mapBasicThreedsInitializePreAuthFrom(BasicThreedsInitializePreAuth $initializePreAuth, $jsonObject)
     {
         parent::mapResourceFrom($initializePreAuth, $jsonObject);
 
@@ -21,8 +21,8 @@ class BasicThreedsInitializePreAuthMapper extends IyzipayResourceMapper
         return $initializePreAuth;
     }
 
-    public function mapConnectThreeDSInitializePreAuth(BasicThreedsInitializePreAuth $initializePreAuth)
+    public function mapBasicThreedsInitializePreAuth(BasicThreedsInitializePreAuth $initializePreAuth)
     {
-        return $this->mapConnectThreeDSInitializePreAuthFrom($initializePreAuth, $this->jsonObject);
+        return $this->mapBasicThreedsInitializePreAuthFrom($initializePreAuth, $this->jsonObject);
     }
 }

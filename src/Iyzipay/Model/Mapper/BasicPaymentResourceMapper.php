@@ -11,7 +11,7 @@ class BasicPaymentResourceMapper extends IyzipayResourceMapper
         return new BasicPaymentResourceMapper($rawResult);
     }
 
-    public function mapConnectPaymentFrom(BasicPaymentResource $payment, $jsonObject)
+    public function mapBasicPaymentResourceFrom(BasicPaymentResource $payment, $jsonObject)
     {
         parent::mapResourceFrom($payment, $jsonObject);
 
@@ -69,8 +69,8 @@ class BasicPaymentResourceMapper extends IyzipayResourceMapper
         return $payment;
     }
 
-    public function mapConnectPayment(BasicPaymentResource $payment)
+    public function mapBasicPaymentResource(BasicPaymentResource $payment)
     {
-        return $this->mapConnectPaymentFrom($payment, $this->jsonObject);
+        return $this->mapBasicPaymentResourceFrom($payment, $this->jsonObject);
     }
 }

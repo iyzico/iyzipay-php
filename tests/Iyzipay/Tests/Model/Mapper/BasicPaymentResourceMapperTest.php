@@ -40,7 +40,7 @@ class BasicPaymentResourceMapperTest extends TestCase
                 "currency": "TRY"
             }';
 
-        $connectPayment = BasicPaymentResourceMapper::create($json)->jsonDecode()->mapConnectPayment(new BasicPaymentResource());
+        $connectPayment = BasicPaymentResourceMapper::create($json)->jsonDecode()->mapBasicPaymentResource(new BasicPaymentResource());
 
         $this->assertNotEmpty($connectPayment);
         $this->assertEquals(Status::SUCCESS, $connectPayment->getStatus());

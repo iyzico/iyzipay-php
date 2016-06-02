@@ -11,14 +11,14 @@ class BasicPaymentPostAuthMapper extends BasicPaymentResourceMapper
         return new BasicPaymentPostAuthMapper($rawResult);
     }
 
-    public function mapConnectPaymentPostAuthFrom(BasicPaymentPostAuth $postAuth, $jsonObject)
+    public function mapBasicPaymentPostAuthFrom(BasicPaymentPostAuth $postAuth, $jsonObject)
     {
-        parent::mapConnectPaymentFrom($postAuth, $jsonObject);
+        parent::mapBasicPaymentResourceFrom($postAuth, $jsonObject);
         return $postAuth;
     }
 
-    public function mapConnectPaymentPostAuth(BasicPaymentPostAuth $postAuth)
+    public function mapBasicPaymentPostAuth(BasicPaymentPostAuth $postAuth)
     {
-        return $this->mapConnectPaymentPostAuthFrom($postAuth, $this->jsonObject);
+        return $this->mapBasicPaymentPostAuthFrom($postAuth, $this->jsonObject);
     }
 }

@@ -13,7 +13,7 @@ class PaymentPreAuthMapper extends PaymentResourceMapper
 
     public function mapPaymentPreAuthFrom(PaymentPreAuth $preAuth, $jsonObject)
     {
-        parent::mapPaymentFrom($preAuth, $jsonObject);
+        parent::mapPaymentResourceFrom($preAuth, $jsonObject);
         return $preAuth;
     }
 

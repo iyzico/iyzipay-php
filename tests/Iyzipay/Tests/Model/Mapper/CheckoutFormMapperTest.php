@@ -103,7 +103,7 @@ class CheckoutFormMapperTest extends TestCase
                 }]
             }';
 
-        $checkoutFormAuth = CheckoutFormMapper::create($json)->jsonDecode()->mapCheckoutFormAuth(new CheckoutForm());
+        $checkoutFormAuth = CheckoutFormMapper::create($json)->jsonDecode()->mapCheckoutForm(new CheckoutForm());
 
         $this->assertNotEmpty($checkoutFormAuth);
         $this->assertEquals(Status::FAILURE, $checkoutFormAuth->getStatus());

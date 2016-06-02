@@ -25,7 +25,7 @@ class BkmInitializeMapperTest extends TestCase
                 "token":"token"
             }';
 
-        $BKMInitialize = BkmInitializeMapper::create($json)->jsonDecode()->mapBKMInitialize(new BkmInitialize());
+        $BKMInitialize = BkmInitializeMapper::create($json)->jsonDecode()->mapBkmInitialize(new BkmInitialize());
 
         $this->assertNotEmpty($BKMInitialize);
         $this->assertEquals(Status::SUCCESS, $BKMInitialize->getStatus());

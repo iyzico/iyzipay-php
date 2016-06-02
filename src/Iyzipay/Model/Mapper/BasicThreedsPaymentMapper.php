@@ -11,14 +11,14 @@ class BasicThreedsPaymentMapper extends BasicPaymentResourceMapper
         return new BasicThreedsPaymentMapper($rawResult);
     }
 
-    public function mapConnectThreeDSAuthFrom(BasicThreedsPayment $auth, $jsonObject)
+    public function mapBasicThreedsPaymentFrom(BasicThreedsPayment $auth, $jsonObject)
     {
-        parent::mapConnectPaymentFrom($auth, $jsonObject);
+        parent::mapBasicPaymentResourceFrom($auth, $jsonObject);
         return $auth;
     }
 
-    public function mapConnectThreeDSAuth(BasicThreedsPayment $auth)
+    public function mapBasicThreedsPayment(BasicThreedsPayment $auth)
     {
-        return $this->mapConnectThreeDSAuthFrom($auth, $this->jsonObject);
+        return $this->mapBasicThreedsPaymentFrom($auth, $this->jsonObject);
     }
 }

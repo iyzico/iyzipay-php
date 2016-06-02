@@ -103,7 +103,7 @@ class BkmMapperTest extends TestCase
                 }]
             }';
 
-        $bkmAuth = BkmMapper::create($json)->jsonDecode()->mapBKMAuth(new Bkm());
+        $bkmAuth = BkmMapper::create($json)->jsonDecode()->mapBkm(new Bkm());
 
         $this->assertNotEmpty($bkmAuth);
         $this->assertEquals(Status::FAILURE, $bkmAuth->getStatus());

@@ -11,14 +11,14 @@ class BasicPaymentPreAuthMapper extends BasicPaymentResourceMapper
         return new BasicPaymentPreAuthMapper($rawResult);
     }
 
-    public function mapConnectPaymentPreAuthFrom(BasicPaymentPreAuth $preAuth, $jsonObject)
+    public function mapBasicPaymentPreAuthFrom(BasicPaymentPreAuth $preAuth, $jsonObject)
     {
-        parent::mapConnectPaymentFrom($preAuth, $jsonObject);
+        parent::mapBasicPaymentResourceFrom($preAuth, $jsonObject);
         return $preAuth;
     }
 
-    public function mapConnectPaymentPreAuth(BasicPaymentPreAuth $preAuth)
+    public function mapBasicPaymentPreAuth(BasicPaymentPreAuth $preAuth)
     {
-        return $this->mapConnectPaymentPreAuthFrom($preAuth, $this->jsonObject);
+        return $this->mapBasicPaymentPreAuthFrom($preAuth, $this->jsonObject);
     }
 }

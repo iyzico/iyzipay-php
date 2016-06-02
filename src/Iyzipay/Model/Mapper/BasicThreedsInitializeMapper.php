@@ -11,7 +11,7 @@ class BasicThreedsInitializeMapper extends IyzipayResourceMapper
         return new BasicThreedsInitializeMapper($rawResult);
     }
 
-    public function mapConnectThreeDSInitializeFrom(BasicThreedsInitialize $initialize, $jsonObject)
+    public function mapBasicThreedsInitializeFrom(BasicThreedsInitialize $initialize, $jsonObject)
     {
         parent::mapResourceFrom($initialize, $jsonObject);
 
@@ -21,8 +21,8 @@ class BasicThreedsInitializeMapper extends IyzipayResourceMapper
         return $initialize;
     }
 
-    public function mapConnectThreeDSInitialize(BasicThreedsInitialize $initialize)
+    public function mapBasicThreedsInitialize(BasicThreedsInitialize $initialize)
     {
-        return $this->mapConnectThreeDSInitializeFrom($initialize, $this->jsonObject);
+        return $this->mapBasicThreedsInitializeFrom($initialize, $this->jsonObject);
     }
 }

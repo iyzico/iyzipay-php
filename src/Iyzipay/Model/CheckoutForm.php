@@ -14,7 +14,7 @@ class CheckoutForm extends PaymentResource
     public static function retrieve(RetrieveCheckoutFormRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/auth/ecom/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return CheckoutFormMapper::create($rawResult)->jsonDecode()->mapCheckoutFormAuth(new CheckoutForm());
+        return CheckoutFormMapper::create($rawResult)->jsonDecode()->mapCheckoutForm(new CheckoutForm());
     }
 
     public function getToken()

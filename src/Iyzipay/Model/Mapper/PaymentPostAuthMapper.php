@@ -13,7 +13,7 @@ class PaymentPostAuthMapper extends PaymentResourceMapper
 
     public function mapPaymentPostAuthFrom(PaymentPostAuth $postAuth, $jsonObject)
     {
-        parent::mapPaymentFrom($postAuth, $jsonObject);
+        parent::mapPaymentResourceFrom($postAuth, $jsonObject);
         return $postAuth;
     }
 

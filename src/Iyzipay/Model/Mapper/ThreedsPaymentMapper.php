@@ -11,14 +11,14 @@ class ThreedsPaymentMapper extends PaymentResourceMapper
         return new ThreedsPaymentMapper($rawResult);
     }
 
-    public function mapThreeDSAuthFrom(ThreedsPayment $auth, $jsonObject)
+    public function mapThreedsPaymentFrom(ThreedsPayment $auth, $jsonObject)
     {
-        parent::mapPaymentFrom($auth, $jsonObject);
+        parent::mapPaymentResourceFrom($auth, $jsonObject);
         return $auth;
     }
 
-    public function mapThreeDSAuth(ThreedsPayment $auth)
+    public function mapThreedsPayment(ThreedsPayment $auth)
     {
-        return $this->mapThreeDSAuthFrom($auth, $this->jsonObject);
+        return $this->mapThreedsPaymentFrom($auth, $this->jsonObject);
     }
 }

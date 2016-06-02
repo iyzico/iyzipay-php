@@ -11,9 +11,9 @@ class CheckoutFormMapper extends PaymentResourceMapper
         return new CheckoutFormMapper($rawResult);
     }
 
-    public function mapCheckoutFormAuthFrom(CheckoutForm $auth, $jsonObject)
+    public function mapCheckoutFormFrom(CheckoutForm $auth, $jsonObject)
     {
-        parent::mapPaymentFrom($auth, $jsonObject);
+        parent::mapPaymentResourceFrom($auth, $jsonObject);
 
         if (isset($jsonObject->token)) {
             $auth->setToken($jsonObject->token);
@@ -24,8 +24,8 @@ class CheckoutFormMapper extends PaymentResourceMapper
         return $auth;
     }
 
-    public function mapCheckoutFormAuth(CheckoutForm $auth)
+    public function mapCheckoutForm(CheckoutForm $auth)
     {
-        return $this->mapCheckoutFormAuthFrom($auth, $this->jsonObject);
+        return $this->mapCheckoutFormFrom($auth, $this->jsonObject);
     }
 }

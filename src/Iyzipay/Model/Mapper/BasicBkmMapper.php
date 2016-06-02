@@ -11,9 +11,9 @@ class BasicBkmMapper extends BasicPaymentResourceMapper
         return new BasicBkmMapper($rawResult);
     }
 
-    public function mapConnectBKMAuthFrom(BasicBkm $auth, $jsonObject)
+    public function mapBasicBkmFrom(BasicBkm $auth, $jsonObject)
     {
-        parent::mapConnectPaymentFrom($auth, $jsonObject);
+        parent::mapBasicPaymentResourceFrom($auth, $jsonObject);
 
         if (isset($jsonObject->token)) {
             $auth->setToken($jsonObject->token);
@@ -27,8 +27,8 @@ class BasicBkmMapper extends BasicPaymentResourceMapper
         return $auth;
     }
 
-    public function mapConnectBKMAuth(BasicBkm $auth)
+    public function mapBasicBkm(BasicBkm $auth)
     {
-        return $this->mapConnectBKMAuthFrom($auth, $this->jsonObject);
+        return $this->mapBasicBkmFrom($auth, $this->jsonObject);
     }
 }

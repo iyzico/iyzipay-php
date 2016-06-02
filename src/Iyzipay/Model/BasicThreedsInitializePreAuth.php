@@ -14,7 +14,7 @@ class BasicThreedsInitializePreAuth extends IyzipayResource
     public static function create(CreateBasicPaymentRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/initialize/preauth/basic", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BasicThreedsInitializePreAuthMapper::create($rawResult)->jsonDecode()->mapConnectThreeDSInitializePreAuth(new BasicThreedsInitializePreAuth());
+        return BasicThreedsInitializePreAuthMapper::create($rawResult)->jsonDecode()->mapBasicThreedsInitializePreAuth(new BasicThreedsInitializePreAuth());
     }
 
     public function getHtmlContent()

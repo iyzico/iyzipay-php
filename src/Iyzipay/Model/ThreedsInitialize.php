@@ -14,7 +14,7 @@ class ThreedsInitialize extends IyzipayResource
     public static function create(CreatePaymentRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ThreedsInitializeMapper::create($rawResult)->jsonDecode()->mapThreeDSInitialize(new ThreedsInitialize());
+        return ThreedsInitializeMapper::create($rawResult)->jsonDecode()->mapThreedsInitialize(new ThreedsInitialize());
     }
 
     public function getHtmlContent()

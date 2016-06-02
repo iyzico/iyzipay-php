@@ -14,7 +14,7 @@ class BasicThreedsInitialize extends IyzipayResource
     public static function create(CreateBasicPaymentRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/initialize/basic", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BasicThreedsInitializeMapper::create($rawResult)->jsonDecode()->mapConnectThreeDSInitialize(new BasicThreedsInitialize());
+        return BasicThreedsInitializeMapper::create($rawResult)->jsonDecode()->mapBasicThreedsInitialize(new BasicThreedsInitialize());
     }
 
     public function getHtmlContent()
