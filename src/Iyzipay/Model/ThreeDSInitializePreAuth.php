@@ -3,18 +3,18 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\Model\Mapper\ThreeDSInitializePreAuthMapper;
+use Iyzipay\Model\Mapper\ThreedsInitializePreAuthMapper;
 use Iyzipay\Options;
-use Iyzipay\Request\CreateThreeDSInitializeRequest;
+use Iyzipay\Request\CreatePaymentRequest;
 
-class ThreeDSInitializePreAuth extends IyzipayResource
+class ThreedsInitializePreAuth extends IyzipayResource
 {
     private $htmlContent;
 
-    public static function create(CreateThreeDSInitializeRequest $request, Options $options)
+    public static function create(CreatePaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/initialize3ds/preauth/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ThreeDSInitializePreAuthMapper::create($rawResult)->jsonDecode()->mapThreeDSInitializePreAuth(new ThreeDSInitializePreAuth());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/initialize/preauth", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        return ThreedsInitializePreAuthMapper::create($rawResult)->jsonDecode()->mapThreeDSInitializePreAuth(new ThreedsInitializePreAuth());
     }
 
     public function getHtmlContent()

@@ -4,7 +4,7 @@ namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\Model\CheckoutFormInitialize;
 
-class CheckoutFormInitializeMapper extends IyzipayResourceMapper
+class CheckoutFormInitializeMapper extends CheckoutFormInitializeResourceMapper
 {
     public static function create($rawResult = null)
     {
@@ -14,19 +14,6 @@ class CheckoutFormInitializeMapper extends IyzipayResourceMapper
     public function mapCheckoutFormInitializeFrom(CheckoutFormInitialize $initialize, $jsonObject)
     {
         parent::mapResourceFrom($initialize, $jsonObject);
-
-        if (isset($jsonObject->token)) {
-            $initialize->setToken($jsonObject->token);
-        }
-        if (isset($jsonObject->checkoutFormContent)) {
-            $initialize->setCheckoutFormContent($jsonObject->checkoutFormContent);
-        }
-        if (isset($jsonObject->tokenExpireTime)) {
-            $initialize->setTokenExpireTime($jsonObject->tokenExpireTime);
-        }
-        if (isset($jsonObject->paymentPageUrl)) {
-            $initialize->setPaymentPageUrl($jsonObject->paymentPageUrl);
-        }
         return $initialize;
     }
 

@@ -2,17 +2,17 @@
 
 namespace Iyzipay\Tests\Model;
 
-use Iyzipay\Model\BKMInitialize;
-use Iyzipay\Request\CreateBKMInitializeRequest;
+use Iyzipay\Model\BkmInitialize;
+use Iyzipay\Request\CreateBkmInitializeRequest;
 use Iyzipay\Tests\IyzipayResourceTestCase;
 
-class BKMInitializeTest extends IyzipayResourceTestCase
+class BkmInitializeTest extends IyzipayResourceTestCase
 {
     public function test_should_initialize_bkm()
     {
         $this->expectHttpPost();
 
-        $bkmInitialize = BKMInitialize::create(new CreateBKMInitializeRequest(), $this->options);
+        $bkmInitialize = BkmInitialize::create(new CreateBkmInitializeRequest(), $this->options);
 
         $this->verifyResource($bkmInitialize);
     }

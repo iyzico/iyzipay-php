@@ -3,18 +3,18 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\Model\Mapper\ThreeDSInitializeMapper;
+use Iyzipay\Model\Mapper\ThreedsInitializeMapper;
 use Iyzipay\Options;
-use Iyzipay\Request\CreateThreeDSInitializeRequest;
+use Iyzipay\Request\CreatePaymentRequest;
 
-class ThreeDSInitialize extends IyzipayResource
+class ThreedsInitialize extends IyzipayResource
 {
     private $htmlContent;
 
-    public static function create(CreateThreeDSInitializeRequest $request, Options $options)
+    public static function create(CreatePaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/initialize3ds/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ThreeDSInitializeMapper::create($rawResult)->jsonDecode()->mapThreeDSInitialize(new ThreeDSInitialize());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        return ThreedsInitializeMapper::create($rawResult)->jsonDecode()->mapThreeDSInitialize(new ThreedsInitialize());
     }
 
     public function getHtmlContent()

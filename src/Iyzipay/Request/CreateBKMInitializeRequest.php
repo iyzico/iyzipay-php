@@ -6,7 +6,7 @@ use Iyzipay\JsonBuilder;
 use Iyzipay\Request;
 use Iyzipay\RequestStringBuilder;
 
-class CreateBKMInitializeRequest extends Request
+class CreateBkmInitializeRequest extends Request
 {
     private $price;
     private $basketId;

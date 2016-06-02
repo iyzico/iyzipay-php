@@ -3,19 +3,19 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\Model\Mapper\BKMInitializeMapper;
+use Iyzipay\Model\Mapper\BkmInitializeMapper;
 use Iyzipay\Options;
-use Iyzipay\Request\CreateBKMInitializeRequest;
+use Iyzipay\Request\CreateBkmInitializeRequest;
 
-class BKMInitialize extends IyzipayResource
+class BkmInitialize extends IyzipayResource
 {
     private $htmlContent;
     private $token;
 
-    public static function create(CreateBKMInitializeRequest $request, Options $options)
+    public static function create(CreateBkmInitializeRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/bkm/initialize/ecom", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return BKMInitializeMapper::create($rawResult)->jsonDecode()->mapBKMInitialize(new BKMInitialize());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/bkm/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        return BkmInitializeMapper::create($rawResult)->jsonDecode()->mapBKMInitialize(new BkmInitialize());
     }
 
     public function getHtmlContent()

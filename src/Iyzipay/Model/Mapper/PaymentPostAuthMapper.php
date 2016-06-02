@@ -4,7 +4,7 @@ namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\Model\PaymentPostAuth;
 
-class PaymentPostAuthMapper extends PaymentMapper
+class PaymentPostAuthMapper extends PaymentResourceMapper
 {
     public static function create($rawResult = null)
     {

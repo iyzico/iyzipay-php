@@ -2,17 +2,17 @@
 
 namespace Iyzipay\Tests\Model;
 
-use Iyzipay\Model\ThreeDSInitialize;
-use Iyzipay\Request\CreateThreeDSInitializeRequest;
+use Iyzipay\Model\ThreedsInitialize;
+use Iyzipay\Request\CreatePaymentRequest;
 use Iyzipay\Tests\IyzipayResourceTestCase;
 
-class ThreeDSInitializeTest extends IyzipayResourceTestCase
+class ThreedsInitializeTest extends IyzipayResourceTestCase
 {
     public function test_should_initialize_threeds()
     {
         $this->expectHttpPost();
 
-        $threeDSInitialize = ThreeDSInitialize::create(new CreateThreeDSInitializeRequest(), $this->options);
+        $threeDSInitialize = ThreedsInitialize::create(new CreatePaymentRequest(), $this->options);
 
         $this->verifyResource($threeDSInitialize);
     }

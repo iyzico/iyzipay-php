@@ -2,16 +2,16 @@
 
 namespace Iyzipay\Model\Mapper;
 
-use Iyzipay\Model\ThreeDSInitializePreAuth;
+use Iyzipay\Model\ThreedsInitializePreAuth;
 
-class ThreeDSInitializePreAuthMapper extends IyzipayResourceMapper
+class ThreedsInitializePreAuthMapper extends IyzipayResourceMapper
 {
     public static function create($rawResult = null)
     {
-        return new ThreeDSInitializePreAuthMapper($rawResult);
+        return new ThreedsInitializePreAuthMapper($rawResult);
     }
 
-    public function mapThreeDSInitializePreAuthFrom(ThreeDSInitializePreAuth $initializePreAuth, $jsonObject)
+    public function mapThreeDSInitializePreAuthFrom(ThreedsInitializePreAuth $initializePreAuth, $jsonObject)
     {
         parent::mapResourceFrom($initializePreAuth, $jsonObject);
 
@@ -21,7 +21,7 @@ class ThreeDSInitializePreAuthMapper extends IyzipayResourceMapper
         return $initializePreAuth;
     }
 
-    public function mapThreeDSInitializePreAuth(ThreeDSInitializePreAuth $initializePreAuth)
+    public function mapThreeDSInitializePreAuth(ThreedsInitializePreAuth $initializePreAuth)
     {
         return $this->mapThreeDSInitializePreAuthFrom($initializePreAuth, $this->jsonObject);
     }

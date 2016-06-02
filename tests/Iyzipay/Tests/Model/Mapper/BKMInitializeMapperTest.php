@@ -2,13 +2,13 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
-use Iyzipay\Model\BKMInitialize;
+use Iyzipay\Model\BkmInitialize;
 use Iyzipay\Model\Locale;
-use Iyzipay\Model\Mapper\BKMInitializeMapper;
+use Iyzipay\Model\Mapper\BkmInitializeMapper;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
-class BKMInitializeMapperTest extends TestCase
+class BkmInitializeMapperTest extends TestCase
 {
     public function test_should_map_BKM_Initialize_number_success_raw_result()
     {
@@ -25,7 +25,7 @@ class BKMInitializeMapperTest extends TestCase
                 "token":"token"
             }';
 
-        $BKMInitialize = BKMInitializeMapper::create($json)->jsonDecode()->mapBKMInitialize(new BKMInitialize());
+        $BKMInitialize = BkmInitializeMapper::create($json)->jsonDecode()->mapBKMInitialize(new BkmInitialize());
 
         $this->assertNotEmpty($BKMInitialize);
         $this->assertEquals(Status::SUCCESS, $BKMInitialize->getStatus());

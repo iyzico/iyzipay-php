@@ -2,16 +2,16 @@
 
 namespace Iyzipay\Model\Mapper;
 
-use Iyzipay\Model\BKMInitialize;
+use Iyzipay\Model\BkmInitialize;
 
-class BKMInitializeMapper extends IyzipayResourceMapper
+class BkmInitializeMapper extends IyzipayResourceMapper
 {
     public static function create($rawResult = null)
     {
-        return new BKMInitializeMapper($rawResult);
+        return new BkmInitializeMapper($rawResult);
     }
 
-    public function mapBKMInitializeFrom(BKMInitialize $initialize, $jsonObject)
+    public function mapBKMInitializeFrom(BkmInitialize $initialize, $jsonObject)
     {
         parent::mapResourceFrom($initialize, $jsonObject);
 
@@ -24,7 +24,7 @@ class BKMInitializeMapper extends IyzipayResourceMapper
         return $initialize;
     }
 
-    public function mapBKMInitialize(BKMInitialize $initialize)
+    public function mapBKMInitialize(BkmInitialize $initialize)
     {
         return $this->mapBKMInitializeFrom($initialize, $this->jsonObject);
     }

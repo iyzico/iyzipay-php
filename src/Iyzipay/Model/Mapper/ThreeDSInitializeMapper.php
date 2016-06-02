@@ -2,16 +2,16 @@
 
 namespace Iyzipay\Model\Mapper;
 
-use Iyzipay\Model\ThreeDSInitialize;
+use Iyzipay\Model\ThreedsInitialize;
 
-class ThreeDSInitializeMapper extends IyzipayResourceMapper
+class ThreedsInitializeMapper extends IyzipayResourceMapper
 {
     public static function create($rawResult = null)
     {
-        return new ThreeDSInitializeMapper($rawResult);
+        return new ThreedsInitializeMapper($rawResult);
     }
 
-    public function mapThreeDSInitializeFrom(ThreeDSInitialize $initialize, $jsonObject)
+    public function mapThreeDSInitializeFrom(ThreedsInitialize $initialize, $jsonObject)
     {
         parent::mapResourceFrom($initialize, $jsonObject);
 
@@ -21,7 +21,7 @@ class ThreeDSInitializeMapper extends IyzipayResourceMapper
         return $initialize;
     }
 
-    public function mapThreeDSInitialize(ThreeDSInitialize $initialize)
+    public function mapThreeDSInitialize(ThreedsInitialize $initialize)
     {
         return $this->mapThreeDSInitializeFrom($initialize, $this->jsonObject);
     }

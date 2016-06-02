@@ -8,14 +8,14 @@ use Iyzipay\Model\BasketItemType;
 use Iyzipay\Model\Buyer;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\PaymentGroup;
-use Iyzipay\Request\CreateBKMInitializeRequest;
+use Iyzipay\Request\CreateBkmInitializeRequest;
 use Iyzipay\Tests\TestCase;
 
-class CreateBKMInitializeRequestTest extends TestCase
+class CreateBkmInitializeRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new CreateBKMInitializeRequest();
+        $request = new CreateBkmInitializeRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
@@ -108,7 +108,7 @@ class CreateBKMInitializeRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new CreateBKMInitializeRequest();
+        $request = new CreateBkmInitializeRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
@@ -203,7 +203,7 @@ class CreateBKMInitializeRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new CreateBKMInitializeRequest();
+        $request = new CreateBkmInitializeRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");

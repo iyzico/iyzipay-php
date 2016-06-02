@@ -5,19 +5,19 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new ThreeDSSample();
+$sample = new ThreedsSample();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription();
 $sample->should_auth_threeds();
 $sample->should_retrieve_payment();
 
-class ThreeDSSample
+class ThreedsSample
 {
     public function should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant()
     {
         # create request class
-        $request = new \Iyzipay\Request\CreateThreeDSInitializeRequest();
+        $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
@@ -100,7 +100,7 @@ class ThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = \Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
+        $threeDSInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -109,7 +109,7 @@ class ThreeDSSample
     public function should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place()
     {
         # create request class
-        $request = new \Iyzipay\Request\CreateThreeDSInitializeRequest();
+        $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
@@ -198,7 +198,7 @@ class ThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = \Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
+        $threeDSInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -207,7 +207,7 @@ class ThreeDSSample
     public function should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription()
     {
         # create request class
-        $request = new \Iyzipay\Request\CreateThreeDSInitializeRequest();
+        $request = new \Iyzipay\Request\CreatePaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
@@ -290,7 +290,7 @@ class ThreeDSSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = \Iyzipay\Model\ThreeDSInitialize::create($request, Sample::options());
+        $threeDSInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
 
         # print result
         print_r($threeDSInitialize);
@@ -299,14 +299,14 @@ class ThreeDSSample
     public function should_auth_threeds()
     {
         # create request class
-        $request = new \Iyzipay\Request\CreateThreeDSAuthRequest();
+        $request = new \Iyzipay\Request\CreateThreedsPaymentRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
         $request->setConversationData("conversation data");
 
         # make request
-        $threeDSAuth = \Iyzipay\Model\ThreeDSAuth::create($request, Sample::options());
+        $threeDSAuth = \Iyzipay\Model\ThreedsPayment::create($request, Sample::options());
 
         # print result
         print_r($threeDSAuth);
@@ -322,7 +322,7 @@ class ThreeDSSample
         $request->setPaymentConversationId("123456789");
 
         # make request
-        $payment = \Iyzipay\Model\ThreeDSAuth::retrieve($request, Sample::options());
+        $payment = \Iyzipay\Model\ThreedsPayment::retrieve($request, Sample::options());
 
         # print result
         print_r($payment);

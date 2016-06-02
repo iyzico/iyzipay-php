@@ -5,16 +5,16 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new BKMSample();
+$sample = new BkmSample();
 $sample->should_initialize_bkm_express();
 $sample->should_retrieve_bkm_auth();
 
-class BKMSample
+class BkmSample
 {
     public function should_initialize_bkm_express()
     {
         # create request class
-        $request = new \Iyzipay\Request\CreateBKMInitializeRequest();
+        $request = new \Iyzipay\Request\CreateBkmInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");
@@ -90,7 +90,7 @@ class BKMSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $bkmInitialize = \Iyzipay\Model\BKMInitialize::create($request, Sample::options());
+        $bkmInitialize = \Iyzipay\Model\BkmInitialize::create($request, Sample::options());
 
         # print result
         print_r($bkmInitialize);
@@ -99,13 +99,13 @@ class BKMSample
     public function should_retrieve_bkm_auth()
     {
         # create request class
-        $request = new \Iyzipay\Request\RetrieveBKMAuthRequest();
+        $request = new \Iyzipay\Request\RetrieveBkmRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
         $request->setToken("token");
 
         # make request
-        $bkmAuth = \Iyzipay\Model\BKMAuth::retrieve($request, Sample::options());
+        $bkmAuth = \Iyzipay\Model\Bkm::retrieve($request, Sample::options());
 
         # print result
         print_r($bkmAuth);

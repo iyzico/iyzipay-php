@@ -6,7 +6,7 @@ use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
 
-class BKMInstallmentPrice extends BaseModel
+class BkmInstallmentPrice extends BaseModel
 {
     private $installmentNumber;
     private $totalPrice;
