@@ -36,10 +36,10 @@ class BasicPaymentSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectPaymentAuth = \Iyzipay\Model\BasicPayment::create($request, Sample::options());
+        $basicPayment = \Iyzipay\Model\BasicPayment::create($request, Sample::options());
 
         # print result
-        print_r($connectPaymentAuth);
+        print_r($basicPayment);
     }
 
     public function should_pay_with_card_token()
@@ -63,9 +63,9 @@ class BasicPaymentSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectPaymentAuth = \Iyzipay\Model\BasicPayment::create($request, Sample::options());
+        $basicPayment = \Iyzipay\Model\BasicPayment::create($request, Sample::options());
 
         # print result
-        print_r($connectPaymentAuth);
+        print_r($basicPayment);
     }
 }

@@ -29,10 +29,10 @@ class BasicBkmSample
         $request->setInstallmentDetails($this->prepareInstallmentDetails());
 
         # make request
-        $connectBKMInitialize = \Iyzipay\Model\BasicBkmInitialize::create($request, Sample::options());
+        $basicBkmInitialize = \Iyzipay\Model\BasicBkmInitialize::create($request, Sample::options());
 
         # print result
-        print_r($connectBKMInitialize);
+        print_r($basicBkmInitialize);
     }
 
     public function should_retrieve_bkm_auth()
@@ -44,10 +44,10 @@ class BasicBkmSample
         $request->setToken("token");
 
         # make request
-        $connectBKMAuth = \Iyzipay\Model\BasicBkm::retrieve($request, Sample::options());
+        $basicBkm = \Iyzipay\Model\BasicBkm::retrieve($request, Sample::options());
 
         # print result
-        print_r($connectBKMAuth);
+        print_r($basicBkm);
     }
 
     private function prepareInstallmentDetails()

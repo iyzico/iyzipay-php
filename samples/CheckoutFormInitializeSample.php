@@ -18,10 +18,10 @@ class CheckoutFormInitializeSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.2");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setBasketId("B67832");
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("BY789");

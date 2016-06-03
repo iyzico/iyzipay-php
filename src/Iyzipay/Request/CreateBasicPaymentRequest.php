@@ -20,6 +20,7 @@ class CreateBasicPaymentRequest extends Request
     private $paymentCard;
     private $currency;
     private $connectorName;
+    private $callbackUrl;
 
     public function CreateConnectPaymentRequest()
     {
@@ -126,6 +127,16 @@ class CreateBasicPaymentRequest extends Request
         $this->connectorName = $connectorName;
     }
 
+    public function getCallbackUrl()
+    {
+        return $this->callbackUrl;
+    }
+
+    public function setCallbackUrl($callbackUrl)
+    {
+        $this->callbackUrl = $callbackUrl;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -139,6 +150,7 @@ class CreateBasicPaymentRequest extends Request
             ->add("paymentCard", $this->getPaymentCard())
             ->add("currency", $this->getCurrency())
             ->add("connectorName", $this->getConnectorName())
+            ->add("callbackUrl", $this->getCallbackUrl())
             ->getObject();
     }
 
@@ -156,6 +168,7 @@ class CreateBasicPaymentRequest extends Request
             ->append("paymentCard", $this->getPaymentCard())
             ->append("currency", $this->getCurrency())
             ->append("connectorName", $this->getConnectorName())
+            ->append("callbackUrl", $this->getCallbackUrl())
             ->getRequestString();
     }
 }

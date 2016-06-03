@@ -5,7 +5,7 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new ConnectThreeDSSample();
+$sample = new BasicThreedsSample();
 $sample->should_initialize_threeds_with_card();
 $sample->should_initialize_threeds_with_card_token();
 $sample->should_auth_threeds();
@@ -23,10 +23,10 @@ class BasicThreedsSample
         $request->setBuyerIp("85.34.78.112");
         $request->setConnectorName("connector name");
         $request->setInstallment(1);
-        $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setPaidPrice("1");
         $request->setCurrency(\Iyzipay\Model\Currency::TL);
+        $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -38,10 +38,10 @@ class BasicThreedsSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitialize = \Iyzipay\Model\BasicThreedsInitialize::create($request, Sample::options());
+        $basicThreedsInitialize = \Iyzipay\Model\BasicThreedsInitialize::create($request, Sample::options());
 
         # print result
-        print_r($connectThreeDSInitialize);
+        print_r($basicThreedsInitialize);
     }
 
     public function should_initialize_threeds_with_card_token()
@@ -55,10 +55,10 @@ class BasicThreedsSample
         $request->setBuyerIp("85.34.78.112");
         $request->setConnectorName("connector name");
         $request->setInstallment(1);
-        $request->setPaidPrice("1");
         $request->setPrice("1");
-        $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setPaidPrice("1");
         $request->setCurrency(\Iyzipay\Model\Currency::TL);
+        $request->setCallbackUrl("https://www.merchant.com/callback");
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardToken("card token");
@@ -66,10 +66,10 @@ class BasicThreedsSample
         $request->setPaymentCard($paymentCard);
 
         # make request
-        $connectThreeDSInitialize = \Iyzipay\Model\BasicThreedsInitialize::create($request, Sample::options());
+        $basicThreedsInitialize = \Iyzipay\Model\BasicThreedsInitialize::create($request, Sample::options());
 
         # print result
-        print_r($connectThreeDSInitialize);
+        print_r($basicThreedsInitialize);
     }
 
     public function should_auth_threeds()
@@ -81,9 +81,9 @@ class BasicThreedsSample
         $request->setPaymentId("1");
 
         # make request
-        $connectThreeDSAuth = \Iyzipay\Model\BasicThreedsPayment::create($request, Sample::options());
+        $basicThreedsPayment = \Iyzipay\Model\BasicThreedsPayment::create($request, Sample::options());
 
         # print result
-        print_r($connectThreeDSAuth);
+        print_r($basicThreedsPayment);
     }
 }

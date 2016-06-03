@@ -11,14 +11,14 @@ class BasicPaymentMapper extends BasicPaymentResourceMapper
         return new BasicPaymentMapper($rawResult);
     }
 
-    public function mapBasicPaymentFrom(BasicPayment $auth, $jsonObject)
+    public function mapBasicPaymentFrom(BasicPayment $payment, $jsonObject)
     {
-        parent::mapBasicPaymentResourceFrom($auth, $jsonObject);
-        return $auth;
+        parent::mapBasicPaymentResourceFrom($payment, $jsonObject);
+        return $payment;
     }
 
-    public function mapBasicPayment(BasicPayment $auth)
+    public function mapBasicPayment(BasicPayment $payment)
     {
-        return $this->mapBasicPaymentFrom($auth, $this->jsonObject);
+        return $this->mapBasicPaymentFrom($payment, $this->jsonObject);
     }
 }

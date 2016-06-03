@@ -22,9 +22,9 @@ class BasicPaymentPostAuthSample
         $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         # make request
-        $connectPaymentPostAuth = \Iyzipay\Model\BasicPaymentPostAuth::create($request, Sample::options());
+        $basicPaymentPostAuth = \Iyzipay\Model\BasicPaymentPostAuth::create($request, Sample::options());
 
         # print result
-        print_r($connectPaymentPostAuth);
+        print_r($basicPaymentPostAuth);
     }
 }
