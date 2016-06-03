@@ -13,7 +13,7 @@ class CheckoutFormInitializePreAuthMapper extends CheckoutFormInitializeResource
 
     public function mapCheckoutFormInitializePreAuthFrom(CheckoutFormInitializePreAuth $initialize, $jsonObject)
     {
-        parent::mapResourceFrom($initialize, $jsonObject);
+        parent::mapCheckoutFormInitializeResourceFrom($initialize, $jsonObject);
         return $initialize;
     }
 

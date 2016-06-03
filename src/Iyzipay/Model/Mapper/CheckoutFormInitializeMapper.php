@@ -13,7 +13,7 @@ class CheckoutFormInitializeMapper extends CheckoutFormInitializeResourceMapper
 
     public function mapCheckoutFormInitializeFrom(CheckoutFormInitialize $initialize, $jsonObject)
     {
-        parent::mapResourceFrom($initialize, $jsonObject);
+        parent::mapCheckoutFormInitializeResourceFrom($initialize, $jsonObject);
         return $initialize;
     }
 

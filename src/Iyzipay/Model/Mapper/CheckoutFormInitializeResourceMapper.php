@@ -12,7 +12,7 @@ class CheckoutFormInitializeResourceMapper extends IyzipayResourceMapper
         return new CheckoutFormInitializeMapper($rawResult);
     }
 
-    public function mapCheckoutFormInitializeFrom(CheckoutFormInitializeResource $initialize, $jsonObject)
+    public function mapCheckoutFormInitializeResourceFrom(CheckoutFormInitializeResource $initialize, $jsonObject)
     {
         parent::mapResourceFrom($initialize, $jsonObject);
 
@@ -31,8 +31,8 @@ class CheckoutFormInitializeResourceMapper extends IyzipayResourceMapper
         return $initialize;
     }
 
-    public function mapCheckoutFormInitialize(CheckoutFormInitialize $initialize)
+    public function mapCheckoutFormInitializeResource(CheckoutFormInitialize $initialize)
     {
-        return $this->mapCheckoutFormInitializeFrom($initialize, $this->jsonObject);
+        return $this->mapCheckoutFormInitializeResourceFrom($initialize, $this->jsonObject);
     }
 }
