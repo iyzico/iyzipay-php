@@ -29,6 +29,9 @@ class CreatePaymentRequestTest extends TestCase
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setPaymentSource("payment source");
+        $request->setConnectorName("connector name");
+        $request->setPosOrderId("123456");
+        $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -88,11 +91,14 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("1", $jsonObject["price"]);
         $this->assertEquals("1.1", $jsonObject["paidPrice"]);
-        $this->assertEquals("TRY", $jsonObject["currency"]);
+        $this->assertEquals(Currency::TL, $jsonObject["currency"]);
         $this->assertEquals("1", $jsonObject["installment"]);
         $this->assertEquals(PaymentChannel::WEB, $jsonObject["paymentChannel"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("payment source", $jsonObject["paymentSource"]);
+        $this->assertEquals("connector name", $jsonObject["connectorName"]);
+        $this->assertEquals("123456", $jsonObject["posOrderId"]);
+        $this->assertEquals("callback", $jsonObject["callbackUrl"]);
         $this->assertEquals("John Doe", $jsonObject["paymentCard"]["cardHolderName"]);
         $this->assertEquals("5528790000000008", $jsonObject["paymentCard"]["cardNumber"]);
         $this->assertEquals("12", $jsonObject["paymentCard"]["expireMonth"]);
@@ -143,6 +149,9 @@ class CreatePaymentRequestTest extends TestCase
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setPaymentSource("payment source");
+        $request->setConnectorName("connector name");
+        $request->setPosOrderId("123456");
+        $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -240,9 +249,12 @@ class CreatePaymentRequestTest extends TestCase
             "category2=Accessories," .
             "itemType=PHYSICAL]]," .
             "paymentSource=payment source," .
-            "currency=TRY]";
+            "currency=TRY," .
+            "posOrderId=123456," .
+            "connectorName=connector name," .
+            "callbackUrl=callback]";
 
-        $this->assertEquals($str, $request->toPKIRequestString());
+            $this->assertEquals($str, $request->toPKIRequestString());
     }
 
     public function test_should_get_json_string()
@@ -258,6 +270,9 @@ class CreatePaymentRequestTest extends TestCase
         $request->setPaymentChannel(PaymentChannel::WEB);
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setPaymentSource("payment source");
+        $request->setConnectorName("connector name");
+        $request->setPosOrderId("123456");
+        $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -317,7 +332,6 @@ class CreatePaymentRequestTest extends TestCase
                 "conversationId":"123456789",
                 "price":"1.0",
                 "paidPrice":"1.1",
-                "currency":"TRY",
                 "installment":1,
                 "paymentChannel":"WEB",
                 "basketId":"B67832",
@@ -374,7 +388,11 @@ class CreatePaymentRequestTest extends TestCase
                         "itemType":"PHYSICAL"
                     }
                 ],
-                "paymentSource":"payment source"
+                "paymentSource":"payment source",
+                "currency":"TRY",
+                "posOrderId":"123456",
+                "connectorName":"connector name",
+                "callbackUrl":"callback"
             }';
 
         $this->assertJson($request->toJsonString());
