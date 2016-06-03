@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/iyzico/iyzipay-php.svg?branch=master)](https://travis-ci.org/iyzico/iyzipay-php)
 [![Latest Stable Version](https://poser.pugx.org/iyzico/iyzipay-php/version)](https://packagist.org/packages/iyzico/iyzipay-php)
+[![Code Coverage](https://coveralls.io/repos/iyzico/iyzipay-php/badge.svg?branch=master)](https://coveralls.io/r/iyzico/iyzipay-php?branch=master)
 
 You can sign up for an iyzico account at https://iyzico.com
 
