@@ -11,14 +11,14 @@ class PaymentMapper extends PaymentResourceMapper
         return new PaymentMapper($rawResult);
     }
 
-    public function mapPaymentResourceFrom(Payment $auth, $jsonObject)
+    public function mapPaymentFrom(Payment $payment, $jsonObject)
     {
-        parent::mapPaymentResourceFrom($auth, $jsonObject);
-        return $auth;
+        parent::mapPaymentResourceFrom($payment, $jsonObject);
+        return $payment;
     }
 
-    public function mapPaymentResource(Payment $auth)
+    public function mapPayment(Payment $payment)
     {
-        return $this->mapPaymentResourceFrom($auth, $this->jsonObject);
+        return $this->mapPaymentFrom($payment, $this->jsonObject);
     }
 }

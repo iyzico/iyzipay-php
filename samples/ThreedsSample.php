@@ -22,12 +22,12 @@ class ThreedsSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -100,10 +100,10 @@ class ThreedsSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
+        $threedsInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
 
         # print result
-        print_r($threeDSInitialize);
+        print_r($threedsInitialize);
     }
 
     public function should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place()
@@ -114,12 +114,12 @@ class ThreedsSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -198,10 +198,10 @@ class ThreedsSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
+        $threedsInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
 
         # print result
-        print_r($threeDSInitialize);
+        print_r($threedsInitialize);
     }
 
     public function should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription()
@@ -212,12 +212,12 @@ class ThreedsSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::LISTING);
         $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -290,10 +290,10 @@ class ThreedsSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $threeDSInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
+        $threedsInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Sample::options());
 
         # print result
-        print_r($threeDSInitialize);
+        print_r($threedsInitialize);
     }
 
     public function should_auth_threeds()
@@ -306,10 +306,10 @@ class ThreedsSample
         $request->setConversationData("conversation data");
 
         # make request
-        $threeDSAuth = \Iyzipay\Model\ThreedsPayment::create($request, Sample::options());
+        $threedsPayment = \Iyzipay\Model\ThreedsPayment::create($request, Sample::options());
 
         # print result
-        print_r($threeDSAuth);
+        print_r($threedsPayment);
     }
 
     public function should_retrieve_payment()
@@ -322,9 +322,9 @@ class ThreedsSample
         $request->setPaymentConversationId("123456789");
 
         # make request
-        $payment = \Iyzipay\Model\ThreedsPayment::retrieve($request, Sample::options());
+        $threedsPayment = \Iyzipay\Model\ThreedsPayment::retrieve($request, Sample::options());
 
         # print result
-        print_r($payment);
+        print_r($threedsPayment);
     }
 }

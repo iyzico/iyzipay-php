@@ -13,6 +13,7 @@ class Refund extends IyzipayResource
     private $paymentTransactionId;
     private $price;
     private $currency;
+    private $connectorName;
 
     public static function create(CreateRefundRequest $request, Options $options)
     {
@@ -58,5 +59,15 @@ class Refund extends IyzipayResource
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+    }
+
+    public function getConnectorName()
+    {
+        return $this->connectorName;
+    }
+
+    public function setConnectorName($connectorName)
+    {
+        $this->connectorName = $connectorName;
     }
 }

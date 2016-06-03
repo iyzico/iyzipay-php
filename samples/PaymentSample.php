@@ -21,11 +21,11 @@ class PaymentSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -98,10 +98,10 @@ class PaymentSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $paymentAuth = \Iyzipay\Model\Payment::create($request, Sample::options());
+        $payment = \Iyzipay\Model\Payment::create($request, Sample::options());
 
         # print response
-        print_r($paymentAuth);
+        print_r($payment);
     }
 
     public function should_create_payment_with_physical_and_virtual_item_for_market_place()
@@ -112,11 +112,11 @@ class PaymentSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -195,10 +195,10 @@ class PaymentSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $paymentAuth = \Iyzipay\Model\Payment::create($request, Sample::options());
+        $payment = \Iyzipay\Model\Payment::create($request, Sample::options());
 
         # print result
-        print_r($paymentAuth);
+        print_r($payment);
     }
 
     public function should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription()
@@ -209,11 +209,11 @@ class PaymentSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::SUBSCRIPTION);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -286,10 +286,10 @@ class PaymentSample
         $request->setBasketItems($basketItems);
 
         # make request
-        $paymentAuth = \Iyzipay\Model\Payment::create($request, Sample::options());
+        $payment = \Iyzipay\Model\Payment::create($request, Sample::options());
 
         # print result
-        print_r($paymentAuth);
+        print_r($payment);
     }
 
     public function should_retrieve_payment()

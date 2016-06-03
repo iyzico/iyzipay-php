@@ -12,6 +12,7 @@ class RefundChargedFromMerchant extends IyzipayResource
     private $paymentId;
     private $paymentTransactionId;
     private $price;
+    private $currency;
 
     public static function create(CreateRefundRequest $request, Options $options)
     {
@@ -47,5 +48,15 @@ class RefundChargedFromMerchant extends IyzipayResource
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 }

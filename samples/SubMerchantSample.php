@@ -7,12 +7,6 @@ IyzipayBootstrap::init();
 
 $sample = new SubMerchantSample;
 $sample->should_create_personal_sub_merchant();
-$sample->should_create_private_sub_merchant();
-$sample->should_create_limited_company_sub_merchant();
-$sample->should_update_personal_sub_merchant();
-$sample->should_update_private_sub_merchant();
-$sample->should_update_limited_company_sub_merchant();
-$sample->should_retrieve_sub_merchant();
 
 class SubMerchantSample
 {
@@ -22,7 +16,7 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
+        $request->setSubMerchantExternalId("Basa49224");
         $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
         $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("John");

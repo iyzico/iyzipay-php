@@ -3,8 +3,8 @@
 namespace Iyzipay\Model\Mapper;
 
 use Iyzipay\Model\ConvertedPayout;
-use Iyzipay\Model\PaymentResource;
 use Iyzipay\Model\PaymentItem;
+use Iyzipay\Model\PaymentResource;
 
 class PaymentResourceMapper extends IyzipayResourceMapper
 {
@@ -13,73 +13,76 @@ class PaymentResourceMapper extends IyzipayResourceMapper
         return new PaymentResourceMapper($rawResult);
     }
 
-    public function mapPaymentResourceFrom(PaymentResource $payment, $jsonObject)
+    public function mapPaymentResourceFrom(PaymentResource $paymentResource, $jsonObject)
     {
-        parent::mapResourceFrom($payment, $jsonObject);
+        parent::mapResourceFrom($paymentResource, $jsonObject);
 
         if (isset($jsonObject->price)) {
-            $payment->setPrice($jsonObject->price);
+            $paymentResource->setPrice($jsonObject->price);
         }
         if (isset($jsonObject->paidPrice)) {
-            $payment->setPaidPrice($jsonObject->paidPrice);
+            $paymentResource->setPaidPrice($jsonObject->paidPrice);
         }
         if (isset($jsonObject->installment)) {
-            $payment->setInstallment($jsonObject->installment);
+            $paymentResource->setInstallment($jsonObject->installment);
         }
         if (isset($jsonObject->paymentId)) {
-            $payment->setPaymentId($jsonObject->paymentId);
+            $paymentResource->setPaymentId($jsonObject->paymentId);
         }
         if (isset($jsonObject->paymentStatus)) {
-            $payment->setPaymentStatus($jsonObject->paymentStatus);
+            $paymentResource->setPaymentStatus($jsonObject->paymentStatus);
         }
         if (isset($jsonObject->fraudStatus)) {
-            $payment->setFraudStatus($jsonObject->fraudStatus);
+            $paymentResource->setFraudStatus($jsonObject->fraudStatus);
         }
         if (isset($jsonObject->merchantCommissionRate)) {
-            $payment->setMerchantCommissionRate($jsonObject->merchantCommissionRate);
+            $paymentResource->setMerchantCommissionRate($jsonObject->merchantCommissionRate);
         }
         if (isset($jsonObject->merchantCommissionRateAmount)) {
-            $payment->setMerchantCommissionRateAmount($jsonObject->merchantCommissionRateAmount);
+            $paymentResource->setMerchantCommissionRateAmount($jsonObject->merchantCommissionRateAmount);
         }
         if (isset($jsonObject->iyziCommissionRateAmount)) {
-            $payment->setIyziCommissionRateAmount($jsonObject->iyziCommissionRateAmount);
+            $paymentResource->setIyziCommissionRateAmount($jsonObject->iyziCommissionRateAmount);
         }
         if (isset($jsonObject->iyziCommissionFee)) {
-            $payment->setIyziCommissionFee($jsonObject->iyziCommissionFee);
+            $paymentResource->setIyziCommissionFee($jsonObject->iyziCommissionFee);
         }
         if (isset($jsonObject->cardType)) {
-            $payment->setCardType($jsonObject->cardType);
+            $paymentResource->setCardType($jsonObject->cardType);
         }
         if (isset($jsonObject->cardAssociation)) {
-            $payment->setCardAssociation($jsonObject->cardAssociation);
+            $paymentResource->setCardAssociation($jsonObject->cardAssociation);
         }
         if (isset($jsonObject->cardFamily)) {
-            $payment->setCardFamily($jsonObject->cardFamily);
+            $paymentResource->setCardFamily($jsonObject->cardFamily);
         }
         if (isset($jsonObject->cardUserKey)) {
-            $payment->setCardUserKey($jsonObject->cardUserKey);
+            $paymentResource->setCardUserKey($jsonObject->cardUserKey);
         }
         if (isset($jsonObject->cardToken)) {
-            $payment->setCardToken($jsonObject->cardToken);
+            $paymentResource->setCardToken($jsonObject->cardToken);
         }
         if (isset($jsonObject->binNumber)) {
-            $payment->setBinNumber($jsonObject->binNumber);
+            $paymentResource->setBinNumber($jsonObject->binNumber);
         }
         if (isset($jsonObject->basketId)) {
-            $payment->setBasketId($jsonObject->basketId);
+            $paymentResource->setBasketId($jsonObject->basketId);
         }
         if (isset($jsonObject->currency)) {
-            $payment->setCurrency($jsonObject->currency);
+            $paymentResource->setCurrency($jsonObject->currency);
         }
         if (isset($jsonObject->itemTransactions)) {
-            $payment->setPaymentItems($this->mapPaymentItems($jsonObject->itemTransactions));
+            $paymentResource->setPaymentItems($this->mapPaymentItems($jsonObject->itemTransactions));
         }
-        return $payment;
+        if (isset($jsonObject->connectorName)) {
+            $paymentResource->setConnectorName($jsonObject->connectorName);
+        }
+        return $paymentResource;
     }
 
-    public function mapPaymentResource(PaymentResource $payment)
+    public function mapPaymentResource(PaymentResource $paymentResource)
     {
-        return $this->mapPaymentResourceFrom($payment, $this->jsonObject);
+        return $this->mapPaymentResourceFrom($paymentResource, $this->jsonObject);
     }
 
     private function mapPaymentItems($itemTransactions)

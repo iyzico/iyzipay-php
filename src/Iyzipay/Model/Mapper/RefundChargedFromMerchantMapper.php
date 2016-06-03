@@ -24,6 +24,9 @@ class RefundChargedFromMerchantMapper extends IyzipayResourceMapper
         if (isset($jsonObject->price)) {
             $refund->setPrice($jsonObject->price);
         }
+        if (isset($jsonObject->currency)) {
+            $refund->setCurrency($jsonObject->currency);
+        }
         return $refund;
     }
 

@@ -21,11 +21,11 @@ class PaymentPreAuthSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -112,11 +112,11 @@ class PaymentPreAuthSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -209,11 +209,11 @@ class PaymentPreAuthSample
         $request->setConversationId("123456789");
         $request->setPrice("1");
         $request->setPaidPrice("1.1");
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
         $request->setInstallment(1);
         $request->setBasketId("B67832");
         $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::SUBSCRIPTION);
-        $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
         $paymentCard = new \Iyzipay\Model\PaymentCard();
         $paymentCard->setCardHolderName("John Doe");
@@ -302,9 +302,9 @@ class PaymentPreAuthSample
         $request->setPaymentConversationId("123456789");
 
         # make request
-        $payment = \Iyzipay\Model\PaymentPreAuth::retrieve($request, Sample::options());
+        $paymentPreAuth = \Iyzipay\Model\PaymentPreAuth::retrieve($request, Sample::options());
 
         # print result
-        print_r($payment);
+        print_r($paymentPreAuth);
     }
 }

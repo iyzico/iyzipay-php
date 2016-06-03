@@ -19,8 +19,11 @@ class CreatePaymentRequest extends Request
     private $shippingAddress;
     private $billingAddress;
     private $basketItems;
-    private $currency;
     private $paymentSource;
+    private $currency;
+    private $posOrderId;
+    private $connectorName;
+    private $callbackUrl;
 
     public function getPrice()
     {
@@ -132,6 +135,16 @@ class CreatePaymentRequest extends Request
         $this->basketItems = $basketItems;
     }
 
+    public function getPaymentSource()
+    {
+        return $this->paymentSource;
+    }
+
+    public function setPaymentSource($paymentSource)
+    {
+        $this->paymentSource = $paymentSource;
+    }
+
     public function getCurrency()
     {
         return $this->currency;
@@ -142,14 +155,34 @@ class CreatePaymentRequest extends Request
         $this->currency = $currency;
     }
 
-    public function getPaymentSource()
+    public function getPosOrderId()
     {
-        return $this->paymentSource;
+        return $this->posOrderId;
     }
 
-    public function setPaymentSource($paymentSource)
+    public function setPosOrderId($posOrderId)
     {
-        $this->paymentSource = $paymentSource;
+        $this->posOrderId = $posOrderId;
+    }
+
+    public function getConnectorName()
+    {
+        return $this->connectorName;
+    }
+
+    public function setConnectorName($connectorName)
+    {
+        $this->connectorName = $connectorName;
+    }
+
+    public function getCallbackUrl()
+    {
+        return $this->callbackUrl;
+    }
+
+    public function setCallbackUrl($callbackUrl)
+    {
+        $this->callbackUrl = $callbackUrl;
     }
 
     public function getJsonObject()
@@ -168,6 +201,9 @@ class CreatePaymentRequest extends Request
             ->addArray("basketItems", $this->getBasketItems())
             ->add("paymentSource", $this->getPaymentSource())
             ->add("currency", $this->getCurrency())
+            ->add("posOrderId", $this->getPosOrderId())
+            ->add("connectorName", $this->getConnectorName())
+            ->add("callbackUrl", $this->getCallbackUrl())
             ->getObject();
     }
 
@@ -188,6 +224,9 @@ class CreatePaymentRequest extends Request
             ->appendArray("basketItems", $this->getBasketItems())
             ->append("paymentSource", $this->getPaymentSource())
             ->append("currency", $this->getCurrency())
+            ->append("posOrderId", $this->getPosOrderId())
+            ->append("connectorName", $this->getConnectorName())
+            ->append("callbackUrl", $this->getCallbackUrl())
             ->getRequestString();
     }
 }

@@ -18,8 +18,8 @@ class PaymentPostAuthSample
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
         $request->setPaidPrice("0.6");
-        $request->setIp("85.34.78.112");
         $request->setCurrency(\Iyzipay\Model\Currency::TL);
+        $request->setIp("85.34.78.112");
 
         # make request
         $paymentPostAuth = \Iyzipay\Model\PaymentPostAuth::create($request, Sample::options());
