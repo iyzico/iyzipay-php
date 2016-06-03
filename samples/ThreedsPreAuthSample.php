@@ -5,14 +5,14 @@ require_once('Sample.php');
 
 IyzipayBootstrap::init();
 
-$sample = new ThreedsSample();
+$sample = new ThreedsPreAuthSample();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription();
 $sample->should_auth_threeds();
 $sample->should_retrieve_payment();
 
-class ThreedsSample
+class ThreedsPreAuthSample
 {
     public function should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant()
     {
