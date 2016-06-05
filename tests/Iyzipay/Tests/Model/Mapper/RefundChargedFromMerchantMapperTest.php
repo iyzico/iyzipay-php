@@ -3,14 +3,14 @@
 namespace Iyzipay\Tests\Model\Mapper;
 
 use Iyzipay\Model\Locale;
-use Iyzipay\Model\Mapper\RefundMapper;
-use Iyzipay\Model\Refund;
+use Iyzipay\Model\Mapper\RefundChargedFromMerchantMapper;
+use Iyzipay\Model\RefundChargedFromMerchant;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
-class RefundMapperTest extends TestCase
+class RefundChargedFromMerchantMapperTest extends TestCase
 {
-    public function test_should_map_refund_given_refund_success_raw_result()
+    public function test_should_map_refund_charged_from_merchant_given_refund_success_raw_result()
     {
         $json = '
             {
@@ -24,11 +24,10 @@ class RefundMapperTest extends TestCase
                 "paymentId":"1",
                 "paymentTransactionId":"1",
                 "price":"1",
-                "currency":"TRY",
-                "connectorName":"connector name"
+                "currency":"TRY"
             }';
 
-        $refund = RefundMapper::create($json)->jsonDecode()->mapRefund(new Refund());
+        $refund = RefundChargedFromMerchantMapper::create($json)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
 
         $this->assertNotEmpty($refund);
         $this->assertEquals(Status::SUCCESS, $refund->getStatus());
@@ -44,10 +43,9 @@ class RefundMapperTest extends TestCase
         $this->assertEquals("1", $refund->getPaymentTransactionId());
         $this->assertEquals("1", $refund->getPrice());
         $this->assertEquals("TRY", $refund->getCurrency());
-        $this->assertEquals("connector name", $refund->getConnectorName());
     }
 
-    public function test_should_map_refund_given_refund_failure_raw_result()
+    public function test_should_map_refund_charged_from_merchant_given_refund_failure_raw_result()
     {
         $json = '
             {
@@ -63,7 +61,7 @@ class RefundMapperTest extends TestCase
                 "currency":"TRY"
             }';
 
-        $refund = RefundMapper::create($json)->jsonDecode()->mapRefund(new Refund());
+        $refund = RefundChargedFromMerchantMapper::create($json)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
 
         $this->assertNotEmpty($refund);
         $this->assertEquals(Status::FAILURE, $refund->getStatus());
