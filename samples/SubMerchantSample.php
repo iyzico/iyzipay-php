@@ -16,7 +16,7 @@ class SubMerchantSample
         $request = new \Iyzipay\Request\CreateSubMerchantRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
         $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("Basa49224");
+        $request->setSubMerchantExternalId("B49224");
         $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
         $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
         $request->setContactName("John");
