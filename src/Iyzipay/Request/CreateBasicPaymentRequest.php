@@ -22,7 +22,7 @@ class CreateBasicPaymentRequest extends Request
     private $connectorName;
     private $callbackUrl;
 
-    public function CreateConnectPaymentRequest()
+    public function CreateBasicPaymentRequest()
     {
         $this->setInstallment(CreateBasicPaymentRequest::SINGLE_INSTALLMENT);
     }

@@ -25,6 +25,9 @@ class UpdateSubMerchantRequestTest extends TestCase
         $request->setIdentityNumber("1234567890");
         $request->setCurrency(Currency::TL);
         $request->setSwiftCode("swift code");
+        $request->setTaxOffice("Tax office");
+        $request->setTaxNumber("9261877");
+        $request->setLegalCompanyTitle("ABC inc");
 
         $jsonObject = $request->getJsonObject();
 
@@ -41,6 +44,9 @@ class UpdateSubMerchantRequestTest extends TestCase
         $this->assertEquals("1234567890", $jsonObject["identityNumber"]);
         $this->assertEquals("TRY", $jsonObject["currency"]);
         $this->assertEquals("swift code", $jsonObject["swiftCode"]);
+        $this->assertEquals("Tax office", $jsonObject["taxOffice"]);
+        $this->assertEquals("9261877", $jsonObject["taxNumber"]);
+        $this->assertEquals("ABC inc", $jsonObject["legalCompanyTitle"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -59,6 +65,9 @@ class UpdateSubMerchantRequestTest extends TestCase
         $request->setIdentityNumber("1234567890");
         $request->setCurrency(Currency::TL);
         $request->setSwiftCode("swift code");
+        $request->setTaxOffice("Tax office");
+        $request->setTaxNumber("9261877");
+        $request->setLegalCompanyTitle("ABC inc");
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -67,12 +76,15 @@ class UpdateSubMerchantRequestTest extends TestCase
             "gsmNumber=+905350000000," .
             "address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1," .
             "iban=TR180006200119000006672315," .
+            "taxOffice=Tax office," .
             "contactName=John," .
             "contactSurname=Doe," .
+            "legalCompanyTitle=ABC inc," .
             "swiftCode=swift code," .
             "currency=TRY," .
             "subMerchantKey=sub merchant key," .
-            "identityNumber=1234567890]";
+            "identityNumber=1234567890," .
+            "taxNumber=9261877]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -93,6 +105,9 @@ class UpdateSubMerchantRequestTest extends TestCase
         $request->setIdentityNumber("1234567890");
         $request->setCurrency(Currency::TL);
         $request->setSwiftCode("swift code");
+        $request->setTaxOffice("Tax office");
+        $request->setTaxNumber("9261877");
+        $request->setLegalCompanyTitle("ABC inc");
 
         $json = '
             {
@@ -108,7 +123,10 @@ class UpdateSubMerchantRequestTest extends TestCase
                 "iban":"TR180006200119000006672315",
                 "identityNumber":"1234567890",
                 "currency":"TRY",
-                "swiftCode":"swift code"
+                "swiftCode":"swift code",
+                "taxOffice":"Tax office",
+                "taxNumber":"9261877",
+                "legalCompanyTitle":"ABC inc"
             }';
 
         $this->assertJson($request->toJsonString());

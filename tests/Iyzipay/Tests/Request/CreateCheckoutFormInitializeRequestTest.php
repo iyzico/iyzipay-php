@@ -25,6 +25,10 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
         $request->setCurrency(Currency::TL);
+        $request->setPaymentSource("source");
+        $request->setForceThreeDS(1);
+        $request->setPosOrderId("order");
+        $request->setCardUserKey("XvYKRaf5oq0PDzaqP8eyD2cv4yg=");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -78,7 +82,11 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $this->assertEquals("1.2", $jsonObject["paidPrice"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
-        $this->assertEquals("TRY", $jsonObject["currency"]);
+        $this->assertEquals(Currency::TL, $jsonObject["currency"]);
+        $this->assertEquals("source", $jsonObject["paymentSource"]);
+        $this->assertEquals(1, $jsonObject["forceThreeDS"]);
+        $this->assertEquals("order", $jsonObject["posOrderId"]);
+        $this->assertEquals("XvYKRaf5oq0PDzaqP8eyD2cv4yg=", $jsonObject["cardUserKey"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -121,6 +129,10 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
         $request->setCurrency(Currency::TL);
+        $request->setPaymentSource("source");
+        $request->setForceThreeDS(1);
+        $request->setPosOrderId("order");
+        $request->setCardUserKey("XvYKRaf5oq0PDzaqP8eyD2cv4yg=");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -201,8 +213,12 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
             "category2=Accessories," .
             "itemType=PHYSICAL]]," .
             "callbackUrl=https://www.merchant.com/callback," .
+            "paymentSource=source," .
             "currency=TRY," .
-            "paidPrice=1.2]";
+            "posOrderId=order," .
+            "paidPrice=1.2," .
+            "forceThreeDS=1," .
+            "cardUserKey=XvYKRaf5oq0PDzaqP8eyD2cv4yg=]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -218,6 +234,10 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
         $request->setCurrency(Currency::TL);
+        $request->setPaymentSource("source");
+        $request->setForceThreeDS(1);
+        $request->setPosOrderId("order");
+        $request->setCardUserKey("XvYKRaf5oq0PDzaqP8eyD2cv4yg=");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -272,6 +292,10 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
                 "currency":"TRY",
                 "basketId":"B67832",
                 "paymentGroup":"PRODUCT",
+                "paymentSource":"source",
+                "posOrderId":"order",
+                "forceThreeDS":"1",
+                "cardUserKey":"XvYKRaf5oq0PDzaqP8eyD2cv4yg=",
                 "buyer":
                 {
                     "id":"BY789",

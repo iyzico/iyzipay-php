@@ -133,7 +133,6 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("Accessories", $jsonObject["basketItems"][0]["category2"]);
         $this->assertEquals(BasketItemType::PHYSICAL, $jsonObject["basketItems"][0]["itemType"]);
         $this->assertEquals("0.3", $jsonObject["basketItems"][0]["price"]);
-
     }
 
     public function test_should_convert_to_pki_request_string()
