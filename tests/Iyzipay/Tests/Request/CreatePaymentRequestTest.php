@@ -34,12 +34,15 @@ class CreatePaymentRequestTest extends TestCase
         $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
         $paymentCard->setExpireYear("2030");
         $paymentCard->setCvc("123");
         $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
         $request->setPaymentCard($paymentCard);
 
         $buyer = new Buyer();
@@ -82,6 +85,8 @@ class CreatePaymentRequestTest extends TestCase
         $firstBasketItem->setCategory2("Accessories");
         $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
+        $firstBasketItem->setSubMerchantPrice("0.27");
+        $firstBasketItem->setSubMerchantKey("sub merchant key");
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
@@ -99,11 +104,15 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("connector name", $jsonObject["connectorName"]);
         $this->assertEquals("123456", $jsonObject["posOrderId"]);
         $this->assertEquals("callback", $jsonObject["callbackUrl"]);
+        $this->assertEquals("alias", $jsonObject["paymentCard"]["cardAlias"]);
         $this->assertEquals("John Doe", $jsonObject["paymentCard"]["cardHolderName"]);
         $this->assertEquals("5528790000000008", $jsonObject["paymentCard"]["cardNumber"]);
         $this->assertEquals("12", $jsonObject["paymentCard"]["expireMonth"]);
         $this->assertEquals("2030", $jsonObject["paymentCard"]["expireYear"]);
         $this->assertEquals("123", $jsonObject["paymentCard"]["cvc"]);
+        $this->assertEquals("0", $jsonObject["paymentCard"]["registerCard"]);
+        $this->assertEquals("token", $jsonObject["paymentCard"]["cardToken"]);
+        $this->assertEquals("user key", $jsonObject["paymentCard"]["cardUserKey"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -133,6 +142,8 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("Accessories", $jsonObject["basketItems"][0]["category2"]);
         $this->assertEquals(BasketItemType::PHYSICAL, $jsonObject["basketItems"][0]["itemType"]);
         $this->assertEquals("0.3", $jsonObject["basketItems"][0]["price"]);
+        $this->assertEquals("0.27", $jsonObject["basketItems"][0]["subMerchantPrice"]);
+        $this->assertEquals("sub merchant key", $jsonObject["basketItems"][0]["subMerchantKey"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -153,12 +164,15 @@ class CreatePaymentRequestTest extends TestCase
         $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
         $paymentCard->setExpireYear("2030");
         $paymentCard->setCvc("123");
         $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
         $request->setPaymentCard($paymentCard);
 
         $buyer = new Buyer();
@@ -201,6 +215,8 @@ class CreatePaymentRequestTest extends TestCase
         $firstBasketItem->setCategory2("Accessories");
         $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
+        $firstBasketItem->setSubMerchantPrice("0.27");
+        $firstBasketItem->setSubMerchantKey("sub merchant key");
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
@@ -217,7 +233,10 @@ class CreatePaymentRequestTest extends TestCase
             "expireYear=2030," .
             "expireMonth=12," .
             "cvc=123," .
-            "registerCard=0]," .
+            "registerCard=0," .
+            "cardAlias=alias," .
+            "cardToken=token," .
+            "cardUserKey=user key]," .
             "buyer=[id=BY789," .
             "name=John," .
             "surname=Doe," .
@@ -246,14 +265,16 @@ class CreatePaymentRequestTest extends TestCase
             "name=Binocular," .
             "category1=Collectibles," .
             "category2=Accessories," .
-            "itemType=PHYSICAL]]," .
+            "itemType=PHYSICAL," .
+            "subMerchantKey=sub merchant key," .
+            "subMerchantPrice=0.27]]," .
             "paymentSource=payment source," .
             "currency=TRY," .
             "posOrderId=123456," .
             "connectorName=connector name," .
             "callbackUrl=callback]";
 
-            $this->assertEquals($str, $request->toPKIRequestString());
+        $this->assertEquals($str, $request->toPKIRequestString());
     }
 
     public function test_should_get_json_string()
@@ -274,12 +295,15 @@ class CreatePaymentRequestTest extends TestCase
         $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
         $paymentCard->setExpireYear("2030");
         $paymentCard->setCvc("123");
         $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
         $request->setPaymentCard($paymentCard);
 
         $buyer = new Buyer();
@@ -322,6 +346,8 @@ class CreatePaymentRequestTest extends TestCase
         $firstBasketItem->setCategory2("Accessories");
         $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
         $firstBasketItem->setPrice("0.3");
+        $firstBasketItem->setSubMerchantPrice("0.27");
+        $firstBasketItem->setSubMerchantKey("sub merchant key");
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
@@ -342,7 +368,10 @@ class CreatePaymentRequestTest extends TestCase
                     "expireYear":"2030",
                     "expireMonth":"12",
                     "cvc":"123",
-                    "registerCard":0
+                    "registerCard":0,
+                    "cardAlias":"alias",
+                    "cardToken":"token",
+                    "cardUserKey":"user key"
                 },
                 "buyer":
                 {
@@ -384,7 +413,9 @@ class CreatePaymentRequestTest extends TestCase
                         "name":"Binocular",
                         "category1":"Collectibles",
                         "category2":"Accessories",
-                        "itemType":"PHYSICAL"
+                        "itemType":"PHYSICAL",
+                        "subMerchantPrice":"0.27",
+                        "subMerchantKey":"sub merchant key"
                     }
                 ],
                 "paymentSource":"payment source",

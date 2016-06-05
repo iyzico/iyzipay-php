@@ -27,12 +27,15 @@ class CreateBasicPaymentRequestTest extends TestCase
         $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
         $paymentCard->setExpireYear("2030");
         $paymentCard->setCvc("123");
         $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
         $request->setPaymentCard($paymentCard);
 
         $jsonObject = $request->getJsonObject();
@@ -49,11 +52,15 @@ class CreateBasicPaymentRequestTest extends TestCase
         $this->assertEquals("TRY", $jsonObject["currency"]);
         $this->assertEquals("order", $jsonObject["posOrderId"]);
         $this->assertEquals("callback", $jsonObject["callbackUrl"]);
+        $this->assertEquals("alias", $jsonObject["paymentCard"]["cardAlias"]);
         $this->assertEquals("John Doe", $jsonObject["paymentCard"]["cardHolderName"]);
         $this->assertEquals("5528790000000008", $jsonObject["paymentCard"]["cardNumber"]);
         $this->assertEquals("12", $jsonObject["paymentCard"]["expireMonth"]);
         $this->assertEquals("2030", $jsonObject["paymentCard"]["expireYear"]);
         $this->assertEquals("123", $jsonObject["paymentCard"]["cvc"]);
+        $this->assertEquals("0", $jsonObject["paymentCard"]["registerCard"]);
+        $this->assertEquals("token", $jsonObject["paymentCard"]["cardToken"]);
+        $this->assertEquals("user key", $jsonObject["paymentCard"]["cardUserKey"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -73,12 +80,15 @@ class CreateBasicPaymentRequestTest extends TestCase
         $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
         $paymentCard->setExpireYear("2030");
         $paymentCard->setCvc("123");
         $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
         $request->setPaymentCard($paymentCard);
 
         $str = "[locale=tr," .
@@ -95,7 +105,10 @@ class CreateBasicPaymentRequestTest extends TestCase
             "expireYear=2030," .
             "expireMonth=12," .
             "cvc=123," .
-            "registerCard=0]," .
+            "registerCard=0," .
+            "cardAlias=alias," .
+            "cardToken=token," .
+            "cardUserKey=user key]," .
             "currency=TRY," .
             "connectorName=connector name," .
             "callbackUrl=callback]";
@@ -120,12 +133,15 @@ class CreateBasicPaymentRequestTest extends TestCase
         $request->setCallbackUrl("callback");
 
         $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
         $paymentCard->setCardHolderName("John Doe");
         $paymentCard->setCardNumber("5528790000000008");
         $paymentCard->setExpireMonth("12");
         $paymentCard->setExpireYear("2030");
         $paymentCard->setCvc("123");
         $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
         $request->setPaymentCard($paymentCard);
 
         $json = '
@@ -146,7 +162,10 @@ class CreateBasicPaymentRequestTest extends TestCase
                     "expireYear":"2030",
                     "expireMonth":"12",
                     "cvc":"123",
-                    "registerCard":0
+                    "registerCard":0,
+                    "cardAlias":"alias",
+                    "cardToken":"token",
+                    "cardUserKey":"user key"
                 },
                 "currency":"TRY",
                 "connectorName":"connector name",
