@@ -28,7 +28,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPaymentSource("source");
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
-        $request->setCardUserKey("XvYKRaf5oq0PDzaqP8eyD2cv4yg=");
+        $request->setCardUserKey("user key");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -86,7 +86,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $this->assertEquals("source", $jsonObject["paymentSource"]);
         $this->assertEquals(1, $jsonObject["forceThreeDS"]);
         $this->assertEquals("order", $jsonObject["posOrderId"]);
-        $this->assertEquals("XvYKRaf5oq0PDzaqP8eyD2cv4yg=", $jsonObject["cardUserKey"]);
+        $this->assertEquals("user key", $jsonObject["cardUserKey"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -132,7 +132,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPaymentSource("source");
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
-        $request->setCardUserKey("XvYKRaf5oq0PDzaqP8eyD2cv4yg=");
+        $request->setCardUserKey("user key");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -218,7 +218,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
             "posOrderId=order," .
             "paidPrice=1.2," .
             "forceThreeDS=1," .
-            "cardUserKey=XvYKRaf5oq0PDzaqP8eyD2cv4yg=]";
+            "cardUserKey=user key]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -237,7 +237,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPaymentSource("source");
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
-        $request->setCardUserKey("XvYKRaf5oq0PDzaqP8eyD2cv4yg=");
+        $request->setCardUserKey("user key");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -295,7 +295,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
                 "paymentSource":"source",
                 "posOrderId":"order",
                 "forceThreeDS":"1",
-                "cardUserKey":"XvYKRaf5oq0PDzaqP8eyD2cv4yg=",
+                "cardUserKey":"user key",
                 "buyer":
                 {
                     "id":"BY789",
