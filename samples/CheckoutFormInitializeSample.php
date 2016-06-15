@@ -22,6 +22,14 @@ class CheckoutFormInitializeSample
         $request->setBasketId("B67832");
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        
+        $enabledInstallments = array();
+        $enabledInstallments[0] = 1;
+        $enabledInstallments[1] = 2;
+        $enabledInstallments[2] = 3;
+        $enabledInstallments[3] = 6;
+        $enabledInstallments[4] = 9;
+        $request->setEnabledInstallments($enabledInstallments);
 
         $buyer = new \Iyzipay\Model\Buyer();
         $buyer->setId("BY789");
