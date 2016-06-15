@@ -20,7 +20,7 @@ class InstallmentHtmlMapperTest extends TestCase
                 "locale":"tr",
                 "systemTime":1458545234852,
                 "conversationId":"123456",
-                "htmlContent":""
+                "htmlContent":"html"
             }';
 
         $installmentHtml = InstallmentHtmlMapper::create($json)->jsonDecode()->mapInstallmentHtml(new InstallmentHtml());
@@ -32,6 +32,7 @@ class InstallmentHtmlMapperTest extends TestCase
         $this->assertEquals(Locale::TR, $installmentHtml->getLocale());
         $this->assertEquals("1458545234852", $installmentHtml->getSystemTime());
         $this->assertEquals("123456", $installmentHtml->getConversationId());
+        $this->assertEquals("html", $installmentHtml->getHtmlContent());
         $this->assertJson($installmentHtml->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $installmentHtml->getRawResult());
     }
@@ -58,6 +59,7 @@ class InstallmentHtmlMapperTest extends TestCase
         $this->assertEquals(Locale::TR, $installmentHtml->getLocale());
         $this->assertEquals("1458545234852", $installmentHtml->getSystemTime());
         $this->assertEquals("123456", $installmentHtml->getConversationId());
+        $this->assertEmpty($installmentHtml->getHtmlContent());
         $this->assertJson($installmentHtml->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $installmentHtml->getRawResult());
     }

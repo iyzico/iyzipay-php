@@ -21,7 +21,7 @@ class InstallmentHtml extends IyzipayResource
     {
         return $this->htmlContent;;
     }
-    
+
     public function setHtmlContent($htmlContent)
     {
         $this->htmlContent = $htmlContent;

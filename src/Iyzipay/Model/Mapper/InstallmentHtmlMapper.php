@@ -14,7 +14,7 @@ class InstallmentHtmlMapper extends IyzipayResourceMapper
     public function mapInstallmentHtmlFrom(InstallmentHtml $installmentHtml, $jsonObject)
     {
         parent::mapResourceFrom($installmentHtml, $jsonObject);
-        
+
         if (isset($jsonObject->htmlContent)) {
             $installmentHtml->setHtmlContent($jsonObject->htmlContent);
         }
