@@ -29,6 +29,14 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
+        
+        $enabledInstallments = array();
+        $enabledInstallments[0] = 1;
+        $enabledInstallments[1] = 2;
+        $enabledInstallments[2] = 3;
+        $enabledInstallments[3] = 6;
+        $enabledInstallments[4] = 9;
+        $request->setEnabledInstallments($enabledInstallments);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -87,6 +95,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $this->assertEquals(1, $jsonObject["forceThreeDS"]);
         $this->assertEquals("order", $jsonObject["posOrderId"]);
         $this->assertEquals("user key", $jsonObject["cardUserKey"]);
+        $this->assertEquals([1,2,3,6,9], $jsonObject["enabledInstallments"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -133,6 +142,14 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
+        
+        $enabledInstallments = array();
+        $enabledInstallments[0] = 1;
+        $enabledInstallments[1] = 2;
+        $enabledInstallments[2] = 3;
+        $enabledInstallments[3] = 6;
+        $enabledInstallments[4] = 9;
+        $request->setEnabledInstallments($enabledInstallments);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -218,7 +235,8 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
             "posOrderId=order," .
             "paidPrice=1.2," .
             "forceThreeDS=1," .
-            "cardUserKey=user key]";
+            "cardUserKey=user key," .
+            "enabledInstallments=[1, 2, 3, 6, 9]]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -238,6 +256,14 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
+        
+        $enabledInstallments = array();
+        $enabledInstallments[0] = 1;
+        $enabledInstallments[1] = 2;
+        $enabledInstallments[2] = 3;
+        $enabledInstallments[3] = 6;
+        $enabledInstallments[4] = 9;
+        $request->setEnabledInstallments($enabledInstallments);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -339,7 +365,8 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
                         "itemType":"PHYSICAL"
                     }
                 ],
-                "callbackUrl":"https://www.merchant.com/callback"
+                "callbackUrl":"https://www.merchant.com/callback",
+                "enabledInstallments":[1,2,3,6,9]
             }';
 
         $this->assertJson($request->toJsonString());
