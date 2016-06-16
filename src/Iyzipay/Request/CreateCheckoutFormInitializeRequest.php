@@ -22,6 +22,7 @@ class CreateCheckoutFormInitializeRequest extends Request
     private $forceThreeDS;
     private $cardUserKey;
     private $posOrderId;
+    private $enabledInstallments;
 
     public function getPrice()
     {
@@ -162,6 +163,15 @@ class CreateCheckoutFormInitializeRequest extends Request
     {
         $this->posOrderId = $posOrderId;
     }
+    
+    public function setEnabledInstallments($enabledInstallments)
+    {
+        $this->enabledInstallments = $enabledInstallments;
+    }
+    public function getEnabledInstallments()
+    {
+        return $this->enabledInstallments;
+    }
 
     public function getJsonObject()
     {
@@ -180,6 +190,7 @@ class CreateCheckoutFormInitializeRequest extends Request
             ->addPrice("paidPrice", $this->getPaidPrice())
             ->add("forceThreeDS", $this->getForceThreeDS())
             ->add("cardUserKey", $this->getCardUserKey())
+            ->addArray("enabledInstallments", $this->getEnabledInstallments())
             ->getObject();
     }
 
@@ -201,6 +212,7 @@ class CreateCheckoutFormInitializeRequest extends Request
             ->appendPrice("paidPrice", $this->getPaidPrice())
             ->append("forceThreeDS", $this->getForceThreeDS())
             ->append("cardUserKey", $this->getCardUserKey())
+            ->appendArray("enabledInstallments", $this->getEnabledInstallments())
             ->getRequestString();
     }
 }
