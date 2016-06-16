@@ -13,13 +13,13 @@ class PeccoInitialize extends IyzipayResource
     private $redirectUrl;
     private $token;
     private $tokenExpireTime;
-    
+
     public static function create(CreatePeccoInitializeRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/pecco/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return PeccoInitializeMapper::create($rawResult)->jsonDecode()->mapPeccoInitialize(new PeccoInitialize());
     }
-    
+
     public function getHtmlContent()
     {
         return $this->htmlContent;

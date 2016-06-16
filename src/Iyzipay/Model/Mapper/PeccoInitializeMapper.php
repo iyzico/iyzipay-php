@@ -14,18 +14,18 @@ class PeccoInitializeMapper extends IyzipayResourceMapper
     public function mapPeccoInitializeFrom(PeccoInitialize $peccoInitialize, $jsonObject)
     {
         parent::mapResourceFrom($peccoInitialize, $jsonObject);
-        
+
         if (isset($jsonObject->token)) {
-            $initialize->setToken($jsonObject->token);
+            $peccoInitialize->setToken($jsonObject->token);
         }
         if (isset($jsonObject->htmlContent)) {
-            $initialize->setHtmlContent($jsonObject->htmlContent);
+            $peccoInitialize->setHtmlContent($jsonObject->htmlContent);
         }
         if (isset($jsonObject->tokenExpireTime)) {
-            $initialize->setTokenExpireTime($jsonObject->tokenExpireTime);
+            $peccoInitialize->setTokenExpireTime($jsonObject->tokenExpireTime);
         }
         if (isset($jsonObject->redirectUrl)) {
-            $initialize->setRedirectUrl($jsonObject->redirectUrl);
+            $peccoInitialize->setRedirectUrl($jsonObject->redirectUrl);
         }
         return $peccoInitialize;
     }

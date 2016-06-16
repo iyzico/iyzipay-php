@@ -11,14 +11,14 @@ class PeccoPaymentMapper extends PaymentResourceMapper
         return new PeccoPaymentMapper($rawResult);
     }
 
-    public function mapPeccoPaymentFrom(PeccoPayment $auth, $jsonObject)
+    public function mapPeccoPaymentFrom(PeccoPayment $payment, $jsonObject)
     {
-        parent::mapPaymentResourceFrom($auth, $jsonObject);
+        parent::mapPaymentResourceFrom($payment, $jsonObject);
 
         if (isset($jsonObject->token)) {
-            $auth->setToken($jsonObject->token);
+            $payment->setToken($jsonObject->token);
         }
-        return $auth;
+        return $payment;
     }
 
     public function mapPeccoPayment(PeccoPayment $auth)

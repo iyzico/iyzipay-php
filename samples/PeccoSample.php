@@ -97,7 +97,7 @@ class PeccoSample
         # print result
         print_r($peccoInitialize);
     }
-    
+
     public function should_auth_pecco_payment()
     {
         # create request class
