@@ -8,4 +8,5 @@ class Currency
     const EUR = "EUR";
     const USD = "USD";
     const GBP = "GBP";
+    const IRR = "IRR";
 }
