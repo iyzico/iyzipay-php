@@ -141,6 +141,28 @@ Install dependencies:
 composer install
 ```
 
+### Mock tests cards
+Bank                       |  Card Type        |  Card Number
+-------------              | -------------     |  ----------
+Akbank T.A.Ş.              | Debit             |  5890040000000016
+Akbank T.A.Ş.              | Credit            |  5526080000000006
+Asya Katılım Bankası A.Ş.  | Debit             |  4073810000000006
+Asya Katılım Bankası A.Ş.  | Credit            |  5331490000000002
+Finansbank A.Ş.            | Debit             |  4987490000000002
+Finansbank A.Ş.            | Credit            |  5311570000000005
+Garanti Bankası A.Ş.       | Debit             |  5170410000000004
+Garanti Bankası A.Ş.       | Credit            |  5400360000000003
+Garanti Bankası A.Ş.       | Amex              |  374427000000003
+Halkbank A.Ş.              | Debit             |  4475050000000003
+Halkbank A.Ş.              | Credit            |  5528790000000008
+HSBC Bank A.Ş.             | Debit             |  4059010000000001
+HSBC Bank A.Ş.             | Credit            |  4059170000000003
+Türkiye İş Bankası A.Ş.    | Debit             |  5892830000000000
+Türkiye İş Bankası A.Ş.    | Debit             |  6390040000000001
+Yapı ve Kredi Bankası A.Ş. | Credit            |  5451030000000000
+Shetab Card (Iran)         | Credit            |  6221060000000004
+Multi Currency Test        | -                 |  5412750000000001
+
 ## Testing
 
 Install dependencies as mentioned above (which will resolve [PHPUnit](http://packagist.org/packages/phpunit/phpunit)), then you can run the test suite:
