@@ -163,11 +163,12 @@ class CreateCheckoutFormInitializeRequest extends Request
     {
         $this->posOrderId = $posOrderId;
     }
-    
+
     public function setEnabledInstallments($enabledInstallments)
     {
         $this->enabledInstallments = $enabledInstallments;
     }
+
     public function getEnabledInstallments()
     {
         return $this->enabledInstallments;

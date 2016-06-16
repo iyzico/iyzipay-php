@@ -29,9 +29,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
-        
-        $enabledInstallments = array(1,2,3,6,9);
-        $request->setEnabledInstallments($enabledInstallments);
+        $request->setEnabledInstallments(array(1, 2, 3, 6, 9));
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -90,7 +88,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $this->assertEquals(1, $jsonObject["forceThreeDS"]);
         $this->assertEquals("order", $jsonObject["posOrderId"]);
         $this->assertEquals("user key", $jsonObject["cardUserKey"]);
-        $this->assertEquals(array(1,2,3,6,9), $jsonObject["enabledInstallments"]);
+        $this->assertEquals(array(1, 2, 3, 6, 9), $jsonObject["enabledInstallments"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -137,9 +135,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
-        
-        $enabledInstallments = array(1,2,3,6,9);
-        $request->setEnabledInstallments($enabledInstallments);
+        $request->setEnabledInstallments(array(1, 2, 3, 6, 9));
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
@@ -246,9 +242,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setForceThreeDS(1);
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
-        
-        $enabledInstallments = array(1,2,3,6,9);
-        $request->setEnabledInstallments($enabledInstallments);
+        $request->setEnabledInstallments(array(1, 2, 3, 6, 9));
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
