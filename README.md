@@ -155,6 +155,8 @@ Card Number      | Bank                       | Card Type
 4603450000000000 | Denizbank                  | Visa (Credit)  
 4987490000000002 | Finansbank                 | Visa (Debit)  
 5311570000000005 | Finansbank                 | Master Card (Credit)  
+9792020000000001 | Finansbank                 | Troy (Debit)  
+9792030000000000 | Finansbank                 | Troy (Credit)  
 5170410000000004 | Garanti Bankası            | Master Card (Debit)  
 5400360000000003 | Garanti Bankası            | Master Card (Credit)  
 374427000000003  | Garanti Bankası            | American Express  
