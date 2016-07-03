@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BasicThreedsInitializePreAuthTest extends IyzipayResourceTestCase
 {
-    public function test_should_initialize_connect_threeds()
+    public function test_should_initialize_basic_threeds()
     {
         $this->expectHttpPost();
 

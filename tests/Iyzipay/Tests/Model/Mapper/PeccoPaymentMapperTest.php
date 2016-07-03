@@ -15,8 +15,8 @@ class PeccoPaymentMapperTest extends TestCase
     {
         $json = '
             {
-                "status":"failure",
-                "errorCode":10000,
+                "status": "failure",
+                "errorCode":"10000",
                 "errorMessage":"error message",
                 "errorGroup":"ERROR_GROUP",
                 "locale": "tr",
@@ -41,7 +41,6 @@ class PeccoPaymentMapperTest extends TestCase
                 "basketId": "B67832",
                 "currency": "TRY",
                 "connectorName": "connector name",
-                "token": "token",
                 "itemTransactions": [
                 {
                     "itemId": "BI101",
@@ -141,7 +140,8 @@ class PeccoPaymentMapperTest extends TestCase
                         "iyziConversionRateAmount":0,
                         "currency":"TRY"
                     }
-                }]
+                }],
+                "token": "token"
             }';
 
         $peccoPayment = PeccoPaymentMapper::create($json)->jsonDecode()->mapPeccoPayment(new PeccoPayment());
@@ -175,7 +175,6 @@ class PeccoPaymentMapperTest extends TestCase
         $this->assertEquals("B67832", $peccoPayment->getBasketId());
         $this->assertEquals(Currency::TL, $peccoPayment->getCurrency());
         $this->assertEquals("connector name", $peccoPayment->getConnectorName());
-        $this->assertEquals("token", $peccoPayment->getToken());
 
         $paymentItems = $peccoPayment->getPaymentItems();
         $this->assertNotEmpty($peccoPayment->getPaymentItems());
@@ -273,5 +272,7 @@ class PeccoPaymentMapperTest extends TestCase
         $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRate());
         $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRateAmount());
         $this->assertEquals(Currency::TL, $paymentItem->getConvertedPayout()->getCurrency());
+
+        $this->assertEquals("token", $peccoPayment->getToken());
     }
 }

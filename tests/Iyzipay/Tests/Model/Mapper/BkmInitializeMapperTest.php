@@ -10,7 +10,7 @@ use Iyzipay\Tests\TestCase;
 
 class BkmInitializeMapperTest extends TestCase
 {
-    public function test_should_map_BKM_Initialize_number()
+    public function test_should_map_bkm_initialize()
     {
         $json = '
             {   

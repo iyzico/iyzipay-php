@@ -11,7 +11,7 @@ use Iyzipay\Tests\TestCase;
 
 class PaymentResourceMapperTest extends TestCase
 {
-    public function test_should_map_payment()
+    public function test_should_map_payment_resource()
     {
         $json = '
             {
@@ -26,7 +26,7 @@ class PaymentResourceMapperTest extends TestCase
                 "paidPrice": 1.1,
                 "installment": 1,
                 "paymentId": "1",
-                "paymentStatus": null,
+                "paymentStatus": "SUCCESS",
                 "fraudStatus": 1,
                 "merchantCommissionRate": 10.00000000,
                 "merchantCommissionRateAmount": 0.1,
@@ -159,7 +159,7 @@ class PaymentResourceMapperTest extends TestCase
         $this->assertEquals("1.1", $payment->getPaidPrice());
         $this->assertEquals("1", $payment->getInstallment());
         $this->assertEquals("1", $payment->getPaymentId());
-        $this->assertEmpty($payment->getPaymentStatus());
+        $this->assertEquals("SUCCESS", $payment->getPaymentStatus());
         $this->assertEquals("1", $payment->getFraudStatus());
         $this->assertEquals("10.00000000", $payment->getMerchantCommissionRate());
         $this->assertEquals("0.1", $payment->getMerchantCommissionRateAmount());

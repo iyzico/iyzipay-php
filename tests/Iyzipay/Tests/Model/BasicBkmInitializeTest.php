@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BasicBkmInitializeTest extends IyzipayResourceTestCase
 {
-    public function test_should_initialize_connect_bkm()
+    public function test_should_initialize_basic_bkm()
     {
         $this->expectHttpPost();
 

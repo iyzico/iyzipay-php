@@ -3,6 +3,7 @@
 namespace Iyzipay\Tests\Model\Mapper;
 
 use Iyzipay\Model\BasicPaymentResource;
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Mapper\BasicPaymentResourceMapper;
 use Iyzipay\Model\Status;
@@ -10,7 +11,7 @@ use Iyzipay\Tests\TestCase;
 
 class BasicPaymentResourceMapperTest extends TestCase
 {
-    public function test_should_map_connect_payment()
+    public function test_should_map_basic_payment_resource()
     {
         $json = '
             {
@@ -68,6 +69,6 @@ class BasicPaymentResourceMapperTest extends TestCase
         $this->assertEquals("1", $basicPayment->getPaymentTransactionId());
         $this->assertEquals("546382", $basicPayment->getAuthCode());
         $this->assertEquals("connectorName", $basicPayment->getConnectorName());
-        $this->assertEquals("TRY", $basicPayment->getCurrency());
+        $this->assertEquals(Currency::TL, $basicPayment->getCurrency());
     }
 }

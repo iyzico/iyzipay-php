@@ -140,7 +140,9 @@ class CheckoutFormMapperTest extends TestCase
                         "iyziConversionRateAmount":0,
                         "currency":"TRY"
                     }
-                }]
+                }],
+                "token": "token",
+                "callbackUrl": "url"
             }';
 
         $checkoutForm = CheckoutFormMapper::create($json)->jsonDecode()->mapCheckoutForm(new CheckoutForm());
@@ -271,5 +273,8 @@ class CheckoutFormMapperTest extends TestCase
         $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRate());
         $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRateAmount());
         $this->assertEquals(Currency::TL, $paymentItem->getConvertedPayout()->getCurrency());
+
+        $this->assertEquals("token", $checkoutForm->getToken());
+        $this->assertEquals("url", $checkoutForm->getCallbackUrl());
     }
 }

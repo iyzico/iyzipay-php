@@ -3,6 +3,7 @@
 namespace Iyzipay\Tests\Model\Mapper;
 
 use Iyzipay\Model\BasicBkm;
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Mapper\BasicBkmMapper;
 use Iyzipay\Model\Status;
@@ -10,7 +11,7 @@ use Iyzipay\Tests\TestCase;
 
 class BasicBkmMapperTest extends TestCase
 {
-    public function test_should_map_connect_bkm_auth()
+    public function test_should_map_basic_bkm()
     {
         $json = '
             {
@@ -37,6 +38,7 @@ class BasicBkmMapperTest extends TestCase
                 "paymentTransactionId": "1",
                 "authCode": "546382",
                 "connectorName": "connectorName",
+                "currency": "TRY",
                 "token": "token",
                 "callbackUrl": "https://www.iyzico.com",
                 "paymentStatus": "SUCCESS"
@@ -70,6 +72,7 @@ class BasicBkmMapperTest extends TestCase
         $this->assertEquals("1", $basicBkm->getPaymentTransactionId());
         $this->assertEquals("546382", $basicBkm->getAuthCode());
         $this->assertEquals("connectorName", $basicBkm->getConnectorName());
+        $this->assertEquals(Currency::TL, $basicBkm->getCurrency());
         $this->assertEquals("token", $basicBkm->getToken());
         $this->assertEquals("https://www.iyzico.com", $basicBkm->getCallbackUrl());
         $this->assertEquals("SUCCESS", $basicBkm->getPaymentStatus());
