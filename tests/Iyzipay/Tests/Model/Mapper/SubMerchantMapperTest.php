@@ -39,7 +39,6 @@ class SubMerchantMapperTest extends TestCase
                 "taxNumber":"29389232",
                 "subMerchantType":"PERSONAL",
                 "subMerchantKey":"O84R/fTnwj/dD15gwL10svQjOgs="
-
             }';
 
         $subMerchant = SubMerchantMapper::create($json)->jsonDecode()->mapSubMerchant(new SubMerchant());
