@@ -12,8 +12,8 @@ class RefundChargedFromMerchantTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $refund = RefundChargedFromMerchant::create(new CreateRefundRequest(), $this->options);
+        $refundChargedFromMerchant = RefundChargedFromMerchant::create(new CreateRefundRequest(), $this->options);
 
-        $this->verifyResource($refund);
+        $this->verifyResource($refundChargedFromMerchant);
     }
 }

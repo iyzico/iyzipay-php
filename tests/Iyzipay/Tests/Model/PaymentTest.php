@@ -13,17 +13,17 @@ class PaymentTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $paymentAuth = Payment::create(new CreatePaymentRequest(), $this->options);
+        $payment = Payment::create(new CreatePaymentRequest(), $this->options);
 
-        $this->verifyResource($paymentAuth);
+        $this->verifyResource($payment);
     }
 
     public function test_should_retrieve_auth_payment()
     {
         $this->expectHttpPost();
 
-        $paymentAuth = Payment::retrieve(new RetrievePaymentRequest(), $this->options);
+        $payment = Payment::retrieve(new RetrievePaymentRequest(), $this->options);
 
-        $this->verifyResource($paymentAuth);
+        $this->verifyResource($payment);
     }
 }

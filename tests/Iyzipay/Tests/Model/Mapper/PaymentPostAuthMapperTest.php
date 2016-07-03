@@ -2,16 +2,15 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
-use Iyzipay\Model\CheckoutForm;
-use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
-use Iyzipay\Model\Mapper\CheckoutFormMapper;
+use Iyzipay\Model\Mapper\PaymentPostAuthMapper;
+use Iyzipay\Model\PaymentPostAuth;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
-class CheckoutFormMapperTest extends TestCase
+class PaymentPostAuthMapperTest extends TestCase
 {
-    public function test_should_map_checkout_form()
+    public function test_should_map_payment_post_auth()
     {
         $json = '
             {
@@ -39,8 +38,6 @@ class CheckoutFormMapperTest extends TestCase
                 "cardToken": "cardToken",
                 "binNumber": "554960",
                 "basketId": "B67832",
-                "currency": "TRY",
-                "connectorName": "connector name",
                 "itemTransactions": [
                 {
                     "itemId": "BI101",
@@ -60,20 +57,7 @@ class CheckoutFormMapperTest extends TestCase
                     "subMerchantPrice": 0,
                     "subMerchantPayoutRate": 0E-8,
                     "subMerchantPayoutAmount": 0,
-                    "merchantPayoutAmount": 0.19876500,
-                    "convertedPayout":
-                    {
-                        "paidPrice":0.33000000,
-                        "iyziCommissionRateAmount":0.00973500,
-                        "iyziCommissionFee":0.08850000,
-                        "blockageRateAmountMerchant":0.03300000,
-                        "blockageRateAmountSubMerchant":0E-8,
-                        "subMerchantPayoutAmount":0E-8,
-                        "merchantPayoutAmount":0.19876500,
-                        "iyziConversionRate":0,
-                        "iyziConversionRateAmount":0,
-                        "currency":"TRY"
-                    }
+                    "merchantPayoutAmount": 0.19876500
                 },
                 {
                     "itemId": "BI102",
@@ -93,20 +77,7 @@ class CheckoutFormMapperTest extends TestCase
                     "subMerchantPrice": 0,
                     "subMerchantPayoutRate": 0E-8,
                     "subMerchantPayoutAmount": 0,
-                    "merchantPayoutAmount": 0.33127500,
-                    "convertedPayout":
-                    {
-                        "paidPrice":0.55000000,
-                        "iyziCommissionRateAmount":0.01622500,
-                        "iyziCommissionFee":0.14750000,
-                        "blockageRateAmountMerchant":0.05500000,
-                        "blockageRateAmountSubMerchant":0E-8,
-                        "subMerchantPayoutAmount":0E-8,
-                        "merchantPayoutAmount":0.33127500,
-                        "iyziConversionRate":0,
-                        "iyziConversionRateAmount":0,
-                        "currency":"TRY"
-                    }
+                    "merchantPayoutAmount": 0.33127500
                 },
                 {
                     "itemId": "BI103",
@@ -126,58 +97,43 @@ class CheckoutFormMapperTest extends TestCase
                     "subMerchantPrice": 0,
                     "subMerchantPayoutRate": 0E-8,
                     "subMerchantPayoutAmount": 0,
-                    "merchantPayoutAmount": 0.13251000,
-                    "convertedPayout":
-                    {
-                        "paidPrice":0.22000000,
-                        "iyziCommissionRateAmount":0.00649000,
-                        "iyziCommissionFee":0.05900000,
-                        "blockageRateAmountMerchant":0.02200000,
-                        "blockageRateAmountSubMerchant":0E-8,
-                        "subMerchantPayoutAmount":0E-8,
-                        "merchantPayoutAmount":0.13251000,
-                        "iyziConversionRate":0,
-                        "iyziConversionRateAmount":0,
-                        "currency":"TRY"
-                    }
+                    "merchantPayoutAmount": 0.13251000
                 }]
             }';
 
-        $checkoutForm = CheckoutFormMapper::create($json)->jsonDecode()->mapCheckoutForm(new CheckoutForm());
+        $paymentPostAuth = PaymentPostAuthMapper::create($json)->jsonDecode()->mapPaymentPostAuth(new PaymentPostAuth());
 
-        $this->assertNotEmpty($checkoutForm);
-        $this->assertEquals(Status::FAILURE, $checkoutForm->getStatus());
-        $this->assertEquals("10000", $checkoutForm->getErrorCode());
-        $this->assertEquals("error message", $checkoutForm->getErrorMessage());
-        $this->assertEquals("ERROR_GROUP", $checkoutForm->getErrorGroup());
-        $this->assertEquals(Locale::TR, $checkoutForm->getLocale());
-        $this->assertEquals("1458545234852", $checkoutForm->getSystemTime());
-        $this->assertEquals("123456", $checkoutForm->getConversationId());
-        $this->assertJson($checkoutForm->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $checkoutForm->getRawResult());
-        $this->assertEquals("1.0", $checkoutForm->getPrice());
-        $this->assertEquals("1.1", $checkoutForm->getPaidPrice());
-        $this->assertEquals("1", $checkoutForm->getInstallment());
-        $this->assertEquals("1", $checkoutForm->getPaymentId());
-        $this->assertEmpty($checkoutForm->getPaymentStatus());
-        $this->assertEquals("1", $checkoutForm->getFraudStatus());
-        $this->assertEquals("10.00000000", $checkoutForm->getMerchantCommissionRate());
-        $this->assertEquals("0.1", $checkoutForm->getMerchantCommissionRateAmount());
-        $this->assertEquals("0.03245000", $checkoutForm->getIyziCommissionRateAmount());
-        $this->assertEquals("0.29500000", $checkoutForm->getIyziCommissionFee());
-        $this->assertEquals("CREDIT_CARD", $checkoutForm->getCardType());
-        $this->assertEquals("MASTER_CARD", $checkoutForm->getCardAssociation());
-        $this->assertEquals("Bonus", $checkoutForm->getCardFamily());
-        $this->assertEquals("cardUserKey", $checkoutForm->getCardUserKey());
-        $this->assertEquals("cardToken", $checkoutForm->getCardToken());
-        $this->assertEquals("554960", $checkoutForm->getBinNumber());
-        $this->assertEquals("B67832", $checkoutForm->getBasketId());
-        $this->assertEquals(Currency::TL, $checkoutForm->getCurrency());
-        $this->assertEquals("connector name", $checkoutForm->getConnectorName());
+        $this->assertNotEmpty($paymentPostAuth);
+        $this->assertEquals(Status::FAILURE, $paymentPostAuth->getStatus());
+        $this->assertEquals("10000", $paymentPostAuth->getErrorCode());
+        $this->assertEquals("error message", $paymentPostAuth->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $paymentPostAuth->getErrorGroup());
+        $this->assertEquals(Locale::TR, $paymentPostAuth->getLocale());
+        $this->assertEquals("1458545234852", $paymentPostAuth->getSystemTime());
+        $this->assertEquals("123456", $paymentPostAuth->getConversationId());
+        $this->assertJson($paymentPostAuth->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $paymentPostAuth->getRawResult());
+        $this->assertEquals("1.0", $paymentPostAuth->getPrice());
+        $this->assertEquals("1.1", $paymentPostAuth->getPaidPrice());
+        $this->assertEquals("1", $paymentPostAuth->getInstallment());
+        $this->assertEquals("1", $paymentPostAuth->getPaymentId());
+        $this->assertEmpty($paymentPostAuth->getPaymentStatus());
+        $this->assertEquals("1", $paymentPostAuth->getFraudStatus());
+        $this->assertEquals("10.00000000", $paymentPostAuth->getMerchantCommissionRate());
+        $this->assertEquals("0.1", $paymentPostAuth->getMerchantCommissionRateAmount());
+        $this->assertEquals("0.03245000", $paymentPostAuth->getIyziCommissionRateAmount());
+        $this->assertEquals("0.29500000", $paymentPostAuth->getIyziCommissionFee());
+        $this->assertEquals("CREDIT_CARD", $paymentPostAuth->getCardType());
+        $this->assertEquals("MASTER_CARD", $paymentPostAuth->getCardAssociation());
+        $this->assertEquals("Bonus", $paymentPostAuth->getCardFamily());
+        $this->assertEquals("cardUserKey", $paymentPostAuth->getCardUserKey());
+        $this->assertEquals("cardToken", $paymentPostAuth->getCardToken());
+        $this->assertEquals("554960", $paymentPostAuth->getBinNumber());
+        $this->assertEquals("B67832", $paymentPostAuth->getBasketId());
 
-        $paymentItems = $checkoutForm->getPaymentItems();
-        $this->assertNotEmpty($checkoutForm->getPaymentItems());
-        $this->assertEquals(3, count($checkoutForm->getPaymentItems()));
+        $paymentItems = $paymentPostAuth->getPaymentItems();
+        $this->assertNotEmpty($paymentPostAuth->getPaymentItems());
+        $this->assertEquals(3, count($paymentPostAuth->getPaymentItems()));
 
         $paymentItem = $paymentItems[0];
         $this->assertEquals("BI101", $paymentItem->getItemId());
@@ -198,17 +154,6 @@ class CheckoutFormMapperTest extends TestCase
         $this->assertEquals("0E-8", $paymentItem->getSubMerchantPayoutRate());
         $this->assertEquals("0", $paymentItem->getSubMerchantPayoutAmount());
         $this->assertEquals("0.19876500", $paymentItem->getMerchantPayoutAmount());
-        $this->assertNotEmpty($paymentItem->getConvertedPayout());
-        $this->assertEquals("0.33000000", $paymentItem->getConvertedPayout()->getPaidPrice());
-        $this->assertEquals("0.00973500", $paymentItem->getConvertedPayout()->getIyziCommissionRateAmount());
-        $this->assertEquals("0.08850000", $paymentItem->getConvertedPayout()->getIyziCommissionFee());
-        $this->assertEquals("0.03300000", $paymentItem->getConvertedPayout()->getBlockageRateAmountMerchant());
-        $this->assertEquals("0E-8", $paymentItem->getConvertedPayout()->getBlockageRateAmountSubMerchant());
-        $this->assertEquals("0E-8", $paymentItem->getConvertedPayout()->getSubMerchantPayoutAmount());
-        $this->assertEquals("0.19876500", $paymentItem->getConvertedPayout()->getMerchantPayoutAmount());
-        $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRate());
-        $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRateAmount());
-        $this->assertEquals(Currency::TL, $paymentItem->getConvertedPayout()->getCurrency());
 
         $paymentItem = $paymentItems[1];
         $this->assertEquals("BI102", $paymentItem->getItemId());
@@ -229,17 +174,6 @@ class CheckoutFormMapperTest extends TestCase
         $this->assertEquals("0E-8", $paymentItem->getSubMerchantPayoutRate());
         $this->assertEquals("0", $paymentItem->getSubMerchantPayoutAmount());
         $this->assertEquals("0.33127500", $paymentItem->getMerchantPayoutAmount());
-        $this->assertNotEmpty($paymentItem->getConvertedPayout());
-        $this->assertEquals("0.55000000", $paymentItem->getConvertedPayout()->getPaidPrice());
-        $this->assertEquals("0.01622500", $paymentItem->getConvertedPayout()->getIyziCommissionRateAmount());
-        $this->assertEquals("0.14750000", $paymentItem->getConvertedPayout()->getIyziCommissionFee());
-        $this->assertEquals("0.05500000", $paymentItem->getConvertedPayout()->getBlockageRateAmountMerchant());
-        $this->assertEquals("0E-8", $paymentItem->getConvertedPayout()->getBlockageRateAmountSubMerchant());
-        $this->assertEquals("0E-8", $paymentItem->getConvertedPayout()->getSubMerchantPayoutAmount());
-        $this->assertEquals("0.33127500", $paymentItem->getConvertedPayout()->getMerchantPayoutAmount());
-        $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRate());
-        $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRateAmount());
-        $this->assertEquals(Currency::TL, $paymentItem->getConvertedPayout()->getCurrency());
 
         $paymentItem = $paymentItems[2];
         $this->assertEquals("BI103", $paymentItem->getItemId());
@@ -260,16 +194,5 @@ class CheckoutFormMapperTest extends TestCase
         $this->assertEquals("0E-8", $paymentItem->getSubMerchantPayoutRate());
         $this->assertEquals("0", $paymentItem->getSubMerchantPayoutAmount());
         $this->assertEquals("0.13251000", $paymentItem->getMerchantPayoutAmount());
-        $this->assertNotEmpty($paymentItem->getConvertedPayout());
-        $this->assertEquals("0.22000000", $paymentItem->getConvertedPayout()->getPaidPrice());
-        $this->assertEquals("0.00649000", $paymentItem->getConvertedPayout()->getIyziCommissionRateAmount());
-        $this->assertEquals("0.05900000", $paymentItem->getConvertedPayout()->getIyziCommissionFee());
-        $this->assertEquals("0.02200000", $paymentItem->getConvertedPayout()->getBlockageRateAmountMerchant());
-        $this->assertEquals("0E-8", $paymentItem->getConvertedPayout()->getBlockageRateAmountSubMerchant());
-        $this->assertEquals("0E-8", $paymentItem->getConvertedPayout()->getSubMerchantPayoutAmount());
-        $this->assertEquals("0.13251000", $paymentItem->getConvertedPayout()->getMerchantPayoutAmount());
-        $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRate());
-        $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRateAmount());
-        $this->assertEquals(Currency::TL, $paymentItem->getConvertedPayout()->getCurrency());
     }
 }

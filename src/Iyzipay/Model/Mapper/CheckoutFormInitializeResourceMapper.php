@@ -2,7 +2,6 @@
 
 namespace Iyzipay\Model\Mapper;
 
-use Iyzipay\Model\CheckoutFormInitialize;
 use Iyzipay\Model\CheckoutFormInitializeResource;
 
 class CheckoutFormInitializeResourceMapper extends IyzipayResourceMapper
@@ -31,7 +30,7 @@ class CheckoutFormInitializeResourceMapper extends IyzipayResourceMapper
         return $initialize;
     }
 
-    public function mapCheckoutFormInitializeResource(CheckoutFormInitialize $initialize)
+    public function mapCheckoutFormInitializeResource(CheckoutFormInitializeResource $initialize)
     {
         return $this->mapCheckoutFormInitializeResourceFrom($initialize, $this->jsonObject);
     }

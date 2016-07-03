@@ -12,14 +12,14 @@ use Iyzipay\Tests\TestCase;
 
 class SubMerchantMapperTest extends TestCase
 {
-    public function test_should_map_sub_merchant_given_approve_success_raw_result()
+    public function test_should_map_sub_merchant()
     {
         $json = '
             {
-                "status":"success",
-                "errorCode":null,
-                "errorMessage":null,
-                "errorGroup":null,
+                "status":"failure",
+                "errorCode":10000,
+                "errorMessage":"error message",
+                "errorGroup":"ERROR_GROUP",
                 "locale":"tr",
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
@@ -44,10 +44,10 @@ class SubMerchantMapperTest extends TestCase
         $subMerchant = SubMerchantMapper::create($json)->jsonDecode()->mapSubMerchant(new SubMerchant());
 
         $this->assertNotEmpty($subMerchant);
-        $this->assertEquals(Status::SUCCESS, $subMerchant->getStatus());
-        $this->assertEmpty($subMerchant->getErrorCode());
-        $this->assertEmpty($subMerchant->getErrorMessage());
-        $this->assertEmpty($subMerchant->getErrorGroup());
+        $this->assertEquals(Status::FAILURE, $subMerchant->getStatus());
+        $this->assertEquals("10000", $subMerchant->getErrorCode());
+        $this->assertEquals("error message", $subMerchant->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $subMerchant->getErrorGroup());
         $this->assertEquals(Locale::TR, $subMerchant->getLocale());
         $this->assertEquals("1458545234852", $subMerchant->getSystemTime());
         $this->assertEquals("123456", $subMerchant->getConversationId());
@@ -68,33 +68,6 @@ class SubMerchantMapperTest extends TestCase
         $this->assertEquals("29389232", $subMerchant->getTaxNumber());
         $this->assertEquals(SubMerchantType::PERSONAL, $subMerchant->getSubMerchantType());
         $this->assertEquals("O84R/fTnwj/dD15gwL10svQjOgs=", $subMerchant->getSubMerchantKey());
-        $this->assertJson($subMerchant->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $subMerchant->getRawResult());
-    }
-
-    public function test_should_map_sub_merchant_given_approve_failure_raw_result()
-    {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456"
-            }';
-
-        $subMerchant = SubMerchantMapper::create($json)->jsonDecode()->mapSubMerchant(new SubMerchant());
-
-        $this->assertNotEmpty($subMerchant);
-        $this->assertEquals(Status::FAILURE, $subMerchant->getStatus());
-        $this->assertEquals("10000", $subMerchant->getErrorCode());
-        $this->assertEquals("error message", $subMerchant->getErrorMessage());
-        $this->assertEquals("ERROR_GROUP", $subMerchant->getErrorGroup());
-        $this->assertEquals(Locale::TR, $subMerchant->getLocale());
-        $this->assertEquals("1458545234852", $subMerchant->getSystemTime());
-        $this->assertEquals("123456", $subMerchant->getConversationId());
         $this->assertJson($subMerchant->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $subMerchant->getRawResult());
     }

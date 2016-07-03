@@ -14,10 +14,10 @@ class BasicPaymentResourceMapperTest extends TestCase
     {
         $json = '
             {
-                "status":"success",
-                "errorCode":null,
-                "errorMessage":null,
-                "errorGroup":null,
+                "status":"failure",
+                "errorCode":10000,
+                "errorMessage":"error message",
+                "errorGroup":"ERROR_GROUP",
                 "locale":"tr",
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
@@ -40,34 +40,34 @@ class BasicPaymentResourceMapperTest extends TestCase
                 "currency": "TRY"
             }';
 
-        $connectPayment = BasicPaymentResourceMapper::create($json)->jsonDecode()->mapBasicPaymentResource(new BasicPaymentResource());
+        $basicPayment = BasicPaymentResourceMapper::create($json)->jsonDecode()->mapBasicPaymentResource(new BasicPaymentResource());
 
-        $this->assertNotEmpty($connectPayment);
-        $this->assertEquals(Status::SUCCESS, $connectPayment->getStatus());
-        $this->assertEmpty($connectPayment->getErrorCode());
-        $this->assertEmpty($connectPayment->getErrorMessage());
-        $this->assertEmpty($connectPayment->getErrorGroup());
-        $this->assertEquals(Locale::TR, $connectPayment->getLocale());
-        $this->assertEquals("1458545234852", $connectPayment->getSystemTime());
-        $this->assertEquals("123456", $connectPayment->getConversationId());
-        $this->assertJson($connectPayment->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $connectPayment->getRawResult());
-        $this->assertEquals("1.0", $connectPayment->getPrice());
-        $this->assertEquals("1.1", $connectPayment->getPaidPrice());
-        $this->assertEquals("1", $connectPayment->getInstallment());
-        $this->assertEquals("1", $connectPayment->getPaymentId());
-        $this->assertEquals("10.00000000", $connectPayment->getMerchantCommissionRate());
-        $this->assertEquals("0.1", $connectPayment->getMerchantCommissionRateAmount());
-        $this->assertEquals("0.35000000", $connectPayment->getIyziCommissionFee());
-        $this->assertEquals("CREDIT_CARD", $connectPayment->getCardType());
-        $this->assertEquals("MASTER_CARD", $connectPayment->getCardAssociation());
-        $this->assertEquals("Bonus", $connectPayment->getCardFamily());
-        $this->assertEquals("cardToken", $connectPayment->getCardToken());
-        $this->assertEquals("cardUserKey", $connectPayment->getCardUserKey());
-        $this->assertEquals("554960", $connectPayment->getBinNumber());
-        $this->assertEquals("1", $connectPayment->getPaymentTransactionId());
-        $this->assertEquals("546382", $connectPayment->getAuthCode());
-        $this->assertEquals("connectorName", $connectPayment->getConnectorName());
-        $this->assertEquals("TRY", $connectPayment->getCurrency());
+        $this->assertNotEmpty($basicPayment);
+        $this->assertEquals(Status::FAILURE, $basicPayment->getStatus());
+        $this->assertEquals("10000", $basicPayment->getErrorCode());
+        $this->assertEquals("error message", $basicPayment->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $basicPayment->getErrorGroup());
+        $this->assertEquals(Locale::TR, $basicPayment->getLocale());
+        $this->assertEquals("1458545234852", $basicPayment->getSystemTime());
+        $this->assertEquals("123456", $basicPayment->getConversationId());
+        $this->assertJson($basicPayment->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $basicPayment->getRawResult());
+        $this->assertEquals("1.0", $basicPayment->getPrice());
+        $this->assertEquals("1.1", $basicPayment->getPaidPrice());
+        $this->assertEquals("1", $basicPayment->getInstallment());
+        $this->assertEquals("1", $basicPayment->getPaymentId());
+        $this->assertEquals("10.00000000", $basicPayment->getMerchantCommissionRate());
+        $this->assertEquals("0.1", $basicPayment->getMerchantCommissionRateAmount());
+        $this->assertEquals("0.35000000", $basicPayment->getIyziCommissionFee());
+        $this->assertEquals("CREDIT_CARD", $basicPayment->getCardType());
+        $this->assertEquals("MASTER_CARD", $basicPayment->getCardAssociation());
+        $this->assertEquals("Bonus", $basicPayment->getCardFamily());
+        $this->assertEquals("cardToken", $basicPayment->getCardToken());
+        $this->assertEquals("cardUserKey", $basicPayment->getCardUserKey());
+        $this->assertEquals("554960", $basicPayment->getBinNumber());
+        $this->assertEquals("1", $basicPayment->getPaymentTransactionId());
+        $this->assertEquals("546382", $basicPayment->getAuthCode());
+        $this->assertEquals("connectorName", $basicPayment->getConnectorName());
+        $this->assertEquals("TRY", $basicPayment->getCurrency());
     }
 }

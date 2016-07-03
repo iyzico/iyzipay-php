@@ -12,8 +12,8 @@ class BasicBkmInitializeTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $connectBKMInitialize = BasicBkmInitialize::create(new CreateBasicBkmInitializeRequest(), $this->options);
+        $basicBkmInitialize = BasicBkmInitialize::create(new CreateBasicBkmInitializeRequest(), $this->options);
 
-        $this->verifyResource($connectBKMInitialize);
+        $this->verifyResource($basicBkmInitialize);
     }
 }

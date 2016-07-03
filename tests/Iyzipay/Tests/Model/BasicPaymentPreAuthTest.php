@@ -12,8 +12,8 @@ class BasicPaymentPreAuthTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $connectPaymentPreAuth = BasicPaymentPreAuth::create(new CreateBasicPaymentRequest(), $this->options);
+        $basicPaymentPreAuth = BasicPaymentPreAuth::create(new CreateBasicPaymentRequest(), $this->options);
 
-        $this->verifyResource($connectPaymentPreAuth);
+        $this->verifyResource($basicPaymentPreAuth);
     }
 }

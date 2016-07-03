@@ -14,10 +14,10 @@ class BasicBkmMapperTest extends TestCase
     {
         $json = '
             {
-                "status":"success",
-                "errorCode":null,
-                "errorMessage":null,
-                "errorGroup":null,
+                "status":"failure",
+                "errorCode":10000,
+                "errorMessage":"error message",
+                "errorGroup":"ERROR_GROUP",
                 "locale":"tr",
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
@@ -42,36 +42,36 @@ class BasicBkmMapperTest extends TestCase
                 "paymentStatus": "SUCCESS"
             }';
 
-        $connectBKMAuth = BasicBkmMapper::create($json)->jsonDecode()->mapBasicBkm(new BasicBkm());
+        $basicBkm = BasicBkmMapper::create($json)->jsonDecode()->mapBasicBkm(new BasicBkm());
 
-        $this->assertNotEmpty($connectBKMAuth);
-        $this->assertEquals(Status::SUCCESS, $connectBKMAuth->getStatus());
-        $this->assertEmpty($connectBKMAuth->getErrorCode());
-        $this->assertEmpty($connectBKMAuth->getErrorMessage());
-        $this->assertEmpty($connectBKMAuth->getErrorGroup());
-        $this->assertEquals(Locale::TR, $connectBKMAuth->getLocale());
-        $this->assertEquals("1458545234852", $connectBKMAuth->getSystemTime());
-        $this->assertEquals("123456", $connectBKMAuth->getConversationId());
-        $this->assertJson($connectBKMAuth->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $connectBKMAuth->getRawResult());
-        $this->assertEquals("1.0", $connectBKMAuth->getPrice());
-        $this->assertEquals("1.1", $connectBKMAuth->getPaidPrice());
-        $this->assertEquals("1", $connectBKMAuth->getInstallment());
-        $this->assertEquals("1", $connectBKMAuth->getPaymentId());
-        $this->assertEquals("10.00000000", $connectBKMAuth->getMerchantCommissionRate());
-        $this->assertEquals("0.1", $connectBKMAuth->getMerchantCommissionRateAmount());
-        $this->assertEquals("0.35000000", $connectBKMAuth->getIyziCommissionFee());
-        $this->assertEquals("CREDIT_CARD", $connectBKMAuth->getCardType());
-        $this->assertEquals("MASTER_CARD", $connectBKMAuth->getCardAssociation());
-        $this->assertEquals("Bonus", $connectBKMAuth->getCardFamily());
-        $this->assertEquals("cardToken", $connectBKMAuth->getCardToken());
-        $this->assertEquals("cardUserKey", $connectBKMAuth->getCardUserKey());
-        $this->assertEquals("554960", $connectBKMAuth->getBinNumber());
-        $this->assertEquals("1", $connectBKMAuth->getPaymentTransactionId());
-        $this->assertEquals("546382", $connectBKMAuth->getAuthCode());
-        $this->assertEquals("connectorName", $connectBKMAuth->getConnectorName());
-        $this->assertEquals("token", $connectBKMAuth->getToken());
-        $this->assertEquals("https://www.iyzico.com", $connectBKMAuth->getCallbackUrl());
-        $this->assertEquals("SUCCESS", $connectBKMAuth->getPaymentStatus());
+        $this->assertNotEmpty($basicBkm);
+        $this->assertEquals(Status::FAILURE, $basicBkm->getStatus());
+        $this->assertEquals("10000", $basicBkm->getErrorCode());
+        $this->assertEquals("error message", $basicBkm->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $basicBkm->getErrorGroup());
+        $this->assertEquals(Locale::TR, $basicBkm->getLocale());
+        $this->assertEquals("1458545234852", $basicBkm->getSystemTime());
+        $this->assertEquals("123456", $basicBkm->getConversationId());
+        $this->assertJson($basicBkm->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $basicBkm->getRawResult());
+        $this->assertEquals("1.0", $basicBkm->getPrice());
+        $this->assertEquals("1.1", $basicBkm->getPaidPrice());
+        $this->assertEquals("1", $basicBkm->getInstallment());
+        $this->assertEquals("1", $basicBkm->getPaymentId());
+        $this->assertEquals("10.00000000", $basicBkm->getMerchantCommissionRate());
+        $this->assertEquals("0.1", $basicBkm->getMerchantCommissionRateAmount());
+        $this->assertEquals("0.35000000", $basicBkm->getIyziCommissionFee());
+        $this->assertEquals("CREDIT_CARD", $basicBkm->getCardType());
+        $this->assertEquals("MASTER_CARD", $basicBkm->getCardAssociation());
+        $this->assertEquals("Bonus", $basicBkm->getCardFamily());
+        $this->assertEquals("cardToken", $basicBkm->getCardToken());
+        $this->assertEquals("cardUserKey", $basicBkm->getCardUserKey());
+        $this->assertEquals("554960", $basicBkm->getBinNumber());
+        $this->assertEquals("1", $basicBkm->getPaymentTransactionId());
+        $this->assertEquals("546382", $basicBkm->getAuthCode());
+        $this->assertEquals("connectorName", $basicBkm->getConnectorName());
+        $this->assertEquals("token", $basicBkm->getToken());
+        $this->assertEquals("https://www.iyzico.com", $basicBkm->getCallbackUrl());
+        $this->assertEquals("SUCCESS", $basicBkm->getPaymentStatus());
     }
 }

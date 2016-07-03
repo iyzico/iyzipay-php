@@ -14,10 +14,10 @@ class BasicPaymentPreAuthMapperTest extends TestCase
     {
         $json = '
             {
-                "status":"success",
-                "errorCode":null,
-                "errorMessage":null,
-                "errorGroup":null,
+                "status":"failure",
+                "errorCode":10000,
+                "errorMessage":"error message",
+                "errorGroup":"ERROR_GROUP",
                 "locale":"tr",
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
@@ -39,33 +39,33 @@ class BasicPaymentPreAuthMapperTest extends TestCase
                 "connectorName": "connectorName"
             }';
 
-        $connectPaymentPreAuth = BasicPaymentPreAuthMapper::create($json)->jsonDecode()->mapBasicPaymentPreAuth(new BasicPaymentPreAuth());
+        $basicPaymentPreAuth = BasicPaymentPreAuthMapper::create($json)->jsonDecode()->mapBasicPaymentPreAuth(new BasicPaymentPreAuth());
 
-        $this->assertNotEmpty($connectPaymentPreAuth);
-        $this->assertEquals(Status::SUCCESS, $connectPaymentPreAuth->getStatus());
-        $this->assertEmpty($connectPaymentPreAuth->getErrorCode());
-        $this->assertEmpty($connectPaymentPreAuth->getErrorMessage());
-        $this->assertEmpty($connectPaymentPreAuth->getErrorGroup());
-        $this->assertEquals(Locale::TR, $connectPaymentPreAuth->getLocale());
-        $this->assertEquals("1458545234852", $connectPaymentPreAuth->getSystemTime());
-        $this->assertEquals("123456", $connectPaymentPreAuth->getConversationId());
-        $this->assertJson($connectPaymentPreAuth->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $connectPaymentPreAuth->getRawResult());
-        $this->assertEquals("1.0", $connectPaymentPreAuth->getPrice());
-        $this->assertEquals("1.1", $connectPaymentPreAuth->getPaidPrice());
-        $this->assertEquals("1", $connectPaymentPreAuth->getInstallment());
-        $this->assertEquals("1", $connectPaymentPreAuth->getPaymentId());
-        $this->assertEquals("10.00000000", $connectPaymentPreAuth->getMerchantCommissionRate());
-        $this->assertEquals("0.1", $connectPaymentPreAuth->getMerchantCommissionRateAmount());
-        $this->assertEquals("0.35000000", $connectPaymentPreAuth->getIyziCommissionFee());
-        $this->assertEquals("CREDIT_CARD", $connectPaymentPreAuth->getCardType());
-        $this->assertEquals("MASTER_CARD", $connectPaymentPreAuth->getCardAssociation());
-        $this->assertEquals("Bonus", $connectPaymentPreAuth->getCardFamily());
-        $this->assertEquals("cardToken", $connectPaymentPreAuth->getCardToken());
-        $this->assertEquals("cardUserKey", $connectPaymentPreAuth->getCardUserKey());
-        $this->assertEquals("554960", $connectPaymentPreAuth->getBinNumber());
-        $this->assertEquals("1", $connectPaymentPreAuth->getPaymentTransactionId());
-        $this->assertEquals("546382", $connectPaymentPreAuth->getAuthCode());
-        $this->assertEquals("connectorName", $connectPaymentPreAuth->getConnectorName());
+        $this->assertNotEmpty($basicPaymentPreAuth);
+        $this->assertEquals(Status::FAILURE, $basicPaymentPreAuth->getStatus());
+        $this->assertEquals("10000", $basicPaymentPreAuth->getErrorCode());
+        $this->assertEquals("error message", $basicPaymentPreAuth->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $basicPaymentPreAuth->getErrorGroup());
+        $this->assertEquals(Locale::TR, $basicPaymentPreAuth->getLocale());
+        $this->assertEquals("1458545234852", $basicPaymentPreAuth->getSystemTime());
+        $this->assertEquals("123456", $basicPaymentPreAuth->getConversationId());
+        $this->assertJson($basicPaymentPreAuth->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $basicPaymentPreAuth->getRawResult());
+        $this->assertEquals("1.0", $basicPaymentPreAuth->getPrice());
+        $this->assertEquals("1.1", $basicPaymentPreAuth->getPaidPrice());
+        $this->assertEquals("1", $basicPaymentPreAuth->getInstallment());
+        $this->assertEquals("1", $basicPaymentPreAuth->getPaymentId());
+        $this->assertEquals("10.00000000", $basicPaymentPreAuth->getMerchantCommissionRate());
+        $this->assertEquals("0.1", $basicPaymentPreAuth->getMerchantCommissionRateAmount());
+        $this->assertEquals("0.35000000", $basicPaymentPreAuth->getIyziCommissionFee());
+        $this->assertEquals("CREDIT_CARD", $basicPaymentPreAuth->getCardType());
+        $this->assertEquals("MASTER_CARD", $basicPaymentPreAuth->getCardAssociation());
+        $this->assertEquals("Bonus", $basicPaymentPreAuth->getCardFamily());
+        $this->assertEquals("cardToken", $basicPaymentPreAuth->getCardToken());
+        $this->assertEquals("cardUserKey", $basicPaymentPreAuth->getCardUserKey());
+        $this->assertEquals("554960", $basicPaymentPreAuth->getBinNumber());
+        $this->assertEquals("1", $basicPaymentPreAuth->getPaymentTransactionId());
+        $this->assertEquals("546382", $basicPaymentPreAuth->getAuthCode());
+        $this->assertEquals("connectorName", $basicPaymentPreAuth->getConnectorName());
     }
 }

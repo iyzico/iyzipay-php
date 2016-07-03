@@ -10,42 +10,7 @@ use Iyzipay\Tests\TestCase;
 
 class RefundChargedFromMerchantMapperTest extends TestCase
 {
-    public function test_should_map_refund_charged_from_merchant_given_refund_success_raw_result()
-    {
-        $json = '
-            {
-                "status":"success",
-                "errorCode":null,
-                "errorMessage":null,
-                "errorGroup":null,
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "paymentId":"1",
-                "paymentTransactionId":"1",
-                "price":"1",
-                "currency":"TRY"
-            }';
-
-        $refund = RefundChargedFromMerchantMapper::create($json)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
-
-        $this->assertNotEmpty($refund);
-        $this->assertEquals(Status::SUCCESS, $refund->getStatus());
-        $this->assertEmpty($refund->getErrorCode());
-        $this->assertEmpty($refund->getErrorMessage());
-        $this->assertEmpty($refund->getErrorGroup());
-        $this->assertEquals(Locale::TR, $refund->getLocale());
-        $this->assertEquals("1458545234852", $refund->getSystemTime());
-        $this->assertEquals("123456", $refund->getConversationId());
-        $this->assertJson($refund->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $refund->getRawResult());
-        $this->assertEquals("1", $refund->getPaymentId());
-        $this->assertEquals("1", $refund->getPaymentTransactionId());
-        $this->assertEquals("1", $refund->getPrice());
-        $this->assertEquals("TRY", $refund->getCurrency());
-    }
-
-    public function test_should_map_refund_charged_from_merchant_given_refund_failure_raw_result()
+    public function test_should_map_refund_charged_from_merchant()
     {
         $json = '
             {
@@ -56,26 +21,27 @@ class RefundChargedFromMerchantMapperTest extends TestCase
                 "locale":"tr",
                 "systemTime":"1458545234852",
                 "conversationId":"123456",
+                "paymentId":"1",
                 "paymentTransactionId":"1",
                 "price":"1",
                 "currency":"TRY"
             }';
 
-        $refund = RefundChargedFromMerchantMapper::create($json)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
+        $refundChargedFromMerchant = RefundChargedFromMerchantMapper::create($json)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
 
-        $this->assertNotEmpty($refund);
-        $this->assertEquals(Status::FAILURE, $refund->getStatus());
-        $this->assertEquals("10000", $refund->getErrorCode());
-        $this->assertEquals("error message", $refund->getErrorMessage());
-        $this->assertEquals("ERROR_GROUP", $refund->getErrorGroup());
-        $this->assertEquals(Locale::TR, $refund->getLocale());
-        $this->assertEquals("1458545234852", $refund->getSystemTime());
-        $this->assertEquals("123456", $refund->getConversationId());
-        $this->assertJson($refund->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $refund->getRawResult());
-        $this->assertEquals("1", $refund->getPaymentTransactionId());
-        $this->assertEquals("1", $refund->getPrice());
-        $this->assertEquals("TRY", $refund->getCurrency());
-
+        $this->assertNotEmpty($refundChargedFromMerchant);
+        $this->assertEquals(Status::FAILURE, $refundChargedFromMerchant->getStatus());
+        $this->assertEquals("10000", $refundChargedFromMerchant->getErrorCode());
+        $this->assertEquals("error message", $refundChargedFromMerchant->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $refundChargedFromMerchant->getErrorGroup());
+        $this->assertEquals(Locale::TR, $refundChargedFromMerchant->getLocale());
+        $this->assertEquals("1458545234852", $refundChargedFromMerchant->getSystemTime());
+        $this->assertEquals("123456", $refundChargedFromMerchant->getConversationId());
+        $this->assertJson($refundChargedFromMerchant->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $refundChargedFromMerchant->getRawResult());
+        $this->assertEquals("1", $refundChargedFromMerchant->getPaymentId());
+        $this->assertEquals("1", $refundChargedFromMerchant->getPaymentTransactionId());
+        $this->assertEquals("1", $refundChargedFromMerchant->getPrice());
+        $this->assertEquals("TRY", $refundChargedFromMerchant->getCurrency());
     }
 }

@@ -12,8 +12,8 @@ class BkmTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $bkmAuth = Bkm::retrieve(new RetrieveBkmRequest(), $this->options);
+        $bkm = Bkm::retrieve(new RetrieveBkmRequest(), $this->options);
 
-        $this->verifyResource($bkmAuth);
+        $this->verifyResource($bkm);
     }
 }

@@ -12,8 +12,8 @@ class BasicThreedsInitializeTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $connectThreeDSInitialize = BasicThreedsInitialize::create(new CreateBasicPaymentRequest(), $this->options);
+        $basicThreedsInitialize = BasicThreedsInitialize::create(new CreateBasicPaymentRequest(), $this->options);
 
-        $this->verifyResource($connectThreeDSInitialize);
+        $this->verifyResource($basicThreedsInitialize);
     }
 }

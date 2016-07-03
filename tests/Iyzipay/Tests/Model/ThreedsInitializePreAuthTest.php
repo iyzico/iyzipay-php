@@ -12,8 +12,8 @@ class ThreedsInitializePreAuthTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $threeDSInitializePreAuth = ThreedsInitializePreAuth::create(new CreatePaymentRequest(), $this->options);
+        $threedsInitializePreAuth = ThreedsInitializePreAuth::create(new CreatePaymentRequest(), $this->options);
 
-        $this->verifyResource($threeDSInitializePreAuth);
+        $this->verifyResource($threedsInitializePreAuth);
     }
 }

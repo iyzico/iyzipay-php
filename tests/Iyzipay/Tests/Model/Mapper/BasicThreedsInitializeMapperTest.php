@@ -24,18 +24,18 @@ class BasicBasicThreedsInitializeMapperTest extends TestCase
                 "threeDSHtmlContent": "aHRtbENvbnRlbnQ="
             }';
 
-        $threedsInitialize = BasicThreedsInitializeMapper::create($json)->jsonDecode()->mapBasicThreedsInitialize(new BasicThreedsInitialize());
+        $basicThreedsInitialize = BasicThreedsInitializeMapper::create($json)->jsonDecode()->mapBasicThreedsInitialize(new BasicThreedsInitialize());
 
-        $this->assertNotEmpty($threedsInitialize);
-        $this->assertEquals(Status::FAILURE, $threedsInitialize->getStatus());
-        $this->assertEquals("10000", $threedsInitialize->getErrorCode());
-        $this->assertEquals("error message", $threedsInitialize->getErrorMessage());
-        $this->assertEquals("ERROR_GROUP", $threedsInitialize->getErrorGroup());
-        $this->assertEquals(Locale::TR, $threedsInitialize->getLocale());
-        $this->assertEquals("1458545234852", $threedsInitialize->getSystemTime());
-        $this->assertEquals("123456", $threedsInitialize->getConversationId());
-        $this->assertEquals("htmlContent", $threedsInitialize->getHtmlContent());
-        $this->assertJson($threedsInitialize->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $threedsInitialize->getRawResult());
+        $this->assertNotEmpty($basicThreedsInitialize);
+        $this->assertEquals(Status::FAILURE, $basicThreedsInitialize->getStatus());
+        $this->assertEquals("10000", $basicThreedsInitialize->getErrorCode());
+        $this->assertEquals("error message", $basicThreedsInitialize->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $basicThreedsInitialize->getErrorGroup());
+        $this->assertEquals(Locale::TR, $basicThreedsInitialize->getLocale());
+        $this->assertEquals("1458545234852", $basicThreedsInitialize->getSystemTime());
+        $this->assertEquals("123456", $basicThreedsInitialize->getConversationId());
+        $this->assertEquals("htmlContent", $basicThreedsInitialize->getHtmlContent());
+        $this->assertJson($basicThreedsInitialize->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $basicThreedsInitialize->getRawResult());
     }
 }

@@ -13,17 +13,17 @@ class ThreedsPaymentTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $threeDSAuth = ThreedsPayment::create(new CreateThreedsPaymentRequest(), $this->options);
+        $threedsPayment = ThreedsPayment::create(new CreateThreedsPaymentRequest(), $this->options);
 
-        $this->verifyResource($threeDSAuth);
+        $this->verifyResource($threedsPayment);
     }
 
     public function test_should_retrieve_threeds()
     {
         $this->expectHttpPost();
 
-        $threeDSAuth = ThreedsPayment::retrieve(new RetrievePaymentRequest(), $this->options);
+        $threedsPayment = ThreedsPayment::retrieve(new RetrievePaymentRequest(), $this->options);
 
-        $this->verifyResource($threeDSAuth);
+        $this->verifyResource($threedsPayment);
     }
 }

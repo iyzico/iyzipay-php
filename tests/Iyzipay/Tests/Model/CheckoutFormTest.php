@@ -12,8 +12,8 @@ class CheckoutFormTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $checkoutFormAuth = CheckoutForm::retrieve(new RetrieveCheckoutFormRequest(), $this->options);
+        $checkoutForm = CheckoutForm::retrieve(new RetrieveCheckoutFormRequest(), $this->options);
 
-        $this->verifyResource($checkoutFormAuth);
+        $this->verifyResource($checkoutForm);
     }
 }

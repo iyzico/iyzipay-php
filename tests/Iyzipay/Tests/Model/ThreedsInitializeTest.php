@@ -12,8 +12,8 @@ class ThreedsInitializeTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $threeDSInitialize = ThreedsInitialize::create(new CreatePaymentRequest(), $this->options);
+        $threedsInitialize = ThreedsInitialize::create(new CreatePaymentRequest(), $this->options);
 
-        $this->verifyResource($threeDSInitialize);
+        $this->verifyResource($threedsInitialize);
     }
 }

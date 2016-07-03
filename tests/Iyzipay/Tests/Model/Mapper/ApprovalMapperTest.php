@@ -10,36 +10,7 @@ use Iyzipay\Tests\TestCase;
 
 class ApprovalMapperTest extends TestCase
 {
-    public function test_should_map_approval_given_approve_failure_raw_result()
-    {
-        $json = '
-            {
-                "status":"success",
-                "errorCode":null,
-                "errorMessage":null,
-                "errorGroup":null,
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "paymentTransactionId":"1"
-            }';
-
-        $approval = ApprovalMapper::create($json)->jsonDecode()->mapApproval(new Approval());
-
-        $this->assertNotEmpty($approval);
-        $this->assertEquals(Status::SUCCESS, $approval->getStatus());
-        $this->assertEmpty($approval->getErrorCode());
-        $this->assertEmpty($approval->getErrorMessage());
-        $this->assertEmpty($approval->getErrorGroup());
-        $this->assertEquals(Locale::TR, $approval->getLocale());
-        $this->assertEquals("1458545234852", $approval->getSystemTime());
-        $this->assertEquals("123456", $approval->getConversationId());
-        $this->assertJson($approval->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $approval->getRawResult());
-        $this->assertEquals("1", $approval->getPaymentTransactionId());
-    }
-
-    public function test_should_map_approval_given_approve_success_raw_result()
+    public function test_should_map_approval()
     {
         $json = '
             {

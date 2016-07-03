@@ -12,8 +12,8 @@ class InstallmentInfoTest extends IyzipayResourceTestCase
     {
         $this->expectHttpPost();
 
-        $refund = InstallmentInfo::retrieve(new RetrieveInstallmentInfoRequest(), $this->options);
+        $installmentInfo = InstallmentInfo::retrieve(new RetrieveInstallmentInfoRequest(), $this->options);
 
-        $this->verifyResource($refund);
+        $this->verifyResource($installmentInfo);
     }
 }
