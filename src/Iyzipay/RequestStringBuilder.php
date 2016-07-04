@@ -16,11 +16,6 @@ class RequestStringBuilder
         return new RequestStringBuilder("");
     }
 
-    public static function fromRequestString($requestString)
-    {
-        return new RequestStringBuilder($requestString);
-    }
-
     /**
      * @param $superRequestString
      * @return RequestStringBuilder
