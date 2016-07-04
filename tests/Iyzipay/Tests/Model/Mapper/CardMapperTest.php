@@ -44,6 +44,8 @@ class CardMapperTest extends TestCase
         $this->assertEquals(Locale::TR, $card->getLocale());
         $this->assertEquals("1458545234852", $card->getSystemTime());
         $this->assertEquals("123456", $card->getConversationId());
+        $this->assertEquals("123456", $card->getExternalId());
+        $this->assertEquals("email", $card->getEmail());
         $this->assertEquals("cardUserKey", $card->getCardUserKey());
         $this->assertEquals("cardToken", $card->getCardToken());
         $this->assertEquals("cardAlias", $card->getCardAlias());

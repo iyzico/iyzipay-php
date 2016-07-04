@@ -11,14 +11,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new CreatePaymentPostAuthRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456");
-        $request->setPaymentId("1");
-        $request->setPaidPrice("0.6");
-        $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TL);
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -31,13 +24,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new CreatePaymentPostAuthRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456");
-        $request->setPaymentId("1");
-        $request->setPaidPrice("0.6");
-        $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TL);
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456," .
@@ -51,13 +38,7 @@ class CreatePaymentPostAuthRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new CreatePaymentPostAuthRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456");
-        $request->setPaymentId("1");
-        $request->setPaidPrice("0.6");
-        $request->setIp("85.34.78.112");
-        $request->setCurrency(Currency::TL);
+        $request = $this->prepareRequest();
 
         $json = '
             {
@@ -71,5 +52,17 @@ class CreatePaymentPostAuthRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new CreatePaymentPostAuthRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456");
+        $request->setPaymentId("1");
+        $request->setPaidPrice("0.6");
+        $request->setIp("85.34.78.112");
+        $request->setCurrency(Currency::TL);
+        return $request;
     }
 }

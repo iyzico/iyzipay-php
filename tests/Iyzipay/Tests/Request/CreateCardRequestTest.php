@@ -11,21 +11,7 @@ class CreateCardRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new CreateCardRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setEmail("email@email.com");
-        $request->setCardUserKey("card user key");
-        $request->setExternalId("external id");
-
-        $cardInformation = new CardInformation();
-        $cardInformation->setCardAlias("card alias");
-        $cardInformation->setCardHolderName("John Doe");
-        $cardInformation->setCardNumber("5528790000000008");
-        $cardInformation->setExpireMonth("12");
-        $cardInformation->setExpireYear("2030");
-        $request->setCard($cardInformation);
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -39,25 +25,11 @@ class CreateCardRequestTest extends TestCase
         $this->assertEquals("5528790000000008", $jsonObject["card"]["cardNumber"]);
         $this->assertEquals("12", $jsonObject["card"]["expireMonth"]);
         $this->assertEquals("2030", $jsonObject["card"]["expireYear"]);
-
     }
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new CreateCardRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setEmail("email@email.com");
-        $request->setCardUserKey("card user key");
-        $request->setExternalId("external id");
-
-        $cardInformation = new CardInformation();
-        $cardInformation->setCardAlias("card alias");
-        $cardInformation->setCardHolderName("John Doe");
-        $cardInformation->setCardNumber("5528790000000008");
-        $cardInformation->setExpireMonth("12");
-        $cardInformation->setExpireYear("2030");
-        $request->setCard($cardInformation);
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -75,20 +47,8 @@ class CreateCardRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new CreateCardRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setEmail("email@email.com");
-        $request->setCardUserKey("card user key");
-        $request->setExternalId("external id");
+        $request = $this->prepareRequest();
 
-        $cardInformation = new CardInformation();
-        $cardInformation->setCardAlias("card alias");
-        $cardInformation->setCardHolderName("John Doe");
-        $cardInformation->setCardNumber("5528790000000008");
-        $cardInformation->setExpireMonth("12");
-        $cardInformation->setExpireYear("2030");
-        $request->setCard($cardInformation);
         $json = '
             {
                 "locale":"tr",
@@ -108,5 +68,24 @@ class CreateCardRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new CreateCardRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setEmail("email@email.com");
+        $request->setCardUserKey("card user key");
+        $request->setExternalId("external id");
+
+        $cardInformation = new CardInformation();
+        $cardInformation->setCardAlias("card alias");
+        $cardInformation->setCardHolderName("John Doe");
+        $cardInformation->setCardNumber("5528790000000008");
+        $cardInformation->setExpireMonth("12");
+        $cardInformation->setExpireYear("2030");
+        $request->setCard($cardInformation);
+        return $request;
     }
 }

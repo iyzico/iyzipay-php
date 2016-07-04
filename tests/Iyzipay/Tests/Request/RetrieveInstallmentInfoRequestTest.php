@@ -10,12 +10,7 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new RetrieveInstallmentInfoRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setBinNumber("454671");
-        $request->setPrice("1");
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -26,11 +21,7 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new RetrieveInstallmentInfoRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setBinNumber("454671");
-        $request->setPrice("1");
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -42,11 +33,7 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new RetrieveInstallmentInfoRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setBinNumber("454671");
-        $request->setPrice("1");
+        $request = $this->prepareRequest();
 
         $json = '
             {
@@ -58,5 +45,15 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new RetrieveInstallmentInfoRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setBinNumber("454671");
+        $request->setPrice("1");
+        return $request;
     }
 }

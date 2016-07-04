@@ -46,6 +46,9 @@ class PayoutCompletedTransactionListMapper extends IyzipayResourceMapper
             if (isset($payoutCompletedTransaction->subMerchantKey)) {
                 $transaction->setSubMerchantKey($payoutCompletedTransaction->subMerchantKey);
             }
+            if (isset($payoutCompletedTransaction->currency)) {
+                $transaction->setCurrency($payoutCompletedTransaction->currency);
+            }
             $transactions[$index] = $transaction;
         }
         return $transactions;

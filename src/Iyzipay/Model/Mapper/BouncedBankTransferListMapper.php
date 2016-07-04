@@ -34,22 +34,22 @@ class BouncedBankTransferListMapper extends IyzipayResourceMapper
         foreach ($bouncedRows as $index => $bouncedRow) {
             $bankTransfer = new BankTransfer();
 
-            if (isset($bouncedRows->subMerchantKey)) {
-                $bankTransfer->setSubMerchantKey($bouncedRow->submerchantKey);
+            if (isset($bouncedRow->subMerchantKey)) {
+                $bankTransfer->setSubMerchantKey($bouncedRow->subMerchantKey);
             }
-            if (isset($bouncedRows->iban)) {
+            if (isset($bouncedRow->iban)) {
                 $bankTransfer->setIban($bouncedRow->iban);
             }
-            if (isset($bouncedRows->contactName)) {
+            if (isset($bouncedRow->contactName)) {
                 $bankTransfer->setContactName($bouncedRow->contactName);
             }
-            if (isset($bouncedRows->contactSurname)) {
+            if (isset($bouncedRow->contactSurname)) {
                 $bankTransfer->setContactSurname($bouncedRow->contactSurname);
             }
-            if (isset($bouncedRows->legalCompanyTitle)) {
+            if (isset($bouncedRow->legalCompanyTitle)) {
                 $bankTransfer->setLegalCompanyTitle($bouncedRow->legalCompanyTitle);
             }
-            if (isset($bouncedRows->marketplaceSubmerchantType)) {
+            if (isset($bouncedRow->marketplaceSubmerchantType)) {
                 $bankTransfer->setMarketplaceSubMerchantType($bouncedRow->marketplaceSubmerchantType);
             }
             $bankTransfers[$index] = $bankTransfer;

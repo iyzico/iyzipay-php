@@ -12,25 +12,7 @@ class CreateSubMerchantRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new CreateSubMerchantRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(SubMerchantType::PERSONAL);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $request->setContactName("John");
-        $request->setContactSurname("Doe");
-        $request->setEmail("email@submerchantemail.com");
-        $request->setGsmNumber("+905350000000");
-        $request->setName("John's market");
-        $request->setIban("TR180006200119000006672315");
-        $request->setIdentityNumber("1234567890");
-        $request->setCurrency(Currency::TL);
-        $request->setSwiftCode("swift code");
-        $request->setLegalCompanyTitle("John Doe inc");
-        $request->setTaxOffice("Tax office");
-        $request->setTaxNumber("9261877");
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -54,24 +36,7 @@ class CreateSubMerchantRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new CreateSubMerchantRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(SubMerchantType::PERSONAL);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $request->setContactName("John");
-        $request->setContactSurname("Doe");
-        $request->setEmail("email@submerchantemail.com");
-        $request->setGsmNumber("+905350000000");
-        $request->setName("John's market");
-        $request->setIban("TR180006200119000006672315");
-        $request->setIdentityNumber("1234567890");
-        $request->setCurrency(Currency::TL);
-        $request->setSwiftCode("swift code");
-        $request->setLegalCompanyTitle("John Doe inc");
-        $request->setTaxOffice("Tax office");
-        $request->setTaxNumber("9261877");
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -96,24 +61,7 @@ class CreateSubMerchantRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new CreateSubMerchantRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setSubMerchantExternalId("B49224");
-        $request->setSubMerchantType(SubMerchantType::PERSONAL);
-        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $request->setContactName("John");
-        $request->setContactSurname("Doe");
-        $request->setEmail("email@submerchantemail.com");
-        $request->setGsmNumber("+905350000000");
-        $request->setName("John's market");
-        $request->setIban("TR180006200119000006672315");
-        $request->setIdentityNumber("1234567890");
-        $request->setCurrency(Currency::TL);
-        $request->setSwiftCode("swift code");
-        $request->setLegalCompanyTitle("John Doe inc");
-        $request->setTaxOffice("Tax office");
-        $request->setTaxNumber("9261877");
+        $request = $this->prepareRequest();
 
         $json = '
             {
@@ -138,5 +86,28 @@ class CreateSubMerchantRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new CreateSubMerchantRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setSubMerchantExternalId("B49224");
+        $request->setSubMerchantType(SubMerchantType::PERSONAL);
+        $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $request->setContactName("John");
+        $request->setContactSurname("Doe");
+        $request->setEmail("email@submerchantemail.com");
+        $request->setGsmNumber("+905350000000");
+        $request->setName("John's market");
+        $request->setIban("TR180006200119000006672315");
+        $request->setIdentityNumber("1234567890");
+        $request->setCurrency(Currency::TL);
+        $request->setSwiftCode("swift code");
+        $request->setLegalCompanyTitle("John Doe inc");
+        $request->setTaxOffice("Tax office");
+        $request->setTaxNumber("9261877");
+        return $request;
     }
 }

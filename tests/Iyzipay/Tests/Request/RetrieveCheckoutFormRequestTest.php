@@ -10,11 +10,7 @@ class RetrieveCheckoutFormRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new RetrieveCheckoutFormRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setToken("token");
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -24,10 +20,7 @@ class RetrieveCheckoutFormRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new RetrieveCheckoutFormRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setToken("token");
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -38,10 +31,7 @@ class RetrieveCheckoutFormRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new RetrieveCheckoutFormRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setToken("token");
+        $request = $this->prepareRequest();
 
         $json = '
             {
@@ -52,5 +42,14 @@ class RetrieveCheckoutFormRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new RetrieveCheckoutFormRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setToken("token");
+        return $request;
     }
 }

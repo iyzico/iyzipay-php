@@ -12,32 +12,7 @@ class CreateBasicPaymentRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new CreateBasicPaymentRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setBuyerEmail("email@email.com");
-        $request->setBuyerId("B2323");
-        $request->setBuyerIp("85.34.78.112");
-        $request->setConnectorName("connector name");
-        $request->setInstallment(1);
-        $request->setPaidPrice("1");
-        $request->setPrice("1");
-        $request->setCurrency(Currency::TL);
-        $request->setPosOrderId("order");
-        $request->setCallbackUrl("callback");
-
-        $paymentCard = new PaymentCard();
-        $paymentCard->setCardAlias("alias");
-        $paymentCard->setCardHolderName("John Doe");
-        $paymentCard->setCardNumber("5528790000000008");
-        $paymentCard->setExpireMonth("12");
-        $paymentCard->setExpireYear("2030");
-        $paymentCard->setCvc("123");
-        $paymentCard->setRegisterCard(0);
-        $paymentCard->setCardToken("token");
-        $paymentCard->setCardUserKey("user key");
-        $request->setPaymentCard($paymentCard);
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -65,31 +40,7 @@ class CreateBasicPaymentRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new CreateBasicPaymentRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setBuyerEmail("email@email.com");
-        $request->setBuyerId("B2323");
-        $request->setBuyerIp("85.34.78.112");
-        $request->setConnectorName("connector name");
-        $request->setInstallment(1);
-        $request->setPaidPrice("1");
-        $request->setPrice("1");
-        $request->setCurrency(Currency::TL);
-        $request->setPosOrderId("order");
-        $request->setCallbackUrl("callback");
-
-        $paymentCard = new PaymentCard();
-        $paymentCard->setCardAlias("alias");
-        $paymentCard->setCardHolderName("John Doe");
-        $paymentCard->setCardNumber("5528790000000008");
-        $paymentCard->setExpireMonth("12");
-        $paymentCard->setExpireYear("2030");
-        $paymentCard->setCvc("123");
-        $paymentCard->setRegisterCard(0);
-        $paymentCard->setCardToken("token");
-        $paymentCard->setCardUserKey("user key");
-        $request->setPaymentCard($paymentCard);
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -118,31 +69,7 @@ class CreateBasicPaymentRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new CreateBasicPaymentRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setBuyerEmail("email@email.com");
-        $request->setBuyerId("B2323");
-        $request->setBuyerIp("85.34.78.112");
-        $request->setConnectorName("connector name");
-        $request->setInstallment(1);
-        $request->setPaidPrice("1");
-        $request->setPrice("1");
-        $request->setCurrency(Currency::TL);
-        $request->setPosOrderId("order");
-        $request->setCallbackUrl("callback");
-
-        $paymentCard = new PaymentCard();
-        $paymentCard->setCardAlias("alias");
-        $paymentCard->setCardHolderName("John Doe");
-        $paymentCard->setCardNumber("5528790000000008");
-        $paymentCard->setExpireMonth("12");
-        $paymentCard->setExpireYear("2030");
-        $paymentCard->setCvc("123");
-        $paymentCard->setRegisterCard(0);
-        $paymentCard->setCardToken("token");
-        $paymentCard->setCardUserKey("user key");
-        $request->setPaymentCard($paymentCard);
+        $request = $this->prepareRequest();
 
         $json = '
             {
@@ -174,5 +101,35 @@ class CreateBasicPaymentRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new CreateBasicPaymentRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setBuyerEmail("email@email.com");
+        $request->setBuyerId("B2323");
+        $request->setBuyerIp("85.34.78.112");
+        $request->setConnectorName("connector name");
+        $request->setInstallment(1);
+        $request->setPaidPrice("1");
+        $request->setPrice("1");
+        $request->setCurrency(Currency::TL);
+        $request->setPosOrderId("order");
+        $request->setCallbackUrl("callback");
+
+        $paymentCard = new PaymentCard();
+        $paymentCard->setCardAlias("alias");
+        $paymentCard->setCardHolderName("John Doe");
+        $paymentCard->setCardNumber("5528790000000008");
+        $paymentCard->setExpireMonth("12");
+        $paymentCard->setExpireYear("2030");
+        $paymentCard->setCvc("123");
+        $paymentCard->setRegisterCard(0);
+        $paymentCard->setCardToken("token");
+        $paymentCard->setCardUserKey("user key");
+        $request->setPaymentCard($paymentCard);
+        return $request;
     }
 }

@@ -16,61 +16,7 @@ class CreatePeccoInitializeRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
-        $request = new CreatePeccoInitializeRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setPrice("1");
-        $request->setPaidPrice("1.2");
-        $request->setBasketId("B67832");
-        $request->setPaymentGroup(PaymentGroup::PRODUCT);
-        $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(Currency::IRR);
-        $request->setPaymentSource("source");
-
-        $buyer = new Buyer();
-        $buyer->setId("BY789");
-        $buyer->setName("John");
-        $buyer->setSurname("Doe");
-        $buyer->setGsmNumber("+905350000000");
-        $buyer->setEmail("email@email.com");
-        $buyer->setIdentityNumber("74300864791");
-        $buyer->setLastLoginDate("2015-10-05 12:43:35");
-        $buyer->setRegistrationDate("2013-04-21 15:12:09");
-        $buyer->setRegistrationAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $buyer->setIp("85.34.78.112");
-        $buyer->setCity("Istanbul");
-        $buyer->setCountry("Turkey");
-        $buyer->setZipCode("34732");
-        $request->setBuyer($buyer);
-
-        $shippingAddress = new Address();
-        $shippingAddress->setContactName("Jane Doe");
-        $shippingAddress->setCity("Istanbul");
-        $shippingAddress->setCountry("Turkey");
-        $shippingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $shippingAddress->setZipCode("34742");
-        $request->setShippingAddress($shippingAddress);
-
-        $billingAddress = new Address();
-        $billingAddress->setContactName("Jane Doe");
-        $billingAddress->setCity("Istanbul");
-        $billingAddress->setCountry("Turkey");
-        $billingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $billingAddress->setZipCode("34742");
-        $request->setBillingAddress($billingAddress);
-
-        $basketItems = array();
-        $firstBasketItem = new BasketItem();
-        $firstBasketItem->setId("BI101");
-        $firstBasketItem->setName("Binocular");
-        $firstBasketItem->setCategory1("Collectibles");
-        $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
-        $firstBasketItem->setPrice("0.3");
-        $basketItems[0] = $firstBasketItem;
-
-        $request->setBasketItems($basketItems);
-
+        $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
@@ -114,60 +60,7 @@ class CreatePeccoInitializeRequestTest extends TestCase
 
     public function test_should_convert_to_pki_request_string()
     {
-        $request = new CreatePeccoInitializeRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setPrice("1");
-        $request->setPaidPrice("1.2");
-        $request->setBasketId("B67832");
-        $request->setPaymentGroup(PaymentGroup::PRODUCT);
-        $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(Currency::IRR);
-        $request->setPaymentSource("source");
-
-        $buyer = new Buyer();
-        $buyer->setId("BY789");
-        $buyer->setName("John");
-        $buyer->setSurname("Doe");
-        $buyer->setGsmNumber("+905350000000");
-        $buyer->setEmail("email@email.com");
-        $buyer->setIdentityNumber("74300864791");
-        $buyer->setLastLoginDate("2015-10-05 12:43:35");
-        $buyer->setRegistrationDate("2013-04-21 15:12:09");
-        $buyer->setRegistrationAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $buyer->setIp("85.34.78.112");
-        $buyer->setCity("Istanbul");
-        $buyer->setCountry("Turkey");
-        $buyer->setZipCode("34732");
-        $request->setBuyer($buyer);
-
-        $shippingAddress = new Address();
-        $shippingAddress->setContactName("Jane Doe");
-        $shippingAddress->setCity("Istanbul");
-        $shippingAddress->setCountry("Turkey");
-        $shippingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $shippingAddress->setZipCode("34742");
-        $request->setShippingAddress($shippingAddress);
-
-        $billingAddress = new Address();
-        $billingAddress->setContactName("Jane Doe");
-        $billingAddress->setCity("Istanbul");
-        $billingAddress->setCountry("Turkey");
-        $billingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $billingAddress->setZipCode("34742");
-        $request->setBillingAddress($billingAddress);
-
-        $basketItems = array();
-        $firstBasketItem = new BasketItem();
-        $firstBasketItem->setId("BI101");
-        $firstBasketItem->setName("Binocular");
-        $firstBasketItem->setCategory1("Collectibles");
-        $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
-        $firstBasketItem->setPrice("0.3");
-        $basketItems[0] = $firstBasketItem;
-
-        $request->setBasketItems($basketItems);
+        $request = $this->prepareRequest();
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
@@ -213,60 +106,7 @@ class CreatePeccoInitializeRequestTest extends TestCase
 
     public function test_should_get_json_string()
     {
-        $request = new CreatePeccoInitializeRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
-        $request->setPrice("1");
-        $request->setPaidPrice("1.2");
-        $request->setBasketId("B67832");
-        $request->setPaymentGroup(PaymentGroup::PRODUCT);
-        $request->setCallbackUrl("https://www.merchant.com/callback");
-        $request->setCurrency(Currency::TL);
-        $request->setPaymentSource("source");
-
-        $buyer = new Buyer();
-        $buyer->setId("BY789");
-        $buyer->setName("John");
-        $buyer->setSurname("Doe");
-        $buyer->setGsmNumber("+905350000000");
-        $buyer->setEmail("email@email.com");
-        $buyer->setIdentityNumber("74300864791");
-        $buyer->setLastLoginDate("2015-10-05 12:43:35");
-        $buyer->setRegistrationDate("2013-04-21 15:12:09");
-        $buyer->setRegistrationAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $buyer->setIp("85.34.78.112");
-        $buyer->setCity("Istanbul");
-        $buyer->setCountry("Turkey");
-        $buyer->setZipCode("34732");
-        $request->setBuyer($buyer);
-
-        $shippingAddress = new Address();
-        $shippingAddress->setContactName("Jane Doe");
-        $shippingAddress->setCity("Istanbul");
-        $shippingAddress->setCountry("Turkey");
-        $shippingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $shippingAddress->setZipCode("34742");
-        $request->setShippingAddress($shippingAddress);
-
-        $billingAddress = new Address();
-        $billingAddress->setContactName("Jane Doe");
-        $billingAddress->setCity("Istanbul");
-        $billingAddress->setCountry("Turkey");
-        $billingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
-        $billingAddress->setZipCode("34742");
-        $request->setBillingAddress($billingAddress);
-
-        $basketItems = array();
-        $firstBasketItem = new BasketItem();
-        $firstBasketItem->setId("BI101");
-        $firstBasketItem->setName("Binocular");
-        $firstBasketItem->setCategory1("Collectibles");
-        $firstBasketItem->setCategory2("Accessories");
-        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
-        $firstBasketItem->setPrice("0.3");
-        $basketItems[0] = $firstBasketItem;
-
-        $request->setBasketItems($basketItems);
+        $request = $this->prepareRequest();
 
         $json = '
             {
@@ -274,7 +114,7 @@ class CreatePeccoInitializeRequestTest extends TestCase
                 "conversationId":"123456789",
                 "price":"1.0",
                 "paidPrice":"1.2",
-                "currency":"TRY",
+                "currency":"IRR",
                 "basketId":"B67832",
                 "paymentGroup":"PRODUCT",
                 "paymentSource":"source",
@@ -326,5 +166,64 @@ class CreatePeccoInitializeRequestTest extends TestCase
 
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
+    }
+
+    private function prepareRequest()
+    {
+        $request = new CreatePeccoInitializeRequest();
+        $request->setLocale(Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setPrice("1");
+        $request->setPaidPrice("1.2");
+        $request->setBasketId("B67832");
+        $request->setPaymentGroup(PaymentGroup::PRODUCT);
+        $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setCurrency(Currency::IRR);
+        $request->setPaymentSource("source");
+
+        $buyer = new Buyer();
+        $buyer->setId("BY789");
+        $buyer->setName("John");
+        $buyer->setSurname("Doe");
+        $buyer->setGsmNumber("+905350000000");
+        $buyer->setEmail("email@email.com");
+        $buyer->setIdentityNumber("74300864791");
+        $buyer->setLastLoginDate("2015-10-05 12:43:35");
+        $buyer->setRegistrationDate("2013-04-21 15:12:09");
+        $buyer->setRegistrationAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $buyer->setIp("85.34.78.112");
+        $buyer->setCity("Istanbul");
+        $buyer->setCountry("Turkey");
+        $buyer->setZipCode("34732");
+        $request->setBuyer($buyer);
+
+        $shippingAddress = new Address();
+        $shippingAddress->setContactName("Jane Doe");
+        $shippingAddress->setCity("Istanbul");
+        $shippingAddress->setCountry("Turkey");
+        $shippingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $shippingAddress->setZipCode("34742");
+        $request->setShippingAddress($shippingAddress);
+
+        $billingAddress = new Address();
+        $billingAddress->setContactName("Jane Doe");
+        $billingAddress->setCity("Istanbul");
+        $billingAddress->setCountry("Turkey");
+        $billingAddress->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+        $billingAddress->setZipCode("34742");
+        $request->setBillingAddress($billingAddress);
+
+        $basketItems = array();
+        $firstBasketItem = new BasketItem();
+        $firstBasketItem->setId("BI101");
+        $firstBasketItem->setName("Binocular");
+        $firstBasketItem->setCategory1("Collectibles");
+        $firstBasketItem->setCategory2("Accessories");
+        $firstBasketItem->setItemType(BasketItemType::PHYSICAL);
+        $firstBasketItem->setPrice("0.3");
+        $basketItems[0] = $firstBasketItem;
+
+        $request->setBasketItems($basketItems);
+        return $request;
     }
 }
