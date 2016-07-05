@@ -12,6 +12,6 @@ class ApiResourceTest extends \PHPUnit_Framework_TestCase
     {
         $httpClient = ApiResource::httpClient();
 
-        $this->assertInstanceOf(get_class(new DefaultHttpClient()), $httpClient);
+        $this->assertInstanceOf(get_class(DefaultHttpClient::create()), $httpClient);
     }
 }

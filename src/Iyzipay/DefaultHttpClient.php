@@ -4,14 +4,24 @@ namespace Iyzipay;
 
 class DefaultHttpClient implements HttpClient
 {
-    public static function create()
+    private $curl;
+
+    public function __construct($curl = null)
     {
-        return new DefaultHttpClient();
+        if (!$curl) {
+            $curl = new Curl();
+        }
+        $this->curl = $curl;
+    }
+
+    public static function create($curl = null)
+    {
+        return new DefaultHttpClient($curl);
     }
 
     public function get($url)
     {
-        return $this->exchange($url, array(
+        return $this->curl->exec($url, array(
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
@@ -21,7 +31,7 @@ class DefaultHttpClient implements HttpClient
 
     public function post($url, $header, $content)
     {
-        return $this->exchange($url, array(
+        return $this->curl->exec($url, array(
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $content,
@@ -34,7 +44,7 @@ class DefaultHttpClient implements HttpClient
 
     public function put($url, $header, $content)
     {
-        return $this->exchange($url, array(
+        return $this->curl->exec($url, array(
             CURLOPT_CUSTOMREQUEST => "PUT",
             CURLOPT_POSTFIELDS => $content,
             CURLOPT_RETURNTRANSFER => true,
@@ -46,7 +56,7 @@ class DefaultHttpClient implements HttpClient
 
     public function delete($url, $header, $content = null)
     {
-        return $this->exchange($url, array(
+        return $this->curl->exec($url, array(
             CURLOPT_CUSTOMREQUEST => "DELETE",
             CURLOPT_POSTFIELDS => $content,
             CURLOPT_RETURNTRANSFER => true,
@@ -54,12 +64,5 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_HEADER => false,
             CURLOPT_HTTPHEADER => $header
         ));
-    }
-
-    protected function exchange($url, $options)
-    {
-        $ch = curl_init($url);
-        curl_setopt_array($ch, $options);
-        return curl_exec($ch);
     }
 }
