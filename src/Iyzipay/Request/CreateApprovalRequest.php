@@ -34,5 +34,4 @@ class CreateApprovalRequest extends Request
             ->append("paymentTransactionId", $this->getPaymentTransactionId())
             ->getRequestString();
     }
-
 }
