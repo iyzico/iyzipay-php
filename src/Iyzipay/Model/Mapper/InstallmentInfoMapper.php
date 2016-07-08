@@ -59,6 +59,9 @@ class InstallmentInfoMapper extends IyzipayResourceMapper
             if (isset($installmentDetail->bankName)) {
                 $detail->setBankName($installmentDetail->bankName);
             }
+            if (isset($installmentDetail->forceCvc)) {
+                $detail->setForceCvc($installmentDetail->forceCvc);
+            }
             if (isset($installmentDetail->installmentPrices)) {
                 $detail->setInstallmentPrices($this->mapInstallmentPrices($installmentDetail->installmentPrices));
             }

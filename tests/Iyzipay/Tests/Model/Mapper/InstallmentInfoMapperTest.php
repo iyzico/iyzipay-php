@@ -31,6 +31,7 @@ class InstallmentInfoMapperTest extends TestCase
                     "force3ds": 0,
                     "bankCode": 10,
                     "bankName": "Ziraat Bankası",
+                    "forceCvc": 1,
                     "installmentPrices": [
                     {
                         "installmentPrice": 100.0,
@@ -57,6 +58,7 @@ class InstallmentInfoMapperTest extends TestCase
                     "force3ds": 1,
                     "bankCode": 11,
                     "bankName": "Garanti Bankası",
+                    "forceCvc": 0,
                     "installmentPrices": [
                     {
                         "installmentPrice": 100.0,
@@ -102,6 +104,7 @@ class InstallmentInfoMapperTest extends TestCase
         $this->assertEquals("0", $installmentDetail->getForce3ds());
         $this->assertEquals("10", $installmentDetail->getBankCode());
         $this->assertEquals("Ziraat Bankası", $installmentDetail->getBankName());
+        $this->assertEquals("1", $installmentDetail->getForceCvc());
 
         $installmentPrices = $installmentDetail->getInstallmentPrices();
         $this->assertNotEmpty($installmentPrices);
@@ -131,6 +134,7 @@ class InstallmentInfoMapperTest extends TestCase
         $this->assertEquals("1", $installmentDetail2->getForce3ds());
         $this->assertEquals("11", $installmentDetail2->getBankCode());
         $this->assertEquals("Garanti Bankası", $installmentDetail2->getBankName());
+        $this->assertEquals("0", $installmentDetail2->getForceCvc());
 
         $installmentPrices2 = $installmentDetail2->getInstallmentPrices();
         $this->assertNotEmpty($installmentPrices2);

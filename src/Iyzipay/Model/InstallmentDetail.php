@@ -12,6 +12,7 @@ class InstallmentDetail
     private $force3ds;
     private $bankCode;
     private $bankName;
+    private $forceCvc;
     private $installmentPrices;
 
     public function getBinNumber()
@@ -92,6 +93,16 @@ class InstallmentDetail
     public function setBankName($bankName)
     {
         $this->bankName = $bankName;
+    }
+
+    public function getForceCvc()
+    {
+        return $this->forceCvc;
+    }
+
+    public function setForceCvc($forceCvc)
+    {
+        $this->forceCvc = $forceCvc;
     }
 
     public function getInstallmentPrices()
