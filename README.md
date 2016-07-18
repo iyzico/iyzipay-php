@@ -149,8 +149,6 @@ Card Number      | Bank                       | Card Type
 -----------      | ----                       | ---------
 5890040000000016 | Akbank                     | Master Card (Debit)  
 5526080000000006 | Akbank                     | Master Card (Credit)  
-4073810000000006 | Asya Katılım Bankası       | Visa (Debit)  
-5331490000000002 | Asya Katılım Bankası       | Master Card (Credit)  
 4766620000000001 | Denizbank                  | Visa (Debit)  
 4603450000000000 | Denizbank                  | Visa (Credit)  
 4987490000000002 | Finansbank                 | Visa (Debit)  
