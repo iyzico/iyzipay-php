@@ -194,6 +194,8 @@ Card Number       | Description
 4120111111111110  | Pickup card
 4130111111111118  | General error
 4131111111111117  | Success but mdStatus is 0
+4141111111111115  | Success but mdStatus is 4
+4151111111111112  | 3dsecure initialize failed
 
 ## Testing
 
