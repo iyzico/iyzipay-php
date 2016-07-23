@@ -143,7 +143,7 @@ composer install
 
 ### Mock test cards
 
-Test cards that can be used to simulate a successful payment:
+Test cards that can be used to simulate a *successful* payment:
 
 Card Number      | Bank                       | Card Type
 -----------      | ----                       | ---------
@@ -169,14 +169,14 @@ Card Number      | Bank                       | Card Type
 5168880000000002 | Yapı ve Kredi Bankası      | Master Card (Debit)  
 5451030000000000 | Yapı ve Kredi Bankası      | Master Card (Credit)  
 
-Cross border test cards:
+*Cross border* test cards:
 
 Card Number      | Country
 -----------      | -------
 5412750000000001 | Non-Turkish  
 6221060000000004 | Iran  
 
-Test cards to get specific error codes:
+Test cards to get specific *error* codes:
 
 Card Number       | Description
 -----------       | -----------
