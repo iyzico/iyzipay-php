@@ -6,14 +6,14 @@ require_once('Sample.php');
 IyzipayBootstrap::init();
 
 $sample = new PaymentPreAuthSample();
-$sample->should_create_payment_with_physical_and_virtual_item_for_standard_merchant();
-$sample->should_create_payment_with_physical_and_virtual_item_for_market_place();
-$sample->should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription();
+$sample->should_create_payment_for_standard_merchant();
+$sample->should_create_payment_for_market_place();
+$sample->should_create_payment_for_listing_or_subscription();
 $sample->should_retrieve_payment();
 
 class PaymentPreAuthSample
 {
-    public function should_create_payment_with_physical_and_virtual_item_for_standard_merchant()
+    public function should_create_payment_for_standard_merchant()
     {
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
@@ -104,7 +104,7 @@ class PaymentPreAuthSample
         print_r($paymentPreAuth);
     }
 
-    public function should_create_payment_with_physical_and_virtual_item_for_market_place()
+    public function should_create_payment_for_market_place()
     {
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
@@ -201,7 +201,7 @@ class PaymentPreAuthSample
         print_r($paymentPreAuth);
     }
 
-    public function should_create_payment_with_physical_and_virtual_item_for_listing_or_subscription()
+    public function should_create_payment_for_listing_or_subscription()
     {
         # create request class
         $request = new \Iyzipay\Request\CreatePaymentRequest();
