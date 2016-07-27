@@ -12,20 +12,7 @@ class PeccoInitializeMapperTest extends TestCase
 {
     public function test_should_map_pecco_initialize()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "token": "token",
-                "htmlContent": "htmlContent",
-                "tokenExpireTime": "3600",
-                "redirectUrl": "url"
-            }';
+        $json = $this->retrieveJsonFile("initialize-pecco.json");
 
         $peccoInitialize = PeccoInitializeMapper::create($json)->jsonDecode()->mapPeccoInitialize(new PeccoInitialize());
 

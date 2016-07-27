@@ -12,71 +12,7 @@ class InstallmentInfoMapperTest extends TestCase
 {
     public function test_should_map_installment_info()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "installmentDetails": [
-                {
-                    "binNumber": "554960",
-                    "price": 100.0,
-                    "cardType": "CREDIT_CARD",
-                    "cardAssociation": "MASTER_CARD",
-                    "cardFamilyName": "Bonus",
-                    "force3ds": 0,
-                    "bankCode": 10,
-                    "bankName": "Ziraat Bankası",
-                    "forceCvc": 1,
-                    "installmentPrices": [
-                    {
-                        "installmentPrice": 100.0,
-                        "totalPrice": 100.0,
-                        "installmentNumber": 1
-                    },
-                    {
-                        "installmentPrice": 50.68,
-                        "totalPrice": 101.36,
-                        "installmentNumber": 2
-                    },
-                    {
-                        "installmentPrice": 33.95,
-                        "totalPrice": 101.86,
-                        "installmentNumber": 3
-                    }]
-                },
-                {
-                    "binNumber": "554961",
-                    "price": 100.0,
-                    "cardType": "DEBIT_CARD",
-                    "cardAssociation": "VISA",
-                    "cardFamilyName": "Maximum",
-                    "force3ds": 1,
-                    "bankCode": 11,
-                    "bankName": "Garanti Bankası",
-                    "forceCvc": 0,
-                    "installmentPrices": [
-                    {
-                        "installmentPrice": 100.0,
-                        "totalPrice": 100.0,
-                        "installmentNumber": 1
-                    },
-                    {
-                        "installmentPrice": 50.62,
-                        "totalPrice": 102.23,
-                        "installmentNumber": 2
-                    },
-                    {
-                        "installmentPrice": 34.10,
-                        "totalPrice": 102.30,
-                        "installmentNumber": 3
-                    }]
-                }]
-            }';
+        $json = $this->retrieveJsonFile("retrieve-installment-info.json");
 
         $installmentInfo = InstallmentInfoMapper::create($json)->jsonDecode()->mapInstallmentInfo(new InstallmentInfo());
 

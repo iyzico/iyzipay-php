@@ -28,4 +28,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
     {
         $this->assertNotEmpty($this->options);
     }
+
+    public function retrieveJsonFile($file)
+    {
+        return file_get_contents('mock/' . $file, true);
+    }
 }

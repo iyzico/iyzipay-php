@@ -12,20 +12,7 @@ class RefundChargedFromMerchantMapperTest extends TestCase
 {
     public function test_should_map_refund_charged_from_merchant()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "paymentId":"1",
-                "paymentTransactionId":"1",
-                "price":"1",
-                "currency":"TRY"
-            }';
+        $json = $this->retrieveJsonFile("refund.json");
 
         $refundChargedFromMerchant = RefundChargedFromMerchantMapper::create($json)->jsonDecode()->mapRefundChargedFromMerchant(new RefundChargedFromMerchant());
 
@@ -43,5 +30,6 @@ class RefundChargedFromMerchantMapperTest extends TestCase
         $this->assertEquals("1", $refundChargedFromMerchant->getPaymentTransactionId());
         $this->assertEquals("1", $refundChargedFromMerchant->getPrice());
         $this->assertEquals("TRY", $refundChargedFromMerchant->getCurrency());
+        $this->assertEquals("connector name", $refundChargedFromMerchant->getConnectorName());
     }
 }

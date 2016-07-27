@@ -13,36 +13,7 @@ class BasicBkmMapperTest extends TestCase
 {
     public function test_should_map_basic_bkm()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "price": 1.0,
-                "paidPrice": 1.1,
-                "installment": 1,
-                "paymentId": "1",
-                "merchantCommissionRate": 10.00000000,
-                "merchantCommissionRateAmount": 0.1,
-                "iyziCommissionFee": 0.35000000,
-                "cardType": "CREDIT_CARD",
-                "cardAssociation": "MASTER_CARD",
-                "cardFamily": "Bonus",
-                "cardToken": "cardToken",
-                "cardUserKey": "cardUserKey",
-                "binNumber": "554960",
-                "paymentTransactionId": "1",
-                "authCode": "546382",
-                "connectorName": "connectorName",
-                "currency": "TRY",
-                "token": "token",
-                "callbackUrl": "https://www.iyzico.com",
-                "paymentStatus": "SUCCESS"
-            }';
+        $json = $this->retrieveJsonFile("retrieve-basic-bkm.json");
 
         $basicBkm = BasicBkmMapper::create($json)->jsonDecode()->mapBasicBkm(new BasicBkm());
 

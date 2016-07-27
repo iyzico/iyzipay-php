@@ -12,17 +12,7 @@ class ThreedsInitializePreAuthMapperTest extends TestCase
 {
     public function test_should_map_threeds_initialize_pre_auth()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "threeDSHtmlContent": "aHRtbENvbnRlbnQ="
-            }';
+        $json = $this->retrieveJsonFile("initialize-threeds-payment.json");
 
         $threedsInitializePreAuth = ThreedsInitializePreAuthMapper::create($json)->jsonDecode()->mapThreedsInitializePreAuth(new ThreedsInitializePreAuth());
 

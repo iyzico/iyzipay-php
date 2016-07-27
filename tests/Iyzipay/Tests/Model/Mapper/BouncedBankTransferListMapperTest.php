@@ -12,33 +12,7 @@ class BouncedBankTransferListMapperTest extends TestCase
 {
     public function test_should_map_bounced_bank_transfer_list()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "bouncedRows": [
-                {
-                    "subMerchantKey": "subMerchantKey",
-                    "iban": "TR12121212",
-                    "contactName": "John",
-                    "contactSurname": "Doe",
-                    "legalCompanyTitle": "abc inc",
-                    "marketplaceSubmerchantType": "PERSONAL"
-                },
-                {
-                    "subMerchantKey": "subMerchantKey",
-                    "iban": "TR1212121232",
-                    "contactName": "John2",
-                    "contactSurname": "Doe2",
-                    "legalCompanyTitle": "xyz inc",
-                    "marketplaceSubmerchantType": "PRIVATE_COMPANY"
-                }]
-            }';
+        $json = $this->retrieveJsonFile("retrieve-bounced-bank-transfers.json");
 
         $bouncedBankTransferList = BouncedBankTransferListMapper::create($json)->jsonDecode()->mapBouncedBankTransferList(new BouncedBankTransferList());
 

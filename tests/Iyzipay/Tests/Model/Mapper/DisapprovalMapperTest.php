@@ -12,17 +12,7 @@ class DisapprovalMapperTest extends TestCase
 {
     public function test_should_map_disapproval()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "paymentTransactionId":"1"
-            }';
+        $json = $this->retrieveJsonFile("approve.json");
 
         $disapproval = DisapprovalMapper::create($json)->jsonDecode()->mapDisapproval(new Disapproval());
 

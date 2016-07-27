@@ -12,18 +12,7 @@ class BkmInitializeMapperTest extends TestCase
 {
     public function test_should_map_bkm_initialize()
     {
-        $json = '
-            {   
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "htmlContent":"html content",
-                "token":"token"
-            }';
+        $json = $this->retrieveJsonFile("initialize-bkm.json");
 
         $bkmInitialize = BkmInitializeMapper::create($json)->jsonDecode()->mapBkmInitialize(new BkmInitialize());
 

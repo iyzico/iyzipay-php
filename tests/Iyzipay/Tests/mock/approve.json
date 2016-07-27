@@ -1,0 +1,10 @@
+{
+  "status": "failure",
+  "errorCode": 10000,
+  "errorMessage": "error message",
+  "errorGroup": "ERROR_GROUP",
+  "locale": "tr",
+  "systemTime": "1458545234852",
+  "conversationId": "123456",
+  "paymentTransactionId": "1"
+}
