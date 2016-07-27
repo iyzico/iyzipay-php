@@ -7,7 +7,7 @@ IyzipayBootstrap::init();
 
 $sample = new PeccoSample();
 $sample->should_initialize_pecco();
-$sample->should_auth_pecco_payment();
+$sample->should_create_pecco_payment();
 
 class PeccoSample
 {
@@ -98,7 +98,7 @@ class PeccoSample
         print_r($peccoInitialize);
     }
 
-    public function should_auth_pecco_payment()
+    public function should_create_pecco_payment()
     {
         # create request class
         $request = new \Iyzipay\Request\CreatePeccoPaymentRequest();

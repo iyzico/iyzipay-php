@@ -7,7 +7,7 @@ IyzipayBootstrap::init();
 
 $sample = new BkmSample();
 $sample->should_initialize_bkm_express();
-$sample->should_retrieve_bkm_auth();
+$sample->should_retrieve_bkm_express_payment();
 
 class BkmSample
 {
@@ -96,7 +96,7 @@ class BkmSample
         print_r($bkmInitialize);
     }
 
-    public function should_retrieve_bkm_auth()
+    public function should_retrieve_bkm_express_payment()
     {
         # create request class
         $request = new \Iyzipay\Request\RetrieveBkmRequest();

@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BasicThreedsPaymentTest extends IyzipayResourceTestCase
 {
-    public function test_should_auth_basic_threeds()
+    public function test_should_create_basic_threeds_payment()
     {
         $this->expectHttpPost();
 

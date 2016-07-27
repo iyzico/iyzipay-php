@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BinNumberTest extends IyzipayResourceTestCase
 {
-    public function test_should_get_bin_number()
+    public function test_should_retrieve_bin_number()
     {
         $this->expectHttpPost();
 

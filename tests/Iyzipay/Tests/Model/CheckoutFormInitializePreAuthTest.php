@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class CheckoutFormInitializePreAuthTest extends IyzipayResourceTestCase
 {
-    public function test_should_initialize_checkout_form()
+    public function test_should_initialize_checkout_form_pre_auth()
     {
         $this->expectHttpPost();
 

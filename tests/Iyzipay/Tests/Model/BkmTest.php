@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BkmTest extends IyzipayResourceTestCase
 {
-    public function test_should_get_bkm_auth()
+    public function test_should_retrieve_bkm()
     {
         $this->expectHttpPost();
 

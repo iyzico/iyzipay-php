@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class PayoutCompletedTransactionListTest extends IyzipayResourceTestCase
 {
-    public function test_should_get_payout_completed_bank_transfer_list()
+    public function test_should_retrieve_payout_completed_bank_transfer_list()
     {
         $this->expectHttpPost();
 

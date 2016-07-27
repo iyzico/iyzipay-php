@@ -10,7 +10,7 @@ use Iyzipay\Tests\TestCase;
 
 class RefundResourceMapperTest extends TestCase
 {
-    public function test_should_map_refund()
+    public function test_should_map_refund_resource()
     {
         $json = $this->retrieveJsonFile("refund.json");
 

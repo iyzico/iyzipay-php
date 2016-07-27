@@ -9,7 +9,7 @@ $sample = new ThreedsSample();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_standard_merchant();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_market_place();
 $sample->should_initialize_threeds_payment_with_physical_and_virtual_item_for_listing_or_subscription();
-$sample->should_auth_threeds();
+$sample->should_create_threeds_payment();
 $sample->should_retrieve_payment();
 
 class ThreedsSample
@@ -296,7 +296,7 @@ class ThreedsSample
         print_r($threedsInitialize);
     }
 
-    public function should_auth_threeds()
+    public function should_create_threeds_payment()
     {
         # create request class
         $request = new \Iyzipay\Request\CreateThreedsPaymentRequest();

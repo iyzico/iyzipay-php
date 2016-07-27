@@ -6,11 +6,11 @@ require_once('Sample.php');
 IyzipayBootstrap::init();
 
 $sample = new CheckoutFormSample();
-$sample->should_retrieve_checkout_form_auth();
+$sample->should_retrieve_checkout_form();
 
 class CheckoutFormSample
 {
-    public function should_retrieve_checkout_form_auth()
+    public function should_retrieve_checkout_form()
     {
         # create request class
         $request = new \Iyzipay\Request\RetrieveCheckoutFormRequest();

@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class BasicPaymentTest extends IyzipayResourceTestCase
 {
-    public function test_should_auth_basic_payment()
+    public function test_should_create_basic_payment()
     {
         $this->expectHttpPost();
 

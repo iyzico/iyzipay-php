@@ -9,7 +9,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class PaymentTest extends IyzipayResourceTestCase
 {
-    public function test_should_auth_payment()
+    public function test_should_create_payment()
     {
         $this->expectHttpPost();
 
@@ -18,7 +18,7 @@ class PaymentTest extends IyzipayResourceTestCase
         $this->verifyResource($payment);
     }
 
-    public function test_should_retrieve_auth_payment()
+    public function test_should_retrieve_payment()
     {
         $this->expectHttpPost();
 

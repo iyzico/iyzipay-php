@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class InstallmentInfoTest extends IyzipayResourceTestCase
 {
-    public function test_should_get_installment_info()
+    public function test_should_retrieve_installment_info()
     {
         $this->expectHttpPost();
 

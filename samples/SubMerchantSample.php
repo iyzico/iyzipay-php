@@ -7,6 +7,12 @@ IyzipayBootstrap::init();
 
 $sample = new SubMerchantSample;
 $sample->should_create_personal_sub_merchant();
+$sample->should_create_private_sub_merchant();
+$sample->should_create_limited_company_sub_merchant();
+$sample->should_update_personal_sub_merchant();
+$sample->should_update_private_sub_merchant();
+$sample->should_update_limited_company_sub_merchant();
+$sample->should_retrieve_sub_merchant();
 
 class SubMerchantSample
 {

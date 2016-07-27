@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class PeccoPaymentTest extends IyzipayResourceTestCase
 {
-    public function test_should_retrieve_checkout_form_auth()
+    public function test_should_create_pecco_payment()
     {
         $this->expectHttpPost();
 

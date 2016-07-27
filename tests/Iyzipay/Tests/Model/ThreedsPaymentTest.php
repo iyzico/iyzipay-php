@@ -9,7 +9,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class ThreedsPaymentTest extends IyzipayResourceTestCase
 {
-    public function test_should_auth_threeds()
+    public function test_should_create_threeds_payment()
     {
         $this->expectHttpPost();
 
@@ -18,7 +18,7 @@ class ThreedsPaymentTest extends IyzipayResourceTestCase
         $this->verifyResource($threedsPayment);
     }
 
-    public function test_should_retrieve_threeds()
+    public function test_should_retrieve_threeds_payment()
     {
         $this->expectHttpPost();
 
