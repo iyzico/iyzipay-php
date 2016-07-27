@@ -12,17 +12,7 @@ class BasicBasicThreedsInitializeMapperTest extends TestCase
 {
     public function test_should_map_basic_threeds_initialize()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "threeDSHtmlContent": "aHRtbENvbnRlbnQ="
-            }';
+        $json = $this->retrieveJsonFile("initialize-basic-threeds-payment.json");
 
         $basicThreedsInitialize = BasicThreedsInitializeMapper::create($json)->jsonDecode()->mapBasicThreedsInitialize(new BasicThreedsInitialize());
 

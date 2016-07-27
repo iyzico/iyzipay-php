@@ -12,17 +12,7 @@ class InstallmentHtmlMapperTest extends TestCase
 {
     public function test_should_map_installment_html()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":1458545234852,
-                "conversationId":"123456",
-                "htmlContent":"html"
-            }';
+        $json = $this->retrieveJsonFile("retrieve-installment-info-html.json");
 
         $installmentHtml = InstallmentHtmlMapper::create($json)->jsonDecode()->mapInstallmentHtml(new InstallmentHtml());
 

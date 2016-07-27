@@ -12,20 +12,7 @@ class CancelMapperTest extends TestCase
 {
     public function test_should_map_cancel()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "paymentId":"1",
-                "price":"1",
-                "currency":"TRY",
-                "connectorName":"connector name"
-            }';
+        $json = $this->retrieveJsonFile("cancel.json");
 
         $cancel = CancelMapper::create($json)->jsonDecode()->mapCancel(new Cancel());
 

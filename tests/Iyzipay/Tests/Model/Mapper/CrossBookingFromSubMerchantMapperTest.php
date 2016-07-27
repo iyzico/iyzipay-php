@@ -12,16 +12,7 @@ class CrossBookingFromSubMerchantMapperTest extends TestCase
 {
     public function test_should_map_cross_booking_from_sub_merchant()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456"
-            }';
+        $json = $this->retrieveJsonFile("create-cross-booking.json");
 
         $crossBookingFromSubMerchant = CrossBookingFromSubMerchantMapper::create($json)->jsonDecode()->mapCrossBookingFromSubMerchant(new CrossBookingFromSubMerchant());
 

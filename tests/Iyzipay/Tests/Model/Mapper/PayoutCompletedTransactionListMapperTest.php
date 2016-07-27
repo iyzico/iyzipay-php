@@ -13,31 +13,7 @@ class PayoutCompletedTransactionListMapperTest extends TestCase
 {
     public function test_should_map_payout_completed_transaction_list()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "payoutCompletedTransactions": [
-                {
-                    "paymentTransactionId": "12345",
-                    "payoutAmount": 100.0,
-                    "payoutType": "MERCHANT_PAYOUT",
-                    "subMerchantKey": "subMerchantKey",
-                    "currency": "TRY"
-                },
-                {
-                    "paymentTransactionId": "12345",
-                    "payoutAmount": "105.0",
-                    "payoutType": "MERCHANT_PAYOUT",
-                    "subMerchantKey": "subMerchantKey",
-                    "currency": "TRY"
-                }]
-            }';
+        $json = $this->retrieveJsonFile("retrieve-payout-completed-transactions.json");
 
         $payoutCompletedTransactionList = PayoutCompletedTransactionListMapper::create($json)->jsonDecode()->mapPayoutCompletedTransactionList(new PayoutCompletedTransactionList());
 

@@ -12,20 +12,7 @@ class CheckoutFormInitializeMapperTest extends TestCase
 {
     public function test_should_map_checkout_form_initialize()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "token": "token",
-                "checkoutFormContent": "checkoutFormContent",
-                "tokenExpireTime": "3600",
-                "paymentPageUrl": "url"
-            }';
+        $json = $this->retrieveJsonFile("initialize-checkout-form.json");
 
         $checkoutFormInitialize = CheckoutFormInitializeMapper::create($json)->jsonDecode()->mapCheckoutFormInitialize(new CheckoutFormInitialize());
 

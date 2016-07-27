@@ -12,22 +12,7 @@ class BinNumberMapperTest extends TestCase
 {
     public function test_should_map_bin_number()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "binNumber":"454671",
-                "cardType":"CREDIT_CARD",
-                "cardAssociation":"VISA",
-                "cardFamily":"Ziraat Bankası CC",
-                "bankName":"Ziraat Bankası",
-                "bankCode":10
-            }';
+        $json = $this->retrieveJsonFile("retrieve-bin-number.json");
 
         $binNumber = BinNumberMapper::create($json)->jsonDecode()->mapBinNumber(new BinNumber());
 

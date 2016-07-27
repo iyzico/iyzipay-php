@@ -1,0 +1,25 @@
+{
+  "status": "failure",
+  "errorCode": 10000,
+  "errorMessage": "error message",
+  "errorGroup": "ERROR_GROUP",
+  "locale": "tr",
+  "systemTime": "1458545234852",
+  "conversationId": "123456",
+  "payoutCompletedTransactions": [
+    {
+      "paymentTransactionId": "12345",
+      "payoutAmount": 100.0,
+      "payoutType": "MERCHANT_PAYOUT",
+      "subMerchantKey": "subMerchantKey",
+      "currency": "TRY"
+    },
+    {
+      "paymentTransactionId": "12345",
+      "payoutAmount": "105.0",
+      "payoutType": "MERCHANT_PAYOUT",
+      "subMerchantKey": "subMerchantKey",
+      "currency": "TRY"
+    }
+  ]
+}

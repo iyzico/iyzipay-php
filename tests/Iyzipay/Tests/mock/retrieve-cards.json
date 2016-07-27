@@ -1,0 +1,34 @@
+{
+  "status": "failure",
+  "errorCode": 10000,
+  "errorMessage": "error message",
+  "errorGroup": "ERROR_GROUP",
+  "locale": "tr",
+  "systemTime": "1458545234852",
+  "conversationId": "123456",
+  "cardUserKey": "cardUserKey",
+  "cardDetails": [
+    {
+      "cardUserKey": "cardUserKey",
+      "cardToken": "cardToken",
+      "cardAlias": "cardAlias",
+      "binNumber": "554960",
+      "cardType": "CREDIT_CARD",
+      "cardAssociation": "MASTER_CARD",
+      "cardFamily": "Bonus",
+      "cardBankCode": 10,
+      "cardBankName": "Ziraat Bankası"
+    },
+    {
+      "cardUserKey": "cardUserKey2",
+      "cardToken": "cardToken2",
+      "cardAlias": "cardAlias2",
+      "binNumber": "554961",
+      "cardType": "DEBIT_CARD",
+      "cardAssociation": "VISA",
+      "cardFamily": "Maximum",
+      "cardBankCode": 11,
+      "cardBankName": "Garanti Bankası"
+    }
+  ]
+}

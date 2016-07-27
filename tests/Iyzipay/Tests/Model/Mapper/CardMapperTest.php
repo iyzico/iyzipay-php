@@ -12,27 +12,7 @@ class CardMapperTest extends TestCase
 {
     public function test_should_map_card()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "externalId": "123456",
-                "email": "email",
-                "cardUserKey": "cardUserKey",
-                "cardToken": "cardToken",
-                "cardAlias": "cardAlias",
-                "binNumber": "554960",
-                "cardType": "CREDIT_CARD",
-                "cardAssociation": "MASTER_CARD",
-                "cardFamily": "Bonus",
-                "cardBankCode":10,
-                "cardBankName":"Ziraat Bankası"
-            }';
+        $json = $this->retrieveJsonFile("create-card.json");
 
         $card = CardMapper::create($json)->jsonDecode()->mapCard(new Card());
 

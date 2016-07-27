@@ -12,17 +12,7 @@ class ApprovalMapperTest extends TestCase
 {
     public function test_should_map_approval()
     {
-        $json = '
-            {
-                "status":"failure",
-                "errorCode":10000,
-                "errorMessage":"error message",
-                "errorGroup":"ERROR_GROUP",
-                "locale":"tr",
-                "systemTime":"1458545234852",
-                "conversationId":"123456",
-                "paymentTransactionId":"1"
-            }';
+        $json = $this->retrieveJsonFile("approve.json");
 
         $approval = ApprovalMapper::create($json)->jsonDecode()->mapApproval(new Approval());
 
