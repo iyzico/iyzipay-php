@@ -31,6 +31,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
     public function retrieveJsonFile($file)
     {
-        return file_get_contents('mock/' . $file, true);
+        return file_get_contents(__DIR__ . '/mock/' . $file, true);
     }
 }
