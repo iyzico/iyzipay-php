@@ -4,15 +4,14 @@ require_once('../IyzipayBootstrap.php');
 
 IyzipayBootstrap::init();
 
-class Sample
+class Config
 {
     public static function options()
     {
-        # create client configuration
         $options = new \Iyzipay\Options();
         $options->setApiKey("api key");
         $options->setSecretKey("secret key");
-        $options->setBaseUrl("base url");
+        $options->setBaseUrl("https://sandbox-api.iyzipay.com");
         return $options;
     }
 }
