@@ -8,6 +8,8 @@ use Iyzipay\RequestStringBuilder;
 
 class CreatePaymentRequest extends Request
 {
+    const SINGLE_INSTALLMENT = 1;
+
     private $price;
     private $paidPrice;
     private $installment;
@@ -24,6 +26,11 @@ class CreatePaymentRequest extends Request
     private $posOrderId;
     private $connectorName;
     private $callbackUrl;
+
+    public function __construct()
+    {
+        $this->setInstallment(CreatePaymentRequest::SINGLE_INSTALLMENT);
+    }
 
     public function getPrice()
     {

@@ -9,7 +9,7 @@ $request->setConversationId("123456789");
 $request->setPaymentTransactionId("1");
 
 # make request
-$approval = \Iyzipay\Model\Approval::create($request, Config::options());
+$disapproval = \Iyzipay\Model\Disapproval::create($request, Config::options());
 
 # print result
-print_r($approval);
+print_r($disapproval);
