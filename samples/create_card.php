@@ -48,34 +48,3 @@ function create_card()
     # print result
     print_r($card);
 }
-
-function delete_card()
-{
-    # create request class
-    $request = new \Iyzipay\Request\DeleteCardRequest();
-    $request->setLocale(\Iyzipay\Model\Locale::TR);
-    $request->setConversationId("123456789");
-    $request->setCardToken("card token");
-    $request->setCardUserKey("card user key");
-
-    # make request
-    $card = \Iyzipay\Model\Card::delete($request, Config::options());
-
-    # print result
-    print_r($card);
-}
-
-function retrieve_cards()
-{
-    # create request class
-    $request = new \Iyzipay\Request\RetrieveCardListRequest();
-    $request->setLocale(\Iyzipay\Model\Locale::TR);
-    $request->setConversationId("123456789");
-    $request->setCardUserKey("card user key");
-
-    # make request
-    $cardList = \Iyzipay\Model\CardList::retrieve($request, Config::options());
-
-    # print result
-    print_r($cardList);
-}
