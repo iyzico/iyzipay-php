@@ -7,7 +7,7 @@ $request = new \Iyzipay\Request\CreateRefundRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 $request->setPaymentTransactionId("1");
-$request->setPrice("0.1");
+$request->setPrice("0.5");
 $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setIp("85.34.78.112");
 
