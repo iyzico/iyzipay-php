@@ -6,7 +6,7 @@ require_once('config.php');
 $request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
-$request->setBinNumber("454671");
+$request->setBinNumber("554960");
 $request->setPrice("1");
 
 # make request
