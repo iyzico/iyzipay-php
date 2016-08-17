@@ -6,8 +6,8 @@ require_once('config.php');
 $request = new \Iyzipay\Request\CreatePeccoInitializeRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
-$request->setPrice("1");
-$request->setPaidPrice("1.2");
+$request->setPrice("100000");
+$request->setPaidPrice("120000");
 $request->setCurrency(\Iyzipay\Model\Currency::IRR);
 $request->setBasketId("B67832");
 $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
@@ -52,7 +52,7 @@ $firstBasketItem->setName("Binocular");
 $firstBasketItem->setCategory1("Collectibles");
 $firstBasketItem->setCategory2("Accessories");
 $firstBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
-$firstBasketItem->setPrice("0.3");
+$firstBasketItem->setPrice("30000");
 $basketItems[0] = $firstBasketItem;
 
 $secondBasketItem = new \Iyzipay\Model\BasketItem();
@@ -61,7 +61,7 @@ $secondBasketItem->setName("Game code");
 $secondBasketItem->setCategory1("Game");
 $secondBasketItem->setCategory2("Online Game Items");
 $secondBasketItem->setItemType(\Iyzipay\Model\BasketItemType::VIRTUAL);
-$secondBasketItem->setPrice("0.5");
+$secondBasketItem->setPrice("50000");
 $basketItems[1] = $secondBasketItem;
 
 $thirdBasketItem = new \Iyzipay\Model\BasketItem();
@@ -70,7 +70,7 @@ $thirdBasketItem->setName("Usb");
 $thirdBasketItem->setCategory1("Electronics");
 $thirdBasketItem->setCategory2("Usb / Cable");
 $thirdBasketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
-$thirdBasketItem->setPrice("0.2");
+$thirdBasketItem->setPrice("20000");
 $basketItems[2] = $thirdBasketItem;
 $request->setBasketItems($basketItems);
 

@@ -193,7 +193,7 @@ Card Number       | Description
 4141111111111115  | Success but mdStatus is 4
 4151111111111112  | 3dsecure initialize failed
 
-## Testing
+# Testing
 
 Install dependencies as mentioned above (which will resolve [PHPUnit](http://packagist.org/packages/phpunit/phpunit)), then you can run the test suite:
 
