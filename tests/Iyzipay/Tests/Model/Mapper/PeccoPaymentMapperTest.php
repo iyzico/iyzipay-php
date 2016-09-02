@@ -46,6 +46,7 @@ class PeccoPaymentMapperTest extends TestCase
         $this->assertEquals("B67832", $peccoPayment->getBasketId());
         $this->assertEquals(Currency::TL, $peccoPayment->getCurrency());
         $this->assertEquals("connector name", $peccoPayment->getConnectorName());
+        $this->assertEquals("auth code", $peccoPayment->getAuthCode());
 
         $paymentItems = $peccoPayment->getPaymentItems();
         $this->assertNotEmpty($peccoPayment->getPaymentItems());

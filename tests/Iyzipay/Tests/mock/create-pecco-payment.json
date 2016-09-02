@@ -25,6 +25,7 @@
   "basketId": "B67832",
   "currency": "TRY",
   "connectorName": "connector name",
+  "authCode": "auth code",
   "itemTransactions": [
     {
       "itemId": "BI101",

@@ -26,6 +26,7 @@ class PaymentResource extends IyzipayResource
     private $basketId;
     private $paymentItems;
     private $connectorName;
+    private $authCode;
 
     public function getPrice()
     {
@@ -225,5 +226,15 @@ class PaymentResource extends IyzipayResource
     public function setConnectorName($connectorName)
     {
         $this->connectorName = $connectorName;
+    }
+
+    public function getAuthCode()
+    {
+        return $this->authCode;
+    }
+
+    public function setAuthCode($authCode)
+    {
+        $this->authCode = $authCode;
     }
 }

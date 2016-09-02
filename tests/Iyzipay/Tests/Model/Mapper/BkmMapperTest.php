@@ -46,6 +46,7 @@ class BkmMapperTest extends TestCase
         $this->assertEquals("B67832", $bkm->getBasketId());
         $this->assertEquals(Currency::TL, $bkm->getCurrency());
         $this->assertEquals("connector name", $bkm->getConnectorName());
+        $this->assertEquals("auth code", $bkm->getAuthCode());
 
         $paymentItems = $bkm->getPaymentItems();
         $this->assertNotEmpty($bkm->getPaymentItems());
