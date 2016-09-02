@@ -7,7 +7,7 @@ $request = new \Iyzipay\Request\CreatePaymentRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 $request->setPrice("1");
-$request->setPaidPrice("1.1");
+$request->setPaidPrice("1.2");
 $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setInstallment(1);
 $request->setBasketId("B67832");
