@@ -38,15 +38,15 @@ require_once('/path/to/iyzipay-php/IyzipayBootstrap.php');
 
 ```php
 $options = new \Iyzipay\Options();
-$options->setApiKey("api key");
-$options->setSecretKey("secret key");
+$options->setApiKey("your api key");
+$options->setSecretKey("your secret key");
 $options->setBaseUrl("https://sandbox-api.iyzipay.com");
         
 $request = new \Iyzipay\Request\CreatePaymentRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 $request->setPrice("1");
-$request->setPaidPrice("1.1");
+$request->setPaidPrice("1.2");
 $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setInstallment(1);
 $request->setBasketId("B67832");
