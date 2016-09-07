@@ -17,7 +17,7 @@ function create_personal_sub_merchant()
     $request->setGsmNumber("+905350000000");
     $request->setName("John's market");
     $request->setIban("TR180006200119000006672315");
-    $request->setIdentityNumber("1234567890");
+    $request->setIdentityNumber("31300864726");
     $request->setCurrency(\Iyzipay\Model\Currency::TL);
 
     # make request
