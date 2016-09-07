@@ -16,8 +16,6 @@ class CurlTest extends \PHPUnit_Framework_TestCase
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false));
 
-        echo $ret;
-
         $this->assertNotNull($ret);
         $this->assertFalse($ret);
     }
