@@ -5,7 +5,7 @@ require_once('config.php');
 # create request class
 $request = new \Iyzipay\Request\RetrieveBinNumberRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
-$request->setConversationId("123456");
+$request->setConversationId("123456789");
 $request->setBinNumber("554960");
 
 # make request
