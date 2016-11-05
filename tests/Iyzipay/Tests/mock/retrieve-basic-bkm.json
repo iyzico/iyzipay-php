@@ -25,5 +25,6 @@
   "currency": "TRY",
   "token": "token",
   "callbackUrl": "https://www.iyzico.com",
-  "paymentStatus": "SUCCESS"
+  "paymentStatus": "SUCCESS",
+  "phase": "AUTH"
 }

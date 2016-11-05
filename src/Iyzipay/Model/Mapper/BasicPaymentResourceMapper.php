@@ -66,6 +66,9 @@ class BasicPaymentResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->currency)) {
             $payment->setCurrency($jsonObject->currency);
         }
+        if (isset($jsonObject->phase)) {
+            $payment->setPhase($jsonObject->phase);
+        }
         return $payment;
     }
 

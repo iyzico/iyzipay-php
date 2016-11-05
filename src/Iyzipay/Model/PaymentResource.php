@@ -27,6 +27,7 @@ class PaymentResource extends IyzipayResource
     private $paymentItems;
     private $connectorName;
     private $authCode;
+    private $phase;
 
     public function getPrice()
     {
@@ -236,5 +237,15 @@ class PaymentResource extends IyzipayResource
     public function setAuthCode($authCode)
     {
         $this->authCode = $authCode;
+    }
+
+    public function getPhase()
+    {
+        return $this->phase;
+    }
+
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
     }
 }

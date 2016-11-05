@@ -22,5 +22,6 @@
   "paymentTransactionId": "1",
   "authCode": "546382",
   "connectorName": "connectorName",
-  "currency": "TRY"
+  "currency": "TRY",
+  "phase": "AUTH"
 }

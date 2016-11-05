@@ -47,5 +47,6 @@ class BasicBkmMapperTest extends TestCase
         $this->assertEquals("token", $basicBkm->getToken());
         $this->assertEquals("https://www.iyzico.com", $basicBkm->getCallbackUrl());
         $this->assertEquals("SUCCESS", $basicBkm->getPaymentStatus());
+        $this->assertEquals("AUTH", $basicBkm->getPhase());
     }
 }

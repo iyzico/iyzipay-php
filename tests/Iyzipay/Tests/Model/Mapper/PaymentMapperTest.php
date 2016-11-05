@@ -47,6 +47,7 @@ class PaymentMapperTest extends TestCase
         $this->assertEquals(Currency::TL, $payment->getCurrency());
         $this->assertEquals("connector name", $payment->getConnectorName());
         $this->assertEquals("auth code", $payment->getAuthCode());
+        $this->assertEquals("AUTH", $payment->getPhase());
 
         $paymentItems = $payment->getPaymentItems();
         $this->assertNotEmpty($payment->getPaymentItems());

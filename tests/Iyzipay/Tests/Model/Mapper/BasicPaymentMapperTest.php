@@ -44,5 +44,6 @@ class BasicPaymentMapperTest extends TestCase
         $this->assertEquals("546382", $basicPayment->getAuthCode());
         $this->assertEquals("connectorName", $basicPayment->getConnectorName());
         $this->assertEquals(Currency::TL, $basicPayment->getCurrency());
+        $this->assertEquals("AUTH", $basicPayment->getPhase());
     }
 }

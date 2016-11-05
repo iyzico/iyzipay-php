@@ -44,5 +44,6 @@ class BasicPaymentPreAuthMapperTest extends TestCase
         $this->assertEquals("546382", $basicPaymentPreAuth->getAuthCode());
         $this->assertEquals("connectorName", $basicPaymentPreAuth->getConnectorName());
         $this->assertEquals(Currency::TL, $basicPaymentPreAuth->getCurrency());
+        $this->assertEquals("AUTH", $basicPaymentPreAuth->getPhase());
     }
 }
