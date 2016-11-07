@@ -7,3 +7,4 @@
 /.coveralls.yml export-ignore
 /phpunit.xml.dist export-ignore
 /README.md export-ignore
+/VERSION export-ignore

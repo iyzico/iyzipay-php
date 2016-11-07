@@ -17,11 +17,12 @@ class IyzipayResourceTest extends TestCase
         $headers = parent::callMethod(new IyzipayResource(), "getHttpHeaders", array($request, $this->options));
 
         $this->assertNotEmpty($headers);
-        $this->assertEquals(4, count($headers));
+        $this->assertEquals(5, count($headers));
         $this->assertEquals("Accept: application/json", $headers[0]);
         $this->assertEquals("Content-type: application/json", $headers[1]);
         $this->assertStringStartsWith("Authorization: ", $headers[2]);
         $this->assertStringStartsWith("x-iyzi-rnd: ", $headers[3]);
+        $this->assertStringStartsWith("x-iyzi-client-version: ", $headers[4]);
     }
 
     public function test_should_prepare_authorization_string()
