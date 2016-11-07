@@ -23,6 +23,7 @@ class BasicPaymentResource extends IyzipayResource
     private $paymentTransactionId;
     private $authCode;
     private $connectorName;
+    private $phase;
 
     public function getPrice()
     {
@@ -192,5 +193,15 @@ class BasicPaymentResource extends IyzipayResource
     public function setConnectorName($connectorName)
     {
         $this->connectorName = $connectorName;
+    }
+
+    public function getPhase()
+    {
+        return $this->phase;
+    }
+
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
     }
 }

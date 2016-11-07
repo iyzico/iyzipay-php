@@ -47,6 +47,7 @@ class PaymentPreAuthMapperTest extends TestCase
         $this->assertEquals(Currency::TL, $paymentPreAuth->getCurrency());
         $this->assertEquals("connector name", $paymentPreAuth->getConnectorName());
         $this->assertEquals("auth code", $paymentPreAuth->getAuthCode());
+        $this->assertEquals("AUTH", $paymentPreAuth->getPhase());
 
         $paymentItems = $paymentPreAuth->getPaymentItems();
         $this->assertNotEmpty($paymentPreAuth->getPaymentItems());

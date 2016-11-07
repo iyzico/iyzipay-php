@@ -43,5 +43,6 @@ class BasicPaymentPostAuthMapperTest extends TestCase
         $this->assertEquals("546382", $basicPaymentPostAuth->getAuthCode());
         $this->assertEquals("connectorName", $basicPaymentPostAuth->getConnectorName());
         $this->assertEquals("TRY", $basicPaymentPostAuth->getCurrency());
+        $this->assertEquals("AUTH", $basicPaymentPostAuth->getPhase());
     }
 }

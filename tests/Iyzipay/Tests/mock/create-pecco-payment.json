@@ -26,6 +26,7 @@
   "currency": "TRY",
   "connectorName": "connector name",
   "authCode": "auth code",
+  "phase": "AUTH",
   "itemTransactions": [
     {
       "itemId": "BI101",
