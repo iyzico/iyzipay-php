@@ -24,6 +24,7 @@ class CreateBkmInitializeRequestTest extends TestCase
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("payment source", $jsonObject["paymentSource"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
+        $this->assertEquals(array(1, 2, 3, 6, 9), $jsonObject["enabledInstallments"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
         $this->assertEquals("Doe", $jsonObject["buyer"]["surname"]);
@@ -94,7 +95,8 @@ class CreateBkmInitializeRequestTest extends TestCase
             "category2=Accessories," .
             "itemType=PHYSICAL]]," .
             "callbackUrl=https://www.merchant.com/callback," .
-            "paymentSource=payment source]";
+            "paymentSource=payment source," .
+            "enabledInstallments=[1, 2, 3, 6, 9]]";
 
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -154,7 +156,8 @@ class CreateBkmInitializeRequestTest extends TestCase
                         "itemType":"PHYSICAL"
                     }
                 ],
-                "paymentSource":"payment source"
+                "paymentSource":"payment source",
+                "enabledInstallments":[1,2,3,6,9]
             }';
 
         $this->assertJson($request->toJsonString());
@@ -171,6 +174,7 @@ class CreateBkmInitializeRequestTest extends TestCase
         $request->setPaymentGroup(PaymentGroup::PRODUCT);
         $request->setPaymentSource("payment source");
         $request->setCallbackUrl("https://www.merchant.com/callback");
+        $request->setEnabledInstallments(array(1, 2, 3, 6, 9));
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
