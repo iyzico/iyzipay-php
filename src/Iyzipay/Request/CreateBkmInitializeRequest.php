@@ -108,7 +108,7 @@ class CreateBkmInitializeRequest extends Request
     {
         $this->paymentSource = $paymentSource;
     }
-    
+
     public function setEnabledInstallments($enabledInstallments)
     {
         $this->enabledInstallments = $enabledInstallments;
