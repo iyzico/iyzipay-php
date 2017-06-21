@@ -193,6 +193,16 @@ Card Number       | Description
 4141111111111115  | Success but mdStatus is 4
 4151111111111112  | 3dsecure initialize failed
 
+### Mock APM Accounts
+
+Mock APM Accounts that can be used to simulate a payment with alternative payment method:
+
+Account Holder Name     | Description
+-------------------     | -----------
+success                 | Succeeded payment after succeeded initialize
+fail-after-init         | Failed payment after succeeded initialize
+error                   | Failed initialize
+
 # Testing
 
 Install dependencies as mentioned above (which will resolve [PHPUnit](http://packagist.org/packages/phpunit/phpunit)), then you can run the test suite:
