@@ -3,9 +3,9 @@
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Address;
+use Iyzipay\Model\ApmType;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
-use Iyzipay\Model\ApmType;
 use Iyzipay\Model\Buyer;
 use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;

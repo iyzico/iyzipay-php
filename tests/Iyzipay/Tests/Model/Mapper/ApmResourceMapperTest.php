@@ -2,10 +2,10 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
+use Iyzipay\Model\ApmResource;
 use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Mapper\ApmResourceMapper;
-use Iyzipay\Model\ApmResource;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
@@ -31,7 +31,7 @@ class ApmResourceMapperTest extends TestCase
         $this->assertEquals(1.0, $apm->getPrice());
         $this->assertEquals(1.1, $apm->getPaidPrice());
         $this->assertEquals("1", $apm->getPaymentId());
-        $this->assertEquals(10.00000000,$apm->getMerchantCommissionRate());
+        $this->assertEquals(10.00000000, $apm->getMerchantCommissionRate());
         $this->assertEquals(0.1, $apm->getMerchantCommissionRateAmount());
         $this->assertEquals(0.03245000, $apm->getIyziCommissionRateAmount());
         $this->assertEquals(0.29500000, $apm->getIyziCommissionFee());
