@@ -15,6 +15,7 @@ class BinNumber extends IyzipayResource
     private $cardFamily;
     private $bankName;
     private $bankCode;
+    private $commercial;
 
     public static function retrieve(RetrieveBinNumberRequest $request, Options $options)
     {
@@ -80,5 +81,15 @@ class BinNumber extends IyzipayResource
     public function setBankCode($bankCode)
     {
         $this->bankCode = $bankCode;
+    }
+
+    public function getCommercial()
+    {
+        return $this->commercial;
+    }
+
+    public function setCommercial($commercial)
+    {
+        $this->commercial = $commercial;
     }
 }

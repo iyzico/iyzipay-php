@@ -41,6 +41,8 @@ class InstallmentInfoMapperTest extends TestCase
         $this->assertEquals("10", $installmentDetail->getBankCode());
         $this->assertEquals("Ziraat Bankası", $installmentDetail->getBankName());
         $this->assertEquals("1", $installmentDetail->getForceCvc());
+        $this->assertEquals("0", $installmentDetail->getCommercial());
+
 
         $installmentPrices = $installmentDetail->getInstallmentPrices();
         $this->assertNotEmpty($installmentPrices);
@@ -71,6 +73,8 @@ class InstallmentInfoMapperTest extends TestCase
         $this->assertEquals("11", $installmentDetail2->getBankCode());
         $this->assertEquals("Garanti Bankası", $installmentDetail2->getBankName());
         $this->assertEquals("0", $installmentDetail2->getForceCvc());
+        $this->assertEquals("1", $installmentDetail2->getCommercial());
+
 
         $installmentPrices2 = $installmentDetail2->getInstallmentPrices();
         $this->assertNotEmpty($installmentPrices2);

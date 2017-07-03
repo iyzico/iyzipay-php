@@ -27,6 +27,7 @@
   "connectorName": "connector name",
   "authCode": "auth code",
   "phase": "AUTH",
+  "lastFourDigits": "0000",
   "itemTransactions": [
     {
       "itemId": "BI101",

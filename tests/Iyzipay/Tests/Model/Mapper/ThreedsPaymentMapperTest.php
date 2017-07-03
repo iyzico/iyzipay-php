@@ -48,6 +48,7 @@ class ThreedsPaymentMapperTest extends TestCase
         $this->assertEquals("connector name", $threedsPayment->getConnectorName());
         $this->assertEquals("auth code", $threedsPayment->getAuthCode());
         $this->assertEquals("AUTH", $threedsPayment->getPhase());
+        $this->assertEquals("0000", $threedsPayment->getLastFourDigits());
 
         $paymentItems = $threedsPayment->getPaymentItems();
         $this->assertNotEmpty($threedsPayment->getPaymentItems());

@@ -32,5 +32,6 @@ class BinNumberMapperTest extends TestCase
         $this->assertEquals("Ziraat Bankası CC", $binNumber->getCardFamily());
         $this->assertEquals("Ziraat Bankası", $binNumber->getBankName());
         $this->assertEquals("10", $binNumber->getBankCode());
+        $this->assertEquals("1", $binNumber->getCommercial());
     }
 }

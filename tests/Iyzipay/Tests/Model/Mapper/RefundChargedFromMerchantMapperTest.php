@@ -31,5 +31,6 @@ class RefundChargedFromMerchantMapperTest extends TestCase
         $this->assertEquals("1", $refundChargedFromMerchant->getPrice());
         $this->assertEquals("TRY", $refundChargedFromMerchant->getCurrency());
         $this->assertEquals("connector name", $refundChargedFromMerchant->getConnectorName());
+        $this->assertEquals("1234567", $refundChargedFromMerchant->getAuthCode());
     }
 }

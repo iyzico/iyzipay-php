@@ -11,5 +11,6 @@
   "cardAssociation": "VISA",
   "cardFamily": "Ziraat Bankası CC",
   "bankName": "Ziraat Bankası",
-  "bankCode": 10
+  "bankCode": 10,
+  "commercial": 1
 }

@@ -17,6 +17,7 @@
       "bankCode": 10,
       "bankName": "Ziraat Bankası",
       "forceCvc": 1,
+      "commercial": 0,
       "installmentPrices": [
         {
           "installmentPrice": 100.0,
@@ -45,6 +46,7 @@
       "bankCode": 11,
       "bankName": "Garanti Bankası",
       "forceCvc": 0,
+      "commercial": 1,
       "installmentPrices": [
         {
           "installmentPrice": 100.0,

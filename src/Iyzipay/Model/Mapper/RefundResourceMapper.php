@@ -30,6 +30,9 @@ class RefundResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->connectorName)) {
             $refundResource->setConnectorName($jsonObject->connectorName);
         }
+        if (isset($jsonObject->authCode)) {
+            $refundResource->setAuthCode($jsonObject->authCode);
+        }
         return $refundResource;
     }
 

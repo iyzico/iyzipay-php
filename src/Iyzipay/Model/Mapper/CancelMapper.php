@@ -27,6 +27,9 @@ class CancelMapper extends IyzipayResourceMapper
         if (isset($jsonObject->connectorName)) {
             $cancel->setConnectorName($jsonObject->connectorName);
         }
+        if (isset($jsonObject->authCode)) {
+            $cancel->setAuthCode($jsonObject->authCode);
+        }
         return $cancel;
     }
 

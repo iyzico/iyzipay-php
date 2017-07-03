@@ -31,5 +31,6 @@ class RefundMapperTest extends TestCase
         $this->assertEquals("1", $refund->getPrice());
         $this->assertEquals("TRY", $refund->getCurrency());
         $this->assertEquals("connector name", $refund->getConnectorName());
+        $this->assertEquals("1234567", $refund->getAuthCode());
     }
 }

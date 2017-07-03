@@ -33,6 +33,9 @@ class BinNumberMapper extends IyzipayResourceMapper
         if (isset($jsonObject->bankCode)) {
             $binNumber->setBankCode($jsonObject->bankCode);
         }
+        if (isset($jsonObject->commercial)) {
+            $binNumber->setCommercial($jsonObject->commercial);
+        }
         return $binNumber;
     }
 

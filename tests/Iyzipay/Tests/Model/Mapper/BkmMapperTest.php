@@ -48,6 +48,7 @@ class BkmMapperTest extends TestCase
         $this->assertEquals("connector name", $bkm->getConnectorName());
         $this->assertEquals("auth code", $bkm->getAuthCode());
         $this->assertEquals("AUTH", $bkm->getPhase());
+        $this->assertEquals("0000", $bkm->getLastFourDigits());
 
         $paymentItems = $bkm->getPaymentItems();
         $this->assertNotEmpty($bkm->getPaymentItems());
