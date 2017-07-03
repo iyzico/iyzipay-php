@@ -28,6 +28,7 @@ class PaymentResource extends IyzipayResource
     private $connectorName;
     private $authCode;
     private $phase;
+    private $lastFourDigits;
 
     public function getPrice()
     {
@@ -247,5 +248,15 @@ class PaymentResource extends IyzipayResource
     public function setPhase($phase)
     {
         $this->phase = $phase;
+    }
+
+    public function getLastFourDigits()
+    {
+        return $this->lastFourDigits;
+    }
+
+    public function setLastFourDigits($lastFourDigits)
+    {
+        $this->lastFourDigits = $lastFourDigits;
     }
 }

@@ -13,6 +13,7 @@ class InstallmentDetail
     private $bankCode;
     private $bankName;
     private $forceCvc;
+    private $commercial;
     private $installmentPrices;
 
     public function getBinNumber()
@@ -103,6 +104,16 @@ class InstallmentDetail
     public function setForceCvc($forceCvc)
     {
         $this->forceCvc = $forceCvc;
+    }
+
+    public function getCommercial()
+    {
+        return $this->commercial;
+    }
+
+    public function setCommercial($commercial)
+    {
+        $this->commercial = $commercial;
     }
 
     public function getInstallmentPrices()

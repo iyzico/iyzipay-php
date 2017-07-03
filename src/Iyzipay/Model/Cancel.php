@@ -13,6 +13,7 @@ class Cancel extends IyzipayResource
     private $price;
     private $currency;
     private $connectorName;
+    private $authCode;
 
     public static function create(CreateCancelRequest $request, Options $options)
     {
@@ -58,5 +59,15 @@ class Cancel extends IyzipayResource
     public function setConnectorName($connectorName)
     {
         $this->connectorName = $connectorName;
+    }
+
+    public function getAuthCode()
+    {
+        return $this->authCode;
+    }
+
+    public function setAuthCode($authCode)
+    {
+        $this->authCode = $authCode;
     }
 }

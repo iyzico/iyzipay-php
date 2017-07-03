@@ -11,6 +11,7 @@ class RefundResource extends IyzipayResource
     private $price;
     private $currency;
     private $connectorName;
+    private $authCode;
 
     public function getPaymentId()
     {
@@ -60,5 +61,15 @@ class RefundResource extends IyzipayResource
     public function setConnectorName($connectorName)
     {
         $this->connectorName = $connectorName;
+    }
+
+    public function getAuthCode()
+    {
+        return $this->authCode;
+    }
+
+    public function setAuthCode($authCode)
+    {
+        $this->authCode = $authCode;
     }
 }

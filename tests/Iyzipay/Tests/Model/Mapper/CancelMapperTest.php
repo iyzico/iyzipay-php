@@ -30,5 +30,6 @@ class CancelMapperTest extends TestCase
         $this->assertEquals("1", $cancel->getPrice());
         $this->assertEquals("TRY", $cancel->getCurrency());
         $this->assertEquals("connector name", $cancel->getConnectorName());
+        $this->assertEquals("1234567", $cancel->getAuthCode());
     }
 }

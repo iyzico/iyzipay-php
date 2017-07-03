@@ -10,5 +10,6 @@
   "paymentTransactionId": "1",
   "price": "1",
   "currency": "TRY",
-  "connectorName": "connector name"
+  "connectorName": "connector name",
+  "authCode": "1234567"
 }

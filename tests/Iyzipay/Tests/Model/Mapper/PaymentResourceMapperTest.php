@@ -48,6 +48,7 @@ class PaymentResourceMapperTest extends TestCase
         $this->assertEquals("connector name", $payment->getConnectorName());
         $this->assertEquals("auth code", $payment->getAuthCode());
         $this->assertEquals("AUTH", $payment->getPhase());
+        $this->assertEquals("0000", $payment->getLastFourDigits());
 
         $paymentItems = $payment->getPaymentItems();
         $this->assertNotEmpty($payment->getPaymentItems());
