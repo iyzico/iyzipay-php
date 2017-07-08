@@ -17,11 +17,11 @@ class UpdateSubMerchantRequest extends Request
     private $contactName;
     private $contactSurname;
     private $legalCompanyTitle;
-    private $subMerchantKey;
+    private $swiftCode;
+    private $currency;
     private $identityNumber;
     private $taxNumber;
-    private $currency;
-    private $swiftCode;
+    private $subMerchantKey;
 
     public function getName()
     {
@@ -113,14 +113,24 @@ class UpdateSubMerchantRequest extends Request
         $this->legalCompanyTitle = $legalCompanyTitle;
     }
 
-    public function getSubMerchantKey()
+    public function getSwiftCode()
     {
-        return $this->subMerchantKey;
+        return $this->swiftCode;
     }
 
-    public function setSubMerchantKey($subMerchantKey)
+    public function setSwiftCode($swiftCode)
     {
-        $this->subMerchantKey = $subMerchantKey;
+        $this->swiftCode = $swiftCode;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     public function getIdentityNumber()
@@ -143,24 +153,14 @@ class UpdateSubMerchantRequest extends Request
         $this->taxNumber = $taxNumber;
     }
 
-    public function getCurrency()
+    public function getSubMerchantKey()
     {
-        return $this->currency;
+        return $this->subMerchantKey;
     }
 
-    public function setCurrency($currency)
+    public function setSubMerchantKey($subMerchantKey)
     {
-        $this->currency = $currency;
-    }
-
-    public function getSwiftCode()
-    {
-        return $this->swiftCode;
-    }
-
-    public function setSwiftCode($swiftCode)
-    {
-        $this->swiftCode = $swiftCode;
+        $this->subMerchantKey = $subMerchantKey;
     }
 
     public function getJsonObject()

@@ -17,6 +17,7 @@ class CreateBkmInitializeRequest extends Request
     private $basketItems;
     private $callbackUrl;
     private $paymentSource;
+    private $currency;
     private $enabledInstallments;
 
     public function getPrice()
@@ -109,6 +110,16 @@ class CreateBkmInitializeRequest extends Request
         $this->paymentSource = $paymentSource;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function setEnabledInstallments($enabledInstallments)
     {
         $this->enabledInstallments = $enabledInstallments;
@@ -131,6 +142,7 @@ class CreateBkmInitializeRequest extends Request
             ->addArray("basketItems", $this->getBasketItems())
             ->add("callbackUrl", $this->getCallbackUrl())
             ->add("paymentSource", $this->getPaymentSource())
+            ->add("currency", $this->getCurrency())
             ->addArray("enabledInstallments", $this->getEnabledInstallments())
             ->getObject();
     }
@@ -148,6 +160,7 @@ class CreateBkmInitializeRequest extends Request
             ->appendArray("basketItems", $this->getBasketItems())
             ->append("callbackUrl", $this->getCallbackUrl())
             ->append("paymentSource", $this->getPaymentSource())
+            ->append("currency", $this->getCurrency())
             ->appendArray("enabledInstallments", $this->getEnabledInstallments())
             ->getRequestString();
     }
