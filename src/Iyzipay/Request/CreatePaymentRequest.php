@@ -2,14 +2,13 @@
 
 namespace Iyzipay\Request;
 
+use Iyzipay\Constants;
 use Iyzipay\JsonBuilder;
 use Iyzipay\Request;
 use Iyzipay\RequestStringBuilder;
 
 class CreatePaymentRequest extends Request
 {
-    const SINGLE_INSTALLMENT = 1;
-
     private $price;
     private $paidPrice;
     private $installment;
@@ -29,7 +28,7 @@ class CreatePaymentRequest extends Request
 
     public function __construct()
     {
-        $this->setInstallment(CreatePaymentRequest::SINGLE_INSTALLMENT);
+        $this->setInstallment(Constants::SINGLE_INSTALLMENT);
     }
 
     public function getPrice()
