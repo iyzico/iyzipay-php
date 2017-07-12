@@ -17,12 +17,12 @@ class CreateSubMerchantRequest extends Request
     private $contactName;
     private $contactSurname;
     private $legalCompanyTitle;
-    private $subMerchantExternalId;
+    private $swiftCode;
+    private $currency;
     private $identityNumber;
     private $taxNumber;
+    private $subMerchantExternalId;
     private $subMerchantType;
-    private $currency;
-    private $swiftCode;
 
     public function getName()
     {
@@ -114,14 +114,24 @@ class CreateSubMerchantRequest extends Request
         $this->legalCompanyTitle = $legalCompanyTitle;
     }
 
-    public function getSubMerchantExternalId()
+    public function getSwiftCode()
     {
-        return $this->subMerchantExternalId;
+        return $this->swiftCode;
     }
 
-    public function setSubMerchantExternalId($subMerchantExternalId)
+    public function setSwiftCode($swiftCode)
     {
-        $this->subMerchantExternalId = $subMerchantExternalId;
+        $this->swiftCode = $swiftCode;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
     }
 
     public function getIdentityNumber()
@@ -144,6 +154,16 @@ class CreateSubMerchantRequest extends Request
         $this->taxNumber = $taxNumber;
     }
 
+    public function getSubMerchantExternalId()
+    {
+        return $this->subMerchantExternalId;
+    }
+
+    public function setSubMerchantExternalId($subMerchantExternalId)
+    {
+        $this->subMerchantExternalId = $subMerchantExternalId;
+    }
+
     public function getSubMerchantType()
     {
         return $this->subMerchantType;
@@ -152,26 +172,6 @@ class CreateSubMerchantRequest extends Request
     public function setSubMerchantType($subMerchantType)
     {
         $this->subMerchantType = $subMerchantType;
-    }
-
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
-
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
-    }
-
-    public function getSwiftCode()
-    {
-        return $this->swiftCode;
-    }
-
-    public function setSwiftCode($swiftCode)
-    {
-        $this->swiftCode = $swiftCode;
     }
 
     public function getJsonObject()

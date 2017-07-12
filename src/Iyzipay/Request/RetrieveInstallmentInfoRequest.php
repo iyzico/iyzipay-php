@@ -10,6 +10,7 @@ class RetrieveInstallmentInfoRequest extends Request
 {
     private $binNumber;
     private $price;
+    private $currency;
 
     public function getBinNumber()
     {
@@ -31,11 +32,22 @@ class RetrieveInstallmentInfoRequest extends Request
         $this->price = $price;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
             ->add("binNumber", $this->getBinNumber())
             ->addPrice("price", $this->getPrice())
+            ->add("currency", $this->getCurrency())
             ->getObject();
     }
 
@@ -45,6 +57,7 @@ class RetrieveInstallmentInfoRequest extends Request
             ->appendSuper(parent::toPKIRequestString())
             ->append("binNumber", $this->getBinNumber())
             ->appendPrice("price", $this->getPrice())
+            ->append("currency", $this->getCurrency())
             ->getRequestString();
     }
 }

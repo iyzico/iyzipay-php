@@ -14,7 +14,6 @@ class CreateApmInitializeRequest extends Request
     private $paymentGroup;
     private $paymentSource;
     private $currency;
-    private $basketId;
     private $merchantOrderId;
     private $countryCode;
     private $accountHolderName;
@@ -22,6 +21,7 @@ class CreateApmInitializeRequest extends Request
     private $merchantErrorUrl;
     private $merchantNotificationUrl;
     private $apmType;
+    private $basketId;
     private $buyer;
     private $shippingAddress;
     private $billingAddress;
@@ -85,16 +85,6 @@ class CreateApmInitializeRequest extends Request
     public function setCurrency($currency)
     {
         $this->currency = $currency;
-    }
-
-    public function getBasketId()
-    {
-        return $this->basketId;
-    }
-
-    public function setBasketId($basketId)
-    {
-        $this->basketId = $basketId;
     }
 
     public function getMerchantOrderId()
@@ -167,6 +157,16 @@ class CreateApmInitializeRequest extends Request
         $this->apmType = $apmType;
     }
 
+    public function getBasketId()
+    {
+        return $this->basketId;
+    }
+
+    public function setBasketId($basketId)
+    {
+        $this->basketId = $basketId;
+    }
+
     public function getBuyer()
     {
         return $this->buyer;
@@ -216,7 +216,6 @@ class CreateApmInitializeRequest extends Request
             ->add("paymentGroup", $this->getPaymentGroup())
             ->add("paymentSource", $this->getPaymentSource())
             ->add("currency", $this->getCurrency())
-            ->add("basketId", $this->getBasketId())
             ->add("merchantOrderId", $this->getMerchantOrderId())
             ->add("countryCode", $this->getCountryCode())
             ->add("accountHolderName", $this->getAccountHolderName())
@@ -224,6 +223,7 @@ class CreateApmInitializeRequest extends Request
             ->add("merchantErrorUrl", $this->getMerchantErrorUrl())
             ->add("merchantNotificationUrl", $this->getMerchantNotificationUrl())
             ->add("apmType", $this->getApmType())
+            ->add("basketId", $this->getBasketId())
             ->add("buyer", $this->getBuyer())
             ->add("shippingAddress", $this->getShippingAddress())
             ->add("billingAddress", $this->getBillingAddress())
@@ -241,7 +241,6 @@ class CreateApmInitializeRequest extends Request
             ->append("paymentGroup", $this->getPaymentGroup())
             ->append("paymentSource", $this->getPaymentSource())
             ->append("currency", $this->getCurrency())
-            ->append("basketId", $this->getBasketId())
             ->append("merchantOrderId", $this->getMerchantOrderId())
             ->append("countryCode", $this->getCountryCode())
             ->append("accountHolderName", $this->getAccountHolderName())
@@ -249,6 +248,7 @@ class CreateApmInitializeRequest extends Request
             ->append("merchantErrorUrl", $this->getMerchantErrorUrl())
             ->append("merchantNotificationUrl", $this->getMerchantNotificationUrl())
             ->append("apmType", $this->getApmType())
+            ->append("basketId", $this->getBasketId())
             ->append("buyer", $this->getBuyer())
             ->append("shippingAddress", $this->getShippingAddress())
             ->append("billingAddress", $this->getBillingAddress())

@@ -6,6 +6,7 @@ use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
 use Iyzipay\Model\Buyer;
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\PaymentGroup;
 use Iyzipay\Request\CreateBkmInitializeRequest;
@@ -23,6 +24,7 @@ class CreateBkmInitializeRequestTest extends TestCase
         $this->assertEquals("1", $jsonObject["price"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("payment source", $jsonObject["paymentSource"]);
+        $this->assertEquals(Currency::TL, $jsonObject["currency"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
         $this->assertEquals(array(1, 2, 3, 6, 9), $jsonObject["enabledInstallments"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
@@ -96,6 +98,7 @@ class CreateBkmInitializeRequestTest extends TestCase
             "itemType=PHYSICAL]]," .
             "callbackUrl=https://www.merchant.com/callback," .
             "paymentSource=payment source," .
+            "currency=TRY," .
             "enabledInstallments=[1, 2, 3, 6, 9]]";
 
 
@@ -157,6 +160,7 @@ class CreateBkmInitializeRequestTest extends TestCase
                     }
                 ],
                 "paymentSource":"payment source",
+                "currency":"TRY",
                 "enabledInstallments":[1,2,3,6,9]
             }';
 
@@ -175,6 +179,7 @@ class CreateBkmInitializeRequestTest extends TestCase
         $request->setPaymentSource("payment source");
         $request->setCallbackUrl("https://www.merchant.com/callback");
         $request->setEnabledInstallments(array(1, 2, 3, 6, 9));
+        $request->setCurrency(Currency::TL);
 
         $buyer = new Buyer();
         $buyer->setId("BY789");

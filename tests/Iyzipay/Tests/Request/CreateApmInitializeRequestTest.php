@@ -92,7 +92,6 @@ class CreateApmInitializeRequestTest extends TestCase
             "paymentGroup=PRODUCT," .
             "paymentSource=Payment Source," .
             "currency=EUR," .
-            "basketId=B123456," .
             "merchantOrderId=123456," .
             "countryCode=DE," .
             "accountHolderName=John Doe," .
@@ -100,6 +99,7 @@ class CreateApmInitializeRequestTest extends TestCase
             "merchantErrorUrl=https://www.merchant.com/error," .
             "merchantNotificationUrl=https://www.merchant.com/notification," .
             "apmType=SOFORT," .
+            "basketId=B123456," .
             "buyer=[id=BY789," .
             "name=John," .
             "surname=Doe," .

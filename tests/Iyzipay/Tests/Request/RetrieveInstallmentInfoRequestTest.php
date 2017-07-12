@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Tests\Request;
 
+use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Request\RetrieveInstallmentInfoRequest;
 use Iyzipay\Tests\TestCase;
@@ -17,6 +18,7 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("454671", $jsonObject["binNumber"]);
         $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals(Currency::TL, $jsonObject["currency"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -26,7 +28,8 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
         $str = "[locale=tr," .
             "conversationId=123456789," .
             "binNumber=454671," .
-            "price=1.0]";
+            "price=1.0," .
+            "currency=TRY]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -40,7 +43,8 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
                 "locale":"tr",
                 "conversationId":"123456789",
                 "binNumber":"454671",
-                "price":"1.0"
+                "price":"1.0",
+                "currency":"TRY"
             }';
 
         $this->assertJson($request->toJsonString());
@@ -54,6 +58,7 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setBinNumber("454671");
         $request->setPrice("1");
+        $request->setCurrency(Currency::TL);
         return $request;
     }
 }
