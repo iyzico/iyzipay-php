@@ -9,4 +9,7 @@ class Currency
     const USD = "USD";
     const GBP = "GBP";
     const IRR = "IRR";
+    const NOK = "NOK";
+    const RUB = "RUB";
+    const CHF = "CHF";
 }
