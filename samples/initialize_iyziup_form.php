@@ -16,6 +16,7 @@ $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setPrice("1");
 $request->setPaidPrice("1.2");
 $request->setCallbackUrl("https://www.merchant.com/callback");
+$request->setTermsUrl("https://www.merchant.com/terms");
 
 $orderItems = array();
 $firstOrderItem = new \Iyzipay\Model\OrderItem();

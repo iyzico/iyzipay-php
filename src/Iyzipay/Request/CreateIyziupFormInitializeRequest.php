@@ -18,6 +18,7 @@ class CreateIyziupFormInitializeRequest extends Request
     private $price;
     private $paidPrice;
     private $callbackUrl;
+    private $termsUrl;
     private $orderItems;
 
     public function getPrice()
@@ -90,6 +91,17 @@ class CreateIyziupFormInitializeRequest extends Request
         $this->callbackUrl = $callbackUrl;
     }
 
+    public function getTermsUrl()
+    {
+        return $this->termsUrl;
+    }
+
+    public function setTermsUrl($termsUrl)
+    {
+        $this->termsUrl = $termsUrl;
+    }
+
+
     public function getForceThreeDS()
     {
         return $this->forceThreeDS;
@@ -144,6 +156,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->addPrice("price", $this->getPrice())
             ->addPrice("paidPrice", $this->getPaidPrice())
             ->add("callbackUrl", $this->getCallbackUrl())
+            ->add("termsUrl", $this->getTermsUrl())
             ->addArray("orderItems", $this->getOrderItems())
             ->getObject();
     }
@@ -162,6 +175,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->appendPrice("price", $this->getPrice())
             ->appendPrice("paidPrice", $this->getPaidPrice())
             ->append("callbackUrl", $this->getCallbackUrl())
+            ->append("termsUrl", $this->getTermsUrl())
             ->appendArray("orderItems", $this->getOrderItems())
             ->getRequestString();
     }
