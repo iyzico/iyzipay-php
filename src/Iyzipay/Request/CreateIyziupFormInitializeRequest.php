@@ -19,6 +19,7 @@ class CreateIyziupFormInitializeRequest extends Request
     private $paidPrice;
     private $callbackUrl;
     private $termsUrl;
+    private $preSalesContractUrl;
     private $orderItems;
 
     public function getPrice()
@@ -101,6 +102,15 @@ class CreateIyziupFormInitializeRequest extends Request
         $this->termsUrl = $termsUrl;
     }
 
+    public function getPreSalesContractUrl()
+    {
+        return $this->preSalesContractUrl;
+    }
+
+    public function setPreSalesContractUrl($preSalesContractUrl)
+    {
+        $this->preSalesContractUrl = $preSalesContractUrl;
+    }
 
     public function getForceThreeDS()
     {
@@ -121,7 +131,6 @@ class CreateIyziupFormInitializeRequest extends Request
     {
         $this->merchantOrderId = $merchantOrderId;
     }
-
 
     public function setEnabledInstallments($enabledInstallments)
     {
@@ -157,6 +166,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->addPrice("paidPrice", $this->getPaidPrice())
             ->add("callbackUrl", $this->getCallbackUrl())
             ->add("termsUrl", $this->getTermsUrl())
+            ->add("preSalesContractUrl", $this->getPreSalesContractUrl())
             ->addArray("orderItems", $this->getOrderItems())
             ->getObject();
     }
@@ -176,6 +186,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->appendPrice("paidPrice", $this->getPaidPrice())
             ->append("callbackUrl", $this->getCallbackUrl())
             ->append("termsUrl", $this->getTermsUrl())
+            ->append("preSalesContractUrl", $this->getPreSalesContractUrl())
             ->appendArray("orderItems", $this->getOrderItems())
             ->getRequestString();
     }

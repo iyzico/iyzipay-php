@@ -17,6 +17,7 @@ $request->setPrice("1");
 $request->setPaidPrice("1.2");
 $request->setCallbackUrl("https://www.merchant.com/callback");
 $request->setTermsUrl("https://www.merchant.com/terms");
+$request->setPreSalesContractUrl("https://www.merchant.com/preSalesContract");
 
 $orderItems = array();
 $firstOrderItem = new \Iyzipay\Model\OrderItem();

@@ -30,6 +30,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
         $this->assertEquals("1.2", $jsonObject["paidPrice"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
         $this->assertEquals("https://www.merchant.com/terms", $jsonObject["termsUrl"]);
+        $this->assertEquals("https://www.merchant.com/preSalesContract", $jsonObject["preSalesContractUrl"]);
         $this->assertEquals("Binocular", $jsonObject["orderItems"][0]["name"]);
         $this->assertEquals("Collectibles", $jsonObject["orderItems"][0]["category1"]);
         $this->assertEquals("Accessories", $jsonObject["orderItems"][0]["category2"]);
@@ -53,6 +54,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
             "paidPrice=1.2," .
             "callbackUrl=https://www.merchant.com/callback," .
             "termsUrl=https://www.merchant.com/terms," .
+            "preSalesContractUrl=https://www.merchant.com/preSalesContract," .
             "orderItems=[[id=BI101," .
             "price=0.3," .
             "name=Binocular," .
@@ -84,6 +86,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
                 "paidPrice":"1.2",
                 "callbackUrl":"https://www.merchant.com/callback",
                 "termsUrl":"https://www.merchant.com/terms",
+                "preSalesContractUrl":"https://www.merchant.com/preSalesContract",
                 "orderItems":
                 [
                     {
@@ -118,6 +121,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
         $request->setPaidPrice("1.2");
         $request->setCallbackUrl("https://www.merchant.com/callback");
         $request->setTermsUrl("https://www.merchant.com/terms");
+        $request->setPreSalesContractUrl("https://www.merchant.com/preSalesContract");
         $orderItems = array();
         $firstOrderItem = new OrderItem();
         $firstOrderItem->setId("BI101");
