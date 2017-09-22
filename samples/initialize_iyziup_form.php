@@ -15,6 +15,7 @@ $request->setEnabledCardFamily("Bonus");
 $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setPrice("1");
 $request->setPaidPrice("1.2");
+$request->setShippingPrice("0.2");
 $request->setCallbackUrl("https://www.merchant.com/callback");
 $request->setTermsUrl("https://www.merchant.com/terms");
 $request->setPreSalesContractUrl("https://www.merchant.com/preSalesContract");
@@ -28,6 +29,7 @@ $firstOrderItem->setCategory2("Accessories");
 $firstOrderItem->setItemType(\Iyzipay\Model\OrderItemType::PHYSICAL);
 $firstOrderItem->setPrice("0.3");
 $firstOrderItem->setItemUrl("https://www.merchant.com/firstItem.html");
+$firstOrderItem->setItemDescription("a handheld optical instrument composed of two telescopes and a focusing device and usually having prisms to increase magnifying ability");
 $OrderItems[0] = $firstOrderItem;
 
 $secondOrderItem = new \Iyzipay\Model\OrderItem();
@@ -38,6 +40,7 @@ $secondOrderItem->setCategory2("Online Game Items");
 $secondOrderItem->setItemType(\Iyzipay\Model\OrderItemType::VIRTUAL);
 $secondOrderItem->setPrice("0.5");
 $secondOrderItem->setItemUrl("https://www.merchant.com/secondItem.html");
+$secondOrderItem->setItemDescription("Game Code can be used for online games");
 $OrderItems[1] = $secondOrderItem;
 
 $thirdOrderItem = new \Iyzipay\Model\OrderItem();
@@ -48,6 +51,7 @@ $thirdOrderItem->setCategory2("Usb / Cable");
 $thirdOrderItem->setItemType(\Iyzipay\Model\OrderItemType::PHYSICAL);
 $thirdOrderItem->setPrice("0.2");
 $thirdOrderItem->setItemUrl("https://www.merchant.com/thirdItem.html");
+$thirdOrderItem->setItemDescription("Universal Serial Bus");
 $OrderItems[2] = $thirdOrderItem;
 $request->setOrderItems($OrderItems);
 

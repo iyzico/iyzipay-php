@@ -17,6 +17,7 @@ class CreateIyziupFormInitializeRequest extends Request
     private $currency;
     private $price;
     private $paidPrice;
+    private $shippingPrice;
     private $callbackUrl;
     private $termsUrl;
     private $preSalesContractUrl;
@@ -40,6 +41,16 @@ class CreateIyziupFormInitializeRequest extends Request
     public function setPaidPrice($paidPrice)
     {
         $this->paidPrice = $paidPrice;
+    }
+
+    public function getShippingPrice()
+    {
+        return $this->shippingPrice;
+    }
+
+    public function setShippingPrice($shippingPrice)
+    {
+        $this->shippingPrice = $shippingPrice;
     }
 
     public function getPaymentGroup()
@@ -164,6 +175,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->add("currency", $this->getCurrency())
             ->addPrice("price", $this->getPrice())
             ->addPrice("paidPrice", $this->getPaidPrice())
+            ->addPrice("shippingPrice", $this->getShippingPrice())
             ->add("callbackUrl", $this->getCallbackUrl())
             ->add("termsUrl", $this->getTermsUrl())
             ->add("preSalesContractUrl", $this->getPreSalesContractUrl())
@@ -184,6 +196,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->append("currency", $this->getCurrency())
             ->appendPrice("price", $this->getPrice())
             ->appendPrice("paidPrice", $this->getPaidPrice())
+            ->appendPrice("shippingPrice", $this->getShippingPrice())
             ->append("callbackUrl", $this->getCallbackUrl())
             ->append("termsUrl", $this->getTermsUrl())
             ->append("preSalesContractUrl", $this->getPreSalesContractUrl())

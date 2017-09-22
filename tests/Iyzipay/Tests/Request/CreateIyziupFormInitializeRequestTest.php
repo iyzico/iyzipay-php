@@ -28,6 +28,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
         $this->assertEquals(Currency::TL, $jsonObject["currency"]);
         $this->assertEquals("1", $jsonObject["price"]);
         $this->assertEquals("1.2", $jsonObject["paidPrice"]);
+        $this->assertEquals("0.2", $jsonObject["shippingPrice"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
         $this->assertEquals("https://www.merchant.com/terms", $jsonObject["termsUrl"]);
         $this->assertEquals("https://www.merchant.com/preSalesContract", $jsonObject["preSalesContractUrl"]);
@@ -37,6 +38,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
         $this->assertEquals(OrderItemType::PHYSICAL, $jsonObject["orderItems"][0]["itemType"]);
         $this->assertEquals("0.3", $jsonObject["orderItems"][0]["price"]);
         $this->assertEquals("www.merchant.com/item1.html", $jsonObject["orderItems"][0]["itemUrl"]);
+        $this->assertEquals("a handheld optical instrument composed of two telescopes", $jsonObject["orderItems"][0]["itemDescription"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -52,6 +54,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
             "currency=TRY," .
             "price=1.0," .
             "paidPrice=1.2," .
+            "shippingPrice=0.2," .
             "callbackUrl=https://www.merchant.com/callback," .
             "termsUrl=https://www.merchant.com/terms," .
             "preSalesContractUrl=https://www.merchant.com/preSalesContract," .
@@ -61,7 +64,8 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
             "category1=Collectibles," .
             "category2=Accessories," .
             "itemType=PHYSICAL," .
-            "itemUrl=www.merchant.com/item1.html]]]";
+            "itemUrl=www.merchant.com/item1.html," .
+            "itemDescription=a handheld optical instrument composed of two telescopes]]]";
         $request = $this->prepareRequest();
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -84,6 +88,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
                 "currency":"TRY",
                 "price":"1.0",
                 "paidPrice":"1.2",
+                "shippingPrice":"1.2",
                 "callbackUrl":"https://www.merchant.com/callback",
                 "termsUrl":"https://www.merchant.com/terms",
                 "preSalesContractUrl":"https://www.merchant.com/preSalesContract",
@@ -96,7 +101,8 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
                         "category1":"Collectibles",
                         "category2":"Accessories",
                         "itemType":"PHYSICAL",
-                        "itemUrl":"www.merchant.com/item1.html"
+                        "itemUrl":"www.merchant.com/item1.html",
+                        "itemDescription":"a handheld optical instrument composed of two telescopes"
                     }
                 ]
             }';
@@ -119,6 +125,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
         $request->setCurrency(Currency::TL);
         $request->setPrice("1");
         $request->setPaidPrice("1.2");
+        $request->setShippingPrice("0.2");
         $request->setCallbackUrl("https://www.merchant.com/callback");
         $request->setTermsUrl("https://www.merchant.com/terms");
         $request->setPreSalesContractUrl("https://www.merchant.com/preSalesContract");
@@ -131,6 +138,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
         $firstOrderItem->setItemType(OrderItemType::PHYSICAL);
         $firstOrderItem->setPrice("0.3");
         $firstOrderItem->setItemUrl("www.merchant.com/item1.html");
+        $firstOrderItem->setItemDescription("a handheld optical instrument composed of two telescopes");
         $orderItems[0] = $firstOrderItem;
 
         $request->setOrderItems($orderItems);

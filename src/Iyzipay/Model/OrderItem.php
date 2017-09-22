@@ -15,6 +15,7 @@ class OrderItem extends BaseModel
     private $category2;
     private $itemType;
     private $itemUrl;
+    private $itemDescription;
 
     public function getId()
     {
@@ -86,6 +87,16 @@ class OrderItem extends BaseModel
         $this->itemUrl = $itemUrl;
     }
 
+    public function getItemDescription()
+    {
+        return $this->itemDescription;
+    }
+
+    public function setItemDescription($itemDescription)
+    {
+        $this->itemDescription = $itemDescription;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::create()
@@ -96,6 +107,7 @@ class OrderItem extends BaseModel
             ->add("category2", $this->getCategory2())
             ->add("itemType", $this->getItemType())
             ->add("itemUrl", $this->getItemUrl())
+            ->add("itemDescription", $this->getItemDescription())
             ->getObject();
     }
 
@@ -109,6 +121,7 @@ class OrderItem extends BaseModel
             ->append("category2", $this->getCategory2())
             ->append("itemType", $this->getItemType())
             ->append("itemUrl", $this->getItemUrl())
+            ->append("itemDescription", $this->getItemDescription())
             ->getRequestString();
     }
 }
