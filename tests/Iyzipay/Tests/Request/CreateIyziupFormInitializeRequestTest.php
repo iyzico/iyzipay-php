@@ -88,7 +88,7 @@ class CreateIyziupFormInitializeRequestTest extends TestCase
                 "currency":"TRY",
                 "price":"1.0",
                 "paidPrice":"1.2",
-                "shippingPrice":"1.2",
+                "shippingPrice":"0.2",
                 "callbackUrl":"https://www.merchant.com/callback",
                 "termsUrl":"https://www.merchant.com/terms",
                 "preSalesContractUrl":"https://www.merchant.com/preSalesContract",
