@@ -10,6 +10,10 @@ You can sign up for an iyzico account at https://iyzico.com
 
 PHP 5.3 and later.
 
+### Note
+
+Minimum TLS v1.2 will be supported after March 2018. Please upgrade your openssl version to minimum 1.0.1. If you have any questions, please open an issue on Github or contact us at integration@iyzico.com.
+
 # Installation
 
 ### Composer
