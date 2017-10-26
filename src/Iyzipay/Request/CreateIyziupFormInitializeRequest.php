@@ -23,7 +23,7 @@ class CreateIyziupFormInitializeRequest extends Request
     private $preSalesContractUrl;
     private $orderItems;
     private $initialConsumer;
-
+  
     public function getPrice()
     {
         return $this->price;
@@ -163,7 +163,7 @@ class CreateIyziupFormInitializeRequest extends Request
     {
         $this->enabledCardFamily = $enabledCardFamily;
     }
-    
+  
     public function getInitialConsumer()
     {
         return $this->initialConsumer;
