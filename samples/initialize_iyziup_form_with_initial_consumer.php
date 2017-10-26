@@ -55,6 +55,36 @@ $thirdOrderItem->setItemDescription("Universal Serial Bus");
 $OrderItems[2] = $thirdOrderItem;
 $request->setOrderItems($OrderItems);
 
+$initialConsumer = new \Iyzipay\Model\InitialConsumer;
+$initialConsumer->setName("ConsumerName");
+$initialConsumer->setSurname("ConsumerSurname");
+$initialConsumer->setEmail("consumerName@mail.com");
+$initialConsumer->setGsmNumber("+905556667788");
+
+$addressList = array();
+$homeAddress = new \Iyzipay\Model\IyziupAddress;
+$homeAddress->setAlias("HomeAddress");
+$homeAddress->setAddressLine1("Home Address Line 1");
+$homeAddress->setAddressLine2("Home Address Line 2");
+$homeAddress->setZipCode("HomeZipCode");
+$homeAddress->setContactName("HomeConsumerName HomeConsumerSurname");
+$homeAddress->setCity("HomeCity");
+$homeAddress->setCountry("HomeCountry");
+$addressList[0] = $homeAddress;
+
+$workAddress = new \Iyzipay\Model\IyziupAddress;
+$workAddress->setAlias("WorkAddress");
+$workAddress->setAddressLine1("Work Address Line 1");
+$workAddress->setAddressLine2("Work Address Line 2");
+$workAddress->setZipCode("WorkZipCode");
+$workAddress->setContactName("WorkConsumerName WorkConsumerSurname");
+$workAddress->setCity("WorkCity");
+$workAddress->setCountry("WorkCountry");
+$addressList[1] = $workAddress;
+$initialConsumer->setAddressList($addressList);
+
+$request->setInitialConsumer($initialConsumer);
+
 # make request
 $iyziupFormInitialize = \Iyzipay\Model\IyziupFormInitialize::create($request, Config::options());
 
