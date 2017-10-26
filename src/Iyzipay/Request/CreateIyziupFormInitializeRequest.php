@@ -22,7 +22,8 @@ class CreateIyziupFormInitializeRequest extends Request
     private $termsUrl;
     private $preSalesContractUrl;
     private $orderItems;
-
+    private $initialConsumer;
+  
     public function getPrice()
     {
         return $this->price;
@@ -162,6 +163,16 @@ class CreateIyziupFormInitializeRequest extends Request
     {
         $this->enabledCardFamily = $enabledCardFamily;
     }
+  
+    public function getInitialConsumer()
+    {
+        return $this->initialConsumer;
+    }
+
+    public function setInitialConsumer($initialConsumer)
+    {
+        $this->initialConsumer = $initialConsumer;
+    }
 
     public function getJsonObject()
     {
@@ -180,6 +191,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->add("termsUrl", $this->getTermsUrl())
             ->add("preSalesContractUrl", $this->getPreSalesContractUrl())
             ->addArray("orderItems", $this->getOrderItems())
+            ->add("initialConsumer", $this->getInitialConsumer())
             ->getObject();
     }
 
@@ -201,6 +213,7 @@ class CreateIyziupFormInitializeRequest extends Request
             ->append("termsUrl", $this->getTermsUrl())
             ->append("preSalesContractUrl", $this->getPreSalesContractUrl())
             ->appendArray("orderItems", $this->getOrderItems())
+            ->append("initialConsumer", $this->getInitialConsumer())
             ->getRequestString();
     }
 }
