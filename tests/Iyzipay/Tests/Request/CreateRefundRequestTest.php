@@ -20,6 +20,8 @@ class CreateRefundRequestTest extends TestCase
         $this->assertEquals("0.1", $jsonObject["price"]);
         $this->assertEquals("85.34.78.112", $jsonObject["ip"]);
         $this->assertEquals("TRY", $jsonObject["currency"]);
+        $this->assertEquals("other", $jsonObject["reason"]);
+        $this->assertEquals("customer requested for default sample", $jsonObject["description"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -31,7 +33,9 @@ class CreateRefundRequestTest extends TestCase
             "paymentTransactionId=1," .
             "price=0.1," .
             "ip=85.34.78.112," .
-            "currency=TRY]";
+            "currency=TRY," .
+            "reason=other," .
+            "description=customer requested for default sample]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -47,7 +51,9 @@ class CreateRefundRequestTest extends TestCase
                 "paymentTransactionId":"1",
                 "price":"0.1",
                 "ip":"85.34.78.112",
-                "currency":"TRY"
+                "currency":"TRY",
+                "reason":"other",
+                "description":"customer requested for default sample"
             }';
 
         $this->assertJson($request->toJsonString());
@@ -63,6 +69,8 @@ class CreateRefundRequestTest extends TestCase
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
         $request->setCurrency(Currency::TL);
+        $request->setReason("other");
+        $request->setDescription("customer requested for default sample");
         return $request;
     }
 }
