@@ -49,6 +49,7 @@ class PaymentResourceMapperTest extends TestCase
         $this->assertEquals("auth code", $payment->getAuthCode());
         $this->assertEquals("AUTH", $payment->getPhase());
         $this->assertEquals("0000", $payment->getLastFourDigits());
+        $this->assertEquals("posOrderId", $payment->getPosOrderId());
 
         $paymentItems = $payment->getPaymentItems();
         $this->assertNotEmpty($payment->getPaymentItems());

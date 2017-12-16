@@ -29,6 +29,7 @@ class PaymentResource extends IyzipayResource
     private $authCode;
     private $phase;
     private $lastFourDigits;
+    private $posOrderId;
 
     public function getPrice()
     {
@@ -258,5 +259,15 @@ class PaymentResource extends IyzipayResource
     public function setLastFourDigits($lastFourDigits)
     {
         $this->lastFourDigits = $lastFourDigits;
+    }
+
+    public function getPosOrderId()
+    {
+        return $this->posOrderId;
+    }
+
+    public function setPosOrderId($posOrderId)
+    {
+        $this->posOrderId = $posOrderId;
     }
 }
