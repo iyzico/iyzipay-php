@@ -6,7 +6,7 @@ require_once('config.php');
 $request = new \Iyzipay\Request\RetrievePaymentRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
-$request->setPaymentId("10635550");
+$request->setPaymentId("1");
 $request->setPaymentConversationId("123456789");
 
 # make request
