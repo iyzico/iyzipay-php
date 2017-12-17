@@ -4,7 +4,6 @@ namespace Iyzipay\Tests;
 
 use Iyzipay\ApiResource;
 use Iyzipay\DefaultHttpClient;
-use Iyzipay\Request;
 
 class ApiResourceTest extends \PHPUnit_Framework_TestCase
 {

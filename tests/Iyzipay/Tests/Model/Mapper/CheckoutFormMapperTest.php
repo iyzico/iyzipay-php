@@ -49,6 +49,7 @@ class CheckoutFormMapperTest extends TestCase
         $this->assertEquals("auth code", $checkoutForm->getAuthCode());
         $this->assertEquals("AUTH", $checkoutForm->getPhase());
         $this->assertEquals("0000", $checkoutForm->getLastFourDigits());
+        $this->assertEquals("posOrderId", $checkoutForm->getPosOrderId());
 
         $paymentItems = $checkoutForm->getPaymentItems();
         $this->assertNotEmpty($checkoutForm->getPaymentItems());

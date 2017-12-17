@@ -2,10 +2,6 @@
 
 namespace Iyzipay\Model;
 
-use Iyzipay\BaseModel;
-use Iyzipay\JsonBuilder;
-use Iyzipay\RequestStringBuilder;
-
 class Consumer
 {
     private $name;
