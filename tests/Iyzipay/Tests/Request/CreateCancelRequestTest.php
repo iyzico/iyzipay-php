@@ -3,6 +3,7 @@
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
+use Iyzipay\Model\RefundReason;
 use Iyzipay\Request\CreateCancelRequest;
 use Iyzipay\Tests\TestCase;
 
@@ -60,7 +61,7 @@ class CreateCancelRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
         $request->setIp("85.34.78.112");
-        $request->setReason("other");
+        $request->setReason(RefundReason::OTHER);
         $request->setDescription("customer requested for default sample");
         return $request;
     }

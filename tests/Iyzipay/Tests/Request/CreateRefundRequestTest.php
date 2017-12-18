@@ -4,6 +4,7 @@ namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
+use Iyzipay\Model\RefundReason;
 use Iyzipay\Request\CreateRefundRequest;
 use Iyzipay\Tests\TestCase;
 
@@ -69,7 +70,7 @@ class CreateRefundRequestTest extends TestCase
         $request->setPrice("0.1");
         $request->setIp("85.34.78.112");
         $request->setCurrency(Currency::TL);
-        $request->setReason("other");
+        $request->setReason(RefundReason::OTHER);
         $request->setDescription("customer requested for default sample");
         return $request;
     }
