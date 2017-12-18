@@ -10,7 +10,7 @@ $request->setPaymentTransactionId("2");
 $request->setPrice("0.2");
 $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setIp("85.34.78.112");
-$request->setReason("other");
+$request->setReason(\Iyzipay\Model\RefundReason::OTHER);
 $request->setDescription("customer requested for default sample");
 
 # make request

@@ -8,7 +8,7 @@ $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 $request->setPaymentId("2");
 $request->setIp("85.34.78.112");
-$request->setReason("other");
+$request->setReason(\Iyzipay\Model\RefundReason::OTHER);
 $request->setDescription("customer requested for default sample");
 
 # make request
