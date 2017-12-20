@@ -3,6 +3,7 @@
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
+use Iyzipay\Model\RefundReason;
 use Iyzipay\Request\CreateCancelRequest;
 use Iyzipay\Tests\TestCase;
 
@@ -17,6 +18,8 @@ class CreateCancelRequestTest extends TestCase
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("1", $jsonObject["paymentId"]);
         $this->assertEquals("85.34.78.112", $jsonObject["ip"]);
+        $this->assertEquals("other", $jsonObject["reason"]);
+        $this->assertEquals("customer requested for default sample", $jsonObject["description"]);
     }
 
     public function test_should_convert_to_pki_request_string()
@@ -26,7 +29,9 @@ class CreateCancelRequestTest extends TestCase
         $str = "[locale=tr," .
             "conversationId=123456789," .
             "paymentId=1," .
-            "ip=85.34.78.112]";
+            "ip=85.34.78.112," .
+            "reason=other," .
+            "description=customer requested for default sample]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -40,7 +45,9 @@ class CreateCancelRequestTest extends TestCase
                 "locale":"tr",
                 "conversationId":"123456789",
                 "paymentId":"1",
-                "ip":"85.34.78.112"
+                "ip":"85.34.78.112",
+                "reason":"other",
+                "description":"customer requested for default sample"
             }';
 
         $this->assertJson($request->toJsonString());
@@ -54,6 +61,8 @@ class CreateCancelRequestTest extends TestCase
         $request->setConversationId("123456789");
         $request->setPaymentId("1");
         $request->setIp("85.34.78.112");
+        $request->setReason(RefundReason::OTHER);
+        $request->setDescription("customer requested for default sample");
         return $request;
     }
 }
