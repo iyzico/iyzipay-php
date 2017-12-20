@@ -6,7 +6,7 @@ require_once('config.php');
 $request = new \Iyzipay\Request\CreateCancelRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
-$request->setPaymentId("2");
+$request->setPaymentId("1");
 $request->setIp("85.34.78.112");
 $request->setReason(\Iyzipay\Model\RefundReason::OTHER);
 $request->setDescription("customer requested for default sample");
