@@ -28,6 +28,7 @@
   "authCode": "auth code",
   "phase": "AUTH",
   "lastFourDigits": "0000",
+  "posOrderId": "posOrderId",
   "itemTransactions": [
     {
       "itemId": "BI101",

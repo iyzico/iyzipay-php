@@ -2,10 +2,10 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
+use Iyzipay\Model\IyziupFormInitialize;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Mapper\IyziupFormInitializeMapper;
 use Iyzipay\Model\Status;
-use Iyzipay\Model\IyziupFormInitialize;
 use Iyzipay\Tests\TestCase;
 
 class IyziupFormInitializeMapperTest extends TestCase

@@ -153,7 +153,7 @@ class CreateIyziupFormInitializeRequest extends Request
     {
         return $this->enabledInstallments;
     }
-    
+
     public function getEnabledCardFamily()
     {
         return $this->enabledCardFamily;
@@ -163,7 +163,7 @@ class CreateIyziupFormInitializeRequest extends Request
     {
         $this->enabledCardFamily = $enabledCardFamily;
     }
-    
+
     public function getInitialConsumer()
     {
         return $this->initialConsumer;

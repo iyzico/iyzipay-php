@@ -3,7 +3,6 @@
 namespace Iyzipay\Tests;
 
 use Iyzipay\Curl;
-use Iyzipay\Request;
 
 class CurlTest extends \PHPUnit_Framework_TestCase
 {

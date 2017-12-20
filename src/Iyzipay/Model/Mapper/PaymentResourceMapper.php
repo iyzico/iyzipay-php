@@ -84,6 +84,9 @@ class PaymentResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->lastFourDigits)) {
             $paymentResource->setLastFourDigits($jsonObject->lastFourDigits);
         }
+        if (isset($jsonObject->posOrderId)) {
+            $paymentResource->setPosOrderId($jsonObject->posOrderId);
+        }
         return $paymentResource;
     }
 

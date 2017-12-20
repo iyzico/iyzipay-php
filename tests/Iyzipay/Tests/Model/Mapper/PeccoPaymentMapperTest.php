@@ -49,6 +49,7 @@ class PeccoPaymentMapperTest extends TestCase
         $this->assertEquals("auth code", $peccoPayment->getAuthCode());
         $this->assertEquals("AUTH", $peccoPayment->getPhase());
         $this->assertEquals("0000", $peccoPayment->getLastFourDigits());
+        $this->assertEquals("posOrderId", $peccoPayment->getPosOrderId());
 
         $paymentItems = $peccoPayment->getPaymentItems();
         $this->assertNotEmpty($peccoPayment->getPaymentItems());
