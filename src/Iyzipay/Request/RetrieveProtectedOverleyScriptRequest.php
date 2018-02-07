@@ -8,19 +8,8 @@ use Iyzipay\RequestStringBuilder;
 
 class RetrieveProtectedOverleyScriptRequest extends Request
 {
-    private $ideaSoft;
     private $position;
 
-    public function getIdeaSoft()
-    {
-        return $this->ideaSoft;
-    }
-
-    public function setIdeaSoft($ideaSoft)
-    {
-        $this->ideaSoft = $ideaSoft;
-    }
-    
     public function getPosition()
     {
         return $this->position;
@@ -34,7 +23,6 @@ class RetrieveProtectedOverleyScriptRequest extends Request
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
-            ->add("ideaSoft", $this->getIdeaSoft())
             ->add("position", $this->getPosition())
             ->getObject();
     }
@@ -43,7 +31,6 @@ class RetrieveProtectedOverleyScriptRequest extends Request
     {
         return RequestStringBuilder::create()
             ->appendSuper(parent::toPKIRequestString())
-            ->append("ideaSoft", $this->getIdeaSoft())
             ->append("position", $this->getPosition())
             ->getRequestString();
     }

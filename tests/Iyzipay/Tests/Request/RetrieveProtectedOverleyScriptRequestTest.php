@@ -15,7 +15,6 @@ class RetrieveProtectedOverleyScriptRequestTest extends TestCase
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456", $jsonObject["conversationId"]);
-        $this->assertEquals("false", $jsonObject["ideaSoft"]);
         $this->assertEquals("bottomLeft", $jsonObject["position"]);
     }
 
@@ -25,7 +24,6 @@ class RetrieveProtectedOverleyScriptRequestTest extends TestCase
 
         $str = "[locale=tr," .
             "conversationId=123456," .
-            "ideaSoft=false," .
             "position=bottomLeft]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
@@ -39,7 +37,6 @@ class RetrieveProtectedOverleyScriptRequestTest extends TestCase
             {
                 "locale":"tr",
                 "conversationId":"123456",
-                "ideaSoft":"false",
                 "position":"bottomLeft"
             }';
 
@@ -52,7 +49,6 @@ class RetrieveProtectedOverleyScriptRequestTest extends TestCase
         $request = new RetrieveProtectedOverleyScriptRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456");
-        $request->setIdeaSoft("false");
         $request->setPosition("bottomLeft");
         return $request;
     }
