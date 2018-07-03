@@ -6,7 +6,7 @@ use Iyzipay\JsonBuilder;
 use Iyzipay\Request;
 use Iyzipay\RequestStringBuilder;
 
-class RetrieveProtectedOverleyScriptRequest extends Request
+class RetrieveProtectedOverlayScriptRequest extends Request
 {
     private $position;
 

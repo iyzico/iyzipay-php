@@ -2,9 +2,9 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
-use Iyzipay\Model\ProtectedOverleyScript;
+use Iyzipay\Model\ProtectedOverlayScript;
 use Iyzipay\Model\Locale;
-use Iyzipay\Model\Mapper\ProtectedOverleyScriptMapper;
+use Iyzipay\Model\Mapper\ProtectedOverlayScriptMapper;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
@@ -14,7 +14,7 @@ class ProtectedOverleyScriptMapperTest extends TestCase
     {
         $json = $this->retrieveJsonFile("retrieve-protected-overley-script.json");
 
-        $protectedOverleyScript = ProtectedOverleyScriptMapper::create($json)->jsonDecode()->mapProtectedOverleyScript(new ProtectedOverleyScript());
+        $protectedOverleyScript = ProtectedOverlayScriptMapper::create($json)->jsonDecode()->mapProtectedOverleyScript(new ProtectedOverlayScript());
 
         $this->assertNotEmpty($protectedOverleyScript);
         $this->assertEquals(Status::FAILURE, $protectedOverleyScript->getStatus());

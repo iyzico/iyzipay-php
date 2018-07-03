@@ -3,10 +3,10 @@
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
-use Iyzipay\Request\RetrieveProtectedOverleyScriptRequest;
+use Iyzipay\Request\RetrieveProtectedOverlayScriptRequest;
 use Iyzipay\Tests\TestCase;
 
-class RetrieveProtectedOverleyScriptRequestTest extends TestCase
+class RetrieveProtectedOverlayScriptRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
@@ -46,7 +46,7 @@ class RetrieveProtectedOverleyScriptRequestTest extends TestCase
 
     private function prepareRequest()
     {
-        $request = new RetrieveProtectedOverleyScriptRequest();
+        $request = new RetrieveProtectedOverlayScriptRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456");
         $request->setPosition("bottomLeft");
