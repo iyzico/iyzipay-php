@@ -23,6 +23,7 @@ class CreateCheckoutFormInitializeRequest extends Request
     private $cardUserKey;
     private $posOrderId;
     private $enabledInstallments;
+    private $debitCardAllowed;
 
     public function getPrice()
     {
@@ -173,6 +174,16 @@ class CreateCheckoutFormInitializeRequest extends Request
     {
         return $this->enabledInstallments;
     }
+    
+    public function setDebitCardAllowed($debitCardAllowed)
+    {
+        $this->debitCardAllowed = $debitCardAllowed;
+    }
+    
+    public function getDebitCardAllowed()
+    {
+        return $this->debitCardAllowed;
+    }
 
     public function getJsonObject()
     {
@@ -192,6 +203,7 @@ class CreateCheckoutFormInitializeRequest extends Request
             ->add("forceThreeDS", $this->getForceThreeDS())
             ->add("cardUserKey", $this->getCardUserKey())
             ->addArray("enabledInstallments", $this->getEnabledInstallments())
+            ->add("debitCardAllowed", $this->getDebitCardAllowed())
             ->getObject();
     }
 
@@ -214,6 +226,7 @@ class CreateCheckoutFormInitializeRequest extends Request
             ->append("forceThreeDS", $this->getForceThreeDS())
             ->append("cardUserKey", $this->getCardUserKey())
             ->appendArray("enabledInstallments", $this->getEnabledInstallments())
+            ->append("debitCardAllowed", $this->getDebitCardAllowed())
             ->getRequestString();
     }
 }

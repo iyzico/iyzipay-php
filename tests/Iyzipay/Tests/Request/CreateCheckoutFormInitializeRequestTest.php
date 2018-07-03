@@ -30,6 +30,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $this->assertEquals(1, $jsonObject["forceThreeDS"]);
         $this->assertEquals("order", $jsonObject["posOrderId"]);
         $this->assertEquals("user key", $jsonObject["cardUserKey"]);
+        $this->assertEquals("true", $jsonObject["debitCardAllowed"]);
         $this->assertEquals(array(1, 2, 3, 6, 9), $jsonObject["enabledInstallments"]);
         $this->assertEquals("BY789", $jsonObject["buyer"]["id"]);
         $this->assertEquals("John", $jsonObject["buyer"]["name"]);
@@ -107,7 +108,8 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
             "paidPrice=1.2," .
             "forceThreeDS=1," .
             "cardUserKey=user key," .
-            "enabledInstallments=[1, 2, 3, 6, 9]]";
+            "enabledInstallments=[1, 2, 3, 6, 9]," .
+            "debitCardAllowed=true]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -173,7 +175,8 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
                     }
                 ],
                 "callbackUrl":"https://www.merchant.com/callback",
-                "enabledInstallments":[1,2,3,6,9]
+                "enabledInstallments":[1,2,3,6,9],
+                "debitCardAllowed":"true"
             }';
 
         $this->assertJson($request->toJsonString());
@@ -196,6 +199,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
         $request->setPosOrderId("order");
         $request->setCardUserKey("user key");
         $request->setEnabledInstallments(array(1, 2, 3, 6, 9));
+        $request->setDebitCardAllowed("true");
 
         $buyer = new Buyer();
         $buyer->setId("BY789");
