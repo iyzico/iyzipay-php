@@ -3,19 +3,19 @@
 namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
-use Iyzipay\Model\Mapper\ProtectedOverleyScriptMapper;
+use Iyzipay\Model\Mapper\ProtectedOverlayScriptMapper;
 use Iyzipay\Options;
-use Iyzipay\Request\RetrieveProtectedOverleyScriptRequest;
+use Iyzipay\Request\RetrieveProtectedOverlayScriptRequest;
 
-class ProtectedOverleyScript extends IyzipayResource
+class ProtectedOverlayScript extends IyzipayResource
 {
     private $protectedShopId;
     private $overlayScript;
 
-    public static function retrieve(RetrieveProtectedOverleyScriptRequest $request, Options $options)
+    public static function retrieve(RetrieveProtectedOverlayScriptRequest $request, Options $options)
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/v1/iyziup/protected/shop/detail/overlay-script", parent::getHttpHeaders($request, $options), $request->toJsonString());
-        return ProtectedOverleyScriptMapper::create($rawResult)->jsonDecode()->mapProtectedOverleyScript(new ProtectedOverleyScript());
+        return ProtectedOverlayScriptMapper::create($rawResult)->jsonDecode()->mapProtectedOverlayScript(new ProtectedOverlayScript());
     }
 
     public function getProtectedShopId()

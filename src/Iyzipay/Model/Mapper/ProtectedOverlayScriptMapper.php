@@ -2,30 +2,30 @@
 
 namespace Iyzipay\Model\Mapper;
 
-use Iyzipay\Model\ProtectedOverleyScript;
+use Iyzipay\Model\ProtectedOverlayScript;
 
-class ProtectedOverleyScriptMapper extends IyzipayResourceMapper
+class ProtectedOverlayScriptMapper extends IyzipayResourceMapper
 {
     public static function create($rawResult = null)
     {
-        return new ProtectedOverleyScriptMapper($rawResult);
+        return new ProtectedOverlayScriptMapper($rawResult);
     }
 
-    public function mapProtectedOverleyScriptFrom(ProtectedOverleyScript $protectedOverleyScript, $jsonObject)
+    public function mapProtectedOverlayScriptFrom(ProtectedOverlayScript $protectedOverlayScript, $jsonObject)
     {
-        parent::mapResourceFrom($protectedOverleyScript, $jsonObject);
+        parent::mapResourceFrom($protectedOverlayScript, $jsonObject);
 
         if (isset($jsonObject->protectedShopId)) {
-            $protectedOverleyScript->setProtectedShopId($jsonObject->protectedShopId);
+            $protectedOverlayScript->setProtectedShopId($jsonObject->protectedShopId);
         }
         if (isset($jsonObject->overlayScript)) {
-            $protectedOverleyScript->setOverlayScript($jsonObject->overlayScript);
+            $protectedOverlayScript->setOverlayScript($jsonObject->overlayScript);
         }
-        return $protectedOverleyScript;
+        return $protectedOverlayScript;
     }
 
-    public function mapProtectedOverleyScript(ProtectedOverleyScript $protectedOverleyScript)
+    public function mapProtectedOverlayScript(ProtectedOverlayScript $protectedOverlayScript)
     {
-        return $this->mapProtectedOverleyScriptFrom($protectedOverleyScript, $this->jsonObject);
+        return $this->mapProtectedOverlayScriptFrom($protectedOverlayScript, $this->jsonObject);
     }
 }

@@ -8,25 +8,25 @@ use Iyzipay\Model\Mapper\ProtectedOverlayScriptMapper;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
-class ProtectedOverleyScriptMapperTest extends TestCase
+class ProtectedOverlayScriptMapperTest extends TestCase
 {
-    public function test_should_map_protected_overley_script_mapper()
+    public function test_should_map_protected_Overlay_script_mapper()
     {
-        $json = $this->retrieveJsonFile("retrieve-protected-overley-script.json");
+        $json = $this->retrieveJsonFile("retrieve-protected-Overlay-script.json");
 
-        $protectedOverleyScript = ProtectedOverlayScriptMapper::create($json)->jsonDecode()->mapProtectedOverleyScript(new ProtectedOverlayScript());
+        $protectedOverlayScript = ProtectedOverlayScriptMapper::create($json)->jsonDecode()->mapProtectedOverlayScript(new ProtectedOverlayScript());
 
-        $this->assertNotEmpty($protectedOverleyScript);
-        $this->assertEquals(Status::FAILURE, $protectedOverleyScript->getStatus());
-        $this->assertEquals("10000", $protectedOverleyScript->getErrorCode());
-        $this->assertEquals("error message", $protectedOverleyScript->getErrorMessage());
-        $this->assertEquals("ERROR_GROUP", $protectedOverleyScript->getErrorGroup());
-        $this->assertEquals(Locale::TR, $protectedOverleyScript->getLocale());
-        $this->assertEquals("1458545234852", $protectedOverleyScript->getSystemTime());
-        $this->assertEquals("123456", $protectedOverleyScript->getConversationId());
-        $this->assertJson($protectedOverleyScript->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $protectedOverleyScript->getRawResult());
-        $this->assertEquals("protected shop id", $protectedOverleyScript->getProtectedShopId());
-        $this->assertEquals("overlay script", $protectedOverleyScript->getOverlayScript());
+        $this->assertNotEmpty($protectedOverlayScript);
+        $this->assertEquals(Status::FAILURE, $protectedOverlayScript->getStatus());
+        $this->assertEquals("10000", $protectedOverlayScript->getErrorCode());
+        $this->assertEquals("error message", $protectedOverlayScript->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $protectedOverlayScript->getErrorGroup());
+        $this->assertEquals(Locale::TR, $protectedOverlayScript->getLocale());
+        $this->assertEquals("1458545234852", $protectedOverlayScript->getSystemTime());
+        $this->assertEquals("123456", $protectedOverlayScript->getConversationId());
+        $this->assertJson($protectedOverlayScript->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $protectedOverlayScript->getRawResult());
+        $this->assertEquals("protected shop id", $protectedOverlayScript->getProtectedShopId());
+        $this->assertEquals("overlay script", $protectedOverlayScript->getOverlayScript());
     }
 }
