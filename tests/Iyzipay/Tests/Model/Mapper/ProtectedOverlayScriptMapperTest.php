@@ -12,7 +12,7 @@ class ProtectedOverlayScriptMapperTest extends TestCase
 {
     public function test_should_map_protected_Overlay_script_mapper()
     {
-        $json = $this->retrieveJsonFile("retrieve-protected-Overlay-script.json");
+        $json = $this->retrieveJsonFile("retrieve-protected-overlay-script.json");
 
         $protectedOverlayScript = ProtectedOverlayScriptMapper::create($json)->jsonDecode()->mapProtectedOverlayScript(new ProtectedOverlayScript());
 
