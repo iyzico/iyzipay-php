@@ -25,6 +25,7 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
+            CURLOPT_SSLVERSION => 6,
             CURLOPT_HEADER => false
         ));
     }
@@ -38,6 +39,7 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
+            CURLOPT_SSLVERSION => 6,
             CURLOPT_HTTPHEADER => $header
         ));
     }
@@ -50,6 +52,7 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
+            CURLOPT_SSLVERSION => 6,
             CURLOPT_HTTPHEADER => $header
         ));
     }
@@ -62,6 +65,7 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
+            CURLOPT_SSLVERSION => 6,
             CURLOPT_HTTPHEADER => $header
         ));
     }
