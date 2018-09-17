@@ -1,0 +1,29 @@
+<?php
+
+namespace Iyzipay\Tests\Model\Mapper;
+
+use Iyzipay\Model\Locale;
+use Iyzipay\Model\Mapper\Iyzilink\IyziLinkRetriveProductMapper;
+use Iyzipay\Model\Status;
+use Iyzipay\Model\Iyzilink\IyziLinkRetriveProduct;
+use Iyzipay\Tests\TestCase;
+
+class IyziLinkRetriveProductMapperTest extends TestCase
+{
+    public function test_should_map_iyzilink_retrive_product_create()
+    {
+        $json = $this->retrieveJsonFile("iyzilink-retrive-product.json");
+
+        $iyziLinkRetriveProduct = IyziLinkRetriveProductMapper::create($json)->jsonDecode()->mapIyziLinkRetriveProduct(new IyziLinkRetriveProduct());
+
+
+        $this->assertNotEmpty($iyziLinkRetriveProduct);
+        $this->assertEquals(Status::SUCCESS, $iyziLinkRetriveProduct->getStatus());
+        $this->assertEquals(Locale::TR, $iyziLinkRetriveProduct->getLocale());
+        $this->assertEquals(1537171364727, $iyziLinkRetriveProduct->getSystemTime());
+        $this->assertEquals("123456789", $iyziLinkRetriveProduct->getConversationId());
+        $this->assertEquals("item", $iyziLinkRetriveProduct->getItem());
+        $this->assertJson($iyziLinkRetriveProduct->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $iyziLinkRetriveProduct->getRawResult());
+    }
+}
