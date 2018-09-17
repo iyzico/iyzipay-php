@@ -29,6 +29,17 @@ class DefaultHttpClient implements HttpClient
         ));
     }
 
+    public function getV2($url, $header)
+    {
+        return $this->curl->exec($url, array(
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_VERBOSE => false,
+            CURLOPT_HEADER => false,
+            CURLOPT_HTTPHEADER => $header
+        ));
+    }
+
     public function post($url, $header, $content)
     {
         return $this->curl->exec($url, array(
