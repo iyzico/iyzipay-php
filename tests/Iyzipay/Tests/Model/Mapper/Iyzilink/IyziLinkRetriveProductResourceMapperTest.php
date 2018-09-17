@@ -22,6 +22,9 @@ class IyziLinkRetriveProductResourceMapperTest extends TestCase
         $this->assertEquals(1537171364727, $iyziLinkRetriveProduct->getSystemTime());
         $this->assertEquals("123456789", $iyziLinkRetriveProduct->getConversationId());
         $this->assertEquals(null, $iyziLinkRetriveProduct->getItem());
+        $this->assertEquals(null, $iyziLinkRetriveProduct->getErrorCode());
+        $this->assertEquals(null, $iyziLinkRetriveProduct->getErrorMessage());
+        $this->assertEquals(null, $iyziLinkRetriveProduct->getErrorGroup());
         $this->assertJson($iyziLinkRetriveProduct->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $iyziLinkRetriveProduct->getRawResult());
     }

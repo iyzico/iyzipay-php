@@ -17,8 +17,6 @@ class IyziLinkSaveProductResourceMapperTest extends TestCase
 
         $iyziLinkAddProduct = IyziLinkSaveProductResourceMapper::create($json)->jsonDecode()->mapResource(new IyziLinkSaveProductResource());
 
-
-
         $this->assertNotEmpty($iyziLinkAddProduct);
         $this->assertEquals(Status::SUCCESS, $iyziLinkAddProduct->getStatus());
         $this->assertEquals(Locale::TR, $iyziLinkAddProduct->getLocale());
@@ -31,6 +29,10 @@ class IyziLinkSaveProductResourceMapperTest extends TestCase
         $this->assertEquals(null, $iyziLinkAddProduct->getPrice());
         $this->assertEquals(null, $iyziLinkAddProduct->getCurrency());
         $this->assertEquals(null, $iyziLinkAddProduct->getBase64EncodedImage());
+        $this->assertEquals(null, $iyziLinkAddProduct->getErrorCode());
+        $this->assertEquals(null, $iyziLinkAddProduct->getErrorMessage());
+        $this->assertEquals(null, $iyziLinkAddProduct->getErrorGroup());
+
         $this->assertJson($iyziLinkAddProduct->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $iyziLinkAddProduct->getRawResult());
     }

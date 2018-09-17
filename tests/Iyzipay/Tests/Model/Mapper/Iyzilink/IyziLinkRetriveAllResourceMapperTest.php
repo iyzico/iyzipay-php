@@ -26,7 +26,9 @@ class IyziLinkRetriveAllResourceMapperTest extends TestCase
         $this->assertEquals(null, $iyziLinkRetriveAllProduct->getCurrentPage());
         $this->assertEquals(null, $iyziLinkRetriveAllProduct->getPageCount());
         $this->assertEquals(null, $iyziLinkRetriveAllProduct->getItems());
-
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getErrorCode());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getErrorMessage());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getErrorGroup());
         $this->assertJson($iyziLinkRetriveAllProduct->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $iyziLinkRetriveAllProduct->getRawResult());
     }

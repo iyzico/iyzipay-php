@@ -6,8 +6,6 @@ use Iyzipay\IyzipayResource;
 
 class IyziLinkSaveProductResource extends IyzipayResource
 {
-    private $name;
-    private $description;
     private $base64EncodedImage;
     private $price;
     private $currency;
@@ -17,26 +15,6 @@ class IyziLinkSaveProductResource extends IyzipayResource
     private $token;
     private $url;
     private $imageUrl;
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
 
     public function getBase64EncodedImage()
     {
@@ -53,19 +31,10 @@ class IyziLinkSaveProductResource extends IyzipayResource
         return $this->price;
     }
 
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
 
     public function getCurrency()
     {
         return $this->currency;
-    }
-
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
     }
 
     public function getAddressIgnorable()
@@ -73,29 +42,14 @@ class IyziLinkSaveProductResource extends IyzipayResource
         return $this->addressIgnorable;
     }
 
-    public function setAddressIgnorable($addressIgnorable)
-    {
-        $this->addressIgnorable = $addressIgnorable;
-    }
-
     public function getSoldLimit()
     {
         return $this->soldLimit;
     }
 
-    public function setSoldLimit($soldLimit)
-    {
-        $this->soldLimit = $soldLimit;
-    }
-
     public function getInstallmentRequested()
     {
         return $this->installmentRequested;
-    }
-
-    public function setInstallmentRequest($installmentRequested)
-    {
-        $this->installmentRequested = $installmentRequested;
     }
 
     public function getToken()

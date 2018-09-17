@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class IyziLinkSaveProductTest extends IyzipayResourceTestCase
 {
-    public function test_should_add_product_iyzilink()
+    public function test_should_save_product_iyzilink()
     {
         $this->expectHttpPost();
 
