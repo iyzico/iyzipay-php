@@ -33,6 +33,25 @@ class DefaultHttpClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("result", $result);
     }
 
+    public function test_should_make_http_getV2()
+    {
+        $this->curl
+            ->expects($this->once())
+            ->method("exec")
+            ->with("url", array(
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_VERBOSE => false,
+                CURLOPT_HEADER => false,
+                CURLOPT_HTTPHEADER => "header"
+            ))
+            ->willReturn("result");
+
+        $result = DefaultHttpClient::create($this->curl)->getV2("url","header");
+
+        $this->assertEquals("result", $result);
+    }
+
     public function test_should_make_http_post()
     {
         $this->curl
