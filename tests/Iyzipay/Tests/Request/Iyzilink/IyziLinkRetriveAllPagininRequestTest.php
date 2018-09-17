@@ -1,5 +1,5 @@
 <?php
-namespace Iyzipay\Tests\Request;
+namespace Iyzipay\Tests\Request\Iyzilink;
 
 use Iyzipay\Tests\TestCase;
 use IyziPay\Request\Iyzilink\IyziLinkRetriveAllPagininRequest;

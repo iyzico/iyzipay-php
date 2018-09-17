@@ -14,6 +14,7 @@ class IyziLinkSaveProductMapper extends IyziLinkSaveProductResourceMapper
     public function mapIyziLinkSaveProductFrom(IyziLinkSaveProduct $create, $jsonObject)
     {
         parent::mapIyziLinkSaveProductResourceFrom($create, $jsonObject);
+
         return $create;
     }
 

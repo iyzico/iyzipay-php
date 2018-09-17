@@ -2,18 +2,18 @@
 
 namespace Iyzipay\Tests\Model\Mapper\Iyzilink;
 
+use Iyzipay\Model\Mapper\Iyzilink\IyziLinkDeleteProductResourceMapper;
 use Iyzipay\Model\Status;
 use Iyzipay\Model\Iyzilink\IyziLinkDeleteProduct;
-use Iyzipay\Model\Mapper\Iyzilink\IyziLinkDeleteProductMapper;
 use Iyzipay\Tests\TestCase;
 
-class IyziLinkDeleteProductMapperTest extends TestCase
+class IyziLinkDeleteProductResourceMapperTest extends TestCase
 {
-    public function test_should_map_iyzilink_delete_product_mapper_create()
+    public function test_should_map_iyzilink_delete_product_resource_mapper_create()
     {
         $json = $this->retrieveJsonFile("iyzilink-delete-product.json");
 
-        $iyziLinkDeleteProduct = IyziLinkDeleteProductMapper::create($json)->jsonDecode()->mapIyziLinkDeleteProductResource(new IyziLinkDeleteProduct());
+        $iyziLinkDeleteProduct = IyziLinkDeleteProductResourceMapper::create($json)->jsonDecode()->mapResource(new IyziLinkDeleteProduct());
 
         $this->assertNotEmpty($iyziLinkDeleteProduct);
         $this->assertEquals(Status::SUCCESS, $iyziLinkDeleteProduct->getStatus());

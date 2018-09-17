@@ -4,7 +4,7 @@ namespace Iyzipay\Model\Mapper\Iyzilink;
 
 use Iyzipay\Model\Iyzilink\IyziLinkRetriveProduct;
 
-class IyziLinkRetriveProductMapper extends IyziLinkRetriveProductMapperResource
+class IyziLinkRetriveProductMapper extends IyziLinkRetriveProductResourceMapper
 {
     public static function create($rawResult = null)
     {
