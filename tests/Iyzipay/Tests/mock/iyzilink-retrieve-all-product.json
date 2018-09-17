@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "locale": "tr",
+  "systemTime": 1537167363043,
+  "conversationId": "5b9f5000c5310",
+  "data": {
+    "listingReviewed": true,
+    "totalCount": 85,
+    "currentPage": 1,
+    "pageCount": 43,
+    "items": "items"
+  }
+}
