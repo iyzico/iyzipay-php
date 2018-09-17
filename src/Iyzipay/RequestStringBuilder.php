@@ -136,4 +136,30 @@ class RequestStringBuilder
         $this->appendPrefix();
         return $this->requestString;
     }
+
+    public static function requestToStringQuery(Request $request, $type = null)
+    {
+
+        $stringQuery = false;
+
+        if($request->getConversationId()) {
+            $stringQuery = "?conversationId=" . $request->getConversationId();
+        }
+
+        if($request->getLocale()) {
+            $stringQuery .= "&locale=" . $request->getLocale();
+        }
+
+        if($type == 'pages') {
+            if ($request->getPage()) {
+                $stringQuery .= "&page=" . $request->getPage();
+            }
+
+            if ($request->getCount()) {
+                $stringQuery .= "&count=" . $request->getCount();
+            }
+        }
+
+        return $stringQuery;
+    }
 }

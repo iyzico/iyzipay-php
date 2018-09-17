@@ -2,15 +2,9 @@
 
 namespace Iyzipay;
 
-class HashGenerator
+class IyziAuthV2Generator
 {
-    public static function generateHash($apiKey, $secretKey, $randomString, Request $request)
-    {
-        $hashStr = $apiKey . $randomString . $secretKey . $request->toPKIRequestString();
-        return base64_encode(sha1($hashStr, true));
-    }
-
-    public static function generateHashV2($uri, $apiKey, $secretKey, $randomString, Request $request = null)
+    public static function generateAuthContent($uri, $apiKey, $secretKey, $randomString, Request $request = null)
     {
         $hashStr = "apiKey:" . $apiKey . "&randomKey:" . $randomString ."&signature:" . self::getHmacSHA256Signature($uri, $secretKey, $randomString, $request);
 
@@ -18,7 +12,6 @@ class HashGenerator
 
         return $hashStr;
     }
-
 
     public static function getHmacSHA256Signature($uri, $secretKey, $randomString, Request $request = null)
     {
