@@ -10,7 +10,7 @@ use Iyzipay\Tests\TestCase;
 
 class IyziLinkDeleteProductMapperTest extends TestCase
 {
-    public function test_should_map_iyzilink_delete_product_create()
+    public function test_should_map_iyzilink_delete_product_mapper_create()
     {
         $json = $this->retrieveJsonFile("iyzilink-delete-product.json");
 

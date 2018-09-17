@@ -101,7 +101,7 @@ class IyziLinkSaveProductRequest extends Request
 
     public function getToken()
     {
-        $this->token;
+        return $this->token;
     }
 
     public function setToken($token)
@@ -111,7 +111,7 @@ class IyziLinkSaveProductRequest extends Request
 
     public function getUrl()
     {
-        $this->url;
+        return $this->url;
     }
 
     public function setUrl($url)
@@ -121,7 +121,7 @@ class IyziLinkSaveProductRequest extends Request
 
     public function getImageUrl()
     {
-        $this->imageUrl;
+        return $this->imageUrl;
     }
 
     public function setImageUrl($imageUrl)
@@ -140,6 +140,9 @@ class IyziLinkSaveProductRequest extends Request
             ->add("addressIgnorable", $this->getAddressIgnorable())
             ->add("soldLimit", $this->getSoldLimit())
             ->add("installmentRequested", $this->getInstallmentRequested())
+            ->add("token", $this->getToken())
+            ->add("url", $this->getUrl())
+            ->add("imageUrl", $this->getImageUrl())
             ->getObject();
     }
 }

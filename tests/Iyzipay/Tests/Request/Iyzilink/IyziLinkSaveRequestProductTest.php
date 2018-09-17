@@ -15,7 +15,6 @@ class IyziLinkSaveRequestProductTest extends TestCase
         $jsonObject = $request->getJsonObject();
         $imagePath = __DIR__ . '/images/sample_image.jpg';
 
-
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("Sample Integration", $jsonObject["name"]);
@@ -26,7 +25,9 @@ class IyziLinkSaveRequestProductTest extends TestCase
         $this->assertEquals(false, $jsonObject["addressIgnorable"]);
         $this->assertEquals(1, $jsonObject["soldLimit"]);
         $this->assertEquals(false, $jsonObject["installmentRequested"]);
-
+        $this->assertEquals("test", $jsonObject["token"]);
+        $this->assertEquals("test", $jsonObject["url"]);
+        $this->assertEquals("test", $jsonObject["imageUrl"]);
     }
 
 
@@ -44,6 +45,9 @@ class IyziLinkSaveRequestProductTest extends TestCase
         $request->setAddressIgnorable(false);
         $request->setSoldLimit(1);
         $request->setInstallmentRequest(false);
+        $request->setToken('test');
+        $request->setUrl('test');
+        $request->setImageUrl('test');
 
         return $request;
     }
