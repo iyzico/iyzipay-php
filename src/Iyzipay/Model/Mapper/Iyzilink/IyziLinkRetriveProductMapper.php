@@ -15,6 +15,10 @@ class IyziLinkRetriveProductMapper extends IyziLinkRetriveProductResourceMapper
     {
         parent::mapIyziLinkRetriveProductResourceFrom($create, $jsonObject);
 
+        if (isset($jsonObject->data)) {
+            $create->setItem($jsonObject->data);
+        }
+
         return $create;
     }
 

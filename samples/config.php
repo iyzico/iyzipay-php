@@ -9,9 +9,9 @@ class Config
     public static function options()
     {
         $options = new \Iyzipay\Options();
-        $options->setApiKey("api key");
-        $options->setSecretKey("secret key");
-        $options->setBaseUrl("https://sandbox-api.iyzipay.com");
+        $options->setApiKey("Dy9i7dTkVkGfXWZMW0sVYvThtazz5XMP");
+        $options->setSecretKey("EpJUroIo26vWwaKwbzytr4q5aPgwSoPP");
+        $options->setBaseUrl("https://api.iyzipay.com");
         return $options;
     }
 }

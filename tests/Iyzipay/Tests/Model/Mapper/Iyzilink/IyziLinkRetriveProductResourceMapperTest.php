@@ -15,12 +15,13 @@ class IyziLinkRetriveProductResourceMapperTest extends TestCase
         $json = $this->retrieveJsonFile("iyzilink-retrive-product.json");
 
         $iyziLinkRetriveProduct = IyziLinkRetriveProductResourceMapper::create($json)->jsonDecode()->mapResource(new IyziLinkRetriveProduct());
-        
+
         $this->assertNotEmpty($iyziLinkRetriveProduct);
         $this->assertEquals(Status::SUCCESS, $iyziLinkRetriveProduct->getStatus());
         $this->assertEquals(Locale::TR, $iyziLinkRetriveProduct->getLocale());
         $this->assertEquals(1537171364727, $iyziLinkRetriveProduct->getSystemTime());
         $this->assertEquals("123456789", $iyziLinkRetriveProduct->getConversationId());
+        $this->assertEquals(null, $iyziLinkRetriveProduct->getItem());
         $this->assertJson($iyziLinkRetriveProduct->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $iyziLinkRetriveProduct->getRawResult());
     }

@@ -21,6 +21,12 @@ class IyziLinkRetriveAllResourceMapperTest extends TestCase
         $this->assertEquals(Locale::TR, $iyziLinkRetriveAllProduct->getLocale());
         $this->assertEquals(1537167363043, $iyziLinkRetriveAllProduct->getSystemTime());
         $this->assertEquals("5b9f5000c5310", $iyziLinkRetriveAllProduct->getConversationId());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getListingReviewed());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getTotalCount());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getCurrentPage());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getPageCount());
+        $this->assertEquals(null, $iyziLinkRetriveAllProduct->getItems());
+
         $this->assertJson($iyziLinkRetriveAllProduct->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $iyziLinkRetriveAllProduct->getRawResult());
     }
