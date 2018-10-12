@@ -146,10 +146,28 @@ class RequestStringBuilder
             $stringQuery = "?conversationId=" . $request->getConversationId();
         }
 
+
         if($request->getLocale()) {
             $stringQuery .= "&locale=" . $request->getLocale();
         }
 
+
+        if($type == 'reporting') {
+            if($request->getPaymentConversationId()) {
+                $stringQuery .= "?paymentConversationId=" . $request->getPaymentConversationId();
+            }
+        }
+
+        if($type == 'reportingTransaction') {
+
+            if($request->getTransactionDate()) {
+                $stringQuery .= "&transactionDate=" . $request->getTransactionDate();
+            }
+
+            if ($request->getPage()) {
+                $stringQuery .= "&page=" . $request->getPage();
+            }
+        }
         if($type == 'pages') {
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
