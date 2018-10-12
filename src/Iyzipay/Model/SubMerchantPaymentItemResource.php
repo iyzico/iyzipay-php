@@ -2,7 +2,9 @@
 
 namespace Iyzipay\Model;
 
-class SubMerchantPaymentItemResource extends PaymentResource
+use Iyzipay\IyzipayResource;
+
+class SubMerchantPaymentItemResource extends IyzipayResource
 {
     private $subMerchantKey;
     private $paymentTransactionId;

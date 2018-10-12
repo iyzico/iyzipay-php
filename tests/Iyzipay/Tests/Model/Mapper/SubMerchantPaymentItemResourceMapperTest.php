@@ -20,6 +20,8 @@ class SubMerchantPaymentItemResourceMapperTest extends TestCase
         $this->assertEquals(Status::SUCCESS, $update->getStatus());
         $this->assertEquals(Locale::TR, $update->getLocale());
         $this->assertEquals("dVNPU4zjThEHTRqlExIhh7VVSBA=", $update->getSubMerchantKey());
+        $this->assertEquals("11606407", $update->getPaymentTransactionId());
+        $this->assertEquals(0.1, $update->getSubMerchantPrice());
         $this->assertJson($update->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $update->getRawResult());
     }

@@ -15,7 +15,6 @@ class ReportingPaymentTransactionMapper extends ReportingPaymentTransactionResou
     public function mapReportingPaymentTransactionFrom(ReportingPaymentTransaction $create, $jsonObject)
     {
         parent::mapReportingPaymentTransactionResourceFrom($create, $jsonObject);
-
         return $create;
     }
 

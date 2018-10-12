@@ -19,6 +19,14 @@ class SubMerchantPaymentItemResourceMapper extends IyzipayResourceMapper
             $create->setSubMerchantKey($jsonObject->subMerchantKey);
         }
 
+        if (isset($jsonObject->paymentTransactionId)) {
+            $create->setPaymentTransactionId($jsonObject->paymentTransactionId);
+        }
+
+        if (isset($jsonObject->subMerchantPrice)) {
+            $create->setSubMerchantPrice($jsonObject->subMerchantPrice);
+        }
+
         return $create;
     }
 
