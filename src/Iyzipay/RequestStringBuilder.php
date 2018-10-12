@@ -146,11 +146,9 @@ class RequestStringBuilder
             $stringQuery = "?conversationId=" . $request->getConversationId();
         }
 
-
         if($request->getLocale()) {
             $stringQuery .= "&locale=" . $request->getLocale();
         }
-
 
         if($type == 'reporting') {
             if($request->getPaymentConversationId()) {
@@ -168,6 +166,7 @@ class RequestStringBuilder
                 $stringQuery .= "&page=" . $request->getPage();
             }
         }
+
         if($type == 'pages') {
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
