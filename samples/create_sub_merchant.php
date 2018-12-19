@@ -10,7 +10,7 @@ function create_personal_sub_merchant()
     $request->setConversationId("123456789");
     $request->setSubMerchantExternalId("B49224");
     $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PERSONAL);
-    $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+    $request->setAddress("Burhaniye Mahallesi Atilla Sokak No:7 Üsküdar");
     $request->setContactName("John");
     $request->setContactSurname("Doe");
     $request->setEmail("email@submerchantemail.com");
@@ -35,7 +35,7 @@ function create_private_sub_merchant()
     $request->setConversationId("123456789");
     $request->setSubMerchantExternalId("S49222");
     $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::PRIVATE_COMPANY);
-    $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+    $request->setAddress("Burhaniye Mahallesi Atilla Sokak No:7 Üsküdar");
     $request->setTaxOffice("Tax office");
     $request->setLegalCompanyTitle("John Doe inc");
     $request->setEmail("email@submerchantemail.com");
@@ -60,7 +60,7 @@ function create_limited_company_sub_merchant()
     $request->setConversationId("123456789");
     $request->setSubMerchantExternalId("AS49224");
     $request->setSubMerchantType(\Iyzipay\Model\SubMerchantType::LIMITED_OR_JOINT_STOCK_COMPANY);
-    $request->setAddress("Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1");
+    $request->setAddress("Burhaniye Mahallesi Atilla Sokak No:7 Üsküdar");
     $request->setTaxOffice("Tax office");
     $request->setTaxNumber("9261877");
     $request->setLegalCompanyTitle("XYZ inc");
