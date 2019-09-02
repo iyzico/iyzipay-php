@@ -9,10 +9,10 @@ use Iyzipay\Model\Buyer;
 use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\PaymentGroup;
-use Iyzipay\Request\CreateBalancePaymentInitializeRequest;
+use Iyzipay\Request\CreatePayWithIyzicoInitializeRequest;
 use Iyzipay\Tests\TestCase;
 
-class CreateBalancePaymentInitializeRequestTest extends TestCase
+class CreatePayWithIyzicoInitializeRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
@@ -176,7 +176,7 @@ class CreateBalancePaymentInitializeRequestTest extends TestCase
 
     private function prepareRequest()
     {
-        $request = new CreateBalancePaymentInitializeRequest();
+        $request = new CreatePayWithIyzicoInitializeRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPrice("1");

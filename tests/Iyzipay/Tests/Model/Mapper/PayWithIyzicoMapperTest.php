@@ -2,58 +2,58 @@
 
 namespace Iyzipay\Tests\Model\Mapper;
 
-use Iyzipay\Model\BalancePayment;
+use Iyzipay\Model\PayWithIyzico;
 use Iyzipay\Model\Currency;
 use Iyzipay\Model\Locale;
-use Iyzipay\Model\Mapper\BalancePaymentMapper;
+use Iyzipay\Model\Mapper\PayWithIyzicoMapper;
 use Iyzipay\Model\Status;
 use Iyzipay\Tests\TestCase;
 
-class BalancePaymentMapperTest extends TestCase
+class PayWithIyzicoMapperTest extends TestCase
 {
-    public function test_should_map_balance_payment()
+    public function test_should_map_pay_with_iyzico()
     {
-        $json = $this->retrieveJsonFile("retrieve-balance-payment.json");
+        $json = $this->retrieveJsonFile("retrieve-pay-with-iyzico.json");
 
-        $balancePayment = BalancePaymentMapper::create($json)->jsonDecode()->mapBalancePayment(new BalancePayment());
+        $payWithIyzico = PayWithIyzicoMapper::create($json)->jsonDecode()->mapPayWithIyzico(new PayWithIyzico());
 
-        $this->assertNotEmpty($balancePayment);
-        $this->assertEquals(Status::FAILURE, $balancePayment->getStatus());
-        $this->assertEquals("10000", $balancePayment->getErrorCode());
-        $this->assertEquals("error message", $balancePayment->getErrorMessage());
-        $this->assertEquals("ERROR_GROUP", $balancePayment->getErrorGroup());
-        $this->assertEquals(Locale::TR, $balancePayment->getLocale());
-        $this->assertEquals("1458545234852", $balancePayment->getSystemTime());
-        $this->assertEquals("123456", $balancePayment->getConversationId());
-        $this->assertJson($balancePayment->getRawResult());
-        $this->assertJsonStringEqualsJsonString($json, $balancePayment->getRawResult());
-        $this->assertEquals("1.0", $balancePayment->getPrice());
-        $this->assertEquals("1.1", $balancePayment->getPaidPrice());
-        $this->assertEquals("1", $balancePayment->getInstallment());
-        $this->assertEquals("1", $balancePayment->getPaymentId());
-        $this->assertEmpty($balancePayment->getPaymentStatus());
-        $this->assertEquals("1", $balancePayment->getFraudStatus());
-        $this->assertEquals("10.00000000", $balancePayment->getMerchantCommissionRate());
-        $this->assertEquals("0.1", $balancePayment->getMerchantCommissionRateAmount());
-        $this->assertEquals("0.03245000", $balancePayment->getIyziCommissionRateAmount());
-        $this->assertEquals("0.29500000", $balancePayment->getIyziCommissionFee());
-        $this->assertEquals("CREDIT_CARD", $balancePayment->getCardType());
-        $this->assertEquals("MASTER_CARD", $balancePayment->getCardAssociation());
-        $this->assertEquals("Bonus", $balancePayment->getCardFamily());
-        $this->assertEquals("cardUserKey", $balancePayment->getCardUserKey());
-        $this->assertEquals("cardToken", $balancePayment->getCardToken());
-        $this->assertEquals("554960", $balancePayment->getBinNumber());
-        $this->assertEquals("B67832", $balancePayment->getBasketId());
-        $this->assertEquals(Currency::TL, $balancePayment->getCurrency());
-        $this->assertEquals("connector name", $balancePayment->getConnectorName());
-        $this->assertEquals("auth code", $balancePayment->getAuthCode());
-        $this->assertEquals("AUTH", $balancePayment->getPhase());
-        $this->assertEquals("0000", $balancePayment->getLastFourDigits());
-        $this->assertEquals("posOrderId", $balancePayment->getPosOrderId());
+        $this->assertNotEmpty($payWithIyzico);
+        $this->assertEquals(Status::FAILURE, $payWithIyzico->getStatus());
+        $this->assertEquals("10000", $payWithIyzico->getErrorCode());
+        $this->assertEquals("error message", $payWithIyzico->getErrorMessage());
+        $this->assertEquals("ERROR_GROUP", $payWithIyzico->getErrorGroup());
+        $this->assertEquals(Locale::TR, $payWithIyzico->getLocale());
+        $this->assertEquals("1458545234852", $payWithIyzico->getSystemTime());
+        $this->assertEquals("123456", $payWithIyzico->getConversationId());
+        $this->assertJson($payWithIyzico->getRawResult());
+        $this->assertJsonStringEqualsJsonString($json, $payWithIyzico->getRawResult());
+        $this->assertEquals("1.0", $payWithIyzico->getPrice());
+        $this->assertEquals("1.1", $payWithIyzico->getPaidPrice());
+        $this->assertEquals("1", $payWithIyzico->getInstallment());
+        $this->assertEquals("1", $payWithIyzico->getPaymentId());
+        $this->assertEmpty($payWithIyzico->getPaymentStatus());
+        $this->assertEquals("1", $payWithIyzico->getFraudStatus());
+        $this->assertEquals("10.00000000", $payWithIyzico->getMerchantCommissionRate());
+        $this->assertEquals("0.1", $payWithIyzico->getMerchantCommissionRateAmount());
+        $this->assertEquals("0.03245000", $payWithIyzico->getIyziCommissionRateAmount());
+        $this->assertEquals("0.29500000", $payWithIyzico->getIyziCommissionFee());
+        $this->assertEquals("CREDIT_CARD", $payWithIyzico->getCardType());
+        $this->assertEquals("MASTER_CARD", $payWithIyzico->getCardAssociation());
+        $this->assertEquals("Bonus", $payWithIyzico->getCardFamily());
+        $this->assertEquals("cardUserKey", $payWithIyzico->getCardUserKey());
+        $this->assertEquals("cardToken", $payWithIyzico->getCardToken());
+        $this->assertEquals("554960", $payWithIyzico->getBinNumber());
+        $this->assertEquals("B67832", $payWithIyzico->getBasketId());
+        $this->assertEquals(Currency::TL, $payWithIyzico->getCurrency());
+        $this->assertEquals("connector name", $payWithIyzico->getConnectorName());
+        $this->assertEquals("auth code", $payWithIyzico->getAuthCode());
+        $this->assertEquals("AUTH", $payWithIyzico->getPhase());
+        $this->assertEquals("0000", $payWithIyzico->getLastFourDigits());
+        $this->assertEquals("posOrderId", $payWithIyzico->getPosOrderId());
 
-        $paymentItems = $balancePayment->getPaymentItems();
-        $this->assertNotEmpty($balancePayment->getPaymentItems());
-        $this->assertEquals(3, count($balancePayment->getPaymentItems()));
+        $paymentItems = $payWithIyzico->getPaymentItems();
+        $this->assertNotEmpty($payWithIyzico->getPaymentItems());
+        $this->assertEquals(3, count($payWithIyzico->getPaymentItems()));
 
         $paymentItem = $paymentItems[0];
         $this->assertEquals("BI101", $paymentItem->getItemId());
@@ -148,7 +148,7 @@ class BalancePaymentMapperTest extends TestCase
         $this->assertEquals("0", $paymentItem->getConvertedPayout()->getIyziConversionRateAmount());
         $this->assertEquals(Currency::TL, $paymentItem->getConvertedPayout()->getCurrency());
 
-        $this->assertEquals("token", $balancePayment->getToken());
-        $this->assertEquals("url", $balancePayment->getCallbackUrl());
+        $this->assertEquals("token", $payWithIyzico->getToken());
+        $this->assertEquals("url", $payWithIyzico->getCallbackUrl());
     }
 }

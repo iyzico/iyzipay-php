@@ -4,10 +4,10 @@ namespace Iyzipay\Model;
 
 use Iyzipay\IyzipayResource;
 
-class BalancePaymentInitializeResource extends IyzipayResource
+class PayWithIyzicoInitializeResource extends IyzipayResource
 {
     private $token;
-    private $checkoutFormContent;
+    private $payWithIyzicoContent;
     private $tokenExpireTime;
     private $paymentPageUrl;
 
@@ -21,14 +21,14 @@ class BalancePaymentInitializeResource extends IyzipayResource
         $this->token = $token;
     }
 
-    public function getCheckoutFormContent()
+    public function getPayWithIyzicoContent()
     {
-        return $this->checkoutFormContent;
+        return $this->payWithIyzicoContent;
     }
 
-    public function setCheckoutFormContent($checkoutFormContent)
+    public function setPayWithIyzicoContent($payWithIyzicoContent)
     {
-        $this->checkoutFormContent = $checkoutFormContent;
+        $this->payWithIyzicoContent = $payWithIyzicoContent;
     }
 
     public function getTokenExpireTime()

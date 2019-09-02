@@ -2,16 +2,16 @@
 
 namespace Iyzipay\Model\Mapper;
 
-use Iyzipay\Model\BalancePayment;
+use Iyzipay\Model\PayWithIyzico;
 
-class BalancePaymentMapper extends PaymentResourceMapper
+class PayWithIyzicoMapper extends PaymentResourceMapper
 {
     public static function create($rawResult = null)
     {
-        return new BalancePaymentMapper($rawResult);
+        return new PayWithIyzicoMapper($rawResult);
     }
 
-    public function mapBalancePaymentFrom(BalancePayment $auth, $jsonObject)
+    public function mapPayWithIyzicoFrom(PayWithIyzico $auth, $jsonObject)
     {
         parent::mapPaymentResourceFrom($auth, $jsonObject);
 
@@ -24,8 +24,8 @@ class BalancePaymentMapper extends PaymentResourceMapper
         return $auth;
     }
 
-    public function mapBalancePayment(BalancePayment $auth)
+    public function mapPayWithIyzico(PayWithIyzico $auth)
     {
-        return $this->mapBalancePaymentFrom($auth, $this->jsonObject);
+        return $this->mapPayWithIyzicoFrom($auth, $this->jsonObject);
     }
 }

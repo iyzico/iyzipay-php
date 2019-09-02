@@ -3,10 +3,10 @@
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
-use Iyzipay\Request\RetrieveBalancePaymentRequest;
+use Iyzipay\Request\RetrievePayWithIyzicoRequest;
 use Iyzipay\Tests\TestCase;
 
-class RetrieveBalancePaymentRequestTest extends TestCase
+class RetrievePayWithIyzicoRequestTest extends TestCase
 {
     public function test_should_get_json_object()
     {
@@ -46,7 +46,7 @@ class RetrieveBalancePaymentRequestTest extends TestCase
 
     private function prepareRequest()
     {
-        $request = new RetrieveBalancePaymentRequest();
+        $request = new RetrievePayWithIyzicoRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setToken("token");

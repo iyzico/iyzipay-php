@@ -6,7 +6,7 @@ use Iyzipay\JsonBuilder;
 use Iyzipay\Request;
 use Iyzipay\RequestStringBuilder;
 
-class RetrieveBalancePaymentRequest extends Request
+class RetrievePayWithIyzicoRequest extends Request
 {
     private $token;
 

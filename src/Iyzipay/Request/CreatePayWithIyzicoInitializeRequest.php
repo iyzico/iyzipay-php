@@ -6,7 +6,7 @@ use Iyzipay\JsonBuilder;
 use Iyzipay\Request;
 use Iyzipay\RequestStringBuilder;
 
-class CreateBalancePaymentInitializeRequest extends Request
+class CreatePayWithIyzicoInitializeRequest extends Request
 {
     private $price;
     private $paidPrice;

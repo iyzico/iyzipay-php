@@ -7,7 +7,7 @@
   "systemTime": "1458545234852",
   "conversationId": "123456",
   "token": "token",
-  "checkoutFormContent": "balancePaymentContent",
+  "payWithIyzicoContent": "payWithIyzicoContent",
   "tokenExpireTime": "3600",
   "paymentPageUrl": "url"
 }

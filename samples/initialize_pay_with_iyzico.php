@@ -3,7 +3,7 @@
 require_once('config.php');
 
 # create request class
-$request = new \Iyzipay\Request\CreateBalancePaymentInitializeRequest();
+$request = new \Iyzipay\Request\CreatePayWithIyzicoInitializeRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 $request->setPrice("1");
@@ -76,7 +76,7 @@ $basketItems[2] = $thirdBasketItem;
 $request->setBasketItems($basketItems);
 
 # make request
-$checkoutFormInitialize = \Iyzipay\Model\BalancePaymentInitialize::create($request, Config::options());
+$payWithIyzicoInitialize = \Iyzipay\Model\PayWithIyzicoInitialize::create($request, Config::options());
 
 # print result
-print_r($checkoutFormInitialize);
+print_r($payWithIyzicoInitialize);
