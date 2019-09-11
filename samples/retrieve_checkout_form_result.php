@@ -6,7 +6,7 @@ require_once('config.php');
 $request = new \Iyzipay\Request\RetrieveCheckoutFormRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
-$request->setToken("token");
+$request->setToken($_POST['token']);
 
 # make request
 $checkoutForm = \Iyzipay\Model\CheckoutForm::retrieve($request, Config::options());

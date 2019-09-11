@@ -9,7 +9,7 @@ class PayWithIyzicoInitializeResource extends IyzipayResource
     private $token;
     private $payWithIyzicoContent;
     private $tokenExpireTime;
-    private $paymentPageUrl;
+    private $payWithIyzicoPageUrl;
 
     public function getToken()
     {
@@ -41,13 +41,13 @@ class PayWithIyzicoInitializeResource extends IyzipayResource
         $this->tokenExpireTime = $tokenExpireTime;
     }
 
-    public function getPaymentPageUrl()
+    public function getPayWithIyzicoPageUrl()
     {
-        return $this->paymentPageUrl;
+        return $this->payWithIyzicoPageUrl;
     }
 
-    public function setPaymentPageUrl($paymentPageUrl)
+    public function setPaymentPageUrl($payWithIyzicoPageUrl)
     {
-        $this->paymentPageUrl = $paymentPageUrl;
+        $this->payWithIyzicoPageUrl = $payWithIyzicoPageUrl;
     }
 }

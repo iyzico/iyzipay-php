@@ -27,7 +27,7 @@ class PayWithIyzicoInitializeMapperTest extends TestCase
         $this->assertEquals("token", $payWithIyzicoInitialize->getToken());
         $this->assertEquals("payWithIyzicoContent", $payWithIyzicoInitialize->getPayWithIyzicoContent());
         $this->assertEquals("3600", $payWithIyzicoInitialize->getTokenExpireTime());
-        $this->assertEquals("url", $payWithIyzicoInitialize->getPaymentPageUrl());
+        $this->assertEquals("url", $payWithIyzicoInitialize->getPayWithIyzicoPageUrl());
         $this->assertJson($payWithIyzicoInitialize->getRawResult());
         $this->assertJsonStringEqualsJsonString($json, $payWithIyzicoInitialize->getRawResult());
     }

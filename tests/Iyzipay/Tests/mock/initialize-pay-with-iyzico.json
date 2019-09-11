@@ -9,5 +9,5 @@
   "token": "token",
   "payWithIyzicoContent": "payWithIyzicoContent",
   "tokenExpireTime": "3600",
-  "paymentPageUrl": "url"
+  "payWithIyzicoPageUrl": "url"
 }

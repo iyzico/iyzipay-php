@@ -24,8 +24,8 @@ class PayWithIyzicoInitializeResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->tokenExpireTime)) {
             $initialize->setTokenExpireTime($jsonObject->tokenExpireTime);
         }
-        if (isset($jsonObject->paymentPageUrl)) {
-            $initialize->setPaymentPageUrl($jsonObject->paymentPageUrl);
+        if (isset($jsonObject->payWithIyzicoPageUrl)) {
+            $initialize->setPaymentPageUrl($jsonObject->payWithIyzicoPageUrl);
         }
         return $initialize;
     }

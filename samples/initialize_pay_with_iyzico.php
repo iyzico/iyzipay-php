@@ -79,4 +79,5 @@ $request->setBasketItems($basketItems);
 $payWithIyzicoInitialize = \Iyzipay\Model\PayWithIyzicoInitialize::create($request, Config::options());
 
 # print result
+echo '<pre>';
 print_r($payWithIyzicoInitialize);
