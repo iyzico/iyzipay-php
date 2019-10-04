@@ -30,6 +30,7 @@ class CardMapperTest extends TestCase
         $this->assertEquals("cardToken", $card->getCardToken());
         $this->assertEquals("cardAlias", $card->getCardAlias());
         $this->assertEquals("554960", $card->getBinNumber());
+        $this->assertEquals("0008", $card->getLastFourDigits());
         $this->assertEquals("CREDIT_CARD", $card->getCardType());
         $this->assertEquals("MASTER_CARD", $card->getCardAssociation());
         $this->assertEquals("Bonus", $card->getCardFamily());
