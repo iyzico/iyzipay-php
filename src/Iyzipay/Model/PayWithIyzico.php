@@ -13,7 +13,7 @@ class PayWithIyzico extends PaymentResource
 
     public static function retrieve(RetrievePayWithIyzicoRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/pay-with-iyzico/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/auth/ecom/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return PayWithIyzicoMapper::create($rawResult)->jsonDecode()->mapPayWithIyzico(new PayWithIyzico());
     }
 
