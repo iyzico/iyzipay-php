@@ -8,7 +8,7 @@ use Iyzipay\Tests\TestCase;
 
 class RefundToBalanceMapperTest extends TestCase
 {
-    public function test_should_map_refund()
+    public function test_should_map_refund_to_balance_mapper()
     {
         $json = $this->retrieveJsonFile("refund_to_balance.json");
 

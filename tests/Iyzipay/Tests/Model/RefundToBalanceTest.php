@@ -8,7 +8,7 @@ use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class RefundToBalanceTest extends IyzipayResourceTestCase
 {
-    public function test_should_refund()
+    public function test_should_refund_to_balance()
     {
         $this->expectHttpPost();
 
