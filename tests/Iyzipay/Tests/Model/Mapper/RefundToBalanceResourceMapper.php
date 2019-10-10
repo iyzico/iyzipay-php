@@ -10,13 +10,13 @@ class RefundToBalanceResourceMapperTest extends TestCase
 {
     public function test_should_map_refund_to_balance_resource_mapper()
     {
-        $json = $this->retrieveJsonFile("refund.json");
+        $json = $this->retrieveJsonFile("refund_to_balance.json");
 
         $refund = RefundToBalanceResourceMapper::create($json)->jsonDecode()->mapRefundToBalanceResource(new RefundToBalanceResource());
 
         $this->assertNotEmpty($refund);
-        $this->assertEquals("", $refund->getToken());
-        $this->assertEquals("", $refund->getUrl());
+        $this->assertEquals("123456", $refund->getToken());
+        $this->assertEquals("https://url", $refund->getUrl());
 
     }
 }
