@@ -17,7 +17,7 @@ class RefundToBalanceMapperTest extends TestCase
 
         $this->assertNotEmpty($refund);
         $this->assertEquals("123456", $refund->getToken());
-        $this->assertEquals("url", $refund->getUrl());
+        $this->assertEquals("https://url", $refund->getUrl());
 
     }
 }
