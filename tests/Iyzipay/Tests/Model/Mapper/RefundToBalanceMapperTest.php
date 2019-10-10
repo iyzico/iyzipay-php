@@ -12,12 +12,19 @@ class RefundToBalanceMapperTest extends TestCase
     {
         $json = $this->retrieveJsonFile("refund_to_balance.json");
 
-        $refund = RefundToBalanceMapper::create($json)->jsonDecode()->mapRefundToBalance(new RefundToBalance());
+        $refundToBalance = RefundToBalanceMapper::create($json)->jsonDecode()->mapRefundToBalance(new RefundToBalance());
 
 
-        $this->assertNotEmpty($refund);
-        $this->assertEquals("123456", $refund->getToken());
-        $this->assertEquals("https://url", $refund->getUrl());
+        $this->assertNotEmpty($refundToBalance);
+        $this->assertEquals("123456", $refundToBalance->getToken());
+        $this->assertEquals("https://url", $refundToBalance->getUrl());
+        $this->assertEquals("", $refundToBalance->getStatus());
+        $this->assertEquals("", $refundToBalance->getErrorCode());
+        $this->assertEquals("", $refundToBalance->getErrorMessage());
+        $this->assertEquals("", $refundToBalance->getErrorGroup());
+        $this->assertEquals("", $refundToBalance->getSystemTime());
+        $this->assertEquals("", $refundToBalance->getLocale());
+        $this->assertEquals("", $refundToBalance->getConversationId());
 
     }
 }

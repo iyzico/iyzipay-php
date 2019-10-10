@@ -19,6 +19,7 @@ class RefundToBalanceMapper extends RefundToBalanceResourceMapper
 
     public function mapRefundToBalance(RefundToBalance $refundToBalance)
     {
+
         return $this->mapRefundToBalanceFrom($refundToBalance, $this->jsonObject);
     }
 }

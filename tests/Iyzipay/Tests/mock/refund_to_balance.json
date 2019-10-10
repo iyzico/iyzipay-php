@@ -1,4 +1,11 @@
 {
   "token":"123456",
-  "url":"https://url"
+  "url":"https://url",
+  "status":"",
+  "errorCode":"",
+  "errorMessage":"",
+  "errorGroup":"",
+  "systemTime":"",
+  "locale":"",
+  "conversationId":""
 }
