@@ -15,11 +15,11 @@ class RefundToBalanceResourceMapper extends IyzipayResourceMapper
     {
         parent::mapResourceFrom($refundToBalanceResource, $jsonObject);
 
-        if (isset($jsonObject->paymentId)) {
-            $refundToBalanceResource->token($jsonObject->token);
+        if (isset($jsonObject->token)) {
+            $refundToBalanceResource->setToken($jsonObject->token);
         }
-        if (isset($jsonObject->paymentTransactionId)) {
-            $refundToBalanceResource->url($jsonObject->url);
+        if (isset($jsonObject->url)) {
+            $refundToBalanceResource->setUrl($jsonObject->url);
         }
 
         return $refundToBalanceResource;
