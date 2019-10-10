@@ -3,7 +3,7 @@
 namespace Iyzipay\Tests\Model;
 
 use Iyzipay\Model\RefundToBalance;
-use Iyzipay\Request\CreateRefundtoBalanceRequest;
+use Iyzipay\Request\CreateRefundToBalanceRequest;
 use Iyzipay\Tests\IyzipayResourceTestCase;
 
 class RefundToBalanceTest extends IyzipayResourceTestCase
