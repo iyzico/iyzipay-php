@@ -4,7 +4,7 @@ require_once('config.php');
 
 # create request class
 $request = new \Iyzipay\Request\CreateRefundToBalanceRequest();
-$request->setPaymentId("544316496");
+$request->setPaymentId("11654127");
 $request->setCallbackUrl("https://www.callback");
 
 # make request
