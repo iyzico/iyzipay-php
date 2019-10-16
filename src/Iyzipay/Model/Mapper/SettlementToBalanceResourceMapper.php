@@ -21,8 +21,8 @@ class SettlementToBalanceResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->token)) {
             $settlementToBalanceResource->setToken($jsonObject->token);
         }
-        if (isset($jsonObject->isSettingsAllTime)) {
-            $settlementToBalanceResource->setIsSettingsAllTime($jsonObject->isSettingsAllTime);
+        if (isset($jsonObject->settingsAllTime)) {
+            $settlementToBalanceResource->setSettingsAllTime($jsonObject->settingsAllTime);
         }
 
         return $settlementToBalanceResource;

@@ -20,7 +20,7 @@ class SettlementToBalanceResourceMapperTest extends TestCase
         $this->assertNotEmpty($settlementToBalance);
         $this->assertEquals("123456", $settlementToBalance->getToken());
         $this->assertEquals("https://url", $settlementToBalance->getUrl());
-        $this->assertEquals("434343", $settlementToBalance->getIsSettingsAllTime());
+        $this->assertEquals("434343", $settlementToBalance->getSettingsAllTime());
         $this->assertEquals("failure", $settlementToBalance->getStatus());
         $this->assertEquals("10000", $settlementToBalance->getErrorCode());
         $this->assertEquals("error_message", $settlementToBalance->getErrorMessage());

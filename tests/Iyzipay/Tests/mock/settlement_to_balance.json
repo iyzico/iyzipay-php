@@ -1,7 +1,7 @@
 {
   "token":"123456",
   "url":"https://url",
-  "isSettingsAllTime": "434343",
+  "settingsAllTime": "434343",
   "status": "failure",
   "errorCode": 10000,
   "errorMessage": "error_message",

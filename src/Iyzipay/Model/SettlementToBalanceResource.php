@@ -8,7 +8,7 @@ class SettlementToBalanceResource extends IyzipayResource
 {
     private $url;
     private $token;
-    private $isSettingsAllTime;
+    private $settingsAllTime;
 
     public function getUrl()
     {
@@ -30,13 +30,13 @@ class SettlementToBalanceResource extends IyzipayResource
         $this->token = $token;
     }
 
-    public function getIsSettingsAllTime()
+    public function getSettingsAllTime()
     {
-        return $this->isSettingsAllTime;
+        return $this->settingsAllTime;
     }
 
-    public function setIsSettingsAllTime($isSettingsAllTime)
+    public function setSettingsAllTime($settingsAllTime)
     {
-        $this->isSettingsAllTime = $isSettingsAllTime;
+        $this->settingsAllTime = $settingsAllTime;
     }
 }
