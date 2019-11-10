@@ -28,6 +28,12 @@ class IyziAuthV2Generator
 
         $startNumber  = strpos($uri, '/v2');
         $endNumber    = strpos($uri, '?');
+        if(strpos($uri,"subscription")){
+            $endNumber = strlen($uri);
+            if(strpos($uri,'?')){
+                $endNumber    = strpos($uri, '?');
+            }
+        }
         $endNumber-=  $startNumber;
 
         $uriPath      =  substr($uri, $startNumber, $endNumber);

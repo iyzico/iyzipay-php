@@ -1,0 +1,18 @@
+{
+  "data": {
+    "createdDate": 1573313525000,
+    "currencyCode": "TRY",
+    "name": "PricingPlanName",
+    "paymentInterval": "WEEKLY",
+    "paymentIntervalCount": 1,
+    "planPaymentType": "RECURRING",
+    "price": 30.00000000,
+    "productReferenceCode": "ac188383-d30e-490e-94bb-239ff6af4b5b",
+    "recurrenceCount": 5,
+    "referenceCode": "0984a3a9-d204-45e9-beb9-cab8fcdb6340",
+    "status": "ACTIVE",
+    "trialPeriodDays": 10
+  },
+  "status": "success",
+  "systemTime": 1573314451931
+}
