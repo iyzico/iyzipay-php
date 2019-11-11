@@ -174,17 +174,11 @@ class RequestStringBuilder
             if ($request->getCount()) {
                 $stringQuery .= "&count=" . $request->getCount();
             }
-            if($request->getConversationId()) {
-                $stringQuery .= "&conversationId=" . $request->getConversationId();
-            }
-            if($request->getLocale()) {
-                $stringQuery .= "&locale=" . $request->getLocale();
-            }
         }
 
         if($type == 'searchSubscription') {
             if($request->getPage()){
-                $stringQuery .= "?page=".$request->getPage();
+                $stringQuery = "?page=".$request->getPage();
             }
             if($request->getCount()){
                 $stringQuery .= "&count=".$request->getCount();
