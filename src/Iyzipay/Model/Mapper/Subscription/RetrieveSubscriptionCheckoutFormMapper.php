@@ -20,6 +20,6 @@ class RetrieveSubscriptionCheckoutFormMapper extends RetrieveSubscriptionCheckou
 
     public function mapSubscriptionCreateCheckoutForm(RetrieveSubscriptionCheckoutForm $create)
     {
-        return $this->mapSubscriptionCreateCheckoutFormFrom($create, $this->jsonObject);
+        return $this->mapRetrieveSubscriptionCheckoutFormFrom($create, $this->jsonObject);
     }
 }

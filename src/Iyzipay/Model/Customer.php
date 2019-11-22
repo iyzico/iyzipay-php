@@ -224,6 +224,7 @@ class Customer extends BaseModel
                     ->append("country", $this->getBillingAddressCountry())
                     ->append("address", $this->getBillingAddressAddress())
                     ->append("zipCode", $this->getBillingAddressZipCode())
+                    ->getRequestString()
             )
             ->append("shippingAddress",
                 RequestStringBuilder::create()
@@ -232,6 +233,7 @@ class Customer extends BaseModel
                     ->append("country", $this->getShippingAddressCountry())
                     ->append("address", $this->getShippingAddressAddress())
                     ->append("zipCode", $this->getShippingAddressZipCode())
+                    ->getRequestString()
             )
             ->getRequestString();
     }

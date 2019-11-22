@@ -64,6 +64,28 @@ class SubscriptionCreateCustomerRequestTest extends TestCase
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
     }
 
+    public function test_should_convert_customer_to_pki_request_string()
+    {
+        $customer = new Customer();
+        $customer->setName("John");
+        $customer->setSurname("Doe");
+        $customer->setGsmNumber("+905555555555");
+        $customer->setEmail("johndoe@iyzicotest.com");
+        $customer->setIdentityNumber("11111111111");
+        $customer->setShippingAddressContactName("John Doe");
+        $customer->setShippingAddressCity("Istanbul");
+        $customer->setShippingAddressCountry("Turkey");
+        $customer->setShippingAddressAddress("Uskudar Burhaniye Mahallesi iyzico A.S");
+        $customer->setShippingAddressZipCode("34660");
+        $customer->setBillingAddressContactName("John Doe");
+        $customer->setBillingAddressCity("Istanbul");
+        $customer->setBillingAddressCountry("Turkey");
+        $customer->setBillingAddressAddress("Uskudar Burhaniye Mahallesi iyzico A.S");
+        $customer->setBillingAddressZipCode("34660");
+        $str = "[name=John,surname=Doe,identityNumber=11111111111,email=johndoe@iyzicotest.com,gsmNumber=+905555555555,billingAddress=[contactName=John Doe,city=Istanbul,country=Turkey,address=Uskudar Burhaniye Mahallesi iyzico A.S,zipCode=34660],shippingAddress=[contactName=John Doe,city=Istanbul,country=Turkey,address=Uskudar Burhaniye Mahallesi iyzico A.S,zipCode=34660]]";
+        $this->assertEquals($str, $customer->toPKIRequestString());
+    }
+
     private function prepareRequest()
     {
         $request = new SubscriptionCreateCustomerRequest();

@@ -17,6 +17,9 @@ class PaymentCard extends BaseModel
     private $cardAlias;
     private $cardToken;
     private $cardUserKey;
+    private $registerConsumerCard;
+    private $ucsToken;
+    private $consumerToken;
 
     public function getCardHolderName()
     {
@@ -108,6 +111,36 @@ class PaymentCard extends BaseModel
         $this->cardUserKey = $cardUserKey;
     }
 
+    public function getRegisterConsumerCard()
+    {
+        return $this->registerConsumerCard;
+    }
+
+    public function setRegisterConsumerCard($registerConsumerCard)
+    {
+        $this->registerConsumerCard = $registerConsumerCard;
+    }
+
+    public function getUcsToken()
+    {
+        return $this->ucsToken;
+    }
+
+    public function setUcsToken($ucsToken)
+    {
+        $this->ucsToken = $ucsToken;
+    }
+
+    public function setConsumerToken($consumerToken)
+    {
+        $this->consumerToken = $consumerToken;
+    }
+
+    public function getConsumerToken()
+    {
+        return $this->consumerToken;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::create()
@@ -120,6 +153,9 @@ class PaymentCard extends BaseModel
             ->add("cardAlias", $this->getCardAlias())
             ->add("cardToken", $this->getCardToken())
             ->add("cardUserKey", $this->getCardUserKey())
+            ->add("registerConsumerCard", $this->getRegisterConsumerCard())
+            ->add("consumerToken", $this->getConsumerToken())
+            ->add("ucsToken", $this->getUcsToken())
             ->getObject();
     }
 
@@ -135,6 +171,9 @@ class PaymentCard extends BaseModel
             ->append("cardAlias", $this->getCardAlias())
             ->append("cardToken", $this->getCardToken())
             ->append("cardUserKey", $this->getCardUserKey())
+            ->append("registerConsumerCard", $this->getRegisterConsumerCard())
+            ->append("consumerToken", $this->getConsumerToken())
+            ->append("ucsToken", $this->getUcsToken())
             ->getRequestString();
     }
 }

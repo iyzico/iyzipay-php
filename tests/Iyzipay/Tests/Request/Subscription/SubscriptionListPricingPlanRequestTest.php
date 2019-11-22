@@ -22,6 +22,7 @@ class SubscriptionListPricingPlanRequestTest extends TestCase
         $request = new SubscriptionListPricingPlanRequest();
         $request->setPage(3);
         $request->setCount(10);
+        $request->setProductReferenceCode("f52b5561-aa1b-4f31-af0b-3078cf6c4bb1");
         return $request;
     }
 }

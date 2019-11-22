@@ -7,7 +7,7 @@ use Iyzipay\Tests\TestCase;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Customer;
 
-class SubscriptionCreateRequestTest extends TestCase
+class SubscriptionCreateRequestWithUcsTest extends TestCase
 {
     public function test_should_get_json_object()
     {
@@ -32,36 +32,10 @@ class SubscriptionCreateRequestTest extends TestCase
         $this->assertEquals("John Doe", $jsonObject["customer"]["shippingAddress"]["contactName"]);
         $this->assertEquals("Turkey", $jsonObject["customer"]["shippingAddress"]["country"]);
         $this->assertEquals("34660", $jsonObject["customer"]["shippingAddress"]["zipCode"]);
-        $this->assertEquals("John Doe", $jsonObject["paymentCard"]["cardHolderName"]);
-        $this->assertEquals("4603450000000000", $jsonObject["paymentCard"]["cardNumber"]);
-        $this->assertEquals("123", $jsonObject["paymentCard"]["cvc"]);
-        $this->assertEquals("12", $jsonObject["paymentCard"]["expireMonth"]);
-        $this->assertEquals("2030", $jsonObject["paymentCard"]["expireYear"]);
-        $this->assertEquals(true, $jsonObject["paymentCard"]["registerConsumerCard"]);
+        $this->assertEquals("211f19ab-82bf-486e-b296-512bbdf214a1", $jsonObject["paymentCard"]["cardToken"]);
+        $this->assertEquals("11111", $jsonObject["paymentCard"]["consumerToken"]);
+        $this->assertEquals("cce7a356-8679-4de7-b7ba-d5872b5ce76b", $jsonObject["paymentCard"]["ucsToken"]);
     }
-
-    public function test_should_convert_card_to_pki_request_string()
-    {
-
-        $paymentCard = new \Iyzipay\Model\PaymentCard();
-        $paymentCard->setCardHolderName("John Doe");
-        $paymentCard->setCardNumber("1111110000000000");
-        $paymentCard->setExpireMonth("12");
-        $paymentCard->setExpireYear("2030");
-        $paymentCard->setCvc("123");
-        $paymentCard->setRegisterConsumerCard(true);
-        $paymentCard->setRegisterCard(1);
-        $paymentCard->setCardAlias("john");
-        $paymentCard->setCardToken("cardtoken");
-        $paymentCard->setCardUserKey("key");
-        $paymentCard->setUcsToken("ucstoken");
-        $paymentCard->setConsumerToken("consumertoken");
-
-
-        $str = "[cardHolderName=John Doe,cardNumber=1111110000000000,expireYear=2030,expireMonth=12,cvc=123,registerCard=1,cardAlias=john,cardToken=cardtoken,cardUserKey=key,registerConsumerCard=1,consumerToken=consumertoken,ucsToken=ucstoken]";
-        $this->assertEquals($str, $paymentCard->toPKIRequestString());
-    }
-
 
     public function test_should_get_json_string()
     {
@@ -91,12 +65,9 @@ class SubscriptionCreateRequestTest extends TestCase
                   },
                   "locale": "tr",
                   "paymentCard": {
-                    "cardHolderName": "John Doe",
-                    "cardNumber": "4603450000000000",
-                    "cvc": "123",
-                    "expireMonth": "12",
-                    "expireYear": "2030",
-                    "registerConsumerCard": true
+                    "cardToken": "211f19ab-82bf-486e-b296-512bbdf214a1",
+                    "consumerToken": "11111",
+                    "ucsToken": "cce7a356-8679-4de7-b7ba-d5872b5ce76b"
                   },
                   "pricingPlanReferenceCode": "c1d489b6-9adc-42fa-88ae-47ea2e5dbe1e",
                   "subscriptionInitialStatus": "ACTIVE"
@@ -113,12 +84,9 @@ class SubscriptionCreateRequestTest extends TestCase
         $request->setPricingPlanReferenceCode("c1d489b6-9adc-42fa-88ae-47ea2e5dbe1e");
         $request->setSubscriptionInitialStatus("ACTIVE");
         $paymentCard = new \Iyzipay\Model\PaymentCard();
-        $paymentCard->setCardHolderName("John Doe");
-        $paymentCard->setCardNumber("4603450000000000");
-        $paymentCard->setExpireMonth("12");
-        $paymentCard->setExpireYear("2030");
-        $paymentCard->setCvc("123");
-        $paymentCard->setRegisterConsumerCard(true);
+        $paymentCard->setCardToken("211f19ab-82bf-486e-b296-512bbdf214a1");
+        $paymentCard->setConsumerToken("11111");
+        $paymentCard->setUcsToken("cce7a356-8679-4de7-b7ba-d5872b5ce76b");
         $request->setPaymentCard($paymentCard);
         $customer = new Customer();
         $customer->setName("John");
