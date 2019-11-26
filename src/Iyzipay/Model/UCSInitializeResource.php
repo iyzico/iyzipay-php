@@ -33,7 +33,6 @@ class UCSInitializeResource extends IyzipayResource
         $this->buyerProtectedConsumer = $buyerProtectedConsumer;
     }
 
-
     public function setBuyerProtectedMerchant($buyerProtectedMerchant)
     {
         $this->buyerProtectedMerchant = $buyerProtectedMerchant;
