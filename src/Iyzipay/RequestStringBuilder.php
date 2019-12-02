@@ -167,6 +167,45 @@ class RequestStringBuilder
             }
         }
 
+        if($type == 'subscriptionItems' ) {
+            if ($request->getPage()) {
+                $stringQuery = "?page=" . $request->getPage();
+            }
+            if ($request->getCount()) {
+                $stringQuery .= "&count=" . $request->getCount();
+            }
+        }
+
+        if($type == 'searchSubscription') {
+            if($request->getPage()){
+                $stringQuery = "?page=".$request->getPage();
+            }
+            if($request->getCount()){
+                $stringQuery .= "&count=".$request->getCount();
+            }
+            if($request->getSubscriptionReferenceCode()){
+                $stringQuery .= "&subscriptionReferenceCode=".$request->getSubscriptionReferenceCode();
+            }
+            if($request->getParentReferenceCode()){
+                $stringQuery .= "&parentReferenceCode=".$request->getParentReferenceCode();
+            }
+            if($request->getCustomerReferenceCode()){
+                $stringQuery .= "&customerReferenceCode=".$request->getCustomerReferenceCode();
+            }
+            if($request->getPricingPlanReferenceCode()){
+                $stringQuery .= "&pricingPlanReferenceCode=".$request->getPricingPlanReferenceCode();
+            }
+            if($request->getSubscriptionStatus()){
+                $stringQuery .= "&subscriptionStatus=".$request->getSubscriptionStatus();
+            }
+            if($request->getStartDate()){
+                $stringQuery .= "&startDate=".$request->getStartDate();
+            }
+            if($request->getEndDate()){
+                $stringQuery .= "&endDate=".$request->getEndDate();
+            }
+        }
+
         if($type == 'pages') {
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();

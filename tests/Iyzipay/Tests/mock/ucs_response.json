@@ -1,0 +1,13 @@
+{
+    "status": "success",
+    "locale": "tr",
+    "systemTime": 1574519824302,
+    "ucsToken": "cc2e2c06-7172-2fd2-8b0e-078c16de6adc",
+    "buyerProtectedConsumer": false,
+    "buyerProtectedMerchant": false,
+    "gsmNumber": "+905555555555",
+    "maskedGsmNumber": "+90********55",
+    "merchantName": "iyzico.com",
+    "script": "script",
+    "scriptType": "CONSUMER_WITH_CARD_EXIST"
+}
