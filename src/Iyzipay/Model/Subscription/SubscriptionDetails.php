@@ -25,6 +25,7 @@ class SubscriptionDetails extends IyzipayResource
     private $pricingPlanName;
     private $productName;
     private $productReferenceCode;
+    private $endDate;
 
     public static function retrieve(SubscriptionDetailsRequest $request, Options $options)
     {
@@ -153,5 +154,11 @@ class SubscriptionDetails extends IyzipayResource
     public function setStartDate($startDate)
     {
         $this->startDate = $startDate;
+    }
+    public function getEndDate(){
+        return $this->endDate;
+    }
+    public function setEndDate($endDate){
+        $this->endDate = $endDate;
     }
 }

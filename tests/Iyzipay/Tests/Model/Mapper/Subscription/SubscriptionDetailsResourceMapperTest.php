@@ -25,6 +25,7 @@ class SubscriptionDetailsResourceMapperTest extends TestCase
         $this->assertEquals("test@iyzico.com", $details->getCustomerEmail());
         $this->assertEquals("array", $details->getOrders());
         $this->assertEquals("1562181133651", $details->getStartDate());
+        $this->assertEquals("1562181133651", $details->getEndDate());
         $this->assertEquals("ACTIVE", $details->getSubscriptionStatus());
         $this->assertEquals("30", $details->getTrialDays());
         $this->assertEquals("1564773133651", $details->getTrialEndDate());

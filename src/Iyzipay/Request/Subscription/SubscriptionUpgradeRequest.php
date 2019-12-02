@@ -48,7 +48,7 @@ class SubscriptionUpgradeRequest extends Request
         $this->useTrial= $useTrial;
     }
 
-    public function GetUseTrial()
+    public function getUseTrial()
     {
         return $this->useTrial;
     }

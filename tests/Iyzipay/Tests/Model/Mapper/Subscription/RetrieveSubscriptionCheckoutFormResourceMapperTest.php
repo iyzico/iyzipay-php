@@ -20,6 +20,7 @@ class RetrieveSubscriptionCheckoutFormResourceMapperTest extends TestCase
         $this->assertEquals("5179abff-c866-45df-b65e-55b2cd416772", $details->getPricingPlanReferenceCode());
         $this->assertEquals("91ea71d2-3951-4c89-9ec5-b814fccfe729", $details->getReferenceCode());
         $this->assertEquals("1562181133651", $details->getStartDate());
+        $this->assertEquals("1562181133651", $details->getEndDate());
         $this->assertEquals("ACTIVE", $details->getSubscriptionStatus());
         $this->assertEquals("30", $details->getTrialDays());
         $this->assertEquals("1564773133651", $details->getTrialEndDate());

@@ -20,6 +20,7 @@ class RetrieveSubscriptionCheckoutForm extends IyzipayResource
     private $trialEndDate;
     private $createdDate;
     private $startDate;
+    private $endDate;
 
     public static function retrieve(RetrieveSubscriptionCreateCheckoutFormRequest $request, Options $options)
     {
@@ -87,5 +88,11 @@ class RetrieveSubscriptionCheckoutForm extends IyzipayResource
     }
     public function setStartDate($startDate){
         $this->startDate = $startDate;
+    }
+    public function getEndDate(){
+        return $this->endDate;
+    }
+    public function setEndDate($endDate){
+        $this->endDate = $endDate;
     }
 }

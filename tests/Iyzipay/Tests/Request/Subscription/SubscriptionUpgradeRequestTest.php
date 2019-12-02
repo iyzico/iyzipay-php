@@ -31,9 +31,8 @@ class SubscriptionUpgradeRequestTest extends TestCase
                   "newPricingPlanReferenceCode": "5308630d-fb0a-453f-b30a-5afa719d5191",
                   "subscriptionReferenceCode": "85eaa655-c3fd-4053-9e9b-dacc9e201c5f",
                   "upgradePeriod": "NOW",
-                  "useTrial": true
+                  "useTrial": '.$request->getUseTrial().'
                 }';
-
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
     }

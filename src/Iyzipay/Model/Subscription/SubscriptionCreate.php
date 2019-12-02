@@ -20,6 +20,7 @@ class SubscriptionCreate extends IyzipayResource
     private $trialEndDate;
     private $createdDate;
     private $startDate;
+    private $endDate;
 
     public static function create(SubscriptionCreateRequest $request, Options $options)
     {
@@ -88,5 +89,10 @@ class SubscriptionCreate extends IyzipayResource
     public function setStartDate($startDate){
         $this->startDate = $startDate;
     }
-
+    public function getEndDate(){
+        return $this->endDate;
+    }
+    public function setEndDate($endDate){
+        $this->endDate = $endDate;
+    }
 }

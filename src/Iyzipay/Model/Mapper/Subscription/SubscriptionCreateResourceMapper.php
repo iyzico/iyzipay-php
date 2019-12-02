@@ -46,6 +46,9 @@ class SubscriptionCreateResourceMapper extends IyzipayResourceMapper
         if(isset($jsonObject->data->startDate)){
             $create->setStartDate($jsonObject->data->startDate);
         }
+        if(isset($jsonObject->data->endDate)){
+            $create->setEndDate($jsonObject->data->endDate);
+        }
 
         return $create;
     }
