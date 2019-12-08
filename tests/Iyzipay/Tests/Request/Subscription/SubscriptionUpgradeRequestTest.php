@@ -18,7 +18,7 @@ class SubscriptionUpgradeRequestTest extends TestCase
         $this->assertEquals("85eaa655-c3fd-4053-9e9b-dacc9e201c5f", $jsonObject["subscriptionReferenceCode"]);
         $this->assertEquals("NOW", $jsonObject["upgradePeriod"]);
         $this->assertEquals(true, $jsonObject["useTrial"]);
-        $this->assertEquals(true, $jsonObject["useTrial"]);
+        $this->assertEquals(true, $jsonObject["resetRecurrenceCount"]);
 
 
     }
