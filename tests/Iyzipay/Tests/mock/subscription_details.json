@@ -1,0 +1,17 @@
+{
+  "data": {
+    "createdDate": 1562181133652,
+    "customerReferenceCode": "15ec47d6-ce4c-455f-8bdb-80284f040e1a",
+    "parentReferenceCode": "7b38e400-aafc-4208-8e06-e5983f0c9c09",
+    "pricingPlanReferenceCode": "5179abff-c866-45df-b65e-55b2cd416772",
+    "referenceCode": "91ea71d2-3951-4c89-9ec5-b814fccfe729",
+    "startDate": 1562181133651,
+    "endDate": 1562181133651,
+    "subscriptionStatus": "ACTIVE",
+    "trialDays": 30,
+    "trialEndDate": 1564773133651,
+    "trialStartDate": 1562181133651
+  },
+  "status": "success",
+  "systemTime": 1562181133687
+}

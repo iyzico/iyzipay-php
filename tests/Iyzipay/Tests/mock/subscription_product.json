@@ -1,0 +1,12 @@
+{
+  "data": {
+    "createdDate": 1570889376014,
+    "description": "descriptionOfProduct",
+    "name": "ProductName",
+    "pricingPlans": [],
+    "referenceCode": "f52b5561-aa1b-4f31-af0b-3078cf6c4bb1",
+    "status": "ACTIVE"
+  },
+  "status": "success",
+  "systemTime": 1570889376018
+}
