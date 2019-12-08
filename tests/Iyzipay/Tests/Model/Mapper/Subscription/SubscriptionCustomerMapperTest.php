@@ -14,16 +14,16 @@ class SubscriptionCustomerMapperTest extends TestCase
         $customer = SubscriptionCustomerMapper::create($json)->jsonDecode()->mapSubscriptionCustomer(new SubscriptionCustomer());
 
         $this->assertNotEmpty($customer);
-        $this->assertEquals("Uskudar Burhaniye Mahallesi iyzico A.S", $customer->getBillingAddressAddress());
-        $this->assertEquals("Istanbul", $customer->getBillingAddressCity());
-        $this->assertEquals("John Doe", $customer->getBillingAddressContactName());
-        $this->assertEquals("Turkey", $customer->getBillingAddressCountry());
-        $this->assertEquals("34660", $customer->getBillingAddressZipCode());
-        $this->assertEquals("Uskudar Burhaniye Mahallesi iyzico A.S", $customer->getShippingAddressAddress());
-        $this->assertEquals("Istanbul", $customer->getShippingAddressCity());
-        $this->assertEquals("John Doe", $customer->getShippingAddressContactName());
-        $this->assertEquals("Turkey", $customer->getShippingAddressCountry());
-        $this->assertEquals("34660", $customer->getShippingAddressZipCode());
+        $this->assertEquals("Uskudar Burhaniye Mahallesi iyzico A.S", $customer->getBillingAddress());
+        $this->assertEquals("Istanbul", $customer->getBillingCity());
+        $this->assertEquals("John Doe", $customer->getBillingContactName());
+        $this->assertEquals("Turkey", $customer->getBillingCountry());
+        $this->assertEquals("34660", $customer->getBillingZipCode());
+        $this->assertEquals("Uskudar Burhaniye Mahallesi iyzico A.S", $customer->getShippingAddress());
+        $this->assertEquals("Istanbul", $customer->getShippingCity());
+        $this->assertEquals("John Doe", $customer->getShippingContactName());
+        $this->assertEquals("Turkey", $customer->getShippingCountry());
+        $this->assertEquals("34660", $customer->getShippingZipCode());
         $this->assertEquals( "b371b770-6f78-41c5-82ec-838fe37ba472", $customer->getReferenceCode());
         $this->assertEquals("John", $customer->getName());
         $this->assertEquals("Doe", $customer->getSurname());

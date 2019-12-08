@@ -12,6 +12,7 @@ class SubscriptionUpgradeRequest extends Request
     private $newPricingPlanReferenceCode;
     private $upgradePeriod;
     private $useTrial;
+    private $resetRecurrenceCount;
 
     public function setSubscriptionReferenceCode($subscriptionReferenceCode)
     {
@@ -53,6 +54,16 @@ class SubscriptionUpgradeRequest extends Request
         return $this->useTrial;
     }
 
+    public function setResetRecurrenceCount($resetRecurrenceCount)
+    {
+        $this->resetRecurrenceCount= $resetRecurrenceCount;
+    }
+
+    public function getResetRecurrenceCount()
+    {
+        return $this->resetRecurrenceCount;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -62,6 +73,7 @@ class SubscriptionUpgradeRequest extends Request
             ->add("newPricingPlanReferenceCode", $this->getNewPricingPlanReferenceCode())
             ->add("upgradePeriod", $this->getUpgradePeriod())
             ->add("useTrial", $this->getUseTrial())
+            ->add("resetRecurrenceCount", $this->getResetRecurrenceCount())
             ->getObject();
     }
 }

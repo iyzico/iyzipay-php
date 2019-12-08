@@ -20,16 +20,16 @@ class SubscriptionCustomer extends IyzipayResource
     private $gsmNumber;
     private $customerStatus;
     private $createdDate;
-    private $billingAddressCity;
-    private $billingAddressCountry;
-    private $billingAddressZipCode;
-    private $billingAddressAddress;
-    private $billingAddressContactName;
-    private $shippingAddressCity;
-    private $shippingAddressCountry;
-    private $shippingAddressZipCode;
-    private $shippingAddressAddress;
-    private $shippingAddressContactName;
+    private $billingCity;
+    private $billingCountry;
+    private $billingZipCode;
+    private $billingAddress;
+    private $billingContactName;
+    private $shippingCity;
+    private $shippingCountry;
+    private $shippingZipCode;
+    private $shippingAddress;
+    private $shippingContactName;
 
     public static function create(SubscriptionCreateCustomerRequest $request, Options $options)
     {
@@ -130,103 +130,103 @@ class SubscriptionCustomer extends IyzipayResource
     {
         $this->createdDate = $createdDate;
     }
-    public function getShippingAddressContactName(){
+    public function getShippingContactName(){
 
-        return $this->shippingAddressContactName;
+        return $this->shippingContactName;
     }
 
-    public function setShippingAddressContactName($shippingAddressContactName){
+    public function setShippingContactName($shippingContactName){
 
-        return $this->shippingAddressContactName = $shippingAddressContactName;
+        return $this->shippingContactName = $shippingContactName;
     }
 
-    public function getShippingAddressCity(){
+    public function getShippingCity(){
 
-        return $this->shippingAddressCity;
+        return $this->shippingCity;
     }
 
-    public function setShippingAddressCity($shippingAddressCity){
+    public function setShippingCity($shippingCity){
 
-        return $this->shippingAddressCity = $shippingAddressCity;
+        return $this->shippingCity = $shippingCity;
     }
 
-    public function getShippingAddressCountry(){
+    public function getShippingCountry(){
 
-        return $this->shippingAddressCountry;
+        return $this->shippingCountry;
     }
 
-    public function setShippingAddressCountry($shippingAddressCountry){
+    public function setShippingCountry($shippingCountry){
 
-        return $this->shippingAddressCountry = $shippingAddressCountry;
+        return $this->shippingCountry = $shippingCountry;
     }
 
-    public function getShippingAddressAddress(){
+    public function getShippingAddress(){
 
-        return $this->shippingAddressAddress;
+        return $this->shippingAddress;
     }
 
-    public function setShippingAddressAddress($shippingAddressAddress){
+    public function setShippingAddress($shippingAddress){
 
-        return $this->shippingAddressAddress = $shippingAddressAddress;
+        return $this->shippingAddress = $shippingAddress;
     }
 
-    public function getShippingAddressZipCode(){
+    public function getShippingZipCode(){
 
-        return $this->shippingAddressZipCode;
+        return $this->shippingZipCode;
     }
 
-    public function setShippingAddressZipCode($shippingAddressZipCode){
+    public function setShippingZipCode($shippingZipCode){
 
-        return $this->shippingAddressZipCode = $shippingAddressZipCode;
+        return $this->shippingZipCode = $shippingZipCode;
     }
 
-    public function getBillingAddressContactName(){
+    public function getBillingContactName(){
 
-        return $this->billingAddressContactName;
+        return $this->billingContactName;
     }
 
-    public function setBillingAddressContactName($billingAddressContactName){
+    public function setBillingContactName($billingContactName){
 
-        return $this->billingAddressContactName = $billingAddressContactName;
+        return $this->billingContactName = $billingContactName;
     }
 
-    public function getBillingAddressCity(){
+    public function getBillingCity(){
 
-        return $this->billingAddressCity;
+        return $this->billingCity;
     }
 
-    public function setBillingAddressCity($billingAddressCity){
+    public function setBillingCity($billingCity){
 
-        return $this->billingAddressCity = $billingAddressCity;
+        return $this->billingCity = $billingCity;
     }
 
-    public function getBillingAddressCountry(){
+    public function getBillingCountry(){
 
-        return $this->billingAddressCountry;
+        return $this->billingCountry;
     }
 
-    public function setBillingAddressCountry($billingAddressCountry){
+    public function setBillingCountry($billingCountry){
 
-        return $this->billingAddressCountry = $billingAddressCountry;
+        return $this->billingCountry = $billingCountry;
     }
 
-    public function getBillingAddressAddress(){
+    public function getBillingAddress(){
 
-        return $this->billingAddressAddress;
+        return $this->billingAddress;
     }
 
-    public function setBillingAddressAddress($billingAddressAddress){
+    public function setBillingAddress($billingAddress){
 
-        return $this->billingAddressAddress = $billingAddressAddress;
+        return $this->billingAddress = $billingAddress;
     }
 
-    public function getBillingAddressZipCode(){
+    public function getBillingZipCode(){
 
-        return $this->billingAddressZipCode;
+        return $this->billingZipCode;
     }
 
-    public function setBillingAddressZipCode($billingAddressZipCode){
+    public function setBillingZipCode($billingZipCode){
 
-        return $this->billingAddressZipCode = $billingAddressZipCode;
+        return $this->billingZipCode = $billingZipCode;
     }
 }

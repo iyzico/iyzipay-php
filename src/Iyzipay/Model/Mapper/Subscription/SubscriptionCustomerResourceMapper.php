@@ -39,35 +39,35 @@ class SubscriptionCustomerResourceMapper extends IyzipayResourceMapper
         }
 
         if (isset($jsonObject->data->billingAddress->contactName)) {
-            $create->setBillingAddressContactName($jsonObject->data->billingAddress->contactName);
+            $create->setBillingContactName($jsonObject->data->billingAddress->contactName);
         }
         if (isset($jsonObject->data->billingAddress->city)) {
-            $create->setBillingAddressCity($jsonObject->data->billingAddress->city);
+            $create->setBillingCity($jsonObject->data->billingAddress->city);
         }
         if (isset($jsonObject->data->billingAddress->country)) {
-            $create->setBillingAddressCountry($jsonObject->data->billingAddress->country);
+            $create->setBillingCountry($jsonObject->data->billingAddress->country);
         }
         if (isset($jsonObject->data->billingAddress->address)) {
-            $create->setBillingAddressAddress($jsonObject->data->billingAddress->address);
+            $create->setBillingAddress($jsonObject->data->billingAddress->address);
         }
         if (isset($jsonObject->data->billingAddress->zipCode)) {
-            $create->setBillingAddressZipCode($jsonObject->data->billingAddress->zipCode);
+            $create->setBillingZipCode($jsonObject->data->billingAddress->zipCode);
         }
 
         if (isset($jsonObject->data->shippingAddress->contactName)) {
-            $create->setShippingAddressContactName($jsonObject->data->shippingAddress->contactName);
+            $create->setShippingContactName($jsonObject->data->shippingAddress->contactName);
         }
         if (isset($jsonObject->data->shippingAddress->city)) {
-            $create->setShippingAddressCity($jsonObject->data->shippingAddress->city);
+            $create->setShippingCity($jsonObject->data->shippingAddress->city);
         }
         if (isset($jsonObject->data->shippingAddress->country)) {
-            $create->setShippingAddressCountry($jsonObject->data->shippingAddress->country);
+            $create->setShippingCountry($jsonObject->data->shippingAddress->country);
         }
         if (isset($jsonObject->data->shippingAddress->address)) {
-            $create->setShippingAddressAddress($jsonObject->data->shippingAddress->address);
+            $create->setShippingAddress($jsonObject->data->shippingAddress->address);
         }
         if (isset($jsonObject->data->shippingAddress->zipCode)) {
-            $create->setShippingAddressZipCode($jsonObject->data->shippingAddress->zipCode);
+            $create->setShippingZipCode($jsonObject->data->shippingAddress->zipCode);
         }
 
         if (isset($jsonObject->data->createdDate)) {
