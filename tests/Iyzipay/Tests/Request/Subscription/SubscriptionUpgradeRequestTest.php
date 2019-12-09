@@ -18,6 +18,7 @@ class SubscriptionUpgradeRequestTest extends TestCase
         $this->assertEquals("85eaa655-c3fd-4053-9e9b-dacc9e201c5f", $jsonObject["subscriptionReferenceCode"]);
         $this->assertEquals("NOW", $jsonObject["upgradePeriod"]);
         $this->assertEquals(true, $jsonObject["useTrial"]);
+        $this->assertEquals(true, $jsonObject["resetRecurrenceCount"]);
 
 
     }
@@ -31,7 +32,8 @@ class SubscriptionUpgradeRequestTest extends TestCase
                   "newPricingPlanReferenceCode": "5308630d-fb0a-453f-b30a-5afa719d5191",
                   "subscriptionReferenceCode": "85eaa655-c3fd-4053-9e9b-dacc9e201c5f",
                   "upgradePeriod": "NOW",
-                  "useTrial": '.$request->getUseTrial().'
+                  "useTrial": '.$request->getUseTrial().',
+                  "resetRecurrenceCount": '.$request->getResetRecurrenceCount().'
                 }';
         $this->assertJson($request->toJsonString());
         $this->assertJsonStringEqualsJsonString($json, $request->toJsonString());
@@ -46,6 +48,7 @@ class SubscriptionUpgradeRequestTest extends TestCase
         $request->setNewPricingPlanReferenceCode("5308630d-fb0a-453f-b30a-5afa719d5191");
         $request->setUpgradePeriod("NOW");
         $request->setUseTrial(true);
+        $request->setResetRecurrenceCount(true);
         return $request;
     }
 }

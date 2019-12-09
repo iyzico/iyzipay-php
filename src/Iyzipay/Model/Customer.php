@@ -13,17 +13,16 @@ class Customer extends BaseModel
     private $identityNumber;
     private $email;
     private $gsmNumber;
-    private $shippingAddressContactName;
-    private $shippingAddressCity;
-    private $shippingAddressCountry;
-    private $shippingAddressAddress;
-    private $shippingAddressZipCode;
-    private $billingAddressContactName;
-    private $billingAddressCity;
-    private $billingAddressCountry;
-    private $billingAddressAddress;
-    private $billingAddressZipCode;
-
+    private $shippingContactName;
+    private $shippingCity;
+    private $shippingCountry;
+    private $shippingAddress;
+    private $shippingZipCode;
+    private $billingContactName;
+    private $billingCity;
+    private $billingCountry;
+    private $billingAddress;
+    private $billingZipCode;
 
     public function getName()
     {
@@ -75,104 +74,104 @@ class Customer extends BaseModel
         $this->gsmNumber = $gsmNumber;
     }
 
-    public function getShippingAddressContactName(){
+    public function getShippingContactName(){
 
-        return $this->shippingAddressContactName;
+        return $this->shippingContactName;
     }
 
-    public function setShippingAddressContactName($shippingAddressContactName){
+    public function setShippingContactName($shippingContactName){
 
-        return $this->shippingAddressContactName = $shippingAddressContactName;
+        return $this->shippingContactName = $shippingContactName;
     }
 
-    public function getShippingAddressCity(){
+    public function getShippingCity(){
 
-        return $this->shippingAddressCity;
+        return $this->shippingCity;
     }
 
-    public function setShippingAddressCity($shippingAddressCity){
+    public function setShippingCity($shippingCity){
 
-        return $this->shippingAddressCity = $shippingAddressCity;
+        return $this->shippingCity = $shippingCity;
     }
 
-    public function getShippingAddressCountry(){
+    public function getShippingCountry(){
 
-        return $this->shippingAddressCountry;
+        return $this->shippingCountry;
     }
 
-    public function setShippingAddressCountry($shippingAddressCountry){
+    public function setShippingCountry($shippingCountry){
 
-        return $this->shippingAddressCountry = $shippingAddressCountry;
+        return $this->shippingCountry = $shippingCountry;
     }
 
-    public function getShippingAddressAddress(){
+    public function getShippingAddress(){
 
-        return $this->shippingAddressAddress;
+        return $this->shippingAddress;
     }
 
-    public function setShippingAddressAddress($shippingAddressAddress){
+    public function setShippingAddress($shippingAddress){
 
-        return $this->shippingAddressAddress = $shippingAddressAddress;
+        return $this->shippingAddress = $shippingAddress;
     }
 
-    public function getShippingAddressZipCode(){
+    public function getShippingZipCode(){
 
-        return $this->shippingAddressZipCode;
+        return $this->shippingZipCode;
     }
 
-    public function setShippingAddressZipCode($shippingAddressZipCode){
+    public function setShippingZipCode($shippingZipCode){
 
-        return $this->shippingAddressZipCode = $shippingAddressZipCode;
+        return $this->shippingZipCode = $shippingZipCode;
     }
 
-    public function getBillingAddressContactName(){
+    public function getBillingContactName(){
 
-        return $this->billingAddressContactName;
+        return $this->billingContactName;
     }
 
-    public function setBillingAddressContactName($billingAddressContactName){
+    public function setBillingContactName($billingContactName){
 
-        return $this->billingAddressContactName = $billingAddressContactName;
+        return $this->billingContactName = $billingContactName;
     }
 
-    public function getBillingAddressCity(){
+    public function getBillingCity(){
 
-        return $this->billingAddressCity;
+        return $this->billingCity;
     }
 
-    public function setBillingAddressCity($billingAddressCity){
+    public function setBillingCity($billingCity){
 
-        return $this->billingAddressCity = $billingAddressCity;
+        return $this->billingCity = $billingCity;
     }
 
-    public function getBillingAddressCountry(){
+    public function getBillingCountry(){
 
-        return $this->billingAddressCountry;
+        return $this->billingCountry;
     }
 
-    public function setBillingAddressCountry($billingAddressCountry){
+    public function setBillingCountry($billingCountry){
 
-        return $this->billingAddressCountry = $billingAddressCountry;
+        return $this->billingCountry = $billingCountry;
     }
 
-    public function getBillingAddressAddress(){
+    public function getBillingAddress(){
 
-        return $this->billingAddressAddress;
+        return $this->billingAddress;
     }
 
-    public function setBillingAddressAddress($billingAddressAddress){
+    public function setBillingAddress($billingAddress){
 
-        return $this->billingAddressAddress = $billingAddressAddress;
+        return $this->billingAddress = $billingAddress;
     }
 
-    public function getBillingAddressZipCode(){
+    public function getBillingZipCode(){
 
-        return $this->billingAddressZipCode;
+        return $this->billingZipCode;
     }
 
-    public function setBillingAddressZipCode($billingAddressZipCode){
+    public function setBillingZipCode($billingZipCode){
 
-        return $this->billingAddressZipCode = $billingAddressZipCode;
+        return $this->billingZipCode = $billingZipCode;
     }
 
 
@@ -190,20 +189,20 @@ class Customer extends BaseModel
             ->add("gsmNumber", $this->getGsmNumber())
             ->add("billingAddress",
                 JsonBuilder::create()
-                    ->add("contactName", $this->getBillingAddressContactName())
-                    ->add("city", $this->getBillingAddressCity())
-                    ->add("country", $this->getBillingAddressCountry())
-                    ->add("address", $this->getBillingAddressAddress())
-                    ->add("zipCode", $this->getBillingAddressZipCode())
+                    ->add("contactName", $this->getBillingContactName())
+                    ->add("city", $this->getBillingCity())
+                    ->add("country", $this->getBillingCountry())
+                    ->add("address", $this->getBillingAddress())
+                    ->add("zipCode", $this->getBillingZipCode())
                     ->getObject()
             )
             ->add("shippingAddress",
                 JsonBuilder::create()
-                    ->add("contactName", $this->getShippingAddressContactName())
-                    ->add("city", $this->getShippingAddressCity())
-                    ->add("country", $this->getShippingAddressCountry())
-                    ->add("address", $this->getShippingAddressAddress())
-                    ->add("zipCode", $this->getShippingAddressZipCode())
+                    ->add("contactName", $this->getShippingContactName())
+                    ->add("city", $this->getShippingCity())
+                    ->add("country", $this->getShippingCountry())
+                    ->add("address", $this->getShippingAddress())
+                    ->add("zipCode", $this->getShippingZipCode())
                     ->getObject()
             )
             ->getObject();
@@ -219,20 +218,20 @@ class Customer extends BaseModel
             ->append("gsmNumber", $this->getGsmNumber())
             ->append("billingAddress",
                 RequestStringBuilder::create()
-                    ->append("contactName", $this->getBillingAddressContactName())
-                    ->append("city", $this->getBillingAddressCity())
-                    ->append("country", $this->getBillingAddressCountry())
-                    ->append("address", $this->getBillingAddressAddress())
-                    ->append("zipCode", $this->getBillingAddressZipCode())
+                    ->append("contactName", $this->getBillingContactName())
+                    ->append("city", $this->getBillingCity())
+                    ->append("country", $this->getBillingCountry())
+                    ->append("address", $this->getBillingAddress())
+                    ->append("zipCode", $this->getBillingZipCode())
                     ->getRequestString()
             )
             ->append("shippingAddress",
                 RequestStringBuilder::create()
-                    ->append("contactName", $this->getShippingAddressContactName())
-                    ->append("city", $this->getShippingAddressCity())
-                    ->append("country", $this->getShippingAddressCountry())
-                    ->append("address", $this->getShippingAddressAddress())
-                    ->append("zipCode", $this->getShippingAddressZipCode())
+                    ->append("contactName", $this->getShippingContactName())
+                    ->append("city", $this->getShippingCity())
+                    ->append("country", $this->getShippingCountry())
+                    ->append("address", $this->getShippingAddress())
+                    ->append("zipCode", $this->getShippingZipCode())
                     ->getRequestString()
             )
             ->getRequestString();
