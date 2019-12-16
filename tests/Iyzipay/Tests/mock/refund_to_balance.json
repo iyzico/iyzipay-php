@@ -1,0 +1,11 @@
+{
+  "token":"123456",
+  "url":"https://url",
+  "status": "failure",
+  "errorCode": 10000,
+  "errorMessage": "error_message",
+  "errorGroup": "ERROR_GROUP",
+  "locale": "tr",
+  "systemTime": "1458545234852",
+  "conversationId": "123456"
+}

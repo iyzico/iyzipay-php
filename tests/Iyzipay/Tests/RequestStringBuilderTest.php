@@ -48,9 +48,35 @@ class RequestStringBuilderTest extends TestCase
         $request->setConversationId("123456789");
         $request->setTransactionDate('2018-10-10');
         $request->setPage(1);
-
         $result = RequestStringBuilder::requestToStringQuery($request, 'reportingTransaction');
 
         $this->assertEquals("?conversationId=123456789&locale=tr&transactionDate=2018-10-10&page=1", $result);
+    }
+
+    public function test_should_request_string_query_subscription_search()
+    {
+        $request = new \Iyzipay\Request\Subscription\SubscriptionSearchRequest();
+        $request->setPage(1);
+        $request->setCount(10);
+        $request->setSubscriptionStatus('ACTIVE');
+        $request->setStartDate('2018-10-05');
+        $request->setEndDate('2019-10-05');
+        $request->setPricingPlanReferenceCode('c1d489b6');
+        $request->setCustomerReferenceCode('1234');
+        $request->setParentReferenceCode('9876');
+        $request->setSubscriptionReferenceCode('3579');
+        $result = RequestStringBuilder::requestToStringQuery($request, 'searchSubscription');
+
+        $this->assertEquals("?page=1&count=10&subscriptionReferenceCode=3579&parentReferenceCode=9876&customerReferenceCode=1234&pricingPlanReferenceCode=c1d489b6&subscriptionStatus=ACTIVE&startDate=2018-10-05&endDate=2019-10-05", $result);
+    }
+
+    public function test_should_request_string_query_subscription_item()
+    {
+        $request = new \Iyzipay\Request\Subscription\SubscriptionListProductsRequest();
+        $request->setPage(1);
+        $request->setCount(10);
+        $result = RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
+
+        $this->assertEquals("?page=1&count=10", $result);
     }
 }
