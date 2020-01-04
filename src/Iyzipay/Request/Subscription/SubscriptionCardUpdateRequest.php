@@ -8,7 +8,7 @@ use Iyzipay\Request;
 class SubscriptionCardUpdateRequest extends Request
 {
 
-    private $subscriptionReferenceCode;
+    private $customerReferenceCode;
     private $callbackUrl;
 
     public function getCallbackUrl()
@@ -20,14 +20,14 @@ class SubscriptionCardUpdateRequest extends Request
     {
         $this->callbackUrl = $callbackUrl;
     }
-    public function getSubscriptionReferenceCode()
+    public function getCustomerReferenceCode()
     {
-        return $this->subscriptionReferenceCode;
+        return $this->customerReferenceCode ;
     }
 
-    public function setSubscriptionReferenceCode($subscriptionReferenceCode)
+    public function setCustomerReferenceCode($customerReferenceCode)
     {
-        $this->subscriptionReferenceCode = $subscriptionReferenceCode;
+        $this->customerReferenceCode = $customerReferenceCode;
     }
 
     public function getJsonObject()
@@ -36,7 +36,7 @@ class SubscriptionCardUpdateRequest extends Request
             ->add("locale", $this->getLocale())
             ->add("conversationId", $this->getConversationId())
             ->add("callbackUrl", $this->getCallbackUrl())
-            ->add("subscriptionReferenceCode", $this->getSubscriptionReferenceCode())
+            ->add("customerReferenceCode", $this->getCustomerReferenceCode())
             ->getObject();
     }
 }
