@@ -170,7 +170,6 @@ class RequestStringBuilder
             if($request->getTransactionDate()) {
                 $stringQuery .= "&transactionDate=" . $request->getTransactionDate();
             }
-
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
             }
@@ -231,7 +230,6 @@ class RequestStringBuilder
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
             }
-
             if ($request->getCount()) {
                 $stringQuery .= "&count=" . $request->getCount();
             }
