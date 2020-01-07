@@ -11,14 +11,14 @@ class SubscriptionCreateMapper extends SubscriptionCreateResourceMapper
         return new SubscriptionCreateMapper($rawResult);
     }
 
-    public function mapSubscriptionCreateFrom(SubscriptionCreate $create, $jsonObject)
+    public function mapSubscriptionCreateFrom($create, $jsonObject)
     {
         parent::mapSubscriptionCreateResourceFrom($create, $jsonObject);
 
         return $create;
     }
 
-    public function mapSubscriptionCreate(SubscriptionCreate $create)
+    public function mapSubscriptionCreate($create)
     {
         return $this->mapSubscriptionCreateFrom($create, $this->jsonObject);
     }

@@ -12,7 +12,7 @@ class SubscriptionCreateResourceMapper extends IyzipayResourceMapper
         return new SubscriptionCreateResourceMapper($rawResult);
     }
 
-    public function mapSubscriptionCreateResourceFrom(SubscriptionCreate $create, $jsonObject)
+    public function mapSubscriptionCreateResourceFrom($create, $jsonObject)
     {
         parent::mapResourceFrom($create, $jsonObject);
 
@@ -53,7 +53,7 @@ class SubscriptionCreateResourceMapper extends IyzipayResourceMapper
         return $create;
     }
 
-    public function mapSubscriptionCreate(SubscriptionCreate $subscriptionCreate)
+    public function mapSubscriptionCreate($subscriptionCreate)
     {
         return $this->mapSubscriptionCreateResourceFrom($subscriptionCreate, $this->jsonObject);
     }
