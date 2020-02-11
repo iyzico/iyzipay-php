@@ -6,6 +6,7 @@ use Iyzipay\Options;
 use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Mapper\Subscription\SubscriptionCardUpdateMapper;
 use Iyzipay\Request\Subscription\SubscriptionCardUpdateRequest;
+use Iyzipay\Request\Subscription\SubscriptionCardUpdateWithSubscriptionReferenceCodeRequest;
 
 
 class SubscriptionCardUpdate extends IyzipayResource
@@ -17,6 +18,13 @@ class SubscriptionCardUpdate extends IyzipayResource
     public static function update(SubscriptionCardUpdateRequest $request, Options $options)
     {
         $uri = $options->getBaseUrl() . "/v2/subscription/card-update/checkoutform/initialize";
+        $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
+        return SubscriptionCardUpdateMapper::create($rawResult)->jsonDecode()->mapSubscriptionCardUpdate(new SubscriptionCardUpdate());
+    }
+
+    public static function updateWithSubscriptionReferenceCode(SubscriptionCardUpdateWithSubscriptionReferenceCodeRequest $request, Options $options)
+    {
+        $uri = $options->getBaseUrl() . "/v2/subscription/card-update/checkoutform/initialize/with-subscription";
         $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return SubscriptionCardUpdateMapper::create($rawResult)->jsonDecode()->mapSubscriptionCardUpdate(new SubscriptionCardUpdate());
     }
