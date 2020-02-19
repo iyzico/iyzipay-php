@@ -150,6 +150,15 @@ class RequestStringBuilder
             $stringQuery .= "&locale=" . $request->getLocale();
         }
 
+        if($type == 'defaultParams' ) {
+            if($request->getConversationId()) {
+                $stringQuery = "?conversationId=" . $request->getConversationId();
+                $stringQuery .= ($request->getLocale()) ? ("&locale=" . $request->getLocale()) : '';
+            }else{
+                $stringQuery = ($request->getLocale()) ? ("?locale=" . $request->getLocale()) : '';
+            }
+        }
+
         if($type == 'reporting') {
             if($request->getPaymentConversationId()) {
                 $stringQuery .= "?paymentConversationId=" . $request->getPaymentConversationId();
@@ -161,7 +170,6 @@ class RequestStringBuilder
             if($request->getTransactionDate()) {
                 $stringQuery .= "&transactionDate=" . $request->getTransactionDate();
             }
-
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
             }
@@ -173,6 +181,12 @@ class RequestStringBuilder
             }
             if ($request->getCount()) {
                 $stringQuery .= "&count=" . $request->getCount();
+            }
+            if($request->getConversationId()) {
+                $stringQuery .= "&conversationId=" . $request->getConversationId();
+            }
+            if($request->getLocale()) {
+                $stringQuery .= "&locale=" . $request->getLocale();
             }
         }
 
@@ -204,13 +218,18 @@ class RequestStringBuilder
             if($request->getEndDate()){
                 $stringQuery .= "&endDate=".$request->getEndDate();
             }
+            if($request->getConversationId()) {
+                $stringQuery .= "&conversationId=" . $request->getConversationId();
+            }
+            if($request->getLocale()) {
+                $stringQuery .= "&locale=" . $request->getLocale();
+            }
         }
 
         if($type == 'pages') {
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
             }
-
             if ($request->getCount()) {
                 $stringQuery .= "&count=" . $request->getCount();
             }

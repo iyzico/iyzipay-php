@@ -9,6 +9,8 @@ $request->setCustomerReferenceCode("66c238cf-faf5-4d42-bfed-642d47b74aac");
 $customer = new \Iyzipay\Model\Customer();
 $customer->setName("John");
 $customer->setSurname("Doe");
+$customer->setEmail("johndoe@iyzico.com");
+$customer->setGsmNumber("+905555555111");
 $customer->setIdentityNumber("11111111111");
 $customer->setShippingContactName("John Doe");
 $customer->setShippingCity("Istanbul");

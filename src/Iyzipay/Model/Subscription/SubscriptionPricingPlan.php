@@ -36,8 +36,8 @@ class SubscriptionPricingPlan extends IyzipayResource
 
     public static function retrieve(SubscriptionRetrievePricingPlanRequest $request, $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/pricing-plans/".$request->getPricingPlanReferenceCode();
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
+        $uri = $options->getBaseUrl() . "/v2/subscription/pricing-plans/".$request->getPricingPlanReferenceCode().RequestStringBuilder::requestToStringQuery($request, 'defaultParams');
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
         return SubscriptionPricingPlanMapper::create($rawResult)->jsonDecode()->mapSubscriptionPricingPlan(new SubscriptionPricingPlan());
     }
 
@@ -50,7 +50,7 @@ class SubscriptionPricingPlan extends IyzipayResource
 
     public static function delete(SubscriptionDeletePricingPlanRequest $request, $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/pricing-plans/".$request->getPricingPlanReferenceCode();
+        $uri = $options->getBaseUrl() . "/v2/subscription/pricing-plans/".$request->getPricingPlanReferenceCode().RequestStringBuilder::requestToStringQuery($request, 'defaultParams');
         $rawResult = parent::httpClient()->delete($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return SubscriptionPricingPlanMapper::create($rawResult)->jsonDecode()->mapSubscriptionPricingPlan(new SubscriptionPricingPlan());
     }

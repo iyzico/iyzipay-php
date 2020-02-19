@@ -8,6 +8,7 @@ use Iyzipay\Model\Mapper\Subscription\SubscriptionCustomerMapper;
 use Iyzipay\Request\Subscription\SubscriptionCreateCustomerRequest;
 use Iyzipay\Request\Subscription\SubscriptionUpdateCustomerRequest;
 use Iyzipay\Request\Subscription\SubscriptionRetrieveCustomerRequest;
+use Iyzipay\RequestStringBuilder;
 
 class SubscriptionCustomer extends IyzipayResource
 {
@@ -40,8 +41,8 @@ class SubscriptionCustomer extends IyzipayResource
 
     public static function retrieve(SubscriptionRetrieveCustomerRequest $request, $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/customers/".$request->getCustomerReferenceCode();
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
+        $uri = $options->getBaseUrl() . "/v2/subscription/customers/".$request->getCustomerReferenceCode().RequestStringBuilder::requestToStringQuery($request, 'defaultParams');
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
         return SubscriptionCustomerMapper::create($rawResult)->jsonDecode()->mapSubscriptionCustomer(new SubscriptionCustomer());
     }
 
