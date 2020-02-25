@@ -2,6 +2,7 @@
 
 namespace Iyzipay\Model\Subscription;
 
+use Iyzipay\JsonBuilder;
 use Iyzipay\Options;
 use Iyzipay\IyzipayResource;
 use Iyzipay\Model\Mapper\Subscription\SubscriptionCustomerMapper;
@@ -62,6 +63,7 @@ class SubscriptionCustomer extends IyzipayResource
     {
         return $this->referenceCode;
     }
+
     public function setCustomerStatus($customerStatus)
     {
         $this->customerStatus = $customerStatus;
@@ -131,6 +133,7 @@ class SubscriptionCustomer extends IyzipayResource
     {
         $this->createdDate = $createdDate;
     }
+
     public function getShippingContactName(){
 
         return $this->shippingContactName;
@@ -229,5 +232,37 @@ class SubscriptionCustomer extends IyzipayResource
     public function setBillingZipCode($billingZipCode){
 
         return $this->billingZipCode = $billingZipCode;
+    }
+
+    public function getJsonObject($locale = null,$conversationId = null,$customerReferenceCode = null)
+    {
+        return JsonBuilder::create()
+            ->add("locale", $locale)
+            ->add("conversationId", $conversationId)
+            ->add("customerReferenceCode", $customerReferenceCode)
+            ->add("name", $this->getName())
+            ->add("surname", $this->getSurname())
+            ->add("identityNumber", $this->getIdentityNumber())
+            ->add("email", $this->getEmail())
+            ->add("gsmNumber", $this->getGsmNumber())
+            ->add("billingAddress",
+                JsonBuilder::create()
+                    ->add("contactName", $this->getBillingContactName())
+                    ->add("city", $this->getBillingCity())
+                    ->add("country", $this->getBillingCountry())
+                    ->add("address", $this->getBillingAddress())
+                    ->add("zipCode", $this->getBillingZipCode())
+                    ->getObject()
+            )
+            ->add("shippingAddress",
+                JsonBuilder::create()
+                    ->add("contactName", $this->getShippingContactName())
+                    ->add("city", $this->getShippingCity())
+                    ->add("country", $this->getShippingCountry())
+                    ->add("address", $this->getShippingAddress())
+                    ->add("zipCode", $this->getShippingZipCode())
+                    ->getObject()
+            )
+            ->getObject();
     }
 }
