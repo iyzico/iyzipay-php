@@ -15,11 +15,13 @@ class Customer extends BaseModel
     private $gsmNumber;
     private $shippingContactName;
     private $shippingCity;
+    private $shippingDistrict;
     private $shippingCountry;
     private $shippingAddress;
     private $shippingZipCode;
     private $billingContactName;
     private $billingCity;
+    private $billingDistrict;
     private $billingCountry;
     private $billingAddress;
     private $billingZipCode;
@@ -174,7 +176,25 @@ class Customer extends BaseModel
         return $this->billingZipCode = $billingZipCode;
     }
 
+    public function getShippingDistrict()
+    {
+        return $this->shippingDistrict;
+    }
 
+    public function setShippingDistrict($shippingDistrict)
+    {
+        $this->shippingDistrict = $shippingDistrict;
+    }
+
+    public function getBillingDistrict()
+    {
+        return $this->billingDistrict;
+    }
+
+    public function setBillingDistrict($billingDistrict)
+    {
+        $this->billingDistrict = $billingDistrict;
+    }
 
     public function getJsonObject($locale = null,$conversationId = null,$customerReferenceCode = null)
     {
@@ -191,6 +211,7 @@ class Customer extends BaseModel
                 JsonBuilder::create()
                     ->add("contactName", $this->getBillingContactName())
                     ->add("city", $this->getBillingCity())
+                    ->add("district", $this->getBillingDistrict())
                     ->add("country", $this->getBillingCountry())
                     ->add("address", $this->getBillingAddress())
                     ->add("zipCode", $this->getBillingZipCode())
@@ -200,6 +221,7 @@ class Customer extends BaseModel
                 JsonBuilder::create()
                     ->add("contactName", $this->getShippingContactName())
                     ->add("city", $this->getShippingCity())
+                    ->add("district", $this->getShippingDistrict())
                     ->add("country", $this->getShippingCountry())
                     ->add("address", $this->getShippingAddress())
                     ->add("zipCode", $this->getShippingZipCode())
@@ -220,6 +242,7 @@ class Customer extends BaseModel
                 RequestStringBuilder::create()
                     ->append("contactName", $this->getBillingContactName())
                     ->append("city", $this->getBillingCity())
+                    ->append("district", $this->getBillingDistrict())
                     ->append("country", $this->getBillingCountry())
                     ->append("address", $this->getBillingAddress())
                     ->append("zipCode", $this->getBillingZipCode())
@@ -229,6 +252,7 @@ class Customer extends BaseModel
                 RequestStringBuilder::create()
                     ->append("contactName", $this->getShippingContactName())
                     ->append("city", $this->getShippingCity())
+                    ->append("district", $this->getShippingDistrict())
                     ->append("country", $this->getShippingCountry())
                     ->append("address", $this->getShippingAddress())
                     ->append("zipCode", $this->getShippingZipCode())
