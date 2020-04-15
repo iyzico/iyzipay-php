@@ -22,11 +22,13 @@ class SubscriptionCreateCustomerRequestTest extends TestCase
         $this->assertEquals("11111111111", $jsonObject["identityNumber"]);
         $this->assertEquals("John Doe", $jsonObject["shippingAddress"]["contactName"]);
         $this->assertEquals("Istanbul", $jsonObject["shippingAddress"]["city"]);
+        $this->assertEquals("altunizade", $jsonObject["shippingAddress"]["district"]);
         $this->assertEquals("Turkey", $jsonObject["shippingAddress"]["country"]);
         $this->assertEquals("Uskudar Burhaniye Mahallesi iyzico A.S", $jsonObject["shippingAddress"]["address"]);
         $this->assertEquals("34660", $jsonObject["shippingAddress"]["zipCode"]);
         $this->assertEquals("John Doe", $jsonObject["billingAddress"]["contactName"]);
         $this->assertEquals("Istanbul", $jsonObject["billingAddress"]["city"]);
+        $this->assertEquals("altunizade", $jsonObject["billingAddress"]["district"]);
         $this->assertEquals("Turkey", $jsonObject["billingAddress"]["country"]);
         $this->assertEquals("Uskudar Burhaniye Mahallesi iyzico A.S", $jsonObject["billingAddress"]["address"]);
         $this->assertEquals("34660", $jsonObject["billingAddress"]["zipCode"]);
@@ -42,6 +44,7 @@ class SubscriptionCreateCustomerRequestTest extends TestCase
                       "billingAddress": {
                         "address": "Uskudar Burhaniye Mahallesi iyzico A.S",
                         "city": "Istanbul",
+                        "district": "altunizade",
                         "contactName": "John Doe",
                         "country": "Turkey",
                         "zipCode": "34660"
@@ -53,6 +56,7 @@ class SubscriptionCreateCustomerRequestTest extends TestCase
                       "shippingAddress": {
                         "address": "Uskudar Burhaniye Mahallesi iyzico A.S",
                         "city": "Istanbul",
+                        "district": "altunizade",
                         "contactName": "John Doe",
                         "country": "Turkey",
                         "zipCode": "34660"
@@ -74,15 +78,17 @@ class SubscriptionCreateCustomerRequestTest extends TestCase
         $customer->setIdentityNumber("11111111111");
         $customer->setShippingContactName("John Doe");
         $customer->setShippingCity("Istanbul");
+        $customer->setShippingDistrict("altunizade");
         $customer->setShippingCountry("Turkey");
         $customer->setShippingAddress("Uskudar Burhaniye Mahallesi iyzico A.S");
         $customer->setShippingZipCode("34660");
         $customer->setBillingContactName("John Doe");
         $customer->setBillingCity("Istanbul");
+        $customer->setBillingDistrict("altunizade");
         $customer->setBillingCountry("Turkey");
         $customer->setBillingAddress("Uskudar Burhaniye Mahallesi iyzico A.S");
         $customer->setBillingZipCode("34660");
-        $str = "[name=John,surname=Doe,identityNumber=11111111111,email=johndoe@iyzicotest.com,gsmNumber=+905555555555,billingAddress=[contactName=John Doe,city=Istanbul,country=Turkey,address=Uskudar Burhaniye Mahallesi iyzico A.S,zipCode=34660],shippingAddress=[contactName=John Doe,city=Istanbul,country=Turkey,address=Uskudar Burhaniye Mahallesi iyzico A.S,zipCode=34660]]";
+        $str = "[name=John,surname=Doe,identityNumber=11111111111,email=johndoe@iyzicotest.com,gsmNumber=+905555555555,billingAddress=[contactName=John Doe,city=Istanbul,district=altunizade,country=Turkey,address=Uskudar Burhaniye Mahallesi iyzico A.S,zipCode=34660],shippingAddress=[contactName=John Doe,city=Istanbul,district=altunizade,country=Turkey,address=Uskudar Burhaniye Mahallesi iyzico A.S,zipCode=34660]]";
         $this->assertEquals($str, $customer->toPKIRequestString());
     }
 
@@ -99,11 +105,13 @@ class SubscriptionCreateCustomerRequestTest extends TestCase
         $customer->setIdentityNumber("11111111111");
         $customer->setShippingContactName("John Doe");
         $customer->setShippingCity("Istanbul");
+        $customer->setShippingDistrict("altunizade");
         $customer->setShippingCountry("Turkey");
         $customer->setShippingAddress("Uskudar Burhaniye Mahallesi iyzico A.S");
         $customer->setShippingZipCode("34660");
         $customer->setBillingContactName("John Doe");
         $customer->setBillingCity("Istanbul");
+        $customer->setBillingDistrict("altunizade");
         $customer->setBillingCountry("Turkey");
         $customer->setBillingAddress("Uskudar Burhaniye Mahallesi iyzico A.S");
         $customer->setBillingZipCode("34660");

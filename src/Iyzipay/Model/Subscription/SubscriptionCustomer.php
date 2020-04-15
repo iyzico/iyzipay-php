@@ -19,14 +19,18 @@ class SubscriptionCustomer extends IyzipayResource
     private $identityNumber;
     private $email;
     private $gsmNumber;
+    private $contactEmail;
+    private $contactGsmNumber;
     private $customerStatus;
     private $createdDate;
     private $billingCity;
+    private $billingDistrict;
     private $billingCountry;
     private $billingZipCode;
     private $billingAddress;
     private $billingContactName;
     private $shippingCity;
+    private $shippingDistrict;
     private $shippingCountry;
     private $shippingZipCode;
     private $shippingAddress;
@@ -229,5 +233,43 @@ class SubscriptionCustomer extends IyzipayResource
     public function setBillingZipCode($billingZipCode){
 
         return $this->billingZipCode = $billingZipCode;
+    }
+
+    public function getBillingDistrict()
+    {
+        return $this->billingDistrict;
+    }
+
+    public function setBillingDistrict($billingDistrict)
+    {
+        $this->billingDistrict = $billingDistrict;
+    }
+
+    public function getShippingDistrict()
+    {
+        return $this->shippingDistrict;
+    }
+
+    public function setShippingDistrict($shippingDistrict)
+    {
+        $this->shippingDistrict = $shippingDistrict;
+    }
+
+    public function getContactEmail()
+    {
+        return $this->contactEmail;
+    }
+
+    public function setContactEmail($contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+    }
+    public function getContactGsmNumber()
+    {
+        return $this->contactGsmNumber;
+    }
+    public function setContactGsmNumber($contactGsmNumber)
+    {
+        $this->contactGsmNumber = $contactGsmNumber;
     }
 }

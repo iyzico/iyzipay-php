@@ -37,12 +37,20 @@ class SubscriptionCustomerResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->data->gsmNumber)) {
             $create->setGsmNumber($jsonObject->data->gsmNumber);
         }
-
+        if (isset($jsonObject->data->contactEmail)) {
+            $create->setContactEmail($jsonObject->data->contactEmail);
+        }
+        if (isset($jsonObject->data->contactGsmNumber)) {
+            $create->setContactGsmNumber($jsonObject->data->contactGsmNumber);
+        }
         if (isset($jsonObject->data->billingAddress->contactName)) {
             $create->setBillingContactName($jsonObject->data->billingAddress->contactName);
         }
         if (isset($jsonObject->data->billingAddress->city)) {
             $create->setBillingCity($jsonObject->data->billingAddress->city);
+        }
+        if (isset($jsonObject->data->billingAddress->district)) {
+            $create->setBillingDistrict($jsonObject->data->billingAddress->district);
         }
         if (isset($jsonObject->data->billingAddress->country)) {
             $create->setBillingCountry($jsonObject->data->billingAddress->country);
@@ -59,6 +67,9 @@ class SubscriptionCustomerResourceMapper extends IyzipayResourceMapper
         }
         if (isset($jsonObject->data->shippingAddress->city)) {
             $create->setShippingCity($jsonObject->data->shippingAddress->city);
+        }
+        if (isset($jsonObject->data->shippingAddress->district)) {
+            $create->setShippingDistrict($jsonObject->data->shippingAddress->district);
         }
         if (isset($jsonObject->data->shippingAddress->country)) {
             $create->setShippingCountry($jsonObject->data->shippingAddress->country);
