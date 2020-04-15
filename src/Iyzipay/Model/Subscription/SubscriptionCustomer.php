@@ -20,6 +20,7 @@ class SubscriptionCustomer extends IyzipayResource
     private $email;
     private $gsmNumber;
     private $contactEmail;
+    private $contactGsmNumber;
     private $customerStatus;
     private $createdDate;
     private $billingCity;
@@ -262,5 +263,13 @@ class SubscriptionCustomer extends IyzipayResource
     public function setContactEmail($contactEmail)
     {
         $this->contactEmail = $contactEmail;
+    }
+    public function getContactGsmNumber()
+    {
+        return $this->contactGsmNumber;
+    }
+    public function setContactGsmNumber($contactGsmNumber)
+    {
+        $this->contactGsmNumber = $contactGsmNumber;
     }
 }

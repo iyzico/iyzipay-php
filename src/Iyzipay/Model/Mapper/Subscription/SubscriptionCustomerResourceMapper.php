@@ -40,7 +40,9 @@ class SubscriptionCustomerResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->data->contactEmail)) {
             $create->setContactEmail($jsonObject->data->contactEmail);
         }
-
+        if (isset($jsonObject->data->contactGsmNumber)) {
+            $create->setContactGsmNumber($jsonObject->data->contactGsmNumber);
+        }
         if (isset($jsonObject->data->billingAddress->contactName)) {
             $create->setBillingContactName($jsonObject->data->billingAddress->contactName);
         }

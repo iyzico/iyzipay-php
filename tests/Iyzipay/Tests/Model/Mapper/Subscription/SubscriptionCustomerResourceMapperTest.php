@@ -34,6 +34,7 @@ class SubscriptionCustomerResourceMapperTest extends TestCase
         $this->assertEquals("11111111111", $customer->getIdentityNumber());
         $this->assertEquals("+905555555555", $customer->getGsmNumber());
         $this->assertEquals("johndoe@iyzico.com", $customer->getContactEmail());
+        $this->assertEquals("+905555555555", $customer->getContactGsmNumber());
         $this->assertEquals("success", $customer->getStatus());
         $this->assertEquals("ACTIVE", $customer->getCustomerStatus());
         $this->assertEquals(null, $customer->getErrorCode());
