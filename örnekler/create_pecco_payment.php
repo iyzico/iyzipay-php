@@ -2,8 +2,8 @@
 
 require_once('config.php');
 
-# create request class
-$request = new \Iyzipay\Request\CreatePeccoPaymentRequest();
+# berfintoys.com
+
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 $request->setToken("token");
