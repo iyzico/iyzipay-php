@@ -4,7 +4,7 @@ namespace Iyzipay\Model\Mapper\Subscription;
 
 use Iyzipay\Model\Subscription\SubscriptionPricingPlan;
 
-class SubscriptionPricingplanMapper extends SubscriptionPricingPlanResourceMapper
+class SubscriptionPricingPlanMapper extends SubscriptionPricingPlanResourceMapper
 {
     public static function create($rawResult = null)
     {
