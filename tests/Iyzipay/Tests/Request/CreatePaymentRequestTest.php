@@ -55,6 +55,7 @@ class CreatePaymentRequestTest extends TestCase
         $this->assertEquals("Istanbul", $jsonObject["buyer"]["city"]);
         $this->assertEquals("Turkey", $jsonObject["buyer"]["country"]);
         $this->assertEquals("34732", $jsonObject["buyer"]["zipCode"]);
+        $this->assertEquals("true", $jsonObject["buyer"]["trusted"]);
         $this->assertEquals("Jane Doe", $jsonObject["shippingAddress"]["contactName"]);
         $this->assertEquals("Istanbul", $jsonObject["shippingAddress"]["city"]);
         $this->assertEquals("Turkey", $jsonObject["shippingAddress"]["country"]);
@@ -108,7 +109,8 @@ class CreatePaymentRequestTest extends TestCase
             "city=Istanbul," .
             "country=Turkey," .
             "zipCode=34732," .
-            "ip=85.34.78.112]," .
+            "ip=85.34.78.112," .
+            "trusted=true]," .
             "shippingAddress=[address=Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1," .
             "zipCode=34742," .
             "contactName=Jane Doe," .
@@ -176,7 +178,8 @@ class CreatePaymentRequestTest extends TestCase
                     "city":"Istanbul",
                     "country":"Turkey",
                     "zipCode":"34732",
-                    "ip":"85.34.78.112"
+                    "ip":"85.34.78.112",
+                    "trusted":"true"
                 },
                 "shippingAddress":
                 {
@@ -261,6 +264,7 @@ class CreatePaymentRequestTest extends TestCase
         $buyer->setCity("Istanbul");
         $buyer->setCountry("Turkey");
         $buyer->setZipCode("34732");
+        $buyer->setTrusted("true");
         $request->setBuyer($buyer);
 
         $shippingAddress = new Address();

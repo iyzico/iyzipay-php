@@ -21,6 +21,8 @@ class Buyer extends BaseModel
     private $country;
     private $zipCode;
     private $ip;
+    private $trusted;
+
 
     public function getId()
     {
@@ -152,6 +154,16 @@ class Buyer extends BaseModel
         $this->ip = $ip;
     }
 
+    public function getTrusted()
+    {
+        return $this->trusted;
+    }
+
+    public function setTrusted($trusted)
+    {
+        $this->trusted = $trusted;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::create()
@@ -168,6 +180,7 @@ class Buyer extends BaseModel
             ->add("country", $this->getCountry())
             ->add("zipCode", $this->getZipCode())
             ->add("ip", $this->getIp())
+            ->add("trusted", $this->getTrusted())
             ->getObject();
     }
 
@@ -187,6 +200,7 @@ class Buyer extends BaseModel
             ->append("country", $this->getCountry())
             ->append("zipCode", $this->getZipCode())
             ->append("ip", $this->getIp())
+            ->append("trusted", $this->getTrusted())
             ->getRequestString();
     }
 }
