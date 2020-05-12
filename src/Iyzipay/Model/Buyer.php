@@ -23,7 +23,6 @@ class Buyer extends BaseModel
     private $ip;
     private $trusted;
 
-
     public function getId()
     {
         return $this->id;
