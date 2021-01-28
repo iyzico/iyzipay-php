@@ -140,101 +140,101 @@ class RequestStringBuilder
     public static function requestToStringQuery(Request $request, $type = null)
     {
 
-        $stringQuery = false;
+        $params = array();
 
         if($request->getConversationId()) {
-            $stringQuery = "?conversationId=" . $request->getConversationId();
+            $params["conversationId"] = $request->getConversationId();
         }
 
         if($request->getLocale()) {
-            $stringQuery .= "&locale=" . $request->getLocale();
+            $params["locale"] = $request->getLocale();
         }
 
         if($type == 'defaultParams' ) {
             if($request->getConversationId()) {
-                $stringQuery = "?conversationId=" . $request->getConversationId();
-                $stringQuery .= ($request->getLocale()) ? ("&locale=" . $request->getLocale()) : '';
-            }else{
-                $stringQuery = ($request->getLocale()) ? ("?locale=" . $request->getLocale()) : '';
+                $params["conversationId"] = $request->getConversationId();
             }
         }
 
         if($type == 'reporting') {
             if($request->getPaymentConversationId()) {
-                $stringQuery .= "?paymentConversationId=" . $request->getPaymentConversationId();
+                $params["paymentConversationId"] = $request->getPaymentConversationId();
+            }
+            if($request->getPaymentId()) {
+                $params["paymentId"] = $request->getPaymentId();
             }
         }
 
         if($type == 'reportingTransaction') {
 
             if($request->getTransactionDate()) {
-                $stringQuery .= "&transactionDate=" . $request->getTransactionDate();
+                $params["transactionDate"] = $request->getTransactionDate();
             }
             if ($request->getPage()) {
-                $stringQuery .= "&page=" . $request->getPage();
+                $params["page"] = $request->getPage();
             }
         }
 
         if($type == 'subscriptionItems' ) {
             if ($request->getPage()) {
-                $stringQuery = "?page=" . $request->getPage();
+                $params["page"] = $request->getPage();
             }
             if ($request->getCount()) {
-                $stringQuery .= "&count=" . $request->getCount();
+                $params["count"] = $request->getCount();
             }
             if($request->getConversationId()) {
-                $stringQuery .= "&conversationId=" . $request->getConversationId();
+                $params["conversationId"] = $request->getConversationId();
             }
             if($request->getLocale()) {
-                $stringQuery .= "&locale=" . $request->getLocale();
+                $params["locale"] = $request->getLocale();
             }
         }
 
         if($type == 'searchSubscription') {
             if($request->getPage()){
-                $stringQuery = "?page=".$request->getPage();
+                $params["page"] =$request->getPage();
             }
             if($request->getCount()){
-                $stringQuery .= "&count=".$request->getCount();
+                $params["count"] =$request->getCount();
             }
             if($request->getSubscriptionReferenceCode()){
-                $stringQuery .= "&subscriptionReferenceCode=".$request->getSubscriptionReferenceCode();
+                $params["subscriptionReferenceCode"] =$request->getSubscriptionReferenceCode();
             }
             if($request->getParentReferenceCode()){
-                $stringQuery .= "&parentReferenceCode=".$request->getParentReferenceCode();
+                $params["parentReferenceCode"] =$request->getParentReferenceCode();
             }
             if($request->getCustomerReferenceCode()){
-                $stringQuery .= "&customerReferenceCode=".$request->getCustomerReferenceCode();
+                $params["customerReferenceCode"] =$request->getCustomerReferenceCode();
             }
             if($request->getPricingPlanReferenceCode()){
-                $stringQuery .= "&pricingPlanReferenceCode=".$request->getPricingPlanReferenceCode();
+                $params["pricingPlanReferenceCode"] =$request->getPricingPlanReferenceCode();
             }
             if($request->getSubscriptionStatus()){
-                $stringQuery .= "&subscriptionStatus=".$request->getSubscriptionStatus();
+                $params["subscriptionStatus"] =$request->getSubscriptionStatus();
             }
             if($request->getStartDate()){
-                $stringQuery .= "&startDate=".$request->getStartDate();
+                $params["startDate"] =$request->getStartDate();
             }
             if($request->getEndDate()){
-                $stringQuery .= "&endDate=".$request->getEndDate();
+                $params["endDate"] =$request->getEndDate();
             }
             if($request->getConversationId()) {
-                $stringQuery .= "&conversationId=" . $request->getConversationId();
+                $params["conversationId"] = $request->getConversationId();
             }
             if($request->getLocale()) {
-                $stringQuery .= "&locale=" . $request->getLocale();
+                $params["locale"] = $request->getLocale();
             }
         }
 
         if($type == 'pages') {
             if ($request->getPage()) {
-                $stringQuery .= "&page=" . $request->getPage();
+                $params["page"] = $request->getPage();
             }
             if ($request->getCount()) {
-                $stringQuery .= "&count=" . $request->getCount();
+                $params["count"] = $request->getCount();
             }
         }
-
+        $stringQuery = (!empty($params)?"?":"").http_build_query($params);
         return $stringQuery;
     }
 }
