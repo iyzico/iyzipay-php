@@ -27,6 +27,6 @@ build/
 .buildpath
 
 # Composer specific files
-composer.lock
+# composer.lock
 composer.phar
 vendor/*
