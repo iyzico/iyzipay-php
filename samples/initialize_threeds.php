@@ -13,11 +13,16 @@ $request->setInstallment(1);
 $request->setBasketId("B67832");
 $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
 $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-$request->setCallbackUrl("https://www.merchant.com/callback");
+$request->setCallbackUrl("https://webhook.site/98842f41-65af-424c-b2eb-69ed1f0d8146");
+
+$reward = new \Iyzipay\Model\Reward();
+$reward->setRewardAmount("0.1");
+$reward->setRewardUsage(1);
+$request->setReward($reward);
 
 $paymentCard = new \Iyzipay\Model\PaymentCard();
 $paymentCard->setCardHolderName("John Doe");
-$paymentCard->setCardNumber("5528790000000008");
+$paymentCard->setCardNumber("5451030000000000");
 $paymentCard->setExpireMonth("12");
 $paymentCard->setExpireYear("2030");
 $paymentCard->setCvc("123");
