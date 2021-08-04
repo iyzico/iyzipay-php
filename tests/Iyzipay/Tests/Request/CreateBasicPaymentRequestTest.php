@@ -22,8 +22,8 @@ class CreateBasicPaymentRequestTest extends TestCase
         $this->assertEquals("85.34.78.112", $jsonObject["buyerIp"]);
         $this->assertEquals("connector name", $jsonObject["connectorName"]);
         $this->assertEquals("1", $jsonObject["installment"]);
-        $this->assertEquals("1", $jsonObject["paidPrice"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["paidPrice"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals("TRY", $jsonObject["currency"]);
         $this->assertEquals("order", $jsonObject["posOrderId"]);
         $this->assertEquals("callback", $jsonObject["callbackUrl"]);

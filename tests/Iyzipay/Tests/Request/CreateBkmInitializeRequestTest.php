@@ -21,7 +21,7 @@ class CreateBkmInitializeRequestTest extends TestCase
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("payment source", $jsonObject["paymentSource"]);
         $this->assertEquals(Currency::TL, $jsonObject["currency"]);

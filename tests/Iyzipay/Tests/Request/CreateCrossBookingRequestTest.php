@@ -17,7 +17,7 @@ class CreateCrossBookingRequestTest extends TestCase
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("sub merchant key", $jsonObject["subMerchantKey"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals("reason text", $jsonObject["reason"]);
         $this->assertEquals("TRY", $jsonObject["currency"]);
     }
