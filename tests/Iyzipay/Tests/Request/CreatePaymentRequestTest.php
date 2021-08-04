@@ -23,12 +23,14 @@ class CreatePaymentRequestTest extends TestCase
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals("1.1", $jsonObject["paidPrice"]);
         $this->assertEquals(Currency::TL, $jsonObject["currency"]);
         $this->assertEquals("1", $jsonObject["installment"]);
         $this->assertEquals(PaymentChannel::WEB, $jsonObject["paymentChannel"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
+        $this->assertEquals("0.1",$jsonObject["reward"]["rewardAmount"]);
+        $this->assertEquals("1",$jsonObject["reward"]["rewardUsage"]);
         $this->assertEquals("payment source", $jsonObject["paymentSource"]);
         $this->assertEquals("connector name", $jsonObject["connectorName"]);
         $this->assertEquals("123456", $jsonObject["posOrderId"]);
@@ -150,6 +152,11 @@ class CreatePaymentRequestTest extends TestCase
                 "paymentChannel":"WEB",
                 "basketId":"B67832",
                 "paymentGroup":"PRODUCT",
+                "reward": 
+                {
+                    "rewardAmount": "0.1",
+                    "rewardUsage": 1
+                },
                 "paymentCard":
                 {
                     "cardHolderName":"John Doe",
@@ -234,6 +241,11 @@ class CreatePaymentRequestTest extends TestCase
         $request->setConnectorName("connector name");
         $request->setPosOrderId("123456");
         $request->setCallbackUrl("callback");
+
+        $reward = new \Iyzipay\Model\Reward();
+        $reward->setRewardAmount("0.1");
+        $reward->setRewardUsage(1);
+        $request->setReward($reward);
 
         $paymentCard = new PaymentCard();
         $paymentCard->setCardAlias("alias");
