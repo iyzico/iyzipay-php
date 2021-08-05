@@ -13,7 +13,7 @@ $request->setInstallment(1);
 $request->setBasketId("B67832");
 $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
 $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-$request->setCallbackUrl("https://webhook.site/98842f41-65af-424c-b2eb-69ed1f0d8146");
+$request->setCallbackUrl("https://www.merchant.com/callback");
 
 $reward = new \Iyzipay\Model\Reward();
 $reward->setRewardAmount("0.1");
