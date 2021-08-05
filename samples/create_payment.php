@@ -14,9 +14,14 @@ $request->setBasketId("B67832");
 $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
 $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
 
+$reward = new \Iyzipay\Model\Reward();
+$reward->setRewardAmount("0.1");
+$reward->setRewardUsage(1);
+$request->setReward($reward);
+
 $paymentCard = new \Iyzipay\Model\PaymentCard();
 $paymentCard->setCardHolderName("John Doe");
-$paymentCard->setCardNumber("5528790000000008");
+$paymentCard->setCardNumber("5451030000000000");
 $paymentCard->setExpireMonth("12");
 $paymentCard->setExpireYear("2030");
 $paymentCard->setCvc("123");

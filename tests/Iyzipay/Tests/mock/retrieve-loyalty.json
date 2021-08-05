@@ -1,0 +1,11 @@
+{
+  "status":"success",
+  "locale":"tr",
+  "systemTime":0,
+  "conversationId":"123456789",
+  "points":1000,
+  "amount":10.00,
+  "cardBank":"Yapı Kredi Bankası",
+  "cardFamily":"World",
+  "currency":"TRY"
+}

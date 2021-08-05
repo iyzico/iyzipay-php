@@ -28,7 +28,7 @@ class CreateIyziupFormInitializeRequestWithInitialConsumerTest extends TestCase
         $this->assertEquals(array(1, 2, 3, 6, 9), $jsonObject["enabledInstallments"]);
         $this->assertEquals("Bonus", $jsonObject["enabledCardFamily"]);
         $this->assertEquals(Currency::TL, $jsonObject["currency"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals("1.2", $jsonObject["paidPrice"]);
         $this->assertEquals("0.2", $jsonObject["shippingPrice"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);

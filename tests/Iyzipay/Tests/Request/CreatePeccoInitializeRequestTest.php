@@ -21,7 +21,7 @@ class CreatePeccoInitializeRequestTest extends TestCase
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals("1.2", $jsonObject["paidPrice"]);
         $this->assertEquals(PaymentGroup::PRODUCT, $jsonObject["paymentGroup"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);

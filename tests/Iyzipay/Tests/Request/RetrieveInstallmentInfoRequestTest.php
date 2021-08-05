@@ -17,7 +17,7 @@ class RetrieveInstallmentInfoRequestTest extends TestCase
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("454671", $jsonObject["binNumber"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals(Currency::TL, $jsonObject["currency"]);
     }
 
