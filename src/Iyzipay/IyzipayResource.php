@@ -22,7 +22,7 @@ class IyzipayResource extends ApiResource
         $rnd = uniqid();
         array_push($header, "Authorization: " . self::prepareAuthorizationString($request, $options, $rnd));
         array_push($header, "x-iyzi-rnd: " . $rnd);
-        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.49");
+        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.50");
 
         return $header;
     }
