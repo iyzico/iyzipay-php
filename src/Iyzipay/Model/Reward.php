@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Iyzipay\Model;
 
 use Iyzipay\BaseModel;
 use Iyzipay\JsonBuilder;
 use Iyzipay\RequestStringBuilder;
-
 
 class Reward extends BaseModel
 {

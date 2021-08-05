@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Iyzipay\Request;
-
 
 use Iyzipay\JsonBuilder;
 use Iyzipay\Options;
@@ -29,7 +27,6 @@ class RetrieveLoyaltyRequest extends Request
         return $this->paymentCard;
     }
 
-
     public function setPaymentCard($paymentCard)
     {
         $this->paymentCard = $paymentCard;
@@ -51,5 +48,4 @@ class RetrieveLoyaltyRequest extends Request
             ->append("currency", $this->getCurrency())
             ->getRequestString();
     }
-
 }

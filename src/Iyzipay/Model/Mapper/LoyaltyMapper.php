@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Iyzipay\Model\Mapper;
-
 
 use Iyzipay\Model\Loyalty;
 
 class LoyaltyMapper extends IyzipayResourceMapper
 {
-
     public static function create($rawResult = null)
     {
         return new LoyaltyMapper($rawResult);
@@ -41,5 +38,4 @@ class LoyaltyMapper extends IyzipayResourceMapper
     {
         return $this->mapLoyaltyFrom($loyalty, $this->jsonObject);
     }
-
 }

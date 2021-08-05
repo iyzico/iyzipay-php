@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Iyzipay\Tests\Request;
 
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Currency;
 use Iyzipay\Tests\TestCase;
-
 
 class RetrieveLoyaltyRequestTest extends TestCase
 {
@@ -36,8 +34,7 @@ class RetrieveLoyaltyRequestTest extends TestCase
             "expireYear=2030," .
             "expireMonth=12," .
             "cvc=123]," .
-            "currency=TRY]"
-        ;
+            "currency=TRY]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
