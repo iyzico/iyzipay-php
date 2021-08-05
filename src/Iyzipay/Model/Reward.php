@@ -41,6 +41,9 @@ class Reward extends BaseModel
             ->getObject();
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function toPKIRequestString()
     {
         return RequestStringBuilder::create()
