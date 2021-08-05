@@ -1,17 +1,11 @@
 <?php
 
-
 namespace Iyzipay\Model;
 
-
-use Iyzipay\BaseModel;
 use Iyzipay\IyzipayResource;
-use Iyzipay\JsonBuilder;
 use Iyzipay\Model\Mapper\LoyaltyMapper;
 use Iyzipay\Options;
-use Iyzipay\Request\CreateLoyaltyRequest;
 use Iyzipay\Request\RetrieveLoyaltyRequest;
-use Iyzipay\RequestStringBuilder;
 
 class Loyalty extends IyzipayResource
 {
