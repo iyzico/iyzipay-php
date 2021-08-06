@@ -14,7 +14,6 @@ $request->setBasketId("B67832");
 $request->setPaymentChannel(\Iyzipay\Model\PaymentChannel::WEB);
 $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
 
-
 $reward = new \Iyzipay\Model\Reward();
 $reward->setRewardAmount("0.1");
 $reward->setRewardUsage(1);
