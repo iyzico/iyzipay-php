@@ -13,6 +13,7 @@ $paymentCard->setCardNumber("4603450000000000");
 $paymentCard->setExpireMonth("12");
 $paymentCard->setExpireYear("2030");
 $paymentCard->setCvc("123");
+$paymentCard->setRegisterConsumerCard(1);
 $request->setPaymentCard($paymentCard);
 $customer = new \Iyzipay\Model\Customer();
 $customer->setName("John");
