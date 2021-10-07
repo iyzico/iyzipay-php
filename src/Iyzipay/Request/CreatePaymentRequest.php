@@ -26,6 +26,7 @@ class CreatePaymentRequest extends Request
     private $posOrderId;
     private $connectorName;
     private $callbackUrl;
+    private $plusInstallmentUsage;
 
     public function __construct()
     {
@@ -202,6 +203,16 @@ class CreatePaymentRequest extends Request
         $this->callbackUrl = $callbackUrl;
     }
 
+    public function getPlusInstallmentUsage()
+    {
+        return $this->plusInstallmentUsage;
+    }
+
+    public function setPlusInstallmentUsage($plusInstallmentUsage)
+    {
+        $this->plusInstallmentUsage = $plusInstallmentUsage;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -222,6 +233,7 @@ class CreatePaymentRequest extends Request
             ->add("posOrderId", $this->getPosOrderId())
             ->add("connectorName", $this->getConnectorName())
             ->add("callbackUrl", $this->getCallbackUrl())
+            ->add("plusInstallmentUsage", $this->getPlusInstallmentUsage())
             ->getObject();
     }
 
@@ -245,6 +257,7 @@ class CreatePaymentRequest extends Request
             ->append("posOrderId", $this->getPosOrderId())
             ->append("connectorName", $this->getConnectorName())
             ->append("callbackUrl", $this->getCallbackUrl())
+            ->append("plusInstallmentUsage", $this->getPlusInstallmentUsage())
             ->getRequestString();
     }
 }
