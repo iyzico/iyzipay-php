@@ -11,7 +11,7 @@ $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
 
 # make request
-$refundToBalance = \Iyzipay\Model\RefundToAmountBased::create($request, Config::options());
+$refundToAmountBased = \Iyzipay\Model\RefundToAmountBased::create($request, Config::options());
 
 # print result
-print_r($refundToBalance);
+print_r($refundToAmountBased);
