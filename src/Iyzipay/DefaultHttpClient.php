@@ -25,7 +25,11 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
-            CURLOPT_HEADER => false
+            CURLOPT_HEADER => false,
+            // Local Run
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_FRESH_CONNECT => true
         ));
     }
 
@@ -36,7 +40,11 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
-            CURLOPT_HTTPHEADER => $header
+            CURLOPT_HTTPHEADER => $header,
+            // Local Run
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_FRESH_CONNECT => true
         ));
     }
 
@@ -49,7 +57,11 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
-            CURLOPT_HTTPHEADER => $header
+            CURLOPT_HTTPHEADER => $header,
+            // Local Run
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_FRESH_CONNECT => true
         ));
     }
 
@@ -61,7 +73,11 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
-            CURLOPT_HTTPHEADER => $header
+            CURLOPT_HTTPHEADER => $header,
+            // Local Run
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_FRESH_CONNECT => true
         ));
     }
 
@@ -73,7 +89,11 @@ class DefaultHttpClient implements HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_VERBOSE => false,
             CURLOPT_HEADER => false,
-            CURLOPT_HTTPHEADER => $header
+            CURLOPT_HTTPHEADER => $header,
+            // Local Run
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_FRESH_CONNECT => true
         ));
     }
 }
