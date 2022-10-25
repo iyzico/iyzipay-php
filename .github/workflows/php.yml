@@ -35,7 +35,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Update composer
+    - name: Update compose
       run: composer self-update
 
     - name: Install dependencies
