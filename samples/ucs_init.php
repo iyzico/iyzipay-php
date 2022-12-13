@@ -11,4 +11,4 @@ $request->setGsmNumber("+905555555555");
 $result = \Iyzipay\Model\UCSInitialize::create($request,Config::options());
 
 # print result
-print_r($payment);
+print_r($result);
