@@ -44,5 +44,4 @@ jobs:
     - name: Run test
       run: composer run test
 
-    - name: Test result
-      run: php vendor/bin/coveralls -v
+
