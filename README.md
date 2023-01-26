@@ -1,6 +1,5 @@
 # iyzipay-php
 
-[![Build Status](https://travis-ci.org/iyzico/iyzipay-php.svg?branch=master)](https://travis-ci.org/iyzico/iyzipay-php)
 [![Latest Stable Version](https://poser.pugx.org/iyzico/iyzipay-php/version)](https://packagist.org/packages/iyzico/iyzipay-php)
 [![Coverage Status](https://coveralls.io/repos/github/iyzico/iyzipay-php/badge.svg?branch=master)](https://coveralls.io/github/iyzico/iyzipay-php?branch=master)
 
