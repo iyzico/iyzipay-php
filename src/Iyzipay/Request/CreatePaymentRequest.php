@@ -25,6 +25,7 @@ class CreatePaymentRequest extends Request
     private $currency;
     private $posOrderId;
     private $connectorName;
+    private $plusInstallmentUsage;
     private $callbackUrl;
 
     public function __construct()
@@ -192,6 +193,16 @@ class CreatePaymentRequest extends Request
         $this->connectorName = $connectorName;
     }
 
+    public function getPlusInstallmentUsage()
+    {
+        return $this->plusInstallmentUsage;
+    }
+
+    public function setPlusInstallmentUsage($plusInstallmentUsage)
+    {
+        $this->plusInstallmentUsage = $plusInstallmentUsage;
+    }
+
     public function getCallbackUrl()
     {
         return $this->callbackUrl;
@@ -221,6 +232,7 @@ class CreatePaymentRequest extends Request
             ->add("currency", $this->getCurrency())
             ->add("posOrderId", $this->getPosOrderId())
             ->add("connectorName", $this->getConnectorName())
+            ->add("plusInstallmentUsage", $this->getPlusInstallmentUsage())
             ->add("callbackUrl", $this->getCallbackUrl())
             ->getObject();
     }
@@ -244,6 +256,7 @@ class CreatePaymentRequest extends Request
             ->append("currency", $this->getCurrency())
             ->append("posOrderId", $this->getPosOrderId())
             ->append("connectorName", $this->getConnectorName())
+            ->append("plusInstallmentUsage", $this->getPlusInstallmentUsage())
             ->append("callbackUrl", $this->getCallbackUrl())
             ->getRequestString();
     }
