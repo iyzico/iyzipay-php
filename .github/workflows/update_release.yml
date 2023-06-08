@@ -1,0 +1,48 @@
+name: Update Release Workflow
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update Release Number
+        run: |
+          # Retrieve the current release number
+          current_release=$(git describe --tags --abbrev=0)
+
+          # Increment the release number
+          new_release=$(echo $current_release | awk -F. -v OFS=. '{$NF++;print}')
+
+          # Set the new release number as an environment variable
+          echo "NEW_RELEASE=${new_release}" >> $GITHUB_ENV
+
+#      - name: Github Tasks
+#        run: |
+#          set -e
+#          git config user.name "iyzico-ci"
+#          git config user.email iyzico-ci@iyzico.com
+#          git add .
+#          git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
+#          git push origin master
+#          git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
+#          git push origin v${{env.NEW_RELEASE}}
+          
+      - name: Github Release
+        env:
+          RELEASE_VERSION: ${{env.NEW_RELEASE}}
+        run: |
+          # Use the new release version in your release creation step
+          echo "Creating release ${RELEASE_VERSION}..."
+          result=$( curl -# -XPOST -H "Authorization: token ${{secrets.TOKEN_GITHUB}}" -H "Content-Type: application/json" -H "Accept:application/json" --data-binary '{"tag_name": "v${RELEASE_VERSION}","target_commitish": "master","name": "iyzipay-php ${RELEASE_VERSION}","body": "version ${RELEASE_VERSION}","draft": false,"prerelease": false}' https://api.github.com/repos/iyzico/iyzipay-php/releases )
+          echo $result
+          updated_release=$(git describe --tags --abbrev=0)
+          echo "GitHub release ${updated_release} created!"
