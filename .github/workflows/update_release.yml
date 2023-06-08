@@ -17,7 +17,7 @@ jobs:
       - name: Update Release Number
         run: |
           # Retrieve the current release number
-          current_release=$(git describe --tags --abbrev=0)
+          current_release=$(cat VERSION)
 
           # Increment the release number
           new_release=$(echo $current_release | awk -F. -v OFS=. '{$NF++;print}')
