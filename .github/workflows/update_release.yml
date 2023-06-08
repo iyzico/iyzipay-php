@@ -44,5 +44,5 @@ jobs:
           echo "Creating release ${RELEASE_VERSION}..."
           result=$( curl -# -XPOST -H "Authorization: token ${{secrets.TOKEN_GITHUB}}" -H "Content-Type: application/json" -H "Accept:application/json" --data-binary '{"tag_name": "v${RELEASE_VERSION}","target_commitish": "master","name": "iyzipay-php ${RELEASE_VERSION}","body": "version ${RELEASE_VERSION}","draft": false,"prerelease": false}' https://api.github.com/repos/iyzico/iyzipay-php/releases )
           echo $result
-          updated_release=$(git describe --tags --abbrev=0)
+          updated_release=$(git rev-parse HEAD)
           echo "GitHub release ${updated_release} created!"
