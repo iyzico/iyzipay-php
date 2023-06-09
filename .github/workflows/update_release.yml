@@ -45,7 +45,9 @@ jobs:
         run: |
           # Use the new release version in release creation step
           echo "Creating release ${{env.NEW_RELEASE}}..."
+          
           result=$( curl -# -XPOST -H "Authorization: token ${{secrets.TOKEN_GITHUB}}" -H "Content-Type: application/json" -H "Accept:application/json" --data-binary '{"tag_name": "v${{env.NEW_RELEASE}}","target_commitish": "master","name": "iyzipay-php ${{env.NEW_RELEASE}}","body": "version ${{env.NEW_RELEASE}}","draft": false,"prerelease": false}' https://api.github.com/repos/iyzico/iyzipay-php/releases )
           echo $result
+          
           echo "GitHub release ${{env.NEW_RELEASE}} created!"
           
