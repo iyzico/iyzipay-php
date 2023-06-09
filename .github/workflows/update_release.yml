@@ -37,7 +37,7 @@ jobs:
           git config user.email iyzico-ci@iyzico.com
           git add .
           git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
-          git push origin main
+          #git push origin main
           git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
           git push origin v${{env.NEW_RELEASE}}
           
