@@ -16,6 +16,8 @@ jobs:
 
       - name: Update Release Number
         run: |
+          set -e
+          
           # Retrieve the current release number
           current_release=$(cat VERSION)
 
@@ -24,17 +26,20 @@ jobs:
 
           # Set the new release number as an environment variable
           echo "NEW_RELEASE=${new_release}" >> $GITHUB_ENV
+          
+          # Change version number on files
+          sed -i -e's/${current_release}/${new_release}/g' src/Iyzipay/IyzipayResource.php VERSION
 
-#      - name: Github Tasks
-#        run: |
-#          set -e
-#          git config user.name "iyzico-ci"
-#          git config user.email iyzico-ci@iyzico.com
-#          git add .
-#          git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
-#          git push origin master
-#          git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
-#          git push origin v${{env.NEW_RELEASE}}
+      - name: Github Tasks
+        run: |
+          set -e
+          git config user.name "iyzico-ci"
+          git config user.email iyzico-ci@iyzico.com
+          git add .
+          git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
+          git push origin master
+          git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
+          git push origin v${{env.NEW_RELEASE}}
           
       - name: Github Release
         run: |
