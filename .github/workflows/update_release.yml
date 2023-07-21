@@ -1,10 +1,13 @@
 name: Update Release Workflow
+#on:
+#  pull_request:
+#    types:
+#      - opened
+#      - synchronize
+#      - reopened
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  push:
+    branches: [ "master" ]
 
 jobs:
   build:
