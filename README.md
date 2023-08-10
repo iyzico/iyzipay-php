@@ -7,7 +7,7 @@ You can sign up for an iyzico account at https://iyzico.com
 
 # Requirements
 
-PHP 5.3 and later.
+PHP 5.6 and later.
 
 ### Note
 
