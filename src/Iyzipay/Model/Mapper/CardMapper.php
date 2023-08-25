@@ -33,6 +33,9 @@ class CardMapper extends IyzipayResourceMapper
         if (isset($jsonObject->binNumber)) {
             $card->setBinNumber($jsonObject->binNumber);
         }
+        if (isset($jsonObject->lastFourDigits)) {
+            $card->setLastFourDigits($jsonObject->lastFourDigits);
+        }
         if (isset($jsonObject->cardType)) {
             $card->setCardType($jsonObject->cardType);
         }

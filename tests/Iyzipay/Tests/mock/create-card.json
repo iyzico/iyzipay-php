@@ -12,6 +12,7 @@
   "cardToken": "cardToken",
   "cardAlias": "cardAlias",
   "binNumber": "554960",
+  "lastFourDigits": "0008",
   "cardType": "CREDIT_CARD",
   "cardAssociation": "MASTER_CARD",
   "cardFamily": "Bonus",

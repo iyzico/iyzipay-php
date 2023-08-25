@@ -37,6 +37,7 @@ class CardListMapperTest extends TestCase
         $this->assertEquals("cardToken", $cardDetail->getCardToken());
         $this->assertEquals("cardAlias", $cardDetail->getCardAlias());
         $this->assertEquals("554960", $cardDetail->getBinNumber());
+        $this->assertEquals("0008", $cardDetail->getLastFourDigits());
         $this->assertEquals("CREDIT_CARD", $cardDetail->getCardType());
         $this->assertEquals("MASTER_CARD", $cardDetail->getCardAssociation());
         $this->assertEquals("Bonus", $cardDetail->getCardFamily());
@@ -48,6 +49,7 @@ class CardListMapperTest extends TestCase
         $this->assertEquals("cardToken2", $cardDetail2->getCardToken());
         $this->assertEquals("cardAlias2", $cardDetail2->getCardAlias());
         $this->assertEquals("554961", $cardDetail2->getBinNumber());
+        $this->assertEquals("4561", $cardDetail2->getLastFourDigits());
         $this->assertEquals("DEBIT_CARD", $cardDetail2->getCardType());
         $this->assertEquals("VISA", $cardDetail2->getCardAssociation());
         $this->assertEquals("Maximum", $cardDetail2->getCardFamily());

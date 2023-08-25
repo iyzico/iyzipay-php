@@ -16,6 +16,7 @@ class Card extends IyzipayResource
     private $cardToken;
     private $cardAlias;
     private $binNumber;
+    private $lastFourDigits;
     private $cardType;
     private $cardAssociation;
     private $cardFamily;
@@ -92,6 +93,16 @@ class Card extends IyzipayResource
     public function setBinNumber($binNumber)
     {
         $this->binNumber = $binNumber;
+    }
+
+    public function getLastFourDigits()
+    {
+        return $this->lastFourDigits;
+    }
+
+    public function setLastFourDigits($lastFourDigits)
+    {
+        $this->lastFourDigits = $lastFourDigits;
     }
 
     public function getCardType()
