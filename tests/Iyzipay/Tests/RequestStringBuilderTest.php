@@ -36,9 +36,10 @@ class RequestStringBuilderTest extends TestCase
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
         $request->setPaymentConversationId('123456789');
+        $request->setPaymentId('1234');
         $result = RequestStringBuilder::requestToStringQuery($request, 'reporting');
 
-        $this->assertEquals("?conversationId=123456789&locale=tr?paymentConversationId=123456789", $result);
+        $this->assertEquals("?conversationId=123456789&locale=tr&paymentConversationId=123456789&paymentId=1234", $result);
     }
 
     public function test_should_request_string_query_reporting_transaction()
@@ -69,7 +70,7 @@ class RequestStringBuilderTest extends TestCase
         $request->setConversationId("123456789");
         $result = RequestStringBuilder::requestToStringQuery($request, 'searchSubscription');
 
-        $this->assertEquals("?page=1&count=10&subscriptionReferenceCode=3579&parentReferenceCode=9876&customerReferenceCode=1234&pricingPlanReferenceCode=c1d489b6&subscriptionStatus=ACTIVE&startDate=2018-10-05&endDate=2019-10-05&conversationId=123456789&locale=tr", $result);
+        $this->assertEquals("?conversationId=123456789&locale=tr&page=1&count=10&subscriptionReferenceCode=3579&parentReferenceCode=9876&customerReferenceCode=1234&pricingPlanReferenceCode=c1d489b6&subscriptionStatus=ACTIVE&startDate=2018-10-05&endDate=2019-10-05", $result);
     }
 
     public function test_should_request_string_query_subscription_item()
@@ -81,7 +82,7 @@ class RequestStringBuilderTest extends TestCase
         $request->setConversationId("123456789");
         $result = RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
 
-        $this->assertEquals("?page=1&count=10&conversationId=123456789&locale=tr", $result);
+        $this->assertEquals("?conversationId=123456789&locale=tr&page=1&count=10", $result);
     }
 
     public function test_should_request_string_query_subscription_default_params()
