@@ -15,6 +15,9 @@ class IyziLinkSaveProductResource extends IyzipayResource
     private $token;
     private $url;
     private $imageUrl;
+    private $sourceType;
+    private $stockEnabled;
+    private $stockCount;
 
     public function getBase64EncodedImage()
     {
@@ -70,5 +73,35 @@ class IyziLinkSaveProductResource extends IyzipayResource
     public function setImageUrl($imageUrl)
     {
         $this->imageUrl = $imageUrl;
+    }
+
+    public function getSourceType()
+    {
+        return $this->sourceType;
+    }
+
+    public function setSourceType($sourceType)
+    {
+        $this->sourceType = $sourceType;
+    }
+
+    public function getStockEnabled()
+    {
+        return $this->stockEnabled;
+    }
+
+    public function setStockEnabled($stockEnabled)
+    {
+        $this->stockEnabled = $stockEnabled;
+    }
+
+    public function getStockCount()
+    {
+        return $this->stockCount;
+    }
+
+    public function setStockCount($stockCount)
+    {
+        $this->stockCount = $stockCount;
     }
 }

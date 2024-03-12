@@ -14,6 +14,9 @@ $request->setCurrency(\Iyzipay\Model\Currency::TL);
 $request->setAddressIgnorable(false);
 $request->setSoldLimit(1);
 $request->setInstallmentRequest(false);
+$request->setSourceType('API');
+$request->setStockEnabled(true);
+$request->setStockCount(1);
 $response = \Iyzipay\Model\Iyzilink\IyziLinkSaveProduct::create($request, Config::options());
 
 print_r($response);
