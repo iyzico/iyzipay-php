@@ -5,7 +5,7 @@ namespace Iyzipay\Tests;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Iyzipay\Options;
 
-class TestCase extends BaseTestCase // \PHPUnit_Framework_TestCase
+class TestCase extends BaseTestCase
 {
     protected $options;
 
