@@ -139,7 +139,6 @@ class RequestStringBuilder
 
     public static function requestToStringQuery(Request $request, $type = null)
     {
-
         $stringQuery = false;
 
         if($request->getConversationId()) {
@@ -148,6 +147,10 @@ class RequestStringBuilder
 
         if($request->getLocale()) {
             $stringQuery .= "&locale=" . $request->getLocale();
+        }
+
+        if ($type == 'fastlink') {
+            $stringQuery = "?locale=" . $request->getLocale();
         }
 
         if($type == 'defaultParams' ) {

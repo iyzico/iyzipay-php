@@ -14,8 +14,8 @@ class IyziLinkFastLink extends IyzipayResource {
     private string $currencyCode;
     private string $sourceType;
 
-    public static function create(IyziLinkCreateFastLinkRequest $request, Options $options) {
-        $uri = $options->getBaseUrl() . "/v2/iyzilink/fast-link/products/" . RequestStringBuilder::requestToStringQuery($request, null);
+    public static function create(IyziLinkCreateFastLinkRequest $request, Options $options): IyziLinkFastLink {
+        $uri = $options->getBaseUrl() . "/v2/iyzilink/fast-link/products" . RequestStringBuilder::requestToStringQuery($request, 'fastlink');
         $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return IyziLinkCreateFastLinkMapper::create($rawResult)->jsonDecode()->mapIyziLinkCreateFastLink(new IyziLinkFastLink());
     }
@@ -40,9 +40,8 @@ class IyziLinkFastLink extends IyzipayResource {
         return $this->currencyCode;
     }
 
-    public function setCurrencyCode(string $currencyCode): IyziLinkFastLink {
+    public function setCurrencyCode(string $currencyCode): void {
         $this->currencyCode = $currencyCode;
-        return $this;
     }
 
     public function getSourceType(): string {
