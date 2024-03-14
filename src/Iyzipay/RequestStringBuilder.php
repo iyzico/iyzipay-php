@@ -149,7 +149,7 @@ class RequestStringBuilder
             $stringQuery .= "&locale=" . $request->getLocale();
         }
 
-        if ($type == 'fastlink') {
+        if ($type == 'locale') {
             $stringQuery = "?locale=" . $request->getLocale();
         }
 

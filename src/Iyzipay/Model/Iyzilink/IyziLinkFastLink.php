@@ -15,7 +15,7 @@ class IyziLinkFastLink extends IyzipayResource {
     private string $sourceType;
 
     public static function create(IyziLinkCreateFastLinkRequest $request, Options $options): IyziLinkFastLink {
-        $uri = $options->getBaseUrl() . "/v2/iyzilink/fast-link/products" . RequestStringBuilder::requestToStringQuery($request, 'fastlink');
+        $uri = $options->getBaseUrl() . "/v2/iyzilink/fast-link/products" . RequestStringBuilder::requestToStringQuery($request, 'locale');
         $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return IyziLinkCreateFastLinkMapper::create($rawResult)->jsonDecode()->mapIyziLinkCreateFastLink(new IyziLinkFastLink());
     }

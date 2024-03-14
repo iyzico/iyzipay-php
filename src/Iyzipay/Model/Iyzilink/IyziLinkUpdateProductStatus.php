@@ -31,7 +31,7 @@ class IyziLinkUpdateProductStatus extends IyzipayResource {
     public static function create(IyziLinkUpdateProductStatusRequest $request, Options $options) {
         $token = $request->getToken();
         $productStatus = $request->getProductStatus();
-        $uri = $options->getBaseUrl() . "/v2/iyzilink/products/$token/status/$productStatus" . RequestStringBuilder::requestToStringQuery($request, 'fastlink');
+        $uri = $options->getBaseUrl() . "/v2/iyzilink/products/$token/status/$productStatus" . RequestStringBuilder::requestToStringQuery($request, 'locale');
         $rawResult = parent::httpClient()->patch($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return IyziLinkUpdateProductStatusMapper::create($rawResult)->jsonDecode()->mapIyziLinkUpdateProductStatus(new IyziLinkUpdateProductStatus());
     }
