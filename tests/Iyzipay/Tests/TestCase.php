@@ -2,13 +2,14 @@
 
 namespace Iyzipay\Tests;
 
+use PHPUnit\Framework\TestCase as BaseTestCase;
 use Iyzipay\Options;
 
-class TestCase extends \PHPUnit_Framework_TestCase
+class TestCase extends BaseTestCase
 {
     protected $options;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->options = new Options();
         $this->options->setApiKey("apiKey");
