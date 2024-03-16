@@ -45,11 +45,11 @@ class C2CSubMerchantMapper extends IyzipayResourceMapper {
         }
 
         if (isset($jsonObject->txId)) {
-            $c2CSubMerchant->setTxId($jsonObject->externalId);
+            $c2CSubMerchant->setTxId($jsonObject->txId);
         }
 
         if (isset($jsonObject->smsVerificationCode)) {
-            $c2CSubMerchant->setS($jsonObject->externalId);
+            $c2CSubMerchant->setSmsVerificationCode($jsonObject->smsVerificationCode);
         }
 
         return $c2CSubMerchant;
