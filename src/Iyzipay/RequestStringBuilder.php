@@ -179,6 +179,20 @@ class RequestStringBuilder
             }
         }
 
+        if($type == 'reportingScrollTransaction') {
+            if($request->getDocumentScrollVoSortingOrder()) {
+                $stringQuery = '?documentScrollVoSortingOrder=' . $request->getDocumentScrollVoSortingOrder();
+            }
+
+            if($request->getTransactionDate()) {
+                $stringQuery .= "&transactionDate=" . $request->getTransactionDate();
+            }
+
+            if($request->getLastId()) {
+                $stringQuery .= '&lastId=' . $request->getLastId();
+            }
+        }
+
         if($type == 'subscriptionItems' ) {
             if ($request->getPage()) {
                 $stringQuery = "?page=" . $request->getPage();
