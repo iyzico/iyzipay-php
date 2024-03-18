@@ -18,6 +18,9 @@ class IyziLinkSaveProductRequest extends Request
     private $token;
     private $url;
     private $imageUrl;
+    private $sourceType;
+    private $stockEnabled;
+    private $stockCount;
 
     public function getName()
     {
@@ -129,6 +132,36 @@ class IyziLinkSaveProductRequest extends Request
         $this->imageUrl = $imageUrl;
     }
 
+    public function getSourceType()
+    {
+        return $this->sourceType;
+    }
+
+    public function setSourceType($sourceType)
+    {
+        $this->sourceType = $sourceType;
+    }
+
+    public function getStockEnabled()
+    {
+        return $this->stockEnabled;
+    }
+
+    public function setStockEnabled($stockEnabled)
+    {
+        $this->stockEnabled = $stockEnabled;
+    }
+
+    public function getStockCount()
+    {
+        return $this->stockCount;
+    }
+
+    public function setStockCount($stockCount)
+    {
+        $this->stockCount = $stockCount;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -143,6 +176,9 @@ class IyziLinkSaveProductRequest extends Request
             ->add("token", $this->getToken())
             ->add("url", $this->getUrl())
             ->add("imageUrl", $this->getImageUrl())
+            ->add('sourceType', $this->getSourceType())
+            ->add('stockEnabled', $this->getStockEnabled())
+            ->add('stockCount', $this->getStockCount())
             ->getObject();
     }
 }

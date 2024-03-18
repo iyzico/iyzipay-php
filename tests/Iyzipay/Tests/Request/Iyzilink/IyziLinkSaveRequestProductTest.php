@@ -2,7 +2,7 @@
 namespace Iyzipay\Tests\Request\Iyzilink;
 
 use Iyzipay\Tests\TestCase;
-use IyziPay\Request\Iyzilink\IyziLinkSaveProductRequest;
+use Iyzipay\Request\Iyzilink\IyziLinkSaveProductRequest;
 use Iyzipay\Model\Locale;
 use Iyzipay\Model\Currency;
 use Iyzipay\FileBase64Encoder;
@@ -28,6 +28,9 @@ class IyziLinkSaveRequestProductTest extends TestCase
         $this->assertEquals("test", $jsonObject["token"]);
         $this->assertEquals("test", $jsonObject["url"]);
         $this->assertEquals("test", $jsonObject["imageUrl"]);
+        $this->assertEquals("API", $jsonObject['sourceType']);
+        $this->assertTrue($jsonObject['stockEnabled']);
+        $this->assertEquals(1, $jsonObject['stockCount']);
     }
 
 
@@ -48,6 +51,9 @@ class IyziLinkSaveRequestProductTest extends TestCase
         $request->setToken('test');
         $request->setUrl('test');
         $request->setImageUrl('test');
+        $request->setSourceType('API');
+        $request->setStockEnabled(true);
+        $request->setStockCount(1);
 
         return $request;
     }
