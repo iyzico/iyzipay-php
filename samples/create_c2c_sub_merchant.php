@@ -8,7 +8,7 @@ function createC2CSubMerchant(): void {
     $request->setConversationId('299487456');
     $request->setName('John');
     $request->setSurname('Doe');
-    $request->setEmail('osman@keser.com');
+    $request->setEmail('email@email.com');
     $request->setGsmNumber('+905558001479');
     $request->setTckNo('55555555555');
     $request->setBirthDate('1996-10-07');
