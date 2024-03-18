@@ -65,6 +65,18 @@ class DefaultHttpClient implements HttpClient
         ));
     }
 
+    public function patch($url, $header, $content)
+    {
+        return $this->curl->exec($url, array(
+            CURLOPT_CUSTOMREQUEST => "PATCH",
+            CURLOPT_POSTFIELDS => $content,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_VERBOSE => false,
+            CURLOPT_HEADER => false,
+            CURLOPT_HTTPHEADER => $header
+        ));
+    }
+
     public function delete($url, $header, $content = null)
     {
         return $this->curl->exec($url, array(
