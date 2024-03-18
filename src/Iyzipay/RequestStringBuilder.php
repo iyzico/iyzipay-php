@@ -150,6 +150,10 @@ class RequestStringBuilder
             $stringQuery .= "&locale=" . $request->getLocale();
         }
 
+        if ($type == 'locale') {
+            $stringQuery = "?locale=" . $request->getLocale();
+        }
+
         if($type == 'defaultParams' ) {
             if($request->getConversationId()) {
                 $stringQuery = "?conversationId=" . $request->getConversationId();
