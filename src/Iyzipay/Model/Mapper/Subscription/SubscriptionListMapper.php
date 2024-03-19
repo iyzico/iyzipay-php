@@ -13,9 +13,9 @@ class SubscriptionListMapper extends IyzipayResourceMapper {
     public function mapSubscriptionListFrom(SubscriptionList $subscriptionList, object $jsonObject): \Iyzipay\Model\Subscription\SubscriptionList {
         parent::mapResourceFrom($subscriptionList, $jsonObject);
 
-//        if (isset($jsonObject->subscriptionReferenceCode)) {
-//            $subscriptionList->setSubscriptionReferenceCode($jsonObject->subscriptionReferenceCode);
-//        }
+        if (isset($jsonObject->subscriptionReferenceCode)) {
+            $subscriptionList->setSubscriptionReferenceCode($jsonObject->subscriptionReferenceCode);
+        }
 
         if (isset($jsonObject->subscriptionStatus)) {
             $subscriptionList->setSubscriptionStatus($jsonObject->subscriptionStatus);
@@ -29,13 +29,13 @@ class SubscriptionListMapper extends IyzipayResourceMapper {
             $subscriptionList->setCount($jsonObject->count);
         }
 
-//        if (isset($jsonObject->customerReferenceCode)) {
-//            $subscriptionList->setCustomerReferenceCode($jsonObject->customerReferenceCode);
-//        }
-//
-//        if (isset($jsonObject->parentReferenceCode)) {
-//            $subscriptionList->setParentReferenceCode($jsonObject->parentReferenceCode);
-//        }
+        if (isset($jsonObject->customerReferenceCode)) {
+            $subscriptionList->setCustomerReferenceCode($jsonObject->customerReferenceCode);
+        }
+
+        if (isset($jsonObject->parentReferenceCode)) {
+            $subscriptionList->setParentReferenceCode($jsonObject->parentReferenceCode);
+        }
 
         if (isset($jsonObject->startDate)) {
             $subscriptionList->setStartDate($jsonObject->startDate);
