@@ -13,17 +13,15 @@ class ReportingPaymentDetailRequestTest extends TestCase
         $request = $this->prepareRequest();
         $jsonObject = $request->getJsonObject();
 
-        $this->assertEquals(Locale::TR, $jsonObject["locale"]);
-        $this->assertEquals("123456789", $jsonObject["conversationId"]);
         $this->assertEquals("123456789", $jsonObject["paymentConversationId"]);
+        $this->assertEquals("12345678", $jsonObject['paymentId']);
     }
 
     private function prepareRequest()
     {
         $request = new ReportingPaymentDetailRequest();
-        $request->setLocale(\Iyzipay\Model\Locale::TR);
-        $request->setConversationId("123456789");
         $request->setPaymentConversationId("123456789");
+        $request->setPaymentId("12345678");
 
         return $request;
     }

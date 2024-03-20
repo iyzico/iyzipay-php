@@ -33,12 +33,11 @@ class RequestStringBuilderTest extends TestCase
     public function test_should_request_string_query_reporting()
     {
         $request = new \Iyzipay\Request\ReportingPaymentDetailRequest();
-        $request->setLocale(Locale::TR);
-        $request->setConversationId("123456789");
         $request->setPaymentConversationId('123456789');
+        $request->setPaymentId('12345678');
         $result = RequestStringBuilder::requestToStringQuery($request, 'reporting');
 
-        $this->assertEquals("?conversationId=123456789&locale=tr?paymentConversationId=123456789", $result);
+        $this->assertEquals("?paymentConversationId=123456789&paymentId=12345678", $result);
     }
 
     public function test_should_request_string_query_reporting_transaction()
