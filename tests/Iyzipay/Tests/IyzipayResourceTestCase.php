@@ -21,7 +21,7 @@ class IyzipayResourceTestCase extends TestCase
             "conversationId":"123456"
         }';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
