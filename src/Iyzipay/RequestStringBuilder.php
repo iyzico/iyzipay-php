@@ -150,6 +150,10 @@ class RequestStringBuilder
             $stringQuery .= "&locale=" . $request->getLocale();
         }
 
+        if ($type == 'locale') {
+            $stringQuery = "?locale=" . $request->getLocale();
+        }
+
         if($type == 'defaultParams' ) {
             if($request->getConversationId()) {
                 $stringQuery = "?conversationId=" . $request->getConversationId();
@@ -172,6 +176,20 @@ class RequestStringBuilder
             }
             if ($request->getPage()) {
                 $stringQuery .= "&page=" . $request->getPage();
+            }
+        }
+
+        if($type == 'reportingScrollTransaction') {
+            if($request->getDocumentScrollVoSortingOrder()) {
+                $stringQuery = '?documentScrollVoSortingOrder=' . $request->getDocumentScrollVoSortingOrder();
+            }
+
+            if($request->getTransactionDate()) {
+                $stringQuery .= "&transactionDate=" . $request->getTransactionDate();
+            }
+
+            if($request->getLastId()) {
+                $stringQuery .= '&lastId=' . $request->getLastId();
             }
         }
 
