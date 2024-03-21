@@ -74,13 +74,12 @@ class SubscriptionList extends IyzipayResource {
         $this->parentReferenceCode = $parentReferenceCode;
     }
 
-//
     public function getStartDate(): string {
         return $this->startDate;
     }
 
     public function setStartDate(string $startDate): void {
-        $this->startDate = $startDate;
+        $this->startDate = urlencode($startDate);
     }
 
     public function getEndDate(): string {
@@ -88,10 +87,10 @@ class SubscriptionList extends IyzipayResource {
     }
 
     public function setEndDate(string $endDate): void {
-        $this->endDate = $endDate;
+        $this->endDate = urlencode($endDate);
     }
 
-//
+
     public function getPricingPlanReferenceCode(): string {
         return $this->pricingPlanReferenceCode;
     }

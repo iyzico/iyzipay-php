@@ -69,7 +69,7 @@ class SubscriptionListRequest extends Request {
     }
 
     public function setStartDate(string $startDate): void {
-        $this->startDate = $startDate;
+        $this->startDate = urlencode($startDate);
     }
 
     public function getEndDate(): ?string {
@@ -77,7 +77,7 @@ class SubscriptionListRequest extends Request {
     }
 
     public function setEndDate(string $endDate): void {
-        $this->endDate = $endDate;
+        $this->endDate = urlencode($endDate);
     }
 
     public function getPricingPlanReferenceCode(): ?string {
