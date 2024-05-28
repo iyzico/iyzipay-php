@@ -24,6 +24,7 @@ class CreateCheckoutFormInitializeRequest extends Request
     private $posOrderId;
     private $enabledInstallments;
     private $debitCardAllowed;
+    private $shippingAmountExcluded;
 
     public function getPrice()
     {
@@ -185,6 +186,16 @@ class CreateCheckoutFormInitializeRequest extends Request
         return $this->debitCardAllowed;
     }
 
+    public function setShippingAmountExcluded($shippingAmountExcluded)
+    {
+        $this->shippingAmountExcluded = $shippingAmountExcluded;
+    }
+
+    public function getShippingAmountExcluded()
+    {
+        return $this->shippingAmountExcluded;
+    }
+
     public function getJsonObject()
     {
         return JsonBuilder::fromJsonObject(parent::getJsonObject())
@@ -204,6 +215,7 @@ class CreateCheckoutFormInitializeRequest extends Request
             ->add("cardUserKey", $this->getCardUserKey())
             ->addArray("enabledInstallments", $this->getEnabledInstallments())
             ->add("debitCardAllowed", $this->getDebitCardAllowed())
+            ->add("shippingAmountExcluded", $this->getShippingAmountExcluded())
             ->getObject();
     }
 
