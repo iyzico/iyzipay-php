@@ -27,6 +27,9 @@ class CheckoutFormInitializeResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->paymentPageUrl)) {
             $initialize->setPaymentPageUrl($jsonObject->paymentPageUrl);
         }
+        if (isset($jsonObject->signature)) {
+            $initialize->setSignature($jsonObject->signature);
+        }
         return $initialize;
     }
 
