@@ -20,7 +20,9 @@ class Payment extends PaymentResource
 
     public static function retrieve(RetrievePaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $uri = "/payment/detail";
+//        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return PaymentMapper::create($rawResult)->jsonDecode()->mapPayment(new Payment());
     }
 
