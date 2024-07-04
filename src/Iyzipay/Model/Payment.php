@@ -9,9 +9,12 @@ use Iyzipay\Request\RetrievePaymentRequest;
 
 class Payment extends PaymentResource
 {
+    private $signature;
+
     public static function create(CreatePaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/auth", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $uri = "/payment/auth";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return PaymentMapper::create($rawResult)->jsonDecode()->mapPayment(new Payment());
     }
 
@@ -19,5 +22,15 @@ class Payment extends PaymentResource
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return PaymentMapper::create($rawResult)->jsonDecode()->mapPayment(new Payment());
+    }
+
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
     }
 }
