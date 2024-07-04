@@ -83,7 +83,6 @@ $payWithIyzicoInitialize = \Iyzipay\Model\PayWithIyzicoInitialize::create($reque
 echo '<pre>';
 print_r($payWithIyzicoInitialize);
 
-//conversationId, token
 #verify signature
 $conversationId = $payWithIyzicoInitialize->getConversationId();
 $token = $payWithIyzicoInitialize->getToken();

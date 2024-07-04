@@ -3,7 +3,6 @@
 require_once('config.php');
 require_once('signature_verification.php');
 
-
 # create request class
 $request = new \Iyzipay\Request\CreatePaymentPostAuthRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
