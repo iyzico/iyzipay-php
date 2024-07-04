@@ -9,9 +9,12 @@ use Iyzipay\Request\RetrievePaymentRequest;
 
 class ThreedsPayment extends PaymentResource
 {
+    private $signature;
+
     public static function create(CreateThreedsPaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/auth", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $uri = "/payment/3dsecure/auth";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return ThreedsPaymentMapper::create($rawResult)->jsonDecode()->mapThreedsPayment(new ThreedsPayment());
     }
 
@@ -19,5 +22,15 @@ class ThreedsPayment extends PaymentResource
     {
         $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
         return ThreedsPaymentMapper::create($rawResult)->jsonDecode()->mapThreedsPayment(new ThreedsPayment());
+    }
+
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
     }
 }
