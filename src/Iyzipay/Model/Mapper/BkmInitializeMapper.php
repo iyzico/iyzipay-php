@@ -21,6 +21,9 @@ class BkmInitializeMapper extends IyzipayResourceMapper
         if (isset($jsonObject->token)) {
             $initialize->setToken($jsonObject->token);
         }
+        if (isset($jsonObject->signature)) {
+            $initialize->setSignature($jsonObject->signature);
+        }
         return $initialize;
     }
 

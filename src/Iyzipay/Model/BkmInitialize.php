@@ -11,10 +11,12 @@ class BkmInitialize extends IyzipayResource
 {
     private $htmlContent;
     private $token;
+    private $signature;
 
     public static function create(CreateBkmInitializeRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/bkm/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $uri = "/payment/bkm/initialize";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return BkmInitializeMapper::create($rawResult)->jsonDecode()->mapBkmInitialize(new BkmInitialize());
     }
 
@@ -36,5 +38,15 @@ class BkmInitialize extends IyzipayResource
     public function setToken($token)
     {
         $this->token = $token;
+    }
+
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
     }
 }

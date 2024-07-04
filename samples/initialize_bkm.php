@@ -1,6 +1,7 @@
 <?php
 
 require_once('config.php');
+require_once('signature_verification.php');
 
 # create request class
 $request = new \Iyzipay\Request\CreateBkmInitializeRequest();
@@ -78,3 +79,12 @@ $bkmInitialize = \Iyzipay\Model\BkmInitialize::create($request, Config::options(
 
 # print result
 print_r($bkmInitialize);
+
+#verify signature
+$signature = $bkmInitialize->getSignature();
+$token = $bkmInitialize->getToken();
+$conversationId = $bkmInitialize->getConversationId();
+
+$calculatedSignature = calculateHmacSHA256Signature(array($token, $conversationId));
+$verified = $signature == $calculatedSignature;
+echo "Signature verified: $verified";
