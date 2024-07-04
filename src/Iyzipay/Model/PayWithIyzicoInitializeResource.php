@@ -10,6 +10,7 @@ class PayWithIyzicoInitializeResource extends IyzipayResource
     private $payWithIyzicoContent;
     private $tokenExpireTime;
     private $payWithIyzicoPageUrl;
+    private $signature;
 
     public function getToken()
     {
@@ -50,4 +51,13 @@ class PayWithIyzicoInitializeResource extends IyzipayResource
     {
         $this->payWithIyzicoPageUrl = $payWithIyzicoPageUrl;
     }
+
+    public function getSignature() {
+        return $this->signature;
+    }
+
+    public function setSignature($signature) {
+        $this->signature = $signature;
+    }
+
 }

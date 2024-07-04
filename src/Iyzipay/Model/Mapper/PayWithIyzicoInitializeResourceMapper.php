@@ -27,6 +27,9 @@ class PayWithIyzicoInitializeResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->payWithIyzicoPageUrl)) {
             $initialize->setPaymentPageUrl($jsonObject->payWithIyzicoPageUrl);
         }
+        if (isset($jsonObject->signature)) {
+            $initialize->setSignature($jsonObject->signature);
+        }
         return $initialize;
     }
 
