@@ -7,7 +7,7 @@ require_once('signature_verification.php');
 $request = new \Iyzipay\Request\RetrievePayWithIyzicoRequest();
 $request->setLocale(\Iyzipay\Model\Locale::TR);
 $request->setConversationId("123456789");
-$request->setToken("f2a29cc5-90e4-4f6e-b05b-4e1e6902f003");
+$request->setToken("token");
 
 # make request
 $payWithIyzico = \Iyzipay\Model\PayWithIyzico::retrieve($request, Config::options());
