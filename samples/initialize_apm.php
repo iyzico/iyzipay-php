@@ -1,6 +1,7 @@
 <?php
 
 require_once('config.php');
+require_once('signature_verification.php');
 
 # create request class
 $request = new \Iyzipay\Request\CreateApmInitializeRequest();
@@ -84,3 +85,12 @@ $apmInitialize = \Iyzipay\Model\Apm::create($request, Config::options());
 
 # print result
 print_r($apmInitialize);
+
+#verify signature
+$paymentId = $apmInitialize->getPaymentId();
+$redirectUrl = $apmInitialize->getRedirectUrl();
+$signature = $apmInitialize->getSignature();
+
+$calculatedSignature = calculateHmacSHA256Signature(array($paymentId, $redirectUrl));
+$verified = $signature == $calculatedSignature;
+echo "Signature verified: $verified";
