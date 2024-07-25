@@ -10,7 +10,8 @@ class BasicPaymentPostAuth extends BasicPaymentResource
 {
     public static function create(CreatePaymentPostAuthRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/postauth/basic", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/payment/postauth/basic";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return BasicPaymentPostAuthMapper::create($rawResult)->jsonDecode()->mapBasicPaymentPostAuth(new BasicPaymentPostAuth());
     }
 }
