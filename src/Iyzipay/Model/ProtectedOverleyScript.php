@@ -14,7 +14,8 @@ class ProtectedOverleyScript extends IyzipayResource
 
     public static function retrieve(RetrieveProtectedOverleyScriptRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/v1/iyziup/protected/shop/detail/overlay-script", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/v1/iyziup/protected/shop/detail/overlay-script";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return ProtectedOverleyScriptMapper::create($rawResult)->jsonDecode()->mapProtectedOverleyScript(new ProtectedOverleyScript());
     }
 
