@@ -26,12 +26,14 @@ class C2CSubMerchant extends IyzipayResource {
     }
 
     public static function create(CreateC2CSubMerchantRequest $request, Options $options): C2CSubMerchant {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . '/onboarding/settlement-to-balance/submerchant', parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = '/onboarding/settlement-to-balance/submerchant';
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return self::mappedResult($rawResult);
     }
 
     public static function verify(VerifyC2CSubMerchantRequest $request, Options $options): C2CSubMerchant {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . '/onboarding/settlement-to-balance/submerchant/verify', parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = '/onboarding/settlement-to-balance/submerchant/verify';
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return self::mappedResult($rawResult);
     }
 
