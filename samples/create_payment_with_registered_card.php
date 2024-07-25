@@ -85,3 +85,16 @@ $payment = \Iyzipay\Model\Payment::create($request, Config::options());
 
 # print response
 print_r($payment);
+
+#verify signature
+$paymentId = $payment->getPaymentId();
+$currency = $payment->getCurrency();
+$basketId = $payment->getBasketId();
+$conversationId = $payment->getConversationId();
+$paidPrice = $payment->getPaidPrice();
+$price = $payment->getPrice();
+$signature = $payment->getSignature();
+
+$calculatedSignature = calculateHmacSHA256Signature(array($paymentId, $currency, $basketId, $conversationId, $paidPrice, $price));
+$verified = $signature == $calculatedSignature;
+echo "Signature verified: $verified";
