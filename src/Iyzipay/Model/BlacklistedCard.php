@@ -13,19 +13,22 @@ class BlacklistedCard extends IyzipayResource {
     private string $cardUserKey;
     private string $cardToken;
     private string $cardNumber;
+    const URL = '/cardstorage/blacklist/card';
 
     public static function create(CreateBlackListedCardRequest $request, Options $options): BlacklistedCard {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/cardstorage/blacklist/card", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . self::URL, parent::getHttpHeadersV2(self::URL, $request, $options), $request->toJsonString());
         return BlacklistedCardMapper::create($rawResult)->jsonDecode()->mapBlacklistedCard(new BlacklistedCard());
     }
 
     public static function retrieve(RetrieveBlacklistedCardRequest $request, Options $options): BlacklistedCard {
-        $rawResult = parent::httpClient()->post(($options)->getBaseUrl() . '/cardstorage/blacklist/card/retrieve', parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = self::URL . '/retrieve';
+        $rawResult = parent::httpClient()->post(($options)->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return BlacklistedCardMapper::create($rawResult)->jsonDecode()->mapRetrieveBlacklistedCard(new BlacklistedCard());
     }
 
     public static function update(UpdateBlackListedCardRequest $request, Options $options): BlacklistedCard {
-        $rawResult = parent::httpClient()->post(($options)->getBaseUrl() . '/cardstorage/blacklist/card/inactive', parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = self::URL . '/inactive';
+        $rawResult = parent::httpClient()->post(($options)->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return BlacklistedCardMapper::create($rawResult)->jsonDecode()->mapBlacklistedCard(new BlacklistedCard());
     }
 
