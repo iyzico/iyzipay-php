@@ -86,7 +86,7 @@ $basketItems[2] = $thirdBasketItem;
 $request->setBasketItems($basketItems);
 
 # make request
-$payment = \Iyzipay\Model\Payment::create($request, Config::options());
+$payment = \Iyzipay\Model\PaymentPreAuth::create($request, Config::options());
 
 # print response
 print_r($payment);
