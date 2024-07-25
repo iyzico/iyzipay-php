@@ -7,12 +7,10 @@ use Iyzipay\Request\Iyzilink\IyziLinkSaveProductRequest;
 use Iyzipay\Options;
 use Iyzipay\RequestStringBuilder;
 
-class IyziLinkSaveProduct extends IyziLinkSaveProductResource
-{
-    public static function create(IyziLinkSaveProductRequest $request, Options $options)
-    {
-        $uri = $options->getBaseUrl() . "/v2/iyzilink/products/". RequestStringBuilder::requestToStringQuery($request, null);
-        $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
+class IyziLinkSaveProduct extends IyziLinkSaveProductResource {
+    public static function create(IyziLinkSaveProductRequest $request, Options $options): IyziLinkSaveProduct {
+        $uri = $options->getBaseUrl() . "/v2/iyzilink/products/" . RequestStringBuilder::requestToStringQuery($request, null);
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/v2/iyzilink/products/", parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return IyziLinkSaveProductMapper::create($rawResult)->jsonDecode()->mapIyziLinkSaveProduct(new IyziLinkSaveProduct());
     }
 }

@@ -2,8 +2,7 @@
 
 namespace Iyzipay\Model;
 
-class Status
-{
+class Status {
     const SUCCESS = "success";
     const FAILURE = "failure";
     const ACTIVE = "ACTIVE";

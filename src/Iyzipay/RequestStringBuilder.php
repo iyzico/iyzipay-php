@@ -139,7 +139,6 @@ class RequestStringBuilder
 
     public static function requestToStringQuery(Request $request, $type = null)
     {
-
         $stringQuery = false;
 
         if($request->getConversationId()) {
