@@ -15,7 +15,7 @@ $hmac256Signature = bin2hex(hash_hmac('sha256', $key, $secretKey, true));
 
 $signature_v3 = "signature_v3_from_webhook_header";
 
-if ($hmac256Signature == $signature) {
+if ($hmac256Signature == $signature_v3) {
     echo "HMAC-SHA256 Signature Verified: " . $hmac256Signature . "\n";
     echo "Enjoy your code...";
 } else {
@@ -35,7 +35,7 @@ $hmac256Signature = bin2hex(hash_hmac('sha256', $key, $secretKey, true));
 
 $signature_v3 = "signature_v3_from_webhook_header";
 
-if ($hmac256Signature == $signature) {
+if ($hmac256Signature == $signature_v3) {
     echo "HMAC-SHA256 Signature Verified: " . $hmac256Signature . "\n";
     echo "Enjoy your code...";
 } else {
