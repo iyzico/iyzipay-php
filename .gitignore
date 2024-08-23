@@ -32,3 +32,6 @@ composer.phar
 vendor/*
 
 .phpunit.result.cache
+
+# PHPFiles
+index.php
