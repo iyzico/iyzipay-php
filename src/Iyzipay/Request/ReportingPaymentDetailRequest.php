@@ -8,7 +8,7 @@ use Iyzipay\Request;
 class ReportingPaymentDetailRequest extends Request
 {
     private $paymentConversationId = null;
-    prıvate $paymentId = null;
+    private $paymentId = null;
 
     public function getPaymentConversationId()
     {
