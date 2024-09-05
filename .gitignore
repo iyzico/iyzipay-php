@@ -35,3 +35,9 @@ vendor/*
 
 # PHPFiles
 index.php
+
+# VSCode
+.vscode
+
+# SonarQube
+.scannerwork
