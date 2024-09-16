@@ -8,7 +8,7 @@ $request->setEmail("email@iyzico.com");
 $request->setGsmNumber("+905555555555");
 
 # make request
-$result = \Iyzipay\Model\UCSInitialize::create($request,Config::options());
+$result = \Iyzipay\Model\UCSInitialize::create($request, Config::options());
 
 # print result
-print_r($payment);
+print_r($result);
