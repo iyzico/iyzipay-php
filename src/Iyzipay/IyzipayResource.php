@@ -12,21 +12,6 @@ class IyzipayResource extends ApiResource
     private $systemTime;
     private $conversationId;
 
-    protected static function getHttpHeaders(Request $request, Options $options)
-    {
-        $header = array(
-            "Accept: application/json",
-            "Content-type: application/json",
-        );
-
-        $rnd = uniqid();
-        array_push($header, "Authorization: " . self::prepareAuthorizationString($request, $options, $rnd));
-        array_push($header, "x-iyzi-rnd: " . $rnd);
-        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.55");
-
-        return $header;
-    }
-
     protected static function getHttpHeadersV2($uri, Request $request = null, Options $options, bool $addRandom = false)
     {
         $header = array(
@@ -38,7 +23,7 @@ class IyzipayResource extends ApiResource
         array_push($header, "Authorization: " . self::prepareAuthorizationStringV2($uri, $request, $options, $rnd));
         $addRandom && array_push($header, "x-iyzi-rnd: " . $rnd);
         array_push($header, "AUTHORIZATION_FALLBACK_HEADER: " . self::prepareAuthorizationString($request, $options, $rnd));
-        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.43");
+        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.55");
 
         return $header;
     }
@@ -53,7 +38,7 @@ class IyzipayResource extends ApiResource
         $rnd = uniqid();
         array_push($header, "Authorization: " . self::prepareAuthorizationStringV2($uri, $request, $options, $rnd));
         $addRandom && array_push($header, "x-iyzi-rnd: " . $rnd);
-        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.43");
+        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.55");
 
         return $header;
     }
