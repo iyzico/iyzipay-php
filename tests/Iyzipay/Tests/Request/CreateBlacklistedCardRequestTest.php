@@ -35,8 +35,8 @@ class CreateBlacklistedCardRequestTest extends TestCase {
             {
                 "locale":"tr",
                 "conversationId":"123456789",
-                "cardToken":"card token",
-                "cardUserKey":"card user key"
+                "cardUserKey":"card user key",
+                "cardToken":"card token"
             }';
 
         $this->assertJson($request->toJsonString());
