@@ -129,7 +129,7 @@ class CreateCheckoutFormInitializeRequestTest extends TestCase
                 "paymentGroup":"PRODUCT",
                 "paymentSource":"source",
                 "posOrderId":"order",
-                "forceThreeDS":"1",
+                "forceThreeDS":1,
                 "cardUserKey":"user key",
                 "buyer":
                 {
