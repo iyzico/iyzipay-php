@@ -27,6 +27,7 @@ class TestCase extends BaseTestCase
 
     public function test_should_check_if_options_not_empty()
     {
+        $this->options = new Options();
         $this->assertNotEmpty($this->options);
     }
 
