@@ -13,8 +13,8 @@ class UpdateBlacklistedCardRequestTest extends TestCase {
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
-        $this->assertEquals("card user key", $jsonObject["cardUserKey"]);
         $this->assertEquals("card token", $jsonObject["cardToken"]);
+        $this->assertEquals("card user key", $jsonObject["cardUserKey"]);
     }
 
     public function test_should_convert_to_pki_request_string(): void {
@@ -22,8 +22,9 @@ class UpdateBlacklistedCardRequestTest extends TestCase {
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
-            "cardUserKey=card user key," .
-            "cardToken=card token]";
+            "cardToken=card token," .
+            "cardUserKey=card user key]";
+//            "cardToken=card token]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -47,8 +48,8 @@ class UpdateBlacklistedCardRequestTest extends TestCase {
         $request = new UpdateBlackListedCardRequest();
         $request->setLocale(Locale::TR);
         $request->setConversationId("123456789");
-        $request->setCardUserKey("card user key");
         $request->setCardToken("card token");
+        $request->setCardUserKey("card user key");
         return $request;
     }
 }
