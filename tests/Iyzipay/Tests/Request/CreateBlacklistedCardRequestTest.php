@@ -22,8 +22,9 @@ class CreateBlacklistedCardRequestTest extends TestCase {
 
         $str = "[locale=tr," .
             "conversationId=123456789," .
-            "cardUserKey=card user key," .
-            "cardToken=card token]";
+            "cardToken=card token," .
+            "cardUserKey=card user key]";
+//            "cardToken=card token]";
 
         $this->assertEquals($str, $request->toPKIRequestString());
     }
@@ -35,8 +36,8 @@ class CreateBlacklistedCardRequestTest extends TestCase {
             {
                 "locale":"tr",
                 "conversationId":"123456789",
-                "cardUserKey":"card user key",
-                "cardToken":"card token"
+                "cardToken":"card token",
+                "cardUserKey":"card user key"
             }';
 
         $this->assertJson($request->toJsonString());
