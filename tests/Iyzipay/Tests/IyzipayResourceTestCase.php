@@ -26,7 +26,7 @@ class IyzipayResourceTestCase extends TestCase
         parent::setUp();
 
         $this->httpClient = $this->getMockBuilder("HttpClient")
-            ->setMethods(array("get", "getV2","post", "put", "delete", "exchange"))
+            ->setMethods(array("get", "getV2","post", "patch", "delete", "exchange"))
             ->getMock();
 
         ApiResource::setHttpClient($this->httpClient);
@@ -57,7 +57,7 @@ class IyzipayResourceTestCase extends TestCase
 
     protected function expectHttpPut()
     {
-        $this->expectHttpClient("put");
+        $this->expectHttpClient("patch");
     }
 
     protected function expectHttpDelete()
