@@ -14,7 +14,7 @@ class IyziLinkUpdateProductStatusTest extends IyzipayResourceTestCase {
         $request->setToken('AAM');
         $request->setProductStatus(Status::PASSIVE);
 
-        $this->expectHttpPut();
+        $this->expectHttpPatch();
         $iyziLinkUpdateProductStatus = IyziLinkUpdateProductStatus::create($request, $this->options);
         $this->verifyResource($iyziLinkUpdateProductStatus);
     }

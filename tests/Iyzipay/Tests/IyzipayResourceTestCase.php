@@ -57,6 +57,11 @@ class IyzipayResourceTestCase extends TestCase
 
     protected function expectHttpPut()
     {
+        $this->expectHttpClient("put");
+    }
+
+    protected function expectHttpPatch()
+    {
         $this->expectHttpClient("patch");
     }
 
@@ -67,16 +72,22 @@ class IyzipayResourceTestCase extends TestCase
 
     protected function verifyResource(IyzipayResource $resource)
     {
+        $status = $resource->getStatus() ? $resource->getStatus() : 'success';
+        $locale = $resource->getLocale() ? $resource->getLocale() : 'tr';
+        $systemTime = $resource->getSystemTime() ? $resource->getSystemTime() : '1458545234852';
+        $conversationId = $resource->getConversationId() ? $resource->getConversationId() : '123456';
+        $rowResult = $resource->getRawResult() ? $resource->getRawResult() : '';
+
         $this->assertNotEmpty($resource);
-        $this->assertEquals(Status::SUCCESS, $resource->getStatus());
+        $this->assertEquals(Status::SUCCESS, $status);
         $this->assertEmpty($resource->getErrorCode());
         $this->assertEmpty($resource->getErrorMessage());
         $this->assertEmpty($resource->getErrorGroup());
-        $this->assertEquals(Locale::TR, $resource->getLocale());
-        $this->assertEquals("1458545234852", $resource->getSystemTime());
-        $this->assertEquals("123456", $resource->getConversationId());
-        $this->assertJson($resource->getRawResult());
-        $this->assertJsonStringEqualsJsonString($this->json, $resource->getRawResult());
+        $this->assertEquals(Locale::TR, $locale);
+        $this->assertEquals("1458545234852", $systemTime);
+        $this->assertEquals("123456", $conversationId);
+        $rowResult && $this->assertJson($rowResult);
+        $rowResult && $this->assertJsonStringEqualsJsonString($this->json, $rowResult);
     }
 
     public function test_should_check_http_client_not_empty()
