@@ -5,7 +5,7 @@ namespace Iyzipay\Tests;
 use Iyzipay\ApiResource;
 use Iyzipay\DefaultHttpClient;
 
-class ApiResourceTest extends \PHPUnit_Framework_TestCase
+class ApiResourceTest extends TestCase
 {
     public function test_should_create_default_http_client()
     {

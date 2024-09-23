@@ -17,7 +17,7 @@ class CreateBasicBkmInitializeRequestTest extends TestCase
 
         $this->assertEquals(Locale::TR, $jsonObject["locale"]);
         $this->assertEquals("123456789", $jsonObject["conversationId"]);
-        $this->assertEquals("1", $jsonObject["price"]);
+        $this->assertEquals("1.0", $jsonObject["price"]);
         $this->assertEquals("https://www.merchant.com/callback", $jsonObject["callbackUrl"]);
         $this->assertEquals("100", $jsonObject["buyerId"]);
         $this->assertEquals("email@email.com", $jsonObject["buyerEmail"]);
@@ -30,7 +30,7 @@ class CreateBasicBkmInitializeRequestTest extends TestCase
         $this->assertNotEmpty($jsonObject["installmentDetails"][0]["installmentPrices"]);
         $this->assertEquals(5, count($jsonObject["installmentDetails"][0]["installmentPrices"]));
         $this->assertEquals("1", $jsonObject["installmentDetails"][0]["installmentPrices"][0]["installmentNumber"]);
-        $this->assertEquals("1", $jsonObject["installmentDetails"][0]["installmentPrices"][0]["totalPrice"]);
+        $this->assertEquals("1.0", $jsonObject["installmentDetails"][0]["installmentPrices"][0]["totalPrice"]);
         $this->assertEquals("2", $jsonObject["installmentDetails"][0]["installmentPrices"][1]["installmentNumber"]);
         $this->assertEquals("1.1", $jsonObject["installmentDetails"][0]["installmentPrices"][1]["totalPrice"]);
         $this->assertEquals("3", $jsonObject["installmentDetails"][0]["installmentPrices"][2]["installmentNumber"]);

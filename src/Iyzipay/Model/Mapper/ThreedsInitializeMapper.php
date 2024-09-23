@@ -18,6 +18,12 @@ class ThreedsInitializeMapper extends IyzipayResourceMapper
         if (isset($jsonObject->threeDSHtmlContent)) {
             $initialize->setHtmlContent(base64_decode($jsonObject->threeDSHtmlContent));
         }
+        if (isset($jsonObject->paymentId)) {
+            $initialize->setPaymentId($jsonObject->paymentId);
+        }
+        if (isset($jsonObject->signature)) {
+            $initialize->setSignature($jsonObject->signature);
+        }
         return $initialize;
     }
 

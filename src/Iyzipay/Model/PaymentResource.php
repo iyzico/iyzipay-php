@@ -30,6 +30,7 @@ class PaymentResource extends IyzipayResource
     private $phase;
     private $lastFourDigits;
     private $posOrderId;
+    private $signature;
 
     public function getPrice()
     {
@@ -269,5 +270,15 @@ class PaymentResource extends IyzipayResource
     public function setPosOrderId($posOrderId)
     {
         $this->posOrderId = $posOrderId;
+    }
+
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
     }
 }

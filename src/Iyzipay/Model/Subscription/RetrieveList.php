@@ -22,30 +22,30 @@ class RetrieveList extends IyzipayResource
 
     public static function products(SubscriptionListProductsRequest $request, Options $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/products".RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
+        $uri = $options->getBaseUrl() . "/v2/subscription/products" . RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersIsV2($uri, null, $options), $request->toJsonString());
         return RetrieveListMapper::create($rawResult)->jsonDecode()->mapRetrieveList(new RetrieveList());
     }
 
     public static function pricingPlan(SubscriptionListPricingPlanRequest $request, Options $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/products/".$request->getProductReferenceCode()."/pricing-plans".RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
+        $uri = $options->getBaseUrl() . "/v2/subscription/products/" . $request->getProductReferenceCode() . "/pricing-plans" . RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersIsV2($uri, null, $options), $request->toJsonString());
         return RetrieveListMapper::create($rawResult)->jsonDecode()->mapRetrieveList(new RetrieveList());
     }
 
     public static function customers(SubscriptionListCustomersRequest $request, Options $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/customers".RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
+        $uri = $options->getBaseUrl() . "/v2/subscription/customers" . RequestStringBuilder::requestToStringQuery($request, 'subscriptionItems');
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersIsV2($uri, null, $options), $request->toJsonString());
         return RetrieveListMapper::create($rawResult)->jsonDecode()->mapRetrieveList(new RetrieveList());
     }
 
 
     public static function subscriptions(SubscriptionSearchRequest $request, Options $options)
     {
-        $uri = $options->getBaseUrl() . "/v2/subscription/subscriptions".RequestStringBuilder::requestToStringQuery($request, 'searchSubscription');
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
+        $uri = $options->getBaseUrl() . "/v2/subscription/subscriptions" . RequestStringBuilder::requestToStringQuery($request, 'searchSubscription');
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersIsV2($uri, null, $options), $request->toJsonString());
         return RetrieveListMapper::create($rawResult)->jsonDecode()->mapRetrieveList(new RetrieveList());
     }
 

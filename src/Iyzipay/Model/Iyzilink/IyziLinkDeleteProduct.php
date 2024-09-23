@@ -13,7 +13,7 @@ class IyziLinkDeleteProduct extends IyziLinkDeleteProductResource
     public static function create(Request $request, Options $options, $token)
     {
         $uri = $options->getBaseUrl() . "/v2/iyzilink/products/" . $token . RequestStringBuilder::requestToStringQuery($request, null);
-        $rawResult = parent::httpClient()->delete($uri, parent::getHttpHeadersV2($uri, null, $options));
+        $rawResult = parent::httpClient()->delete($uri, parent::getHttpHeadersIsV2($uri, null, $options));
         return IyziLinkDeleteProductMapper::create($rawResult)->jsonDecode()->mapIyziLinkDeleteProduct(new IyziLinkDeleteProduct());
     }
 }

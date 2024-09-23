@@ -10,7 +10,8 @@ class BasicPaymentPreAuth extends BasicPaymentResource
 {
     public static function create(CreateBasicPaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/preauth/basic", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/payment/preauth/basic";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return BasicPaymentPreAuthMapper::create($rawResult)->jsonDecode()->mapBasicPaymentPreAuth(new BasicPaymentPreAuth());
     }
 }

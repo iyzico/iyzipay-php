@@ -77,7 +77,7 @@ class CreateBasicPaymentRequestTest extends TestCase
                 "conversationId":"123456789",
                 "price":"1.0",
                 "paidPrice":"1.0",
-                "installment":"1",
+                "installment":1,
                 "buyerEmail":"email@email.com",
                 "buyerId":"B2323",
                 "buyerIp":"85.34.78.112",

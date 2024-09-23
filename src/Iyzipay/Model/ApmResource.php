@@ -29,6 +29,7 @@ class ApmResource extends IyzipayResource
     private $apm;
     private $mobilePhone;
     private $paymentStatus;
+    private $signature;
 
     public function getRedirectUrl()
     {
@@ -258,5 +259,15 @@ class ApmResource extends IyzipayResource
     public function setPaymentStatus($paymentStatus)
     {
         $this->paymentStatus = $paymentStatus;
+    }
+
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
     }
 }

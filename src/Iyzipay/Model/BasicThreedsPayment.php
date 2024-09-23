@@ -10,7 +10,8 @@ class BasicThreedsPayment extends BasicPaymentResource
 {
     public static function create(CreateThreedsPaymentRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/3dsecure/auth/basic", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/payment/3dsecure/auth/basic";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return BasicThreedsPaymentMapper::create($rawResult)->jsonDecode()->mapBasicThreedsPayment(new BasicThreedsPayment());
     }
 }

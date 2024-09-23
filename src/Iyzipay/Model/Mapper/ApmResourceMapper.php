@@ -84,6 +84,9 @@ class ApmResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->paymentStatus)) {
             $apmResource->setPaymentStatus($jsonObject->paymentStatus);
         }
+        if (isset($jsonObject->signature)) {
+            $apmResource->setSignature($jsonObject->signature);
+        }
         return $apmResource;
     }
 

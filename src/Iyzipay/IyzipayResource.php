@@ -27,7 +27,7 @@ class IyzipayResource extends ApiResource
         return $header;
     }
 
-    protected static function getHttpHeadersV2($uri, Request $request = null, Options $options)
+    protected static function getHttpHeadersV2($uri, Request $request = null, Options $options, bool $addRandom = false)
     {
         $header = array(
             "Accept: application/json",
@@ -36,12 +36,29 @@ class IyzipayResource extends ApiResource
 
         $rnd = uniqid();
         array_push($header, "Authorization: " . self::prepareAuthorizationStringV2($uri, $request, $options, $rnd));
-        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.43");
+        $addRandom && array_push($header, "x-iyzi-rnd: " . $rnd);
+        array_push($header, "AUTHORIZATION_FALLBACK_HEADER: " . self::prepareAuthorizationString($request, $options, $rnd));
+        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.55");
 
         return $header;
     }
 
-    protected static function prepareAuthorizationString(Request $request, Options $options, $rnd)
+    protected static function getHttpHeadersIsV2($uri, Request $request = null, Options $options, bool $addRandom = false)
+    {
+        $header = array(
+            "Accept: application/json",
+            "Content-type: application/json",
+        );
+
+        $rnd = uniqid();
+        array_push($header, "Authorization: " . self::prepareAuthorizationStringV2($uri, $request, $options, $rnd));
+        $addRandom && array_push($header, "x-iyzi-rnd: " . $rnd);
+        array_push($header, "x-iyzi-client-version: " . "iyzipay-php-2.0.55");
+
+        return $header;
+    }
+
+    protected static function prepareAuthorizationString($request, Options $options, $rnd)
     {
         $authContent = HashGenerator::generateHash($options->getApiKey(), $options->getSecretKey(), $rnd, $request);
         return vsprintf("IYZWS %s:%s", array($options->getApiKey(), $authContent));
@@ -51,7 +68,7 @@ class IyzipayResource extends ApiResource
     {
         $hash = IyziAuthV2Generator::generateAuthContent($uri, $options->getApiKey(), $options->getSecretKey(), $rnd, $request);
 
-        return 'IYZWSv2'.' '.$hash;
+        return 'IYZWSv2' . ' ' . $hash;
     }
 
     public function getStatus()

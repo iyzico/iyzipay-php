@@ -4,11 +4,11 @@ namespace Iyzipay\Tests;
 
 use Iyzipay\DefaultHttpClient;
 
-class DefaultHttpClientTest extends \PHPUnit_Framework_TestCase
+class DefaultHttpClientTest extends TestCase
 {
     private $curl;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->curl = $this->getMockBuilder("Curl")
             ->setMethods(array("exec"))
@@ -47,7 +47,7 @@ class DefaultHttpClientTest extends \PHPUnit_Framework_TestCase
             ))
             ->willReturn("result");
 
-        $result = DefaultHttpClient::create($this->curl)->getV2("url","header");
+        $result = DefaultHttpClient::create($this->curl)->getV2("url", "header");
 
         $this->assertEquals("result", $result);
     }

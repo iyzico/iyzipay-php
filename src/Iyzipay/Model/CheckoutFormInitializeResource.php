@@ -10,6 +10,7 @@ class CheckoutFormInitializeResource extends IyzipayResource
     private $checkoutFormContent;
     private $tokenExpireTime;
     private $paymentPageUrl;
+    private $signature;
 
     public function getToken()
     {
@@ -49,5 +50,13 @@ class CheckoutFormInitializeResource extends IyzipayResource
     public function setPaymentPageUrl($paymentPageUrl)
     {
         $this->paymentPageUrl = $paymentPageUrl;
+    }
+
+    public function getSignature() {
+        return $this->signature;
+    }
+
+    public function setSignature($signature) {
+        $this->signature = $signature;
     }
 }

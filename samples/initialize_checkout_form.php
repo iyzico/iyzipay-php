@@ -1,6 +1,7 @@
 <?php
 
 require_once('config.php');
+require_once('signature_verification.php');
 
 # create request class
 $request = new \Iyzipay\Request\CreateCheckoutFormInitializeRequest();
@@ -80,3 +81,12 @@ $checkoutFormInitialize = \Iyzipay\Model\CheckoutFormInitialize::create($request
 
 # print result
 print_r($checkoutFormInitialize);
+
+#verify signature
+$signature = $checkoutFormInitialize->getSignature();
+$token = $checkoutFormInitialize->getToken();
+$conversationId = $checkoutFormInitialize->getConversationId();
+
+$calculatedSignature = calculateHmacSHA256Signature(array($conversationId, $token));
+$verified = $signature == $calculatedSignature;
+echo "Signature verified: $verified";

@@ -1,6 +1,7 @@
 <?php
 
 require_once('config.php');
+require_once('signature_verification.php');
 
 # create request class
 $request = new \Iyzipay\Request\CreatePayWithIyzicoInitializeRequest();
@@ -81,3 +82,11 @@ $payWithIyzicoInitialize = \Iyzipay\Model\PayWithIyzicoInitialize::create($reque
 # print result
 echo '<pre>';
 print_r($payWithIyzicoInitialize);
+
+#verify signature
+$conversationId = $payWithIyzicoInitialize->getConversationId();
+$token = $payWithIyzicoInitialize->getToken();
+$signature = $payWithIyzicoInitialize->getSignature();
+$calculatedSignature = calculateHmacSHA256Signature(array($conversationId, $token));
+$verified = $signature == $calculatedSignature;
+echo "Signature verified: $verified";

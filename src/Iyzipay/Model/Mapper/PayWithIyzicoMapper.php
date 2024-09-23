@@ -21,6 +21,12 @@ class PayWithIyzicoMapper extends PaymentResourceMapper
         if (isset($jsonObject->callbackUrl)) {
             $auth->setCallbackUrl($jsonObject->callbackUrl);
         }
+        if (isset($jsonObject->paymentStatus)) {
+            $auth->setPaymentStatus($jsonObject->paymentStatus);
+        }
+        if (isset($jsonObject->signature)) {
+            $auth->setSignature($jsonObject->signature);
+        }
         return $auth;
     }
 

@@ -14,7 +14,8 @@ class BasicBkm extends BasicPaymentResource
 
     public static function retrieve(RetrieveBkmRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/bkm/auth/detail/basic", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/payment/bkm/auth/detail/basic";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return BasicBkmMapper::create($rawResult)->jsonDecode()->mapBasicBkm(new BasicBkm());
     }
 

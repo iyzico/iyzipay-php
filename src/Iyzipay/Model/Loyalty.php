@@ -11,7 +11,8 @@ class Loyalty extends IyzipayResource
 {
     public static function retrieve(RetrieveLoyaltyRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/loyalty/inquire", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/payment/loyalty/inquire";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return LoyaltyMapper::create($rawResult)->jsonDecode()->mapLoyalty(new Loyalty());
     }
 

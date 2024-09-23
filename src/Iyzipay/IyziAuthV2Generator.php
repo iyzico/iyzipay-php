@@ -25,18 +25,21 @@ class IyziAuthV2Generator
 
     public static function getPayload($uri, Request $request = null)
     {
-
+        $uriPath = $uri;
         $startNumber  = strpos($uri, '/v2');
         $endNumber    = strpos($uri, '?');
-        if(strpos($uri,"subscription") || strpos($uri,"ucs")){
-            $endNumber = strlen($uri);
-            if(strpos($uri,'?')){
-                $endNumber    = strpos($uri, '?');
-            }
-        }
-        $endNumber-=  $startNumber;
 
-        $uriPath      =  substr($uri, $startNumber, $endNumber);
+
+        if ($startNumber) {
+            if (strpos($uri, "subscription") || strpos($uri, "ucs")) {
+                $endNumber = strlen($uri);
+                if (strpos($uri, '?')) {
+                    $endNumber = strpos($uri, '?');
+                }
+            }
+            $endNumber -= $startNumber;
+            $uriPath =  substr($uri, $startNumber, $endNumber);
+        }
 
         if (!empty($request) && $request->toJsonString() != '[]')
             $uriPath = $uriPath.$request->toJsonString();

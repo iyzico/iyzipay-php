@@ -13,7 +13,8 @@ class Approval extends IyzipayResource
 
     public static function create(CreateApprovalRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/item/approve", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/payment/iyzipos/item/approve";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return ApprovalMapper::create($rawResult)->jsonDecode()->mapApproval(new Approval());
     }
 

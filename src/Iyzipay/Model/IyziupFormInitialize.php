@@ -10,7 +10,8 @@ class IyziupFormInitialize extends IyziupFormInitializeResource
 {
     public static function create(CreateIyziupFormInitializeRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/v1/iyziup/form/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $url = "/v1/iyziup/form/initialize";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $url, parent::getHttpHeadersV2($url, $request, $options), $request->toJsonString());
         return IyziupFormInitializeMapper::create($rawResult)->jsonDecode()->mapIyziupFormInitialize(new IyziupFormInitialize());
     }
 }

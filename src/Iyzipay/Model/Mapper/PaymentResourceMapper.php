@@ -87,6 +87,9 @@ class PaymentResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->posOrderId)) {
             $paymentResource->setPosOrderId($jsonObject->posOrderId);
         }
+        if (isset($jsonObject->signature)) {
+            $paymentResource->setSignature($jsonObject->signature);
+        }
         return $paymentResource;
     }
 

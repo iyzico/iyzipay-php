@@ -1,6 +1,7 @@
 <?php
 
 require_once('config.php');
+require_once('signature_verification.php');
 
 # create request class
 $request = new \Iyzipay\Request\CreatePaymentRequest();
@@ -90,3 +91,12 @@ $threedsInitialize = \Iyzipay\Model\ThreedsInitialize::create($request, Config::
 
 # print result
 print_r($threedsInitialize);
+
+#verify signature
+$paymentId = $threedsInitialize->getPaymentId();
+$conversationId = $threedsInitialize->getConversationId();
+$signature = $threedsInitialize->getSignature();
+
+$calculatedSignature = calculateHmacSHA256Signature(array($paymentId, $conversationId));
+$verified = $signature == $calculatedSignature;
+echo "Signature verified: $verified";

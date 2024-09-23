@@ -10,11 +10,13 @@ class PayWithIyzico extends PaymentResource
 {
     private $token;
     private $callbackUrl;
+    private $paymentStatus;
+    private $signature;
 
     public static function retrieve(RetrievePayWithIyzicoRequest $request, Options $options)
     {
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/iyzipos/checkoutform/auth/ecom/detail", parent::getHttpHeaders($request, $options), $request->toJsonString());
-
+        $uri = "/payment/iyzipos/checkoutform/auth/ecom/detail";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return PayWithIyzicoMapper::create($rawResult)->jsonDecode()->mapPayWithIyzico(new PayWithIyzico());
     }
 
@@ -36,5 +38,23 @@ class PayWithIyzico extends PaymentResource
     public function setCallbackUrl($callbackUrl)
     {
         $this->callbackUrl = $callbackUrl;
+    }
+
+    public function getPaymentStatus() {
+        return $this->paymentStatus;
+    }
+
+    public function setPaymentStatus($paymentStatus) {
+        $this->paymentStatus = $paymentStatus;
+    }
+
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
     }
 }

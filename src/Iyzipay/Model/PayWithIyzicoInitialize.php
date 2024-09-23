@@ -10,8 +10,8 @@ class PayWithIyzicoInitialize extends PayWithIyzicoInitializeResource
 {
     public static function create(CreatePayWithIyzicoInitializeRequest $request, Options $options)
     {
-
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . "/payment/pay-with-iyzico/initialize", parent::getHttpHeaders($request, $options), $request->toJsonString());
+        $uri = "/payment/pay-with-iyzico/initialize";
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return PayWithIyzicoInitializeMapper::create($rawResult)->jsonDecode()->mapPayWithIyzicoInitialize(new PayWithIyzicoInitialize());
 
     }
