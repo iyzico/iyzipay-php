@@ -26,7 +26,7 @@ class IyzipayResourceTestCase extends TestCase
         parent::setUp();
 
         $this->httpClient = $this->getMockBuilder("HttpClient")
-            ->setMethods(array("get", "getV2","post", "patch", "delete", "exchange"))
+            ->setMethods(array("get", "getV2","post", "put", "patch", "delete", "exchange"))
             ->getMock();
 
         ApiResource::setHttpClient($this->httpClient);
