@@ -9,7 +9,7 @@ use Iyzipay\RequestStringBuilder;
 
 class IyziLinkRetrieveProduct extends IyziLinkRetrieveProductResource
 {
-    public static function create(Request $request, Options $options, $token)
+    public static function create($request, Options $options, $token)
     {
         $uri = $options->getBaseUrl() . "/v2/iyzilink/products/" . $token. RequestStringBuilder::requestToStringQuery($request, null);
         $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options));

@@ -4,9 +4,10 @@ namespace Iyzipay;
 
 class HashGenerator
 {
-    public static function generateHash($apiKey, $secretKey, $randomString, Request $request)
+    public static function generateHash($apiKey, $secretKey, $randomString, $request)
     {
-        $hashStr = $apiKey . $randomString . $secretKey . $request->toPKIRequestString();
+        $pKIRequestString = $request ? $request->toPKIRequestString() : '';
+        $hashStr = $apiKey . $randomString . $secretKey . $pKIRequestString;
         return base64_encode(sha1($hashStr, true));
     }
 }

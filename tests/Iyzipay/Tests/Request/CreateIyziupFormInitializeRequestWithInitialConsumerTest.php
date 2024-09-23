@@ -123,7 +123,7 @@ class CreateIyziupFormInitializeRequestWithInitialConsumerTest extends TestCase
                 "merchantOrderId":"B67832",
                 "paymentGroup":"PRODUCT",
                 "paymentSource":"source",
-                "forceThreeDS":"1",
+                "forceThreeDS":1,
                 "enabledInstallments":[1,2,3,6,9],
                 "enabledCardFamily":"Bonus",
                 "currency":"TRY",
