@@ -166,6 +166,9 @@ class RequestStringBuilder
             if($request->getPaymentConversationId()) {
                 $stringQuery .= "?paymentConversationId=" . $request->getPaymentConversationId();
             }
+            if($request->getPaymentId()) {
+                $stringQuery .= "?paymentId=" . $request->getPaymentId();
+            }
         }
 
         if($type == 'reportingTransaction') {
