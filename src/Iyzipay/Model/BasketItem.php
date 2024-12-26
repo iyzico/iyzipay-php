@@ -134,7 +134,6 @@ class BasketItem extends BaseModel
             ->append("itemType", $this->getItemType())
             ->append("subMerchantKey", $this->getSubMerchantKey())
             ->appendPrice("subMerchantPrice", $this->getSubMerchantPrice())
-            ->append("withholdingTax", $this->getWithholdingTax())
             ->getRequestString();
     }
 }

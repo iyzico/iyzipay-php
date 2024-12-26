@@ -73,7 +73,6 @@ class SubMerchantPaymentItemUpdateRequest extends Request
             ->append("subMerchantKey", $this->getSubMerchantKey())
             ->append("paymentTransactionId", $this->getPaymentTransactionId())
             ->append("subMerchantPrice", $this->getSubMerchantPrice())
-            ->append("withholdingTax", $this->getWithholdingTax())
             ->getRequestString();
     }
 }
