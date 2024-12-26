@@ -76,6 +76,9 @@ class PaymentItemMapper
             if (isset($itemTransaction->convertedPayout)) {
                 $paymentItem->setConvertedPayout($this->mapConvertedPayout($itemTransaction->convertedPayout));
             }
+            if (isset($itemTransaction->withholdingTax)) {
+                $paymentItem->setWithholdingTax($itemTransaction->withholdingTax);
+            }
             $paymentItems[$index] = $paymentItem;
         }
         return $paymentItems;

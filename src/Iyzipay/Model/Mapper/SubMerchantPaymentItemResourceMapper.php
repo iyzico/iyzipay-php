@@ -27,6 +27,11 @@ class SubMerchantPaymentItemResourceMapper extends IyzipayResourceMapper
             $create->setSubMerchantPrice($jsonObject->subMerchantPrice);
         }
 
+        if(isset($jsonObject->withholdingTax))
+        {
+            $create->setWithholdingTax($jsonObject->withholdingTax);
+        }
+
         return $create;
     }
 

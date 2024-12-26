@@ -11,6 +11,7 @@ class SubMerchantPaymentItemUpdateRequest extends Request
     private $subMerchantKey;
     private $paymentTransactionId;
     private $subMerchantPrice;
+    private $withholdingTax;
 
 
     public function getSubMerchantKey()
@@ -43,6 +44,16 @@ class SubMerchantPaymentItemUpdateRequest extends Request
         $this->subMerchantPrice = $subMerchantPrice;
     }
 
+    public function getWithholdingTax()
+    {
+        return $this->withholdingTax;
+    }
+
+    public function setWithholdingTax($withholdingTax)
+    {
+        $this->withholdingTax = $withholdingTax;
+    }
+
 
     public function getJsonObject()
     {
@@ -51,6 +62,7 @@ class SubMerchantPaymentItemUpdateRequest extends Request
             ->add("subMerchantKey", $this->getSubMerchantKey())
             ->add("paymentTransactionId", $this->getPaymentTransactionId())
             ->addPrice("subMerchantPrice", $this->getSubMerchantPrice())
+            ->addPrice("withholdingTax", $this->getWithholdingTax())
             ->getObject();
     }
 
