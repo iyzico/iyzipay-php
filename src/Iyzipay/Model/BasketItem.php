@@ -16,6 +16,7 @@ class BasketItem extends BaseModel
     private $itemType;
     private $subMerchantKey;
     private $subMerchantPrice;
+    private $withholdingTax;
 
     public function getId()
     {
@@ -95,6 +96,16 @@ class BasketItem extends BaseModel
     public function setSubMerchantPrice($subMerchantPrice)
     {
         $this->subMerchantPrice = $subMerchantPrice;
+    }
+
+    public function getWithholdingTax()
+    {
+        return $this->withholdingTax;
+    }
+
+    public function setWithholdingTax($withholdingTax)
+    {
+        $this->withholdingTax = $withholdingTax;
     }
 
     public function getJsonObject()

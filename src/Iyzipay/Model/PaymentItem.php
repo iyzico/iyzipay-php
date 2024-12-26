@@ -23,6 +23,7 @@ class PaymentItem
     private $subMerchantPayoutAmount;
     private $merchantPayoutAmount;
     private $convertedPayout;
+    private $withholdingTax;
 
     public function getItemId()
     {
@@ -212,5 +213,15 @@ class PaymentItem
     public function setConvertedPayout($convertedPayout)
     {
         $this->convertedPayout = $convertedPayout;
+    }
+
+    public function getWithholdingTax()
+    {
+        return $this->withholdingTax;
+    }
+
+    public function setWithholdingTax($withholdingTax)
+    {
+        $this->withholdingTax = $withholdingTax;
     }
 }
