@@ -5,7 +5,7 @@ namespace Iyzipay;
 class Request extends BaseModel
 {
     private $locale;
-    private $conversationId;
+    private string $conversationId;
 
     public function getLocale()
     {
@@ -17,12 +17,12 @@ class Request extends BaseModel
         $this->locale = $locale;
     }
 
-    public function getConversationId()
+    public function getConversationId(): string
     {
         return $this->conversationId;
     }
 
-    public function setConversationId($conversationId)
+    public function setConversationId(string $conversationId): void
     {
         $this->conversationId = $conversationId;
     }
