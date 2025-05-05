@@ -12,6 +12,7 @@ class RefundResource extends IyzipayResource
     private $currency;
     private $connectorName;
     private $authCode;
+    private $signature;
 
     public function getPaymentId()
     {
@@ -72,4 +73,14 @@ class RefundResource extends IyzipayResource
     {
         $this->authCode = $authCode;
     }
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
+    }
 }
+ 

@@ -21,6 +21,9 @@ class CheckoutFormMapper extends PaymentResourceMapper
         if (isset($jsonObject->callbackUrl)) {
             $auth->setCallbackUrl($jsonObject->callbackUrl);
         }
+        if (isset($jsonObject->mdStatus)) {
+            $auth->setmdStatus($jsonObject->mdStatus);
+        }
         return $auth;
     }
 
@@ -29,3 +32,4 @@ class CheckoutFormMapper extends PaymentResourceMapper
         return $this->mapCheckoutFormFrom($auth, $this->jsonObject);
     }
 }
+ 

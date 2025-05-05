@@ -33,6 +33,9 @@ class RefundResourceMapper extends IyzipayResourceMapper
         if (isset($jsonObject->authCode)) {
             $refundResource->setAuthCode($jsonObject->authCode);
         }
+        if (isset($jsonObject->signature)) {
+            $refundResource->setSignature($jsonObject->signature);
+        }
         return $refundResource;
     }
 
@@ -41,3 +44,4 @@ class RefundResourceMapper extends IyzipayResourceMapper
         return $this->mapRefundResourceFrom($refundResource, $this->jsonObject);
     }
 }
+ 
