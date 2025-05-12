@@ -36,11 +36,10 @@ jobs:
       - name: Github Tasks
         run: |
           set -e
-          git config --global user.name "iyzico-ci"
-          git config --global user.email "iyzico-ci@iyzico.com"
+          git config user.name "iyzico-ci"
+          git config user.email "iyzico-ci@iyzico.com"
           git add .
           git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
-          git status
           git push origin master
           git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
           git push origin v${{env.NEW_RELEASE}}
