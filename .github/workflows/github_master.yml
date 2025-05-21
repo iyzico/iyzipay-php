@@ -9,9 +9,6 @@ on:
   push:
     branches: [ "master" ]
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,13 +40,16 @@ jobs:
           ls
           git config user.name "iyzico-ci"
           git config user.email "iyzico-ci@iyzico.com"
-          git remote set-url origin https://iyzico-ci:${{ secrets.TOKEN_GITHUB }}@github.com/iyzico/iyzipay-php.git
+          git remote set-url origin https://iyzico-ci:${{secrets.TOKEN_GITHUB}}@github.com/iyzico/iyzipay-php.git
           git add .
           git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
           git status
           git push origin master
+          echo "push master"
           git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
+          echo "tag step"
           git push origin v${{env.NEW_RELEASE}}
+          echo "push tag"
           
       - name: Github Release
         run: |
