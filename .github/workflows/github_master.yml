@@ -47,7 +47,7 @@ jobs:
           git add .
           git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
           git status
-          git push origin master
+          git push -f origin master
           git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
           git push origin v${{env.NEW_RELEASE}}
           
