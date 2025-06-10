@@ -15,7 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Update Release Number
         run: |
@@ -34,22 +37,19 @@ jobs:
           sed -i -e's/'$current_release'/'$new_release'/g' src/Iyzipay/IyzipayResource.php VERSION
 
       - name: Github Tasks
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN_GITHUB }} 
         run: |
           set -e
-          pwd
-          ls
           git config user.name "iyzico-ci"
           git config user.email "iyzico-ci@iyzico.com"
-          git remote set-url origin https://iyzico-ci:${{secrets.TOKEN_GITHUB}}@github.com/iyzico/iyzipay-php.git
+          git remote set-url origin https://iyzico-ci:$GH_TOKEN@github.com/iyzico/iyzipay-php
           git add .
           git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
           git status
           git push origin master
-          echo "push master"
           git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
-          echo "tag step"
           git push origin v${{env.NEW_RELEASE}}
-          echo "push tag"
           
       - name: Github Release
         run: |
