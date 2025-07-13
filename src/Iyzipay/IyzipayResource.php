@@ -27,7 +27,7 @@ class IyzipayResource extends ApiResource
         return $header;
     }
 
-    protected static function getHttpHeadersV2($uri, Request $request = null, Options $options, bool $addRandom = false)
+    protected static function getHttpHeadersV2($uri, ?Request $request = null, Options $options, bool $addRandom = false)
     {
         $header = array(
             "Accept: application/json",
@@ -43,7 +43,7 @@ class IyzipayResource extends ApiResource
         return $header;
     }
 
-    protected static function getHttpHeadersIsV2($uri, Request $request = null, Options $options, bool $addRandom = false)
+    protected static function getHttpHeadersIsV2($uri, ?Request $request = null, Options $options, bool $addRandom = false)
     {
         $header = array(
             "Accept: application/json",
@@ -64,7 +64,7 @@ class IyzipayResource extends ApiResource
         return vsprintf("IYZWS %s:%s", array($options->getApiKey(), $authContent));
     }
 
-    protected static function prepareAuthorizationStringV2($uri, Request $request = null, Options $options, $rnd)
+    protected static function prepareAuthorizationStringV2($uri, ?Request $request = null, Options $options, $rnd)
     {
         $hash = IyziAuthV2Generator::generateAuthContent($uri, $options->getApiKey(), $options->getSecretKey(), $rnd, $request);
 
