@@ -24,21 +24,21 @@ class SubscriptionProduct extends IyzipayResource
     public static function create(SubscriptionCreateProductRequest $request, Options $options)
     {
         $uri = $options->getBaseUrl() . "/v2/subscription/products";
-        $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersIsV2($uri, $request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return SubscriptionProductMapper::create($rawResult)->jsonDecode()->mapSubscriptionProduct(new SubscriptionProduct());
     }
 
     public static function retrieve(SubscriptionRetrieveProductRequest $request, $options)
     {
         $uri = $options->getBaseUrl() . "/v2/subscription/products/" . $request->getProductReferenceCode() . RequestStringBuilder::requestToStringQuery($request, 'defaultParams');
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersIsV2($uri, null, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options));
         return SubscriptionProductMapper::create($rawResult)->jsonDecode()->mapSubscriptionProduct(new SubscriptionProduct());
     }
 
     public static function update(SubscriptionUpdateProductRequest $request, $options)
     {
         $uri = $options->getBaseUrl() . "/v2/subscription/products/" . $request->getProductReferenceCode();
-        $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersIsV2($uri, $request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return SubscriptionProductMapper::create($rawResult)->jsonDecode()->mapSubscriptionProduct(new SubscriptionProduct());
     }
 

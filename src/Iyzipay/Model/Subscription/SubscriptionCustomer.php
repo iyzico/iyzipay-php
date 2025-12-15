@@ -46,7 +46,7 @@ class SubscriptionCustomer extends IyzipayResource
     public static function retrieve(SubscriptionRetrieveCustomerRequest $request, $options)
     {
         $uri = $options->getBaseUrl() . "/v2/subscription/customers/".$request->getCustomerReferenceCode().RequestStringBuilder::requestToStringQuery($request, 'defaultParams');
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, null, $options));
         return SubscriptionCustomerMapper::create($rawResult)->jsonDecode()->mapSubscriptionCustomer(new SubscriptionCustomer());
     }
 

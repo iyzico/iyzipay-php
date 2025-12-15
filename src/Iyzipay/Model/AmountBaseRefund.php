@@ -16,7 +16,7 @@ class AmountBaseRefund extends IyzipayResource
     public static function create(AmountBaseRefundRequest $request, Options $options): AmountBaseRefund
     {
         $uri = '/v2/payment/refund';
-        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options, true), $request->toJsonString());
+        $rawResult = parent::httpClient()->post($options->getBaseUrl() . $uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
         return AmountBaseRefundMapper::create($rawResult)->jsonDecode()->mapAmountBaseRefund(new AmountBaseRefund());
     }
 
