@@ -17,8 +17,8 @@ class IyziAuthV2GeneratorTest extends TestCase
 
         $iyziAuthV2Generator = new IyziAuthV2Generator();
         $result = $iyziAuthV2Generator->generateAuthContent($uri, $apiKey, $secretKey, $randomString, $request);
+        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6OGM2NzI5MGYwMGZjN2FjOGE2NDczZDQ3OGEyMmRmYjY5YzgxNzFjZjc5Mzk4NDVmNzdiMWQwYjNmODQ3MGQ1MA==";
 
-        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6Y2Y0Mjk5ZTQwYzZkZThmMzYzZGQyMWZiN2QzNjI3MjE2YTUxNjM2MDY1YTViOTM0YTMxODJiNTk0YjQ2ZjVhMA==";
         $this->assertEquals($authContent, $result);
     }
 
@@ -33,7 +33,7 @@ class IyziAuthV2GeneratorTest extends TestCase
 
         $iyziAuthV2Generator = new IyziAuthV2Generator();
         $result = $iyziAuthV2Generator->generateAuthContent($uri, $apiKey, $secretKey, $randomString, $request);
-        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6Nzg3NjFjMmJhZDQ0ZmE2MWI5NDNhZDIyYmM4NmJjNThjM2ZhMWQ3NDgwMDFjMTEzNTdlY2EzZjkwNGM0NGQxYg==";
+        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6YjE4NjFmMDBjNmE3NzljMTRmODA0ZTIwOTJhYjEwNjkxMDA2ODU2OWYwNzVjY2M5OWY2NzAwMjhmZjYzYTllNg==";
 
         $this->assertEquals($authContent, $result);
     }
@@ -48,7 +48,7 @@ class IyziAuthV2GeneratorTest extends TestCase
 
         $iyziAuthV2Generator = new IyziAuthV2Generator();
         $result = $iyziAuthV2Generator->generateAuthContent($uri, $apiKey, $secretKey, $randomString, $request);
-        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6Y2Y0Mjk5ZTQwYzZkZThmMzYzZGQyMWZiN2QzNjI3MjE2YTUxNjM2MDY1YTViOTM0YTMxODJiNTk0YjQ2ZjVhMA==";
+        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6ZWUyNjM0NTA5MTg2ODhlN2IzNzg2ODI3YjhjMGZiMDQ1YzhiODgyYTQwMjJiOWIwNWM1ODlhMjYwOTYzMGM2ZA==";
 
         $this->assertEquals($authContent, $result);
     }
@@ -63,7 +63,7 @@ class IyziAuthV2GeneratorTest extends TestCase
 
         $iyziAuthV2Generator = new IyziAuthV2Generator();
         $result = $iyziAuthV2Generator->generateAuthContent($uri, $apiKey, $secretKey, $randomString, $request);
-        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6NmYzODQwOTlhYWUzMjhmNzJkYWY5Y2RhYjEwNWViMzdmYjI5NjIwMjUxYzQ3YjRjNTgzZDc0OGQ5ZDBhYjc2NA==";
+        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6MjAyYjcwNDgzYjdlN2EwNDI5MTFkZjZlY2VjNzU2MmQyOTc3MjQ4MDYyNzk0NWE5NGRjOGZhMjM2NzE1NWQ3NA==";
 
         $this->assertEquals($authContent, $result);
     }
@@ -78,7 +78,7 @@ class IyziAuthV2GeneratorTest extends TestCase
 
         $iyziAuthV2Generator = new IyziAuthV2Generator();
         $result = $iyziAuthV2Generator->generateAuthContent($uri, $apiKey, $secretKey, $randomString, $request);
-        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6YmM0NGIyZjRkZmI4ZGY3NDE0N2IxZjUyN2ZmNjM2NDQ0YzNiM2QzYTFmZjk3ZGNiMzM2NmJjMjkzZmFjZjI5OA==";
+        $authContent = "YXBpS2V5OnRlc3QmcmFuZG9tS2V5OjEyMzQ1Njc4OSZzaWduYXR1cmU6MWE5NmZkODEwNDFiZjFiZDg0MDVhOWFmN2I2OGRmMzczNzZiMGM0NDBiNjYzZTQwNzg2MDA4YTI4ZDIzNzk3MQ==";
 
         $this->assertEquals($authContent, $result);
     }
