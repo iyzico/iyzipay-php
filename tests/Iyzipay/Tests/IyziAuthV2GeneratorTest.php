@@ -2,9 +2,7 @@
 
 namespace Iyzipay\Tests;
 
-use Iyzipay\HashGenerator;
 use Iyzipay\IyziAuthV2Generator;
-use Iyzipay\Model\Locale;
 use Iyzipay\Request;
 
 class IyziAuthV2GeneratorTest extends TestCase
