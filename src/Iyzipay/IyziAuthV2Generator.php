@@ -21,7 +21,7 @@ class IyziAuthV2Generator
     public static function getPayload($uri, Request $request = null)
     {
         $uriPath = $uri;
-        $startsWithV2 = (strncmp($uri, '/v2', 3) === 0);
+        $startsWithV2 = strpos($uri, '.com/v2');
         $startNumber  = strpos($uri, '/v2');
         $endNumber    = strpos($uri, '?');
 
