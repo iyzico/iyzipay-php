@@ -8,23 +8,23 @@ use Iyzipay\RequestStringBuilder;
 
 class CreateThreedsV2PaymentRequest extends Request {
     private ?string $paymentId = null;
-    private  $paidPrice = null;
+    private ?float $paidPrice = null;
     private ?string $basketId = null;
     private ?string $currency = null;
 
     public function getPaymentId(): ?string {
-        return $this->paymentId || null;
+        return $this->paymentId ?? null;
     }
 
     public function setPaymentId(string $paymentId): void {
         $this->paymentId = $paymentId;
     }
 
-    public function getPaidPrice() {
+    public function getPaidPrice(): ?float {
         return $this->paidPrice;
     }
 
-    public function setPaidPrice($paidPrice): void {
+    public function setPaidPrice(float $paidPrice): void {
         $this->paidPrice = $paidPrice;
     }
 
