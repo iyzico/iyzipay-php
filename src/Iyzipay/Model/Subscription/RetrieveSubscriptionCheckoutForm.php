@@ -25,7 +25,7 @@ class RetrieveSubscriptionCheckoutForm extends IyzipayResource
     public static function retrieve(RetrieveSubscriptionCreateCheckoutFormRequest $request, Options $options)
     {
         $uri = $options->getBaseUrl() . "/v2/subscription/checkoutform/".$request->getCheckoutFormToken();
-        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, $request, $options), $request->toJsonString());
+        $rawResult = parent::httpClient()->getV2($uri, parent::getHttpHeadersV2($uri, $request, $options));
         return RetrieveSubscriptionCheckoutFormMapper::create($rawResult)->jsonDecode()->mapSubscriptionCreateCheckoutForm(new RetrieveSubscriptionCheckoutForm());
     }
 
