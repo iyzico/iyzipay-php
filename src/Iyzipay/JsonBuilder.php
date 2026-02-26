@@ -56,7 +56,7 @@ class JsonBuilder
      * @param array $array
      * @return JsonBuilder
      */
-    public function addArray($key, array $array = null)
+    public function addArray($key, ?array $array = null)
     {
         if (isset($array)) {
             foreach ($array as $index => $value) {
