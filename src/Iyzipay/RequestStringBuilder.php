@@ -68,7 +68,7 @@ class RequestStringBuilder
      * @param array $array
      * @return RequestStringBuilder
      */
-    public function appendArray($key, array $array = null)
+    public function appendArray($key, ?array $array = null)
     {
         if (isset($array)) {
             $appendedValue = "";
