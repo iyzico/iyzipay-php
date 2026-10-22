@@ -9,8 +9,18 @@ on:
   push:
     branches: [ "master" ]
 
+# Run releases one at a time. A run waiting in the queue starts only after the
+# previous one has pushed its version commit, so it sees the latest VERSION.
+concurrency:
+  group: release-master
+  cancel-in-progress: false
+
 jobs:
+  test:
+    uses: ./.github/workflows/github_pull_request.yml
+
   build:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -19,6 +29,7 @@ jobs:
         with:
           persist-credentials: true
           fetch-depth: 0
+          ref: master   # latest master, including the previous run's version commit
 
       - name: Update Release Number
         run: |
@@ -47,7 +58,7 @@ jobs:
           git add .
           git commit -m "Automatic commit by iyzico-ci v${{env.NEW_RELEASE}}"
           git status
-          git push -f origin master
+          git push origin master
           git tag -a v${{env.NEW_RELEASE}} -m "Automatic tag by iyzico-ci v${{env.NEW_RELEASE}}"
           git push origin v${{env.NEW_RELEASE}}
           

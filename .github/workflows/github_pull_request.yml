@@ -3,6 +3,10 @@ name: PHP Composer
 on:
   pull_request:
     branches: [ "master" ]
+  schedule:
+    - cron: '0 6 * * 1'   # Weekly (Monday): catches breakage from new PHP patch releases
+  workflow_dispatch:       # Manual run from the Actions tab
+  workflow_call:           # Called by github_master.yml before a release
 
 permissions:
   contents: read
@@ -11,35 +15,50 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false     # Keep running other versions if one fails
       matrix:
-        php-versions: ['7.4', '8.0', '8.1', '8.2']
-        include:
-          - php-versions: '7.4'
+        php-versions: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
+        extensions: curl
+        coverage: none
+        tools: composer:v2
+      env:
+        update: true       # Always install the latest patch of each minor version
+
+    - name: PHP version and patch check
+      continue-on-error: true   # TODO: remove once patched PHP builds (CVE-2026-109618/109619) reach the runners
+      run: |
+        php -v
+        php -r '
+          $min = ["8.2"=>"8.2.35","8.3"=>"8.3.36","8.4"=>"8.4.27","8.5"=>"8.5.12"];
+          $b = PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;
+          if (isset($min[$b]) && version_compare(PHP_VERSION, $min[$b], "<")) {
+            fwrite(STDERR, "WARNING: PHP ".PHP_VERSION." is unpatched (needs >= ".$min[$b].")\n");
+            exit(1);
+          }
+          echo "PHP ".PHP_VERSION." OK\n";'
+
+    - name: Get Composer cache directory
+      id: composer-cache
+      run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
     - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-php${{ matrix.php-versions }}-composer-${{ hashFiles('composer.json') }}
         restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Update composer
-      run: composer self-update
+          ${{ runner.os }}-php${{ matrix.php-versions }}-composer-
 
     - name: Install dependencies
-      run: composer install --no-interaction
+      run: composer update --no-interaction --no-progress --prefer-dist
 
     - name: Run test
       run: composer run test
-
-

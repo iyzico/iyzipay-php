@@ -1,7 +1,7 @@
 # iyzipay-php
 
 [![Latest Stable Version](https://poser.pugx.org/iyzico/iyzipay-php/version)](https://packagist.org/packages/iyzico/iyzipay-php)
-[![Coverage Status](https://coveralls.io/repos/github/iyzico/iyzipay-php/badge.svg?branch=master)](https://coveralls.io/github/iyzico/iyzipay-php?branch=master)
+[![Tests](https://github.com/iyzico/iyzipay-php/actions/workflows/github_pull_request.yml/badge.svg)](https://github.com/iyzico/iyzipay-php/actions/workflows/github_pull_request.yml)
 
 You can sign up for an iyzico account at https://iyzico.com
 

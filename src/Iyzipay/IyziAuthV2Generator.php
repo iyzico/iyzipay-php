@@ -4,13 +4,13 @@ namespace Iyzipay;
 
 class IyziAuthV2Generator
 {
-    public static function generateAuthContent($uri, $apiKey, $secretKey, $randomString, Request $request = null)
+    public static function generateAuthContent($uri, $apiKey, $secretKey, $randomString, ?Request $request = null)
     {
         $hashStr = "apiKey:" . $apiKey . "&randomKey:" . $randomString ."&signature:" . self::getHmacSHA256Signature($uri, $secretKey, $randomString, $request);
         return base64_encode($hashStr);
     }
 
-    public static function getHmacSHA256Signature($uri, $secretKey, $randomString, Request $request = null)
+    public static function getHmacSHA256Signature($uri, $secretKey, $randomString, ?Request $request = null)
     {
         $dataToEncrypt = $randomString . self::getPayload($uri, $request);
 
@@ -18,7 +18,7 @@ class IyziAuthV2Generator
         return bin2hex($hash);
     }
 
-    public static function getPayload($uri, Request $request = null)
+    public static function getPayload($uri, ?Request $request = null)
     {
         $uriPath = $uri;
         $startsWithV2 = strpos($uri, '.com/v2');
