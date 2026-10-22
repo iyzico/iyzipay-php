@@ -31,6 +31,10 @@ class IyziAuthV2Generator
                 if (strpos($uri, '?') !== false) {
                     $endNumber = strpos($uri, '?');
                 }
+            } elseif ($endNumber === false) {
+                // No query string: strpos() returned false and false - $startNumber would turn
+                // into a negative length, cutting the signed path down to '/v2/'.
+                $endNumber = strlen($uri);
             }
             $endNumber -= $startNumber;
             $uriPath =  substr($uri, $startNumber, $endNumber);
