@@ -82,4 +82,25 @@ class IyziAuthV2GeneratorTest extends TestCase
 
         $this->assertEquals($authContent, $result);
     }
+
+    public function test_should_sign_the_whole_path_when_uri_has_no_query_string()
+    {
+        $uri = 'https://api.iyzipay.com/v2/iyzilink/products/TOKEN';
+
+        $this->assertEquals('/v2/iyzilink/products/TOKEN', IyziAuthV2Generator::getPayload($uri));
+    }
+
+    public function test_should_sign_the_path_up_to_the_query_string()
+    {
+        $uri = 'https://api.iyzipay.com/v2/iyzilink/products?page=1';
+
+        $this->assertEquals('/v2/iyzilink/products', IyziAuthV2Generator::getPayload($uri));
+    }
+
+    public function test_should_keep_the_subscription_path_boundary_unchanged()
+    {
+        $uri = 'https://api.iyzipay.com/v2/subscription/customers/?page=1&count=10';
+
+        $this->assertEquals('/v2/subscription/customers/', IyziAuthV2Generator::getPayload($uri));
+    }
 }
