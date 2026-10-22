@@ -21,7 +21,9 @@ class TestCase extends BaseTestCase
     {
         $class = new \ReflectionClass($obj);
         $method = $class->getMethod($name);
-        $method->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true); // no-op since PHP 8.1, deprecated in 8.5
+        }
         return $method->invokeArgs($obj, $args);
     }
 
